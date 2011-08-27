@@ -2,11 +2,12 @@
 *.pyc
 .coverage
 *.swp
-settings/??-local.conf
+adofex/settings/??-local.conf
 *.sqlite*
 *.swo
 cache
 _cache
 local.json
 site_media
-
+adofex/jj.py
+adofex/media
