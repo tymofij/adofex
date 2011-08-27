@@ -122,9 +122,9 @@ rules = [
 ]
 
 rule = \
-"%(selectors)s{background-image:url('../../images/icons/%(image)s'),-moz-linear-gradient(%(colors)s);" + \
-"background-image:url('../../images/icons/%(image)s'),-webkit-linear-gradient(%(colors)s);" +\
-"background-image:url('../../images/icons/%(image)s'),-o-linear-gradient(%(colors)s);}"
+"%(selectors)s{background-image:url('../../images/icons/%(image)s'),-moz-linear-gradient(%(colors)s);\n" + \
+"\tbackground-image:url('../../images/icons/%(image)s'),-webkit-linear-gradient(%(colors)s);\n" +\
+"\tbackground-image:url('../../images/icons/%(image)s'),-o-linear-gradient(%(colors)s);}\n"
 for (selectors, image) in rules:
     selectors = [s.strip() for s in selectors.split(",")]
     selectors_normal = ",".join([(".i16.%s.buttonized" % s) for s in selectors])

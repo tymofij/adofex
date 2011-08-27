@@ -51,12 +51,12 @@ select:hover {
   border-color: #ccc #aaa #aaa #ccc !important;
 }
 
-.buttonized, .buttonized_disabled, .buttonized2, .buttonized_disabled2 {
+.buttonized, .buttonized2 {
     background-image: -o-linear-gradient(#efefef, #cfcfcf);
     background-image: -moz-linear-gradient(#efefef, #cfcfcf);
     background-image: -webkit-linear-gradient(#efefef, #cfcfcf);
     }
-.buttonized:hover, .buttonized_disabled:hover, .buttonized2:hover, .buttonized_disabled2:hover {
+.buttonized:hover, .buttonized2:hover  {
     background-image: -o-linear-gradient(#fafafa, #dadada);
     background-image: -moz-linear-gradient(#fafafa, #dadada);
     background-image: -webkit-linear-gradient(#fafafa, #dadada);
@@ -86,3 +86,5 @@ div#content h2.pagetitle {
     font-size: 2.8em;
     font-family: Ubuntu, Verdana, sans-serif;
 }
+
+#fancybox-close { border-bottom: none;}
