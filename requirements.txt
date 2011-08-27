@@ -1,0 +1,27 @@
+# Transifex stuff
+django-addons
+django-ajax-selects
+django-authority
+django-filter
+django-haystack
+django-notification
+django-pagination
+django-sorting
+django-staticfiles < 0.4
+django-tagging
+django-threadedcomments
+markdown
+polib
+pygooglechart
+python-magic
+south
+pysolr
+
+http://trac.transifex.org/files/deps/contact_form-0.3.tar.gz
+http://trac.transifex.org/files/deps/userprofile-0.7-r422-correct-validation.tar.gz
+# needs __init__.py in piston directory
+# per https://bitbucket.org/jespern/django-piston/issue/173/
+# http://trac.transifex.org/files/deps/django-piston-0.2.3-devel-r278.tar.gz
+
+# Needed to read XPI's and parse .manifest's
+-e git://github.com/mozilla/amo-validator.git#egg=amo-validator

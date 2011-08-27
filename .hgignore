@@ -1,0 +1,12 @@
+syntax: glob
+*~*
+*.pyc
+*.swp
+.coverage
+settings/??-local.conf
+*.sqlite*
+*.swo
+cache
+_cache
+local.json
+site_media
