@@ -1,0 +1,44 @@
+{% extends "projects/project_menu.html" %}
+{% load i18n %}
+{% load txcommontags %}
+{% load addons %}
+
+{% block title %}{{ block.super }} | {{ project.name }} | {% trans "Import" %}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> &raquo; {% trans "Import" %}{% endblock %}
+
+{% block content_main %}
+
+<div style="float: right; height: 300px; overflow: auto; width: 450px;">
+{% for message in work_messages %}
+    {{ message }}<br/>
+{% endfor %}
+</div>
+
+<form method='post' enctype="multipart/form-data">{% csrf_token %}
+
+<h3>Import directly from BabelZilla:</h3>
+    <p>
+    Extension ID: {{ form.bzid }}
+    <input type="submit" class="i16 submit buttonized" value="Go!"/>
+    </p>
+    {{ form.bzid.errors }}
+</div>
+<div style="padding: 30px 0"> -= OR =-</div>
+
+<h3>Upload your XPI file:</h3>
+    <p>
+    {{ form.xpifile }}
+    <input type="submit" class="i16 submit buttonized" value="Submit" />
+    </p>
+    {{ form.xpifile.errors }}
+</form>
+
+
+<style>
+    ul.errorlist, ul.errorlist li {float: none;}
+    #id_bzid {width: 60px;}
+    div#body {min-height: 350px;}
+</style>
+
+{% endblock %}

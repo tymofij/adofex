@@ -1,0 +1,10 @@
+{% extends "base-sample.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Adofex" %}{% endblock %}
+
+{% block logo %}<img border="0" src="{{ STATIC_URL }}impala/images/logo.png"  alt="{% trans "Go to start page" %}" />{% endblock %}
+
+{% block shortcut_icon %}
+  <link rel="shortcut icon" href="{{ STATIC_URL }}impala/images/favicon.png" type="image/png" />
+{% endblock %}

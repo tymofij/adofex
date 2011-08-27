@@ -1,0 +1,88 @@
+body { background: url(../images/bg-header.png) repeat-x; }
+
+div#wrapper{
+    position:relative;
+    z-index: 3;
+}
+
+div#footer {
+    max-width: none;
+    background: url(../images/bg-footer.png) 0 0 repeat-x;
+    padding-top: 123px;
+    margin-top: -123px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+div#content {
+    min-height: 0;
+    border-bottom: 0;
+    background: url(../images/bg-content.png) 0 0 repeat-x;
+}
+div#content_header{ background: #EBF2F8; }
+
+div#footer .version { margin-bottom: 0; }
+
+div#footer .left, div#footer .center, div#footer .right,
+div#footer .version, div#footer .powered {
+    color: #ddd;
+    font-size: 10px;
+}
+div#footer a { color: #96b6d6; }
+
+#global-language-chooser {display: none;}
+
+/* Alas, real styling of SELECTs is not yet possible in Mozilla, see bug 649849
+select {
+    background-image: -moz-linear-gradient(center top , #efefef, #cfcfcf);
+    border: 1px solid #ccc;
+    border-color: #ccc #aaa #aaa #ccc !important;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px #DDDDDD;
+    }
+select:hover {
+    background-image: -moz-linear-gradient(center top , #fafafa, #dadada);
+    box-shadow:1px 1px 2px #bbb;
+    }
+*/
+
+.buttonized, .buttonized_disabled, .buttonized2, .buttonized_disabled2 {
+  border-color: #ccc #aaa #aaa #ccc !important;
+}
+
+.buttonized, .buttonized_disabled, .buttonized2, .buttonized_disabled2 {
+    background-image: -o-linear-gradient(#efefef, #cfcfcf);
+    background-image: -moz-linear-gradient(#efefef, #cfcfcf);
+    background-image: -webkit-linear-gradient(#efefef, #cfcfcf);
+    }
+.buttonized:hover, .buttonized_disabled:hover, .buttonized2:hover, .buttonized_disabled2:hover {
+    background-image: -o-linear-gradient(#fafafa, #dadada);
+    background-image: -moz-linear-gradient(#fafafa, #dadada);
+    background-image: -webkit-linear-gradient(#fafafa, #dadada);
+    }
+
+input.i16, .i16.buttonized, .microform input[type="submit"]
+ { background-position: 5px 50%, 0 0; }
+
+.i16.project {
+    background-image: url("../images/addon.png");
+}
+
+div.translated_comp {
+    background-image: -o-linear-gradient(#C1F8C2, #6cd76e);
+    background-image: -moz-linear-gradient(#C1F8C2, #6cd76e);
+    background-image: -webkit-linear-gradient(#C1F8C2, #6cd76e);
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    font-size: 13px;
+}
+
+
+div#content h2.pagetitle {
+    color: #444;
+    font-size: 2.8em;
+    font-family: Ubuntu, Verdana, sans-serif;
+}

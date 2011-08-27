@@ -1,0 +1,15 @@
+{% comment %}These are the blocks injected to view under /projects/p/PROJECT_SLUG/{% endcomment %}
+{% load i18n %}
+{% load tx_action_log %}
+
+{% block menu %}
+{% if request.user.is_authenticated %}
+<li class="ui-state-default ui-corner-top {% if moz_import %}ui-tabs-selected ui-state-active{% endif %}">
+    <a id="tab-link-6" href="{% url moz_import project.slug %}">
+        <span>{% trans "Import" %}</span>
+    </a>
+</li>
+{% endif %}
+{% endblock %}
+
+
