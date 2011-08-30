@@ -1,5 +1,7 @@
 {% extends "transifex/projects/release_language_detail.html" %}
+{% load impala_tags %}
 
 {% block content_sec %}
-<a class="i16 buttonized downsource" href="{% url release_language_download release.project.slug release.slug language.code %}">Download ZIP</a>
+<a class="i16 buttonized downsource" href="{% url release_language_download release.project.slug release.slug language.code %}">ZIP</a>
+{% download_project_xpi release.project %}
 {% endblock %}

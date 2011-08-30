@@ -88,3 +88,16 @@ div#content h2.pagetitle {
 }
 
 #fancybox-close { border-bottom: none;}
+
+.i16.xpi.buttonized_disabled {
+    background-image:url('../images/addon_disabled.png');
+    background-position: 5px 50%;
+    padding-left: 27px;
+}
+
+.i16.xpi.buttonized{background-image:url('../images/addon.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../images/addon.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../images/addon.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.xpi.buttonized:hover{background-image:url('../images/addon.png'),-moz-linear-gradient(#fafafa, #dadada);
+	background-image:url('../images/addon.png'),-webkit-linear-gradient(#fafafa, #dadada);
+	background-image:url('../images/addon.png'),-o-linear-gradient(#fafafa, #dadada);}
