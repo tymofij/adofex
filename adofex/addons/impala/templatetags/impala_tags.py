@@ -9,9 +9,10 @@ from impala.models import XpiFile
 
 register = Library()
 
-@register.inclusion_tag('download_project_xpi.html')
-def download_project_xpi(project):
+@register.inclusion_tag('download_project_xpi.html', takes_context=True)
+def download_project_xpi(context, project):
     """Display a download link when project has xpi."""
-    return {
+    context.update({
         'has_xpi': XpiFile.objects.filter(project=project).count(),
-        }
+        })
+    return context

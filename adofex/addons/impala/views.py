@@ -111,6 +111,10 @@ def release_language_download(request, project_slug, release_slug,
     return response
 
 
+def release_language_install(request, project_slug, release_slug, lang_code):
+    pass
+
+
 def release_download(request, project_slug, release_slug, skip=False):
     """
     Download all resources in given release in one handy ZIP file
