@@ -112,7 +112,16 @@ def release_language_download(request, project_slug, release_slug,
 
 
 def release_language_install(request, project_slug, release_slug, lang_code):
-    pass
+    project = get_object_or_404(Project, slug=project_slug)
+    language = get_object_or_404(Language, code=lang_code)
+    xpi = get_object_or_404(XpiFile, project=project)
+
+    contents = file(os.path.join(settings.XPI_DIR,xpi.filename), "r").read()
+
+    response = HttpResponse(mimetype='application/x-xpinstall')
+    response['Content-Disposition'] = 'filename=%s.xpi' % project_slug
+    response.write(contents)
+    return response
 
 
 def release_download(request, project_slug, release_slug, skip=False):
