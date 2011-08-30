@@ -60,9 +60,10 @@ def moz_import(request, project_slug):
                                         name=uploaded_xpi.name)
                     # just in case we fail on save()
                     messages = bundle.messages
-#                    bundle.save()
+                    bundle.save()
                     messages = bundle.messages
                 except:
+
                     messages += ["ERROR importing translations from XPI file"]
             elif form.cleaned_data['bzid']:
                 try:

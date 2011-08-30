@@ -52,6 +52,7 @@ li { padding: 5px 0; }
 <script>
 	$("#id_release_date,#id_stringfreeze_date,#id_develfreeze_date").dateinput({
     	format: 'yyyy-mm-dd',
+    	firstDay: 1 // Monday is the first day. ISO 8601
 	});
 </script>
 {% endif %}
