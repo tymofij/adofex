@@ -1,5 +1,5 @@
 {% extends "transifex/projects/release_detail.html" %}
 
 {% block content_sec %}
-<a class="i16 buttonized downsource">Download ZIP</a>
+<a class="i16 buttonized downsource" href="{% url release_download release.project.slug release.slug %}">Download ZIP</a>
 {% endblock %}

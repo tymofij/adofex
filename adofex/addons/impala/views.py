@@ -12,7 +12,7 @@ from django.template import RequestContext
 from transifex.projects.models import Project
 from transifex.resources.models import Resource
 from transifex.resources.views import _compile_translation_template
-from transifex.releases.models import Release
+from transifex.releases.models import Release, RLStats
 from transifex.languages.models import Language
 from transifex.projects.permissions import pr_resource_add_change
 from transifex.txcommon.decorators import one_perm_required_or_403
@@ -84,6 +84,34 @@ def release_language_download(request, project_slug, release_slug, lang_code):
         pseudo = None # get_pseudo_class('XXX')(resource.i18n_type)
         template = _compile_translation_template(resource, language, pseudo)
         zip.writestr(resource.name, template)
+
+    zip.close()
+    buffer.flush()
+
+    ret_zip = buffer.getvalue()
+    buffer.close()
+    response.write(ret_zip)
+    return response
+
+
+def release_download(request, project_slug, release_slug):
+    """
+    Download all resources in given release in one handy ZIP file
+    """
+    project = get_object_or_404(Project, slug=project_slug)
+    release = get_object_or_404(Release, slug=release_slug, project=project)
+
+    response = HttpResponse(mimetype='application/zip')
+    response['Content-Disposition'] = 'filename=%s.zip' % release_slug
+
+    resources = Resource.objects.filter(releases=release)
+    buffer = StringIO()
+    zip = zipfile.ZipFile(buffer, "w", zipfile.ZIP_STORED)# ZIP_DEFLATED)
+    for stat in RLStats.objects.select_related('language'
+                        ).by_release_aggregated(release):
+        for resource in resources:
+            template = _compile_translation_template(resource, stat.object)
+            zip.writestr("%s/%s" % (stat.object.code, resource.name), template)
 
     zip.close()
     buffer.flush()
