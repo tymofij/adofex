@@ -93,21 +93,21 @@ def release_language_download(request, project_slug, release_slug,
     release = get_object_or_404(Release, slug=release_slug, project=project)
     language = get_object_or_404(Language, code=lang_code)
 
-    response = HttpResponse(mimetype='application/zip')
-    response['Content-Disposition'] = 'filename=%s_%s.zip' % (release_slug, lang_code)
-
-    buffer = StringIO()
-    zip = zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED)
+    zip_buffer = StringIO()
+    zip_file = zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED)
     for resource in Resource.objects.filter(releases=release):
         template = _compile_translation_template(resource, language, skip)
-        zip.writestr(resource.name, template)
+        zip_file.writestr(resource.name, template)
 
-    zip.close()
-    buffer.flush()
+    zip_file.close()
+    zip_buffer.flush()
+    zip_contents = zip_buffer.getvalue()
+    zip_buffer.close()
 
-    ret_zip = buffer.getvalue()
-    buffer.close()
-    response.write(ret_zip)
+    response = HttpResponse(mimetype='application/zip')
+    response['Content-Disposition'] = 'filename=%s_%s_%s.zip' % \
+        (project_slug, release_slug, lang_code)
+    response.write(zip_contents)
     return response
 
 
@@ -117,11 +117,18 @@ def release_language_install(request, project_slug, release_slug, lang_code):
     language = get_object_or_404(Language, code=lang_code)
     xpi = get_object_or_404(XpiFile, project=project)
 
-    contents = file(os.path.join(settings.XPI_DIR,xpi.filename), "r").read()
+    zip_contents = file(os.path.join(settings.XPI_DIR,xpi.filename), "r").read()
+    zip_buffer = StringIO(zip_contents)
+    zip_file = zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED)
+
+    zip_file.close()
+    zip_buffer.flush()
+    zip_contents = zip_buffer.getvalue()
+    zip_buffer.close()
 
     response = HttpResponse(mimetype='application/x-xpinstall')
     response['Content-Disposition'] = 'filename=%s.xpi' % project_slug
-    response.write(contents)
+    response.write(zip_contents)
     return response
 
 
@@ -132,24 +139,23 @@ def release_download(request, project_slug, release_slug, skip=False):
     project = get_object_or_404(Project, slug=project_slug)
     release = get_object_or_404(Release, slug=release_slug, project=project)
 
-    response = HttpResponse(mimetype='application/zip')
-    response['Content-Disposition'] = 'filename=%s.zip' % release_slug
-
     resources = Resource.objects.filter(releases=release)
-    buffer = StringIO()
-    zip = zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED)
+    zip_buffer = StringIO()
+    zip_file = zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED)
     for stat in RLStats.objects.select_related('language'
                         ).by_release_aggregated(release):
         for resource in resources:
             template = _compile_translation_template(resource, stat.object, skip)
-            zip.writestr("%s/%s" % (stat.object.code, resource.name), template)
+            zip_file.writestr("%s/%s" % (stat.object.code, resource.name), template)
 
-    zip.close()
-    buffer.flush()
+    zip_file.close()
+    zip_buffer.flush()
+    zip_contents = zip_buffer.getvalue()
+    zip_buffer.close()
 
-    ret_zip = buffer.getvalue()
-    buffer.close()
-    response.write(ret_zip)
+    response = HttpResponse(mimetype='application/zip')
+    response['Content-Disposition'] = 'filename=%s_%s.zip' % (project_slug, release_slug)
+    response.write(zip_contents)
     return response
 
 from transifex.resources.formats import get_i18n_handler_from_type
