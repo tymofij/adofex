@@ -18,6 +18,7 @@ from transifex.txcommon.decorators import one_perm_required_or_403
 
 from impala.forms import ImportForm
 from impala.bundle import XpiBundle, TarBundle
+from impala.models import XpiFile
 
 BZ_URL = "http://www.babelzilla.org/wts/download/locale/all/skipped/%s"
 
@@ -35,21 +36,39 @@ def moz_import(request, project_slug):
         if form.is_valid():
             if form.cleaned_data['xpifile']:
                 try:
-                    xpifile = request.FILES['xpifile']
-                    bundle = XpiBundle(xpifile, project, name=xpifile.name)
+                    uploaded_xpi = request.FILES['xpifile']
+
+                    filename = "%s-%s.xpi" % (project.id, project_slug)
+                    saved_xpi = file(
+                        os.path.join(settings.XPI_DIR,filename), "w")
+                    saved_xpi.write(uploaded_xpi.read())
+                    saved_xpi.close()
+                    uploaded_xpi.seek(0)
+
+                    xpi_row = XpiFile.objects.get_or_create(project=project)[0]
+                    xpi_row.filename = filename
+                    xpi_row.user = request.user
+                    xpi_row.save()
+
+                    bundle = XpiBundle(uploaded_xpi, project,
+                                        name=uploaded_xpi.name)
+                    # just in case we fail on save()
+                    messages = bundle.messages
                     bundle.save()
                     messages = bundle.messages
                 except:
-                    messages = ["ERROR importing translations from XPI file"]
+                    messages += ["ERROR importing translations from XPI file"]
             elif form.cleaned_data['bzid']:
                 try:
                     tar = StringIO.StringIO(urllib2.urlopen(
                         BZ_URL % form.cleaned_data['bzid']).read())
                     bundle = TarBundle(tar, project)
+                    # just in case we fail on save()
+                    messages = bundle.messages
                     bundle.save()
                     messages = bundle.messages
                 except:
-                    messages = ["ERROR importing translations from BabelZilla"]
+                    messages +=["ERROR importing translations from BabelZilla"]
     else:
         form = ImportForm()
 
@@ -65,7 +84,8 @@ import zipfile
 from cStringIO import StringIO
 from django.http import HttpResponse
 
-def release_language_download(request, project_slug, release_slug, lang_code, skip=False):
+def release_language_download(request, project_slug, release_slug,
+                                                    lang_code, skip=False):
     """
     Download all resources in given release/language in one handy ZIP file
     """
