@@ -1,0 +1,68 @@
+{% extends "transifex/projects/release_form.html" %}
+{% load i18n %}
+{% load txcommontags %}
+
+{% block extra_head %}
+{{block.super}}
+
+{% if system_release %}
+{# FIXME: Calendar breaks autocomplete. Only in system_release we do not need it #}
+<script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}impala/css/calendar.css"/>
+{% endif %}
+
+<style>
+#id_name, #id_description, #id_homepage, textarea {
+    width: 350px; color: black;
+    }
+label {width: 120px; display: inline-block;
+    text-align: right; vertical-align: top;
+    color: #333; font-weight: bold;
+    font-size: 90%;
+    line-height: 1.8em;
+    }
+ul, li {list-style: none; margin:0; padding:0;}
+li { padding: 5px 0; }
+.helptext {
+    display: inline-block; vertical-align: top;
+    color: #666;
+    font-family: sans-serif;
+    font-size: 0.75em;
+    padding-top: 4px;
+}
+#calroot a {border-bottom: none;}
+.date {font-size: 12px;}
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+  <div class="release_create generic_form">
+  {% if form_message %}
+    <p class="message i16 bell">{{ form_message }}</p>
+  {% endif %}
+  <form method='post' id="release_system_form">{% csrf_token %}
+    {{ form.as_ul }}
+  <p style="padding: 30px 125px 0;"><input type="submit" class="i16 submit buttonized" value="{% trans "Save release" %}" /></p>
+  </form>
+  </div>
+
+{% if system_release %}
+<script>
+	$("#id_release_date,#id_stringfreeze_date,#id_develfreeze_date").dateinput({
+    	format: 'yyyy-mm-dd',
+	});
+</script>
+{% endif %}
+
+{% if release and not system_release %}
+	{% if perms.projects.delete_release or is_maintainer %}
+	<h3>{% trans "Delete release from Transifex" %}</h3>
+	<div>
+	  <a class="i16 delete buttonized buttonized_warning" href="{% url release_delete release.project.slug release.slug %}">{% trans "Delete release..." %}</a>
+	</div>
+	{% endif %}
+{% endif %}
+
+{% endblock %}
