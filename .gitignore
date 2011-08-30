@@ -11,3 +11,4 @@ local.json
 site_media
 adofex/jj.py
 adofex/media
+adofex/templates/transifex
