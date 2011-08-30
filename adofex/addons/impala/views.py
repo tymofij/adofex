@@ -11,7 +11,6 @@ from django.template import RequestContext
 
 from transifex.projects.models import Project
 from transifex.resources.models import Resource
-from transifex.resources.views import _compile_translation_template
 from transifex.releases.models import Release, RLStats
 from transifex.languages.models import Language
 from transifex.projects.permissions import pr_resource_add_change
@@ -65,9 +64,8 @@ def moz_import(request, project_slug):
 import zipfile
 from cStringIO import StringIO
 from django.http import HttpResponse
-from transifex.resources.formats.pseudo import get_pseudo_class
 
-def release_language_download(request, project_slug, release_slug, lang_code):
+def release_language_download(request, project_slug, release_slug, lang_code, skip=False):
     """
     Download all resources in given release/language in one handy ZIP file
     """
@@ -81,8 +79,7 @@ def release_language_download(request, project_slug, release_slug, lang_code):
     buffer = StringIO()
     zip = zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED)
     for resource in Resource.objects.filter(releases=release):
-        pseudo = None # get_pseudo_class('XXX')(resource.i18n_type)
-        template = _compile_translation_template(resource, language, pseudo)
+        template = _compile_translation_template(resource, language, skip)
         zip.writestr(resource.name, template)
 
     zip.close()
@@ -94,7 +91,7 @@ def release_language_download(request, project_slug, release_slug, lang_code):
     return response
 
 
-def release_download(request, project_slug, release_slug):
+def release_download(request, project_slug, release_slug, skip=False):
     """
     Download all resources in given release in one handy ZIP file
     """
@@ -106,11 +103,11 @@ def release_download(request, project_slug, release_slug):
 
     resources = Resource.objects.filter(releases=release)
     buffer = StringIO()
-    zip = zipfile.ZipFile(buffer, "w", zipfile.ZIP_STORED)# ZIP_DEFLATED)
+    zip = zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED)
     for stat in RLStats.objects.select_related('language'
                         ).by_release_aggregated(release):
         for resource in resources:
-            template = _compile_translation_template(resource, stat.object)
+            template = _compile_translation_template(resource, stat.object, skip)
             zip.writestr("%s/%s" % (stat.object.code, resource.name), template)
 
     zip.close()
@@ -120,3 +117,14 @@ def release_download(request, project_slug, release_slug):
     buffer.close()
     response.write(ret_zip)
     return response
+
+from transifex.resources.formats import get_i18n_handler_from_type
+
+def _compile_translation_template(resource=None, language=None, skip=False):
+    """
+    Given a resource and a language we create the translation file
+    """
+    parser = get_i18n_handler_from_type(resource.i18n_type)
+    handler = parser(resource=resource, language=language)
+    handler.compile(skip=skip)
+    return handler.compiled_template

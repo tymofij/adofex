@@ -17,9 +17,23 @@ urlpatterns = patterns('',
         view =  release_language_download,
         name = 'release_language_download',
     ),
+    url(
+        regex = PROJECTS_URL+RELEASE_URL[1:]+ \
+            r'l/(?P<lang_code>[\-_@\w]+)/download/skipped/$',
+        view =  release_language_download,
+        name = 'release_language_download_skipped',
+        kwargs = {'skip': True},
+    ),
    url(
         regex = PROJECTS_URL+RELEASE_URL[1:] + r'download/$',
         view =  release_download,
         name = 'release_download',
     ),
+   url(
+        regex = PROJECTS_URL+RELEASE_URL[1:] + r'download/skipped/$',
+        view =  release_download,
+        name = 'release_download_skipped',
+        kwargs = {'skip': True},
+    ),
+
 )
