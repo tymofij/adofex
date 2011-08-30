@@ -113,6 +113,7 @@ def release_language_download(request, project_slug, release_slug,
 
 def release_language_install(request, project_slug, release_slug, lang_code):
     project = get_object_or_404(Project, slug=project_slug)
+    release = get_object_or_404(Release, slug=release_slug, project=project)
     language = get_object_or_404(Language, code=lang_code)
     xpi = get_object_or_404(XpiFile, project=project)
 
