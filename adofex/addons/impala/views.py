@@ -1,9 +1,12 @@
 # -*- ceoding: utf-8 -*-
-import os, zipfile, time, shutil, urllib2, StringIO
+import os, zipfile, time, shutil, urllib2
+from  StringIO import  StringIO
+
+from validator.chromemanifest import ChromeManifest
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.views.generic.simple import direct_to_template
@@ -13,6 +16,7 @@ from transifex.projects.models import Project
 from transifex.resources.models import Resource
 from transifex.releases.models import Release, RLStats
 from transifex.languages.models import Language
+from transifex.resources.formats import get_i18n_handler_from_type
 from transifex.projects.permissions import pr_resource_add_change
 from transifex.txcommon.decorators import one_perm_required_or_403
 
@@ -41,9 +45,11 @@ def moz_import(request, project_slug):
                     filename = "%s-%s.xpi" % (project.id, project_slug)
                     saved_xpi = file(
                         os.path.join(settings.XPI_DIR,filename), "w")
-                    saved_xpi.write(uploaded_xpi.read())
-                    saved_xpi.close()
+
                     uploaded_xpi.seek(0)
+                    saved_xpi.write(uploaded_xpi.read())
+                    uploaded_xpi.seek(0)
+                    saved_xpi.close()
 
                     xpi_row = XpiFile.objects.get_or_create(project=project)[0]
                     xpi_row.filename = filename
@@ -54,13 +60,13 @@ def moz_import(request, project_slug):
                                         name=uploaded_xpi.name)
                     # just in case we fail on save()
                     messages = bundle.messages
-                    bundle.save()
+#                    bundle.save()
                     messages = bundle.messages
                 except:
                     messages += ["ERROR importing translations from XPI file"]
             elif form.cleaned_data['bzid']:
                 try:
-                    tar = StringIO.StringIO(urllib2.urlopen(
+                    tar = StringIO(urllib2.urlopen(
                         BZ_URL % form.cleaned_data['bzid']).read())
                     bundle = TarBundle(tar, project)
                     # just in case we fail on save()
@@ -80,10 +86,6 @@ def moz_import(request, project_slug):
         })
 
 
-import zipfile
-from cStringIO import StringIO
-from django.http import HttpResponse
-
 def release_language_download(request, project_slug, release_slug,
                                                     lang_code, skip=False):
     """
@@ -102,7 +104,6 @@ def release_language_download(request, project_slug, release_slug,
     zip_file.close()
     zip_buffer.flush()
     zip_contents = zip_buffer.getvalue()
-    zip_buffer.close()
 
     response = HttpResponse(mimetype='application/zip')
     response['Content-Disposition'] = 'filename=%s_%s_%s.zip' % \
@@ -117,14 +118,37 @@ def release_language_install(request, project_slug, release_slug, lang_code):
     language = get_object_or_404(Language, code=lang_code)
     xpi = get_object_or_404(XpiFile, project=project)
 
-    zip_contents = file(os.path.join(settings.XPI_DIR,xpi.filename), "r").read()
-    zip_buffer = StringIO(zip_contents)
-    zip_file = zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED)
+    zip_orig = zipfile.ZipFile(os.path.join(settings.XPI_DIR,xpi.filename), "r")
+
+    zip_buffer = StringIO()
+    zip_file = zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED)
+
+    # copy all the contents from original file except META-INF,
+    # to make it unsigned
+    for item in zip_orig.infolist():
+        if not (item.filename.startswith('META-INF') or
+                item.filename == 'chrome.manifest'):
+            fn = item.filename
+            data = zip_orig.read(item.filename)
+            zip_file.writestr(item, data)
+
+    # write our localization
+    for resource in Resource.objects.filter(releases=release):
+        template = _compile_translation_template(resource, language)
+        zip_file.writestr("tx-locale/%s/%s" % (lang_code, resource.name), template)
+
+    chrome_str = zip_orig.read("chrome.manifest")
+    manifest = ChromeManifest(chrome_str, "manifest")
+
+    zip_file.writestr("chrome.manifest", chrome_str +\
+        "\nlocale %(predicate)s %(code)s tx-locale/%(code)s/\n" % {
+            'predicate': list(manifest.get_triples("locale"))[0]['predicate'],
+            'code': lang_code,
+        })
 
     zip_file.close()
     zip_buffer.flush()
     zip_contents = zip_buffer.getvalue()
-    zip_buffer.close()
 
     response = HttpResponse(mimetype='application/x-xpinstall')
     response['Content-Disposition'] = 'filename=%s.xpi' % project_slug
@@ -151,14 +175,12 @@ def release_download(request, project_slug, release_slug, skip=False):
     zip_file.close()
     zip_buffer.flush()
     zip_contents = zip_buffer.getvalue()
-    zip_buffer.close()
 
     response = HttpResponse(mimetype='application/zip')
     response['Content-Disposition'] = 'filename=%s_%s.zip' % (project_slug, release_slug)
     response.write(zip_contents)
     return response
 
-from transifex.resources.formats import get_i18n_handler_from_type
 
 def _compile_translation_template(resource=None, language=None, skip=False):
     """
