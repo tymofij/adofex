@@ -1,9 +1,10 @@
 {% if has_xpi %}
     <a class="i16 buttonized xpi"
-        href="{% url release_language_install release.project.slug release.slug language.code %}"
+       href="{% url release_language_install release.project.slug release.slug language.code %}"
+       rel="nofollow"
     >Install XPI</a>
 {% else %}
     <a class="i16 buttonized_disabled xpi tipsy_enable"
-    original-title="Project maintainer has not uploaded an XPI file yet"
+       original-title="Project maintainer has not uploaded an XPI file yet"
     >Install XPI</a>
 {% endif %}

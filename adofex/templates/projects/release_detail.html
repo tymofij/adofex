@@ -8,5 +8,9 @@ div.editlinks {
 }
 </style>
 
-<a class="i16 buttonized downsource" href="{% url release_download release.project.slug release.slug %}">ZIP</a>
+<a
+  class="i16 buttonized downsource"
+  href="{% url release_download release.project.slug release.slug %}"
+  rel="nofollow"
+  >ZIP</a>
 {% endblock %}
