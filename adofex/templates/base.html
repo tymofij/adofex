@@ -13,3 +13,10 @@
 <a href="{% url project_list %}" title="{% trans "The projects being served" %}">{% trans "Projects" %}</a>
 | <a href="/projects/p/mozilla/teams/" title="{% trans "Official Teams" %}">{% trans "Teams" %}</a>
 </b>{% endblock %}
+
+{% block footerlinks %}
+    <a href="https://github.com/tymofij/adofex/wiki" %}">Notes</a> &bull;
+    <a href="https://github.com/tymofij/adofex/issues">Issues</a> &bull;
+    <a href="http://blog.clear.com.ua/category/gsoc/" %}">Blog</a> &bull;
+    <a href="http://help.transifex.net/user-guide/getting-started.html" title="{% trans "Learn more about Transifex" %}">Docs</a>
+{% endblock %}

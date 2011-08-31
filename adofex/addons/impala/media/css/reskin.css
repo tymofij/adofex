@@ -30,6 +30,13 @@ div#footer .version, div#footer .powered {
     font-size: 10px;
 }
 div#footer a { color: #96b6d6; }
+div#footer p.main-footer a {
+    color: white;
+    font-weight:bold; font-size: 11px;
+    display: inline-block;
+    margin: 0 7px;
+    }
+
 
 #global-language-chooser {display: none;}
 

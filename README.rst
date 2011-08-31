@@ -43,10 +43,11 @@ Installation Instructions
 
     TX_ROOT = '~/devel/transifex/transifex'
 
-4. Create symlink media in adofex pointing to transifex's media::
+4. Create symlink media in adofex pointing to transifex's media and templates::
 
     cd adofex
     ln -s ~/devel/transifex/transifex/media
+    ln -s ~/devel/transifex/templates templates/transifex
 
 5. Finally setup your DB, and run your project as described in the
    `Installation Instructions`_::
@@ -57,6 +58,9 @@ Installation Instructions
      ./manage.py txlanguages
      ./manage.py mzlanguages
      ./manage.py build_static
+
+   To enable registered users create projects, you have to give
+   permission "Can add project" to the 'registered' group
 
 .. _`Installation Instructions`: http://docs.transifex.org/intro/install.html
 
