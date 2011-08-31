@@ -8,3 +8,8 @@
 {% block shortcut_icon %}
   <link rel="shortcut icon" href="{{ STATIC_URL }}impala/images/favicon.png" type="image/png" />
 {% endblock %}
+
+{% block navmenu %}<b>
+<a href="{% url project_list %}" title="{% trans "The projects being served" %}">{% trans "Projects" %}</a>
+| <a href="/projects/p/mozilla/teams/" title="{% trans "Official Teams" %}">{% trans "Teams" %}</a>
+</b>{% endblock %}
