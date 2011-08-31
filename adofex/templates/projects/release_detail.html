@@ -1,16 +1,15 @@
 {% extends "transifex/projects/release_detail.html" %}
 
 {% block content_sec %}
-<style>
-div.editlinks {
-    position: relative;
-    top: 75px;
-}
-</style>
-
 <a
   class="i16 buttonized downsource"
   href="{% url release_download release.project.slug release.slug %}"
   rel="nofollow"
   >ZIP</a>
+
+<script>
+$(function(){
+    $("#body_sec").append( $("#body_main .editlinks p a") )
+})
+</script>
 {% endblock %}
