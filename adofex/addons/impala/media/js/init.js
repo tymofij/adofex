@@ -1,17 +1,12 @@
-// sets initial footer position, updates it on resizes
-
+// makes footer stick to the bottom of the screen
 function positionFooter() {
-    // Lotte breaks it, loading content afterwards
-    // and I do not want to put listeners there
-    if (typeof lotteStatus == "undefined")
-        $("#footer").css({
-            position:
-                $(document.body).height() < $(window).height() ? "fixed" : "relative"
-        })
+    $("#footer").css({
+        position:
+            $(document.body).height() < $(window).height() ? "fixed" : "relative"
+    })
 }
 
-$(window).bind("load", function() {
-  positionFooter();
-
-  $(window).resize(positionFooter)
-});
+$(document).ready(positionFooter);
+$(window).resize(positionFooter)
+// dynamic content might change page height quite unexpectedly
+setInterval(positionFooter, 750)
