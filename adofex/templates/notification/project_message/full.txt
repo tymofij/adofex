@@ -1,0 +1,8 @@
+{% load i18n %}{% url project_detail project_slug=project.slug as project_url %}
+{% blocktrans %}The project called '{{project}}' has sent you a message.{% endblocktrans %}
+
+Subject: {{ subject }}
+
+{{ message }}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{project_url}} in order to see what's up.{% endblocktrans %}

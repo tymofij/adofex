@@ -5,7 +5,9 @@ from  StringIO import  StringIO
 from validator.chromemanifest import ChromeManifest
 
 from django.conf import settings
+from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.auth.decorators import login_required
+from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, get_object_or_404
@@ -19,8 +21,9 @@ from transifex.languages.models import Language
 from transifex.resources.formats import get_i18n_handler_from_type
 from transifex.projects.permissions import pr_resource_add_change
 from transifex.txcommon.decorators import one_perm_required_or_403
+from notification.models import ObservedItem, send
 
-from impala.forms import ImportForm
+from impala.forms import ImportForm, MessageForm
 from impala.bundle import XpiBundle, TarBundle
 from impala.models import XpiFile
 
@@ -85,6 +88,44 @@ def moz_import(request, project_slug):
         'moz_import': True,
         'work_messages': messages,
         })
+
+
+
+@login_required
+@one_perm_required_or_403(pr_resource_add_change,
+    (Project, 'slug__exact', 'project_slug'))
+def message_watchers(request, project_slug):
+    """
+    View to send messages to project watchers
+    """
+    project = get_object_or_404(Project, slug=project_slug)
+
+    ct = ContentType.objects.get(name="project")
+    observing_user_ids = ObservedItem.objects.filter(
+        content_type=ct, object_id=project.id).values_list("user")
+    observing_users = User.objects.filter(id__in=observing_user_ids)
+    sent = False
+
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            send(observing_users, "project_message", {
+                'project': project,
+                'subject': form.cleaned_data['subject'],
+                'message': form.cleaned_data['message'],
+                })
+            sent = True
+    else:
+        form = MessageForm()
+
+    return direct_to_template(request, 'message_watchers.html', {
+        'form': form,
+        'project': project,
+        'message_watchers': True,
+        'observing_users': observing_users,
+        'sent': sent,
+        })
+
 
 
 def release_language_download(request, project_slug, release_slug,

@@ -1,0 +1,32 @@
+{% extends "projects/project_menu.html" %}
+{% load i18n %}
+{% load txcommontags %}
+{% load addons %}
+
+{% block title %}{{ block.super }} | {{ project.name }} | {% trans "Message" %}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> &raquo; {% trans "Message" %}{% endblock %}
+
+{% block content_main %}
+
+<h3>Message users observing your project</h3>
+
+<p>
+Namely: {{ observing_users|join:" ," }}
+</p>
+
+{% if sent %}
+<p>Message successfully sent.</p>
+{% else %}
+<form method="post">{% csrf_token %}
+<b>Subject:</b><br/>
+{{ form.subject.errors }}
+{{ form.subject }}<br/>
+<b>Message:</b><br/>
+{{ form.message.errors }}
+{{ form.message }}<br/>
+<input type="submit" class="i16 submit buttonized" value="Submit" />
+</form>
+{% endif %}
+
+{% endblock %}

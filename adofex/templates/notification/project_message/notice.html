@@ -1,0 +1,6 @@
+{% load i18n %}{% url project_detail project_slug=project.slug as project_url %}
+{% blocktrans %}The <span class="notice_subject">project</span> <a href="{{ project_url }}">{{ project }}</a> has sent you a <span class="notice_action">message</span>.{% endblocktrans %}
+
+<b>Subject:</b> {{ subject }} <br/>
+
+{{ message }}

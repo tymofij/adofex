@@ -25,3 +25,10 @@ class ImportForm(forms.Form):
         return xpifile
 
     bzid = forms.IntegerField(label=_("Extension ID"), max_value=9999, required=False)
+
+class MessageForm(forms.Form):
+    """
+    Form to send messages to the people watching the project
+    """
+    subject = forms.CharField(max_length=100)
+    message = forms.CharField(widget=forms.Textarea)
