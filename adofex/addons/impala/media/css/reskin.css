@@ -108,3 +108,7 @@ div#content h2.pagetitle {
 .i16.xpi.buttonized:hover{background-image:url('../images/addon.png'),-moz-linear-gradient(#fafafa, #dadada);
 	background-image:url('../images/addon.png'),-webkit-linear-gradient(#fafafa, #dadada);
 	background-image:url('../images/addon.png'),-o-linear-gradient(#fafafa, #dadada);}
+
+
+/* without it, lines in main project view get crampeled */
+dl.definition dd {height: auto;}
