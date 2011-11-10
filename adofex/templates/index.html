@@ -20,26 +20,32 @@
 </div>
 {% else %}
 <div style="float:right; width: 40%"">
+
 <h3>{% trans "Maintained by you" %}</h3>
+{% if maintained_projects %}
 <ul class="simple ">
   {% for project in maintained_projects %}
-    <li class="i16 project"><strong><a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
-    </strong>{% if project.description %} - <span class="description">{{ project.description }}</span>{% endif %}</li>
+    <li class="i16 project"><strong><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></strong>
+    {% if project.description %} - <span class="description">{{ project.description }}</span>{% endif %}</li>
   {% endfor %}
 </ul>
-<h3>{% trans "Watched by you" %}</h3>
-<ul class="simple ">
-  {% for project in watched_projects %}
-    <li class="i16 project"><strong><a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
-    </strong>{% if project.description %} - <span class="description">{{ project.description }}</span>{% endif %}</li>
-  {% endfor %}
-</ul>
-</div>
-
+{% else %}
+  <p>You are not maintaining any projects.</a>
 {% endif %}
 
-
-
+<h3>{% trans "Watched by you" %}</h3>
+{% if watched_projects %}
+<ul class="simple ">
+  {% for project in watched_projects %}
+    <li class="i16 project"><strong><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></strong>
+    {% if project.description %} - <span class="description">{{ project.description }}</span>{% endif %}</li>
+  {% endfor %}
+</ul>
+{% else %}
+  <p>You are not watching any projects yet.</a>
+{% endif %}
+</div>
+{% endif %}
 
 <div id="intro">
   <p class="promo">{% trans "Adofex is the service for translating Mozilla addons." %}</p>
