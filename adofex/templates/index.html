@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load txcommontags %}
+
+{% block body_class %}index{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block content_title %}
+  <h2 class="pagetitle">{% trans "Welcome to Adofex" %}</h2>
+{% endblock %}
+
+{% block content %}
+
+{% if not request.user.is_authenticated %}
+<div id="login_index">
+  <div class="divright">
+  {% include "simpleauth/login_box.html" %}
+  </div>
+</div>
+{% else %}
+<div style="float:right; width: 40%"">
+<h3>{% trans "Maintained by you" %}</h3>
+<ul class="simple ">
+  {% for project in maintained_projects %}
+    <li class="i16 project"><strong><a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
+    </strong>{% if project.description %} - <span class="description">{{ project.description }}</span>{% endif %}</li>
+  {% endfor %}
+</ul>
+<h3>{% trans "Watched by you" %}</h3>
+<ul class="simple ">
+  {% for project in watched_projects %}
+    <li class="i16 project"><strong><a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
+    </strong>{% if project.description %} - <span class="description">{{ project.description }}</span>{% endif %}</li>
+  {% endfor %}
+</ul>
+</div>
+
+{% endif %}
+
+
+
+
+<div id="intro">
+  <p class="promo">{% trans "Adofex is the service for translating Mozilla addons." %}</p>
+  <div class="searchform content_header_prim">
+    {% include "search_form.html" %}
+    {% url project_list as project_list %}
+  </div>
+<div id="top_lists">{% include "projects/project_latests.html" %}
+
+{% blocktrans %}You could also browse through <a href="{{ project_list }}">all projects</a>.{% endblocktrans %}
+
+</div>
+</div>
+<div id="clear"></div>
+{% endblock %}
