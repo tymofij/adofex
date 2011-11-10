@@ -8,7 +8,7 @@ NOTICE_TYPES = [
                 "label": "project_message",
                 "display": _("Project message"),
                 "description": _("when a project sends messages to its watchers"),
-                "default": 1,
+                "default": 2,
                 "show_to_user": True,
             },
         ]
