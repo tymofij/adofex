@@ -113,4 +113,4 @@ div#content h2.pagetitle {
 /* without it, lines in main project view get crampeled */
 dl.definition dd {height: auto;}
 
-div.searchform.content_header_prim input.query {width: 20em; }
+div.searchform.content_header_prim input.query {width: 18em; }

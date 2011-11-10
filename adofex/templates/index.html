@@ -1,6 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
-{% load txcommontags %}
+{% load i18n txcommontags statistics_resources %}
 
 {% block body_class %}index{% endblock %}
 
@@ -11,6 +10,10 @@
 {% endblock %}
 
 {% block content %}
+<style>
+#intro {width: 47%;}
+div.stats {display: inline-block; }
+</style>
 
 {% if not request.user.is_authenticated %}
 <div id="login_index">
@@ -19,7 +22,7 @@
   </div>
 </div>
 {% else %}
-<div style="float:right; width: 40%"">
+<div style="float:right; width: 52%"">
 
 <h3>{% trans "Maintained by you" %}</h3>
 {% if maintained_projects %}
@@ -39,6 +42,33 @@
   {% for project in watched_projects %}
     <li class="i16 project"><strong><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></strong>
     {% if project.description %} - <span class="description">{{ project.description }}</span>{% endif %}</li>
+
+    <div style="margin: 5px 0 15px 10px;">
+    {% for stat in project.statlist %}
+        <div style="margin: 5px 0">
+        <div style="display: inline-block; width: 150px;">
+        <a href="{% url release_language_detail project.slug 'all-resources' stat.object.code %}">{{ stat.object.name }}</a> <span class="locale">({{ stat.object.code }})</span>
+        </div>
+        {% with 100 as barwidth %}
+            {% stats_bar_simple stat barwidth %}
+        {% endwith %}
+
+        {% with stat.last_update as last_update %}
+        <span style="border:0; font-size:smaller;" unixdate="{{ last_update|date:'U' }}">
+          {% with stat.last_committer as last_committer %}
+          {% if last_update %}
+              {{ last_update|timesince }}
+              {% if last_committer %}
+              by {{ last_committer }}
+              {% endif %}
+          {% else %}
+              {% trans "no activity yet" %}
+          {% endif %}
+          {% endwith %}
+        </span>
+        {% endwith %}</div>
+    {% endfor %}
+    </div>
   {% endfor %}
 </ul>
 {% else %}
