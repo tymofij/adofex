@@ -19,6 +19,7 @@ from haystack.query import SearchQuerySet
 
 from actionlog.models import LogEntry, action_logging
 from transifex.languages.models import Language
+from transifex.teams.models import Team
 from transifex.projects.models import Project
 from transifex.simpleauth.forms import RememberMeAuthForm
 from transifex.txcommon.filters import LogEntryFilter
@@ -36,7 +37,9 @@ def index(request):
     if request.user.is_authenticated():
         maintained_projects = Project.objects.maintained_by(request.user)
         watched_projects = Project.objects.watched_by(request.user)
-        user_language_ids = request.user.team_set.all().values_list('language', flat=True)
+        user_language_ids = Team.objects.filter(
+            Q(members=request.user)|Q(coordinators=request.user)
+            ).values_list('language', flat=True)
     else:
         maintained_projects = []
         watched_projects = []
