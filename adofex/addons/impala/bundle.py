@@ -13,7 +13,7 @@ from transifex.resources.models import Resource
 from transifex.languages.models import Language
 from transifex.resources.formats.dtd import DTDHandler
 from transifex.resources.formats.javaproperties import JavaPropertiesHandler
-from transifex.resources.formats import get_i18n_type_from_file
+from transifex.resources.formats.registry import registry
 
 from django.utils.safestring import mark_safe
 from django.template.defaultfilters import escape
@@ -68,7 +68,7 @@ class Bundle(object):
             except Resource.DoesNotExist:
                 resource = Resource(name=filename, slug=slugify(filename),
                     project=self.project, source_language=self.source_lang,
-                    i18n_type=get_i18n_type_from_file(filename) )
+                    i18n_method=registry.guess_method(filename))
                 resource.save()
             self.resources[filename] = resource
 

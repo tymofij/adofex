@@ -18,7 +18,7 @@ from transifex.projects.models import Project
 from transifex.resources.models import Resource
 from transifex.releases.models import Release, RLStats
 from transifex.languages.models import Language
-from transifex.resources.formats import get_i18n_handler_from_type
+from transifex.resources.formats.registry import registry
 from transifex.projects.permissions import pr_resource_add_change
 from transifex.txcommon.decorators import one_perm_required_or_403
 from notification.models import ObservedItem, send
@@ -228,7 +228,8 @@ def _compile_translation_template(resource=None, language=None, skip=False):
     """
     Given a resource and a language we create the translation file
     """
-    parser = get_i18n_handler_from_type(resource.i18n_type)
-    handler = parser(resource=resource, language=language)
+    handler = registry.handler_for(resource.i18n_method)
+    handler.bind_resource(self.resource)
+    handler.set_language(language)
     handler.compile(skip=skip)
     return handler.compiled_template
