@@ -27,7 +27,8 @@ from transifex.txcommon.log import logger
 from transifex.txcommon.haystack_utils import prepare_solr_query_string, \
     fulltext_fuzzy_match_filter
 
-from transifex.releases.models import Release, RELEASE_ALL_DATA
+from transifex.releases import RELEASE_ALL_DATA
+from transifex.releases.models import Release
 from transifex.resources.models import Resource, RLStats, _aggregate_rlstats
 
 @csrf_protect

@@ -2,7 +2,8 @@
 
 from django.conf.urls.defaults import *
 from django.conf import settings
-from transifex.projects.urls import PROJECT_URL, RELEASE_URL
+from transifex.projects.urls import PROJECT_URL
+from transifex.releases.urls import RELEASE_URL
 from transifex.urls import PROJECTS_URL
 
 from impala.views import moz_import, message_watchers,\
