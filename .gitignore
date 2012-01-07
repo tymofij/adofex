@@ -10,5 +10,6 @@ _cache
 local.json
 site_media
 adofex/jj.py
-adofex/media
+adofex/logs
+adofex/static
 adofex/templates/transifex
