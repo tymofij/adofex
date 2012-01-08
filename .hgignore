@@ -1,0 +1,16 @@
+syntax:glob
+
+*.pyc
+.coverage
+*.swp
+adofex/settings/??-local.conf
+*.sqlite*
+*.swo
+cache
+_cache
+local.json
+site_media
+adofex/jj.py
+adofex/logs
+adofex/static
+adofex/templates/transifex
