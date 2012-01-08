@@ -1,5 +1,7 @@
 body { background: url(../images/bg-header.png) repeat-x; }
 
+div#login_index {padding: 0;}
+
 div#wrapper{
     position:relative;
     z-index: 3;
