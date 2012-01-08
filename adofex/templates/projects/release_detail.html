@@ -1,4 +1,7 @@
 {% extends "transifex/projects/release_detail.html" %}
+{% load impala_tags %}
+
+{% block breadcrumb %}{{ block|supersuper }} &raquo; <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> &raquo; Release '{{ release.name }}'{% endblock %}
 
 {% block content_sec %}
 <a
