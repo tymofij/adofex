@@ -1,0 +1,13 @@
+{% extends "transifex/projects/project_form.html" %}
+{% load i18n %}
+{% load impala_tags %}
+
+{% block breadcrumb %}
+    {{ block|supersuper }}
+    {% if not project %}
+        &raquo; {% trans "Add a project" %}
+    {% else %}
+        &raquo; <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
+        &raquo; {% blocktrans with project.name as project_name %}Edit {{ project_name }}{% endblocktrans %}
+    {% endif %}
+{% endblock %}

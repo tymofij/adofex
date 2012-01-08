@@ -1,0 +1,10 @@
+{% extends "transifex/projects/project_delete.html" %}
+{% load i18n %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    {% if project %}
+        &raquo; <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
+    {% endif %}
+    &raquo; {% trans "Delete Project" %}</a>
+{% endblock %}
