@@ -46,7 +46,7 @@ Installation Instructions
 4. Create symlink media in adofex pointing to transifex's media and templates::
 
     cd adofex
-    ln -s ~/devel/transifex/transifex/media
+    ln -s ~/devel/transifex/transifex/static
     ln -s ~/devel/transifex/templates templates/transifex
 
 5. Finally setup your DB, and run your project as described in the
