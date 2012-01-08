@@ -11,7 +11,6 @@ div#footer {
     max-width: none;
     background: url(../images/bg-footer.png) 0 0 repeat-x;
     padding-top: 123px;
-    margin-top: -123px;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -58,6 +57,9 @@ select:hover {
 
 .buttonized, .buttonized_disabled, .buttonized2, .buttonized_disabled2 {
   border-color: #ccc #aaa #aaa #ccc !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-radius: 4px !important;
 }
 
 .buttonized, .buttonized2 {

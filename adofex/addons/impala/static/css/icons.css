@@ -4,12 +4,12 @@
 .i16.accept_translation.buttonized:hover{background-image:url('../../images/icons/database_edit.png'),-moz-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/database_edit.png'),-webkit-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/database_edit.png'),-o-linear-gradient(#fafafa, #dadada);}
-.i16.action.buttonized{background-image:url('../../images/icons/lightning.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/lightning.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/lightning.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.action.buttonized:hover{background-image:url('../../images/icons/lightning.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/lightning.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/lightning.png'),-o-linear-gradient(#fafafa, #dadada);}
+.i16.action.buttonized{background-image:url('../../images/icons/action.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/action.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/action.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.action.buttonized:hover{background-image:url('../../images/icons/action.png'),-moz-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/action.png'),-webkit-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/action.png'),-o-linear-gradient(#fafafa, #dadada);}
 .i16.action_go.buttonized{background-image:url('../../images/icons/progress.gif'),-moz-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/progress.gif'),-webkit-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/progress.gif'),-o-linear-gradient(#efefef, #cfcfcf);}
@@ -184,12 +184,12 @@
 .i16.drink.buttonized:hover{background-image:url('../../images/icons/drink.png'),-moz-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/drink.png'),-webkit-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/drink.png'),-o-linear-gradient(#fafafa, #dadada);}
-.i16.changed.buttonized,.i16.edit.buttonized{background-image:url('../../images/icons/pencil.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/pencil.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/pencil.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.changed.buttonized:hover,.i16.edit.buttonized:hover{background-image:url('../../images/icons/pencil.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/pencil.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/pencil.png'),-o-linear-gradient(#fafafa, #dadada);}
+.i16.changed.buttonized,.i16.edit.buttonized{background-image:url('../../images/icons/bpencil.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/bpencil.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/bpencil.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.changed.buttonized:hover,.i16.edit.buttonized:hover{background-image:url('../../images/icons/bpencil.png'),-moz-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/bpencil.png'),-webkit-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/bpencil.png'),-o-linear-gradient(#fafafa, #dadada);}
 .i16.edit_file.buttonized{background-image:url('../../images/icons/page_white_edit.png'),-moz-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/page_white_edit.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/page_white_edit.png'),-o-linear-gradient(#efefef, #cfcfcf);}
@@ -310,12 +310,12 @@
 .i16.lock_none.buttonized:hover{background-image:url('../../images/icons/lock_none.png'),-moz-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/lock_none.png'),-webkit-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/lock_none.png'),-o-linear-gradient(#fafafa, #dadada);}
-.i16.logout.buttonized{background-image:url('../../images/icons/door_out.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/door_out.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/door_out.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.logout.buttonized:hover{background-image:url('../../images/icons/door_out.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/door_out.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/door_out.png'),-o-linear-gradient(#fafafa, #dadada);}
+.i16.logout.buttonized{background-image:url('../../images/icons/logout.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/logout.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/logout.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.logout.buttonized:hover{background-image:url('../../images/icons/logout.png'),-moz-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/logout.png'),-webkit-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/logout.png'),-o-linear-gradient(#fafafa, #dadada);}
 .i16.maintainer.buttonized{background-image:url('../../images/icons/user_gray.png'),-moz-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/user_gray.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/user_gray.png'),-o-linear-gradient(#efefef, #cfcfcf);}
