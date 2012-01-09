@@ -21,6 +21,7 @@ from transifex.languages.models import Language
 from transifex.resources.formats.registry import registry
 from transifex.projects.permissions import pr_resource_add_change
 from transifex.txcommon.decorators import one_perm_required_or_403
+from transifex.txcommon.log import logger
 from notification.models import ObservedItem, send
 
 from impala.forms import ImportForm, MessageForm
@@ -66,7 +67,7 @@ def moz_import(request, project_slug):
                     bundle.save()
                     messages = bundle.messages
                 except:
-
+                    logger.exception("ERROR importing translations from XPI file")
                     messages += ["ERROR importing translations from XPI file"]
             elif form.cleaned_data['bzid']:
                 try:
@@ -78,6 +79,7 @@ def moz_import(request, project_slug):
                     bundle.save()
                     messages = bundle.messages
                 except:
+                    logger.exception("ERROR importing translations from BabelZilla")
                     messages +=["ERROR importing translations from BabelZilla"]
     else:
         form = ImportForm()
