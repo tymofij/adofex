@@ -82,8 +82,7 @@ class Bundle(object):
             if filename not in self.resources:
                 continue
             Handler = _get_handler(filename)
-            data.name = filename
-            handler = Handler(data, self.resources[filename], lang)
+            handler = Handler(filename=filename, resource=self.resources[filename], language=lang, content=data)
             handler.parse_file(is_source=is_source)
             updated, added = handler.save2db(is_source=is_source)
             self.log("%s: %s updated, %s added" %
@@ -201,7 +200,7 @@ class XpiBundle(Bundle):
             for f in package.package_contents():
                 f = f.strip("/")
                 if f.startswith(location) and f != location:
-                    result[f.split("/")[-1]] = StringIO(package.read(f))
+                    result[f.split("/")[-1]] = package.read(f)
 
             # file with same name in different jars can get overwritten
             if lang not in self.locales:
