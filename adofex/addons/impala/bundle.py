@@ -12,7 +12,7 @@ from transifex.projects.models import Project
 from transifex.resources.models import Resource
 from transifex.languages.models import Language
 from transifex.resources.formats.dtd import DTDHandler
-from transifex.resources.formats.javaproperties import JavaPropertiesHandler
+from transifex.resources.formats.mozillaproperties import MozillaPropertiesHandler
 from transifex.resources.formats.registry import registry
 
 from django.utils.safestring import mark_safe
@@ -23,7 +23,7 @@ def _get_handler(filename):
     if filename[-4:] == '.dtd':
         return DTDHandler
     elif filename[-11:] == '.properties':
-        return JavaPropertiesHandler
+        return MozillaPropertiesHandler
     else: # skip it, some unknown file
         return None
 
