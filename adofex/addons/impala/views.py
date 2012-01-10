@@ -231,7 +231,7 @@ def _compile_translation_template(resource=None, language=None, skip=False):
     Given a resource and a language we create the translation file
     """
     handler = registry.handler_for(resource.i18n_method)
-    handler.bind_resource(self.resource)
+    handler.bind_resource(resource)
     handler.set_language(language)
     handler.compile(skip=skip)
     return handler.compiled_template
