@@ -5,6 +5,7 @@ from django.db.models import get_model
 from django.conf import settings
 from transifex.projects.signals import project_created, project_deleted
 from transifex.projects.models import Project
+from transifex.resources.formats.registry import registry   # Required to prevent import loops
 from transifex.resources.formats.mozillaproperties import MozillaPropertiesHandler
 
 
