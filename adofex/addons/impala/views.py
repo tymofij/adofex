@@ -233,5 +233,26 @@ def _compile_translation_template(resource=None, language=None, skip=False):
     handler = registry.handler_for(resource.i18n_method)
     handler.bind_resource(resource)
     handler.set_language(language)
-    handler.compile(skip=skip)
+
+    if not skip:
+        # Monkey-patch handler to combine results with the source locale
+        def combine_strings(source_entities, language):
+            source_entities = list(source_entities)
+            result = old_get_strings(source_entities, language)
+            for entity in source_entities:
+                if not result.get(entity, None):
+                    trans = handler._get_translation(entity, source_language, 5)
+                    if trans:
+                        logger.debug(trans.string)
+                        result[entity] = trans.string
+            return result
+        source_language = resource.source_language
+        old_get_strings = handler._get_translation_strings
+        handler._get_translation_strings = combine_strings
+
+    handler.compile()
+
+    if not skip:
+        handler._get_translation_strings = old_get_strings
+
     return handler.compiled_template
