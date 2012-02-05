@@ -21,6 +21,7 @@ from transifex.languages.models import Language
 from transifex.resources.formats.registry import registry
 from transifex.projects.permissions import pr_resource_add_change
 from transifex.txcommon.decorators import one_perm_required_or_403
+from transifex.txcommon.log import logger
 from notification.models import ObservedItem, send
 
 from impala.forms import ImportForm, MessageForm
@@ -66,7 +67,7 @@ def moz_import(request, project_slug):
                     bundle.save()
                     messages = bundle.messages
                 except:
-
+                    logger.exception("ERROR importing translations from XPI file")
                     messages += ["ERROR importing translations from XPI file"]
             elif form.cleaned_data['bzid']:
                 try:
@@ -78,6 +79,7 @@ def moz_import(request, project_slug):
                     bundle.save()
                     messages = bundle.messages
                 except:
+                    logger.exception("ERROR importing translations from BabelZilla")
                     messages +=["ERROR importing translations from BabelZilla"]
     else:
         form = ImportForm()
@@ -229,7 +231,28 @@ def _compile_translation_template(resource=None, language=None, skip=False):
     Given a resource and a language we create the translation file
     """
     handler = registry.handler_for(resource.i18n_method)
-    handler.bind_resource(self.resource)
+    handler.bind_resource(resource)
     handler.set_language(language)
-    handler.compile(skip=skip)
+
+    if not skip:
+        # Monkey-patch handler to combine results with the source locale
+        def combine_strings(source_entities, language):
+            source_entities = list(source_entities)
+            result = old_get_strings(source_entities, language)
+            for entity in source_entities:
+                if not result.get(entity, None):
+                    trans = handler._get_translation(entity, source_language, 5)
+                    if trans:
+                        logger.debug(trans.string)
+                        result[entity] = trans.string
+            return result
+        source_language = resource.source_language
+        old_get_strings = handler._get_translation_strings
+        handler._get_translation_strings = combine_strings
+
+    handler.compile()
+
+    if not skip:
+        handler._get_translation_strings = old_get_strings
+
     return handler.compiled_template
