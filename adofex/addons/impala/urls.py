@@ -3,8 +3,10 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
 from transifex.projects.urls import PROJECT_URL
-from transifex.releases.urls import RELEASE_URL
+from transifex.releases.urls import RELEASE_URL_PARTIAL
 from transifex.urls import PROJECTS_URL
+
+RELEASE_URL = RELEASE_URL_PARTIAL[1:]
 
 from impala.views import moz_import, message_watchers,\
     release_download, release_language_download, release_language_install

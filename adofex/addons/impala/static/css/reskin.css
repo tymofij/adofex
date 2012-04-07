@@ -91,7 +91,6 @@ body {
     font-size: 13px;
 }
 
-
 div#content h2.pagetitle {
     color: #444;
     font-size: 2.8em;
@@ -117,4 +116,4 @@ div#content h2.pagetitle {
 /* without it, lines in main project view get crampeled */
 dl.definition dd {height: auto;}
 
-div.searchform.content_header_prim input.query {width: 18em; }
+div.searchform.content_header_prim input.query {width: 18em; background: none;}
