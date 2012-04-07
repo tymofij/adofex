@@ -116,4 +116,7 @@ div#content h2.pagetitle {
 /* without it, lines in main project view get crampeled */
 dl.definition dd {height: auto;}
 
+/* non-transparent bg in transifex/static/images/search-button.png */
 div.searchform.content_header_prim input.query {width: 18em; background: none;}
+
+.languages_list.multicolumn3 .language.name {float:none; display: block;}

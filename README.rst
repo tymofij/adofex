@@ -14,21 +14,9 @@ Installation Instructions
 
     mkdir ~/devel
     cd ~/devel
-    hg clone https://bitbucket.org/tymofiy/transifex
+    hg clone https://bitbucket.org/indifex/transifex
 
-   Both requirements.txt and buildout.cfg in transifex are obsolete, refer to
-   http://help.transifex.net/technical/install.html#install-dependencies
-   or requirements.txt in this project.::
-
-    pip install django==1.2.5
     pip install -r requirements.txt
-
-   There is a bug in django-piston which makes its install with pip fail
-   (__init__.py file in piston package is missing).
-   See https://bitbucket.org/jespern/django-piston/issue/173/
-   Tx folks recommend using their tarball and easy_install here::
-
-    easy_install http://trac.transifex.org/files/deps/django-piston-0.2.3-devel-r278.tar.gz
 
 2. Make sure the 'TX_ROOT' config option points to your upstream Transifex
    project directory.
@@ -43,7 +31,7 @@ Installation Instructions
 
     TX_ROOT = '~/devel/transifex/transifex'
 
-4. Create symlink media in adofex pointing to transifex's media and templates::
+4. Create symlinks media in adofex pointing to transifex's media and templates::
 
     cd adofex
     ln -s ~/devel/transifex/transifex/static
@@ -57,7 +45,7 @@ Installation Instructions
      ./manage.py txcreatenoticetypes
      ./manage.py txlanguages
      ./manage.py mzlanguages
-     ./manage.py build_static
+     ./manage.py collectstatic
 
    To enable registered users create projects, you have to give
    permission "Can add project" to the 'registered' group
