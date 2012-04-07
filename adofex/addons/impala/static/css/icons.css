@@ -454,30 +454,30 @@
 .i16.ruby.buttonized:hover{background-image:url('../../images/icons/ruby.png'),-moz-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/ruby.png'),-webkit-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/ruby.png'),-o-linear-gradient(#fafafa, #dadada);}
-.i16.save.buttonized{background-image:url('../../images/icons/disk.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/disk.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/disk.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.save.buttonized:hover{background-image:url('../../images/icons/disk.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/disk.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/disk.png'),-o-linear-gradient(#fafafa, #dadada);}
+.i16.save.buttonized{background-image:url('../../images/icons/save.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/save.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/save.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.save.buttonized:hover{background-image:url('../../images/icons/save.png'),-moz-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/save.png'),-webkit-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/save.png'),-o-linear-gradient(#fafafa, #dadada);}
 .i16.spellcheck.buttonized{background-image:url('../../images/icons/spellcheck.png'),-moz-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/spellcheck.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/spellcheck.png'),-o-linear-gradient(#efefef, #cfcfcf);}
 .i16.spellcheck.buttonized:hover{background-image:url('../../images/icons/spellcheck.png'),-moz-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/spellcheck.png'),-webkit-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/spellcheck.png'),-o-linear-gradient(#fafafa, #dadada);}
-.i16.override_save.buttonized{background-image:url('../../images/icons/disk.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/disk.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/disk.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.override_save.buttonized:hover{background-image:url('../../images/icons/disk.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/disk.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/disk.png'),-o-linear-gradient(#fafafa, #dadada);}
-.i16.save_all.buttonized{background-image:url('../../images/icons/disk_multiple.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/disk_multiple.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/disk_multiple.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.save_all.buttonized:hover{background-image:url('../../images/icons/disk_multiple.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/disk_multiple.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/disk_multiple.png'),-o-linear-gradient(#fafafa, #dadada);}
+.i16.override_save.buttonized{background-image:url('../../images/icons/save.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/save.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/save.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.override_save.buttonized:hover{background-image:url('../../images/icons/save.png'),-moz-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/save.png'),-webkit-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/save.png'),-o-linear-gradient(#fafafa, #dadada);}
+.i16.save_all.buttonized{background-image:url('../../images/icons/save_all.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/save_all.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/save_all.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.save_all.buttonized:hover{background-image:url('../../images/icons/save_all.png'),-moz-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/save_all.png'),-webkit-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/save_all.png'),-o-linear-gradient(#fafafa, #dadada);}
 .i16.search_translations.buttonized{background-image:url('../../images/icons/page_magnify.png'),-moz-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/page_magnify.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/page_magnify.png'),-o-linear-gradient(#efefef, #cfcfcf);}
