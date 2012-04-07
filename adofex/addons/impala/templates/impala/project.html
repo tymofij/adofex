@@ -4,14 +4,14 @@
 
 {% block menu %}
 {% if request.user.is_authenticated and is_maintainer %}
-<li class="ui-state-default ui-corner-top {% if message_watchers %}ui-tabs-selected ui-state-active{% endif %}">
-    <a id="tab-link-6" href="{% url message_watchers project.slug %}">
+<li class="{% if message_watchers %}selected{% endif %}">
+    <a href="{% url message_watchers project.slug %}">
         <span>{% trans "Message" %}</span>
     </a>
 </li>
 
-<li class="ui-state-default ui-corner-top {% if moz_import %}ui-tabs-selected ui-state-active{% endif %}">
-    <a id="tab-link-6" href="{% url moz_import project.slug %}">
+<li class="{% if moz_import %}selected{% endif %}">
+    <a href="{% url moz_import project.slug %}">
         <span>{% trans "Import" %}</span>
     </a>
 </li>
