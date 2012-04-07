@@ -1,118 +1,72 @@
-body { background: url(../images/bg-header.png) repeat-x; }
-
-div#login_index {padding: 0;}
-
-div#wrapper{
-    position:relative;
-    z-index: 3;
+body {
+    background: url(../images/bg-header.png) repeat-x;
+    font-family: Verdana, sans-serif;
+    font-size: 13px;
 }
+h1, h2, h3, h4, h5, h6 { font-family: Ubuntu, Verdana, sans-serif; }
+div#content h2.pagetitle {
+    color: #444;
+    font-size: 2.1em;
+    font-family: Ubuntu, Verdana, sans-serif;
+    letter-spacing: -1px;
+}
+
+/* do not wanna see Droid serif at all */
+.seriftext, .description, .quotes, .timestamp, .tweet_time, .long_description { font-family: Verdana, sans-serif; }
+
+/* no translation for now anyway */
+#global-language-chooser {display: none;}
+
+div#header {position: relative ;}
+div#header div#header_trinav { position: absolute; top: 30px; right: 0;}
+#header_trinav .searchform_plain input[type="submit"] { margin-top: 6px; }
+
+div#content {
+    background: -moz-linear-gradient(#FCFDFE, #F4F8FC) repeat scroll 0 0 #FCFDFE;
+    border: 1px solid #C9DDF2;
+    border-radius: 5px;
+    box-shadow: 0 -2px 0 rgba(204, 223, 243, 0.3) inset, 0 0 1px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    min-height: 0;
+    position: relative z-index: 200;
+}
+
+/* footer magic */
+div#wrapper{ position:relative; z-index: 3; }
 
 div#footer {
     max-width: none;
     background: url(../images/bg-footer.png) 0 0 repeat-x;
     padding-top: 123px;
     position: relative;
+    z-index: 1;
     bottom: 0;
     width: 100%;
-}
-
-div#content {
-    min-height: 0;
-    border-bottom: 0;
-    background: url(../images/bg-content.png) 0 0 repeat-x;
-}
-div#content_header{ background: #EBF2F8; }
-
-div#footer .version { margin-bottom: 0; }
-
-div#footer .left, div#footer .center, div#footer .right,
-div#footer .version, div#footer .powered {
-    color: #ddd;
-    font-size: 10px;
-}
-div#footer a { color: #96b6d6; }
-div#footer p.main-footer a {
-    color: white;
-    font-weight:bold; font-size: 11px;
-    display: inline-block;
-    margin: 0 7px;
-    }
-
-
-#global-language-chooser {display: none;}
-
-/* Alas, real styling of SELECTs is not yet possible in Mozilla, see bug 649849
-select {
-    background-image: -moz-linear-gradient(center top , #efefef, #cfcfcf);
-    border: 1px solid #ccc;
-    border-color: #ccc #aaa #aaa #ccc !important;
-    border-radius: 3px;
-    box-shadow: 1px 1px 2px #DDDDDD;
-    }
-select:hover {
-    background-image: -moz-linear-gradient(center top , #fafafa, #dadada);
-    box-shadow:1px 1px 2px #bbb;
-    }
-*/
-
-.buttonized, .buttonized_disabled, .buttonized2, .buttonized_disabled2 {
-  border-color: #ccc #aaa #aaa #ccc !important;
-  border-width: 1px !important;
-  border-style: solid !important;
-  border-radius: 4px !important;
-}
-
-.buttonized, .buttonized2 {
-    background-image: -o-linear-gradient(#efefef, #cfcfcf);
-    background-image: -moz-linear-gradient(#efefef, #cfcfcf);
-    background-image: -webkit-linear-gradient(#efefef, #cfcfcf);
-    }
-.buttonized:hover, .buttonized2:hover  {
-    background-image: -o-linear-gradient(#fafafa, #dadada);
-    background-image: -moz-linear-gradient(#fafafa, #dadada);
-    background-image: -webkit-linear-gradient(#fafafa, #dadada);
-    }
-
-input.i16, .i16.buttonized, .microform input[type="submit"]
- { background-position: 5px 50%, 0 0; }
-
-.i16.project {
-    background-image: url("../images/addon.png");
-}
-
-div.translated_comp {
-    background-image: -o-linear-gradient(#C1F8C2, #6cd76e);
-    background-image: -moz-linear-gradient(#C1F8C2, #6cd76e);
-    background-image: -webkit-linear-gradient(#C1F8C2, #6cd76e);
-}
-
-body {
     font-family: Verdana, sans-serif;
-    font-size: 13px;
+    font-size: 10px;
+    }
+    div#footer .version { margin-bottom: 0; }
+    div#footer .left, div#footer .center, div#footer .right,
+    div#footer .version, div#footer .powered { color: #ddd; font-size: 10px; }
+    div#footer a { color: #96b6d6; }
+    div#footer p.main-footer a {
+        color: white;
+        font-weight:bold; font-size: 11px;
+        display: inline-block;
+        margin: 0 7px;
+        }
+
+
+.tabs a { color: #888 ; }
+.tabs > li.selected { border-top-left-radius: 5px; border-top-right-radius: 5px; }
+
+/*progress indicators*/
+div.translated_comp {
+    background-image: -o-linear-gradient(#6cd76e, #80B66A);
+    background-image: -moz-linear-gradient(#6cd76e, #80B66A);
+    background-image: -webkit-linear-gradient(#6cd76e, #80B66A);
 }
-
-div#content h2.pagetitle {
-    color: #444;
-    font-size: 2.5em;
-    font-family: Ubuntu, Verdana, sans-serif;
-    letter-spacing: -1.3px;
-}
-
-#fancybox-close { border-bottom: none;}
-
-.i16.xpi.buttonized_disabled {
-    background-image:url('../images/addon_disabled.png');
-    background-position: 5px 50%;
-    padding-left: 27px;
-}
-
-.i16.xpi.buttonized{background-image:url('../images/addon.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../images/addon.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../images/addon.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.xpi.buttonized:hover{background-image:url('../images/addon.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../images/addon.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../images/addon.png'),-o-linear-gradient(#fafafa, #dadada);}
-
+.stats-table {background: white;}
 
 /* without it, lines in main project view get crampeled */
 dl.definition dd {height: auto;}
@@ -120,4 +74,5 @@ dl.definition dd {height: auto;}
 /* non-transparent bg in transifex/static/images/search-button.png */
 div.searchform.content_header_prim input.query {width: 18em; background: none;}
 
+/*otherwise Languages list not span 3 columns*/
 .languages_list.multicolumn3 .language.name {float:none; display: block;}

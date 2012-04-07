@@ -9,10 +9,13 @@
   <h2 class="pagetitle">{% trans "Welcome to Babelzilla" %}</h2>
 {% endblock %}
 
-{% block content %}
+{% block content_main %}
 <style>
-#intro {width: 47%;}
+#intro {width: 45%;}
 div.stats {display: inline-block; }
+/* no top padding, background goes tight with top line */
+div#login_index {padding: 0; padding-right: 20px; margin-top:-30px;}
+
 </style>
 
 {% if not request.user.is_authenticated %}
@@ -22,7 +25,7 @@ div.stats {display: inline-block; }
   </div>
 </div>
 {% else %}
-<div style="float:right; width: 52%"">
+<div style="float:right; width: 52%">
 
 <h3>{% trans "Maintained by you" %}</h3>
 {% if maintained_projects %}
