@@ -1,0 +1,51 @@
+/* Alas, real styling of SELECTs is not yet possible in Mozilla, see bug 649849
+select {
+    background-image: -moz-linear-gradient(center top , #efefef, #cfcfcf);
+    border: 1px solid #ccc;
+    border-color: #ccc #aaa #aaa #ccc !important;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px #DDDDDD;
+    }
+select:hover {
+    background-image: -moz-linear-gradient(center top , #fafafa, #dadada);
+    box-shadow:1px 1px 2px #bbb;
+    }
+*/
+
+.buttonized, .buttonized_disabled, .buttonized2, .buttonized_disabled2 {
+  border-color: #ccc #aaa #aaa #ccc !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-radius: 4px !important;
+}
+
+.buttonized, .buttonized2 {
+    background-image: -o-linear-gradient(#efefef, #cfcfcf);
+    background-image: -moz-linear-gradient(#efefef, #cfcfcf);
+    background-image: -webkit-linear-gradient(#efefef, #cfcfcf);
+    }
+.buttonized:hover, .buttonized2:hover  {
+    background-image: -o-linear-gradient(#fafafa, #dadada);
+    background-image: -moz-linear-gradient(#fafafa, #dadada);
+    background-image: -webkit-linear-gradient(#fafafa, #dadada);
+    }
+
+input.i16, .i16.buttonized, .microform input[type="submit"]
+ { background-position: 5px 50%, 0 0; }
+
+.i16.project {
+    background-image: url("../images/addon.png");
+}
+
+.i16.xpi.buttonized_disabled {
+    background-image:url('../images/addon_disabled.png');
+    background-position: 5px 50%;
+    padding-left: 27px;
+}
+
+.i16.xpi.buttonized{background-image:url('../images/addon.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+    background-image:url('../images/addon.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+    background-image:url('../images/addon.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.xpi.buttonized:hover{background-image:url('../images/addon.png'),-moz-linear-gradient(#fafafa, #dadada);
+    background-image:url('../images/addon.png'),-webkit-linear-gradient(#fafafa, #dadada);
+    background-image:url('../images/addon.png'),-o-linear-gradient(#fafafa, #dadada);}
