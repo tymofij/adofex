@@ -93,8 +93,9 @@ body {
 
 div#content h2.pagetitle {
     color: #444;
-    font-size: 2.8em;
+    font-size: 2.5em;
     font-family: Ubuntu, Verdana, sans-serif;
+    letter-spacing: -1.3px;
 }
 
 #fancybox-close { border-bottom: none;}
