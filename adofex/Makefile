@@ -10,3 +10,12 @@ shell:
 
 dbshell:
 	@./manage.py dbshell
+
+install:
+	./manage.py syncdb --noinput
+	./manage.py migrate
+	./manage.py txcreatenoticetypes
+	./manage.py txlanguages
+	./manage.py mzlanguages
+	./manage.py check_permissions
+	./manage.py collectstatic
