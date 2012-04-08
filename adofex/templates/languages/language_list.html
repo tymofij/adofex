@@ -1,0 +1,6 @@
+{% extends "transifex/languages/language_list.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load txcommontags %}
+
+{% block content_title %}<h2 class="pagetitle">{% trans "Languages on Babelzilla" %} {% render_metacount language_list _("languages") %}</h2>{% endblock %}

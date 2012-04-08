@@ -26,13 +26,15 @@ div#header div#header_trinav { position: absolute; top: 30px; right: 0;}
 #header_trinav .searchform_plain input[type="submit"] { margin-top: 6px; }
 
 div#content {
-    background: -moz-linear-gradient(#FCFDFE, #F4F8FC) repeat scroll 0 0 #FCFDFE;
+    background: -moz-linear-gradient(#FCFDFE, #F4F8FC) #FCFDFE;
+    background: -webkit-linear-gradient(#FCFDFE, #F4F8FC) #FCFDFE;
+    background: -o-linear-gradient(#FCFDFE, #F4F8FC) #FCFDFE;
     border: 1px solid #C9DDF2;
     border-radius: 5px;
     box-shadow: 0 -2px 0 rgba(204, 223, 243, 0.3) inset, 0 0 1px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
     min-height: 100px;
-    position: relative z-index: 200;
+    position: relative; z-index: 200;
 }
 
 /* footer magic */

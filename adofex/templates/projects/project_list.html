@@ -3,41 +3,13 @@
 {% load txcommontags %}
 {% load pagination_tags %}
 
-{# Spawned to exclude Mozilla from general project list #}
-
-{% block content_main %}
-  {% autopaginate project_list 20 %}
-  <div class="project_list obj_biglist">
-  <div class="pagination top">{% paginate %}</div>
-  {% for project in project_list %}
-    {% if project.slug != 'mozilla' %}
-    <div class="entry">
-      <h3 class="name"><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></h3>
-      <p class="description">{{ project.description }}</p>
-      <p>
-       {% with project.resources.all|slice:"0:4" as resources %}
-        <span class="i16 resource compact">{% trans "Resources:" %}
-          {% for resource in resources %}
-            <a class="resource" title='Go to resource "{{ resource.name }}"' href="{{ resource.get_absolute_url }}">{{ resource.name }}</a>
-            {% if not forloop.last %},{% endif %}
-          {% empty %}
-			{% trans "No resources in this project." %}
-          {% endfor %}
-        </span>
-       {% endwith %}
-      {% if project.tags %}| <span class="i16 tag compact">{% trans "Tags:" %} {% for tag in project.tagsobj.all|slice:"0:6" %}<a class="tag" href="{% url project_tag_list tag=tag %}">{{ tag }}</a> {% endfor %}</span>{% endif %}
-      </p>
-    </div>
-    {% endif %}
-  {% endfor %}
-  <div class="pagination bottom">{% paginate %}</div>
-  </div>
-  {% if not project_list %}
-  <p>{% trans "Bummer. No projects could be found." %}</p>
-    {% if request.user.is_authenticated and perms.projects.add_project %}
-  {% url project_create as project_create %}
-  <p>{% blocktrans %}Why don't you <a href="{{ project_create }}">add one</a>?{% endblocktrans %}</p>
-    {% endif %}
+{% block content_title %}
+<h2 class="pagetitle">
+  {% if tag %}
+  Showing projects tagged with: {{ tag.name }}
+  {% else %}
+  {% trans "Projects on Babelzilla" %}
   {% endif %}
-
+  {% render_metacount project_list _("projects") %}
+</h2>
 {% endblock %}
