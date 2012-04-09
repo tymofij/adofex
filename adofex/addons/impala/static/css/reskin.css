@@ -92,3 +92,6 @@ div.searchform.content_header_prim input.query {width: 18em; background: none;}
     background: -moz-linear-gradient(left center , rgba(255, 255, 255, 0), #FCFDFE) transparent;
     background: -webkit-linear-gradient(left center , rgba(255, 255, 255, 0), #FCFDFE) transparent;
 }
+
+/* to make Verdana fit */
+div.team-statbar > div.stats {width:530px !important;}
