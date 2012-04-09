@@ -34,18 +34,16 @@ div#content {
     box-shadow: 0 -2px 0 rgba(204, 223, 243, 0.3) inset, 0 0 1px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
     min-height: 100px;
-    position: relative; z-index: 200;
 }
 
 /* footer magic */
-div#wrapper{ position:relative; z-index: 3; }
+div#wrapper{ position:relative; }
 
 div#footer {
     max-width: none;
     background: url(../images/bg-footer.png) 0 0 repeat-x;
     padding-top: 123px;
     position: relative;
-    z-index: 1;
     bottom: 0;
     width: 100%;
     font-family: Verdana, sans-serif;
