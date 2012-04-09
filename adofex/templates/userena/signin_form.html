@@ -1,0 +1,14 @@
+{% extends 'transifex/userena/base_userena.html' %}
+{% load i18n %}
+{% load txcommontags %}
+
+{# just to add tabindex here #}
+
+{% block extrajs%}
+{{ block.super }}
+<script  type="text/javascript">
+$(document).ready(function(){
+    $('<a class="forgot-pass" href="{% url userena_password_reset %}" tabindex="-1">({% trans "Forgot your password?" %})</a>').appendTo('label[for="id_password"]');
+});
+</script>
+{% endblock %}

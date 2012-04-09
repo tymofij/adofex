@@ -3,6 +3,7 @@
 {% load txcommontags %}
 {% load pagination_tags %}
 
+{# replaced Transifex with Babelzilla #}
 {% block content_title %}
 <h2 class="pagetitle">
   {% if tag %}
@@ -12,4 +13,12 @@
   {% endif %}
   {% render_metacount project_list _("projects") %}
 </h2>
+{% endblock %}
+
+{# wording, removed 'this' #}
+{% block content_header_sec %}
+<p>
+  <a class="simlink rss_feed" href="{% url project_latest_feed %}" title="{% trans "Projects feed" %}"><img border="0" src="{% static "images/icons/feed.png" %}" /><span>{% trans "Subscribe to  feed" %}</span>&nbsp;
+  </a>
+</p>
 {% endblock %}
