@@ -1,5 +1,8 @@
+html {min-height: 100%;}
+
 body {
-    background: url(../images/bg-header.png) repeat-x;
+    background: url(../images/bg-header.png) top repeat-x,
+                url(../images/bg-footer.png) bottom repeat-x;
     font-family: Verdana, sans-serif;
     font-size: 13px;
 }
@@ -41,10 +44,8 @@ div#wrapper{ position:relative; }
 
 div#footer {
     max-width: none;
-    background: url(../images/bg-footer.png) 0 0 repeat-x;
-    padding: 105px 0 5px;
+    padding: 30px 0 5px;
     position: relative;
-    z-index: -10;
     bottom: 0;
     width: 100%;
     font-family: Verdana, sans-serif;
@@ -54,6 +55,7 @@ div#footer {
     div#footer .left, div#footer .center, div#footer .right,
     div#footer .version, div#footer .powered { color: #ddd; font-size: 10px; }
     div#footer a { color: #96b6d6; }
+    div#footer p.main-footer {padding: 0;}
     div#footer p.main-footer a {
         color: white;
         font-weight:bold; font-size: 11px;
