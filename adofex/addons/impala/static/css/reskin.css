@@ -42,7 +42,7 @@ div#wrapper{ position:relative; }
 div#footer {
     max-width: none;
     background: url(../images/bg-footer.png) 0 0 repeat-x;
-    padding-top: 123px;
+    padding: 105px 0 5px;
     position: relative;
     z-index: -10;
     bottom: 0;
