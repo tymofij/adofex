@@ -44,6 +44,7 @@ div#footer {
     background: url(../images/bg-footer.png) 0 0 repeat-x;
     padding-top: 123px;
     position: relative;
+    z-index: -10;
     bottom: 0;
     width: 100%;
     font-family: Verdana, sans-serif;
@@ -80,3 +81,12 @@ div.searchform.content_header_prim input.query {width: 18em; background: none;}
 
 /*otherwise Languages list not span 3 columns*/
 .languages_list.multicolumn3 .language.name {float:none; display: block;}
+
+
+/* cool fade at the end of the text. updated to match main bg color */
+.fadecontent:after { background: #FCFDFE; }
+.fadecontent:before {
+    background: -o-linear-gradient(left center , rgba(255, 255, 255, 0), #FCFDFE) transparent;
+    background: -moz-linear-gradient(left center , rgba(255, 255, 255, 0), #FCFDFE) transparent;
+    background: -webkit-linear-gradient(left center , rgba(255, 255, 255, 0), #FCFDFE) transparent;
+}
