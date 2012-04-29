@@ -138,7 +138,10 @@ class Bundle(object):
             for lang in self.locales.keys():
                 if lang.code in ('en-US', 'en'):
                     self.source_lang = lang
-                    break
+                    return
+            raise Exception("Source language was not found")
+        else:
+            raise Exception("No locales to search for source language")
 
 
 class XpiBundle(Bundle):
