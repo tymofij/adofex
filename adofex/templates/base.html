@@ -1,12 +1,12 @@
 {% extends "base-sample.html" %}
-{% load i18n %}
+{% load i18n  staticfiles %}
 
 {% block title %}{% trans "Babelzilla" %}{% endblock %}
 
-{% block logo %}<img border="0" src="{{ STATIC_URL }}impala/images/logo.png"  alt="{% trans "Go to start page" %}" />{% endblock %}
+{% block logo %}<img border="0" src="{% static 'impala/images/logo.png' %}"  alt="{% trans "Go to start page" %}" />{% endblock %}
 
 {% block shortcut_icon %}
-  <link rel="shortcut icon" href="{{ STATIC_URL }}impala/images/favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="{% static 'impala/images/favicon.png' %}" type="image/png" />
 {% endblock %}
 
 {% block navmenu %}<b>
