@@ -2,8 +2,6 @@
 
 from transifex.projects.models import Project
 from transifex.languages.models import Language
-from transifex.resources.models import Resource, SourceEntity, Translation
-from transifex.resources.handlers import invalidate_stats_cache
 
 from django.core.management.base import BaseCommand, CommandError
 from django.template.defaultfilters import slugify
@@ -14,6 +12,9 @@ class Command(BaseCommand):
     help = "Copies all data from legacy Babelzilla DB to Transifex"
 
     def handle(self, **options):
+        from transifex.resources.models import Resource, SourceEntity, Translation
+        from transifex.resources.handlers import invalidate_stats_cache
+
         en = Language.objects.get(code='en-US')
 
         try:
