@@ -17,15 +17,6 @@
 
 <form method='post' enctype="multipart/form-data">{% csrf_token %}
 
-<h3>Import directly from BabelZilla:</h3>
-    <p>
-    Extension ID: {{ form.bzid }}
-    <input type="submit" class="i16 submit buttonized" value="Go!"/>
-    </p>
-    {{ form.bzid.errors }}
-
-<div style="padding: 30px 0"> -= OR =-</div>
-
 <h3>Upload your XPI file:</h3>
     <p>
     {{ form.xpifile }}

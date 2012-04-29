@@ -69,18 +69,6 @@ def moz_import(request, project_slug):
                 except:
                     logger.exception("ERROR importing translations from XPI file")
                     messages += ["ERROR importing translations from XPI file"]
-            elif form.cleaned_data['bzid']:
-                try:
-                    tar = StringIO(urllib2.urlopen(
-                        BZ_URL % form.cleaned_data['bzid']).read())
-                    bundle = TarBundle(tar, project)
-                    # just in case we fail on save()
-                    messages = bundle.messages
-                    bundle.save()
-                    messages = bundle.messages
-                except:
-                    logger.exception("ERROR importing translations from BabelZilla")
-                    messages +=["ERROR importing translations from BabelZilla"]
     else:
         form = ImportForm()
 
