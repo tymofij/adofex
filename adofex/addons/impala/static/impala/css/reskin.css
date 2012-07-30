@@ -65,6 +65,7 @@ div#footer {
 
 
 .tabs a { color: #888 ; }
+.tabs > li:not(.selected) a:hover {padding: 5px 19px 3px; border:1px solid silver; border-width: 1px 1px 0 1px; border-top-left-radius: 5px; border-top-right-radius: 5px; }
 .tabs > li.selected { border-top-left-radius: 5px; border-top-right-radius: 5px; }
 
 /*progress indicators*/

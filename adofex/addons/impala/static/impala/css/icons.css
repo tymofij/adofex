@@ -4,12 +4,12 @@
 .i16.accept_translation.buttonized:hover{background-image:url('../../images/icons/database_edit.png'),-moz-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/database_edit.png'),-webkit-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/database_edit.png'),-o-linear-gradient(#fafafa, #dadada);}
-.i16.action.buttonized{background-image:url('../../images/icons/action.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/action.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/action.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.action.buttonized:hover{background-image:url('../../images/icons/action.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/action.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/action.png'),-o-linear-gradient(#fafafa, #dadada);}
+.i16.action.buttonized{background-image:url('../../images/icons/lightning.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/lightning.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/lightning.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.action.buttonized:hover{background-image:url('../../images/icons/lightning.png'),-moz-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/lightning.png'),-webkit-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/lightning.png'),-o-linear-gradient(#fafafa, #dadada);}
 .i16.action_go.buttonized{background-image:url('../../images/icons/progress.gif'),-moz-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/progress.gif'),-webkit-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/progress.gif'),-o-linear-gradient(#efefef, #cfcfcf);}
@@ -106,12 +106,12 @@
 .i16.cog.buttonized:hover{background-image:url('../../images/icons/cog.png'),-moz-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/cog.png'),-webkit-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/cog.png'),-o-linear-gradient(#fafafa, #dadada);}
-.i16.copy_source.buttonized{background-image:url('../../images/icons/next.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/next.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/next.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.copy_source.buttonized:hover{background-image:url('../../images/icons/next.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/next.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/next.png'),-o-linear-gradient(#fafafa, #dadada);}
+.i16.copy_source.buttonized{background-image:url('../../images/icons/to_file.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/to_file.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/to_file.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.copy_source.buttonized:hover{background-image:url('../../images/icons/to_file.png'),-moz-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/to_file.png'),-webkit-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/to_file.png'),-o-linear-gradient(#fafafa, #dadada);}
 .i16.collection.buttonized{background-image:url('../../images/icons/basket.png'),-moz-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/basket.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/basket.png'),-o-linear-gradient(#efefef, #cfcfcf);}
@@ -184,12 +184,12 @@
 .i16.drink.buttonized:hover{background-image:url('../../images/icons/drink.png'),-moz-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/drink.png'),-webkit-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/drink.png'),-o-linear-gradient(#fafafa, #dadada);}
-.i16.changed.buttonized,.i16.edit.buttonized{background-image:url('../../images/icons/bpencil.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/bpencil.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/bpencil.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.changed.buttonized:hover,.i16.edit.buttonized:hover{background-image:url('../../images/icons/bpencil.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/bpencil.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/bpencil.png'),-o-linear-gradient(#fafafa, #dadada);}
+.i16.changed.buttonized,.i16.edit.buttonized{background-image:url('../../images/icons/pencil.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/pencil.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/pencil.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.changed.buttonized:hover,.i16.edit.buttonized:hover{background-image:url('../../images/icons/pencil.png'),-moz-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/pencil.png'),-webkit-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/pencil.png'),-o-linear-gradient(#fafafa, #dadada);}
 .i16.edit_file.buttonized{background-image:url('../../images/icons/page_white_edit.png'),-moz-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/page_white_edit.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/page_white_edit.png'),-o-linear-gradient(#efefef, #cfcfcf);}
@@ -466,12 +466,12 @@
 .i16.spellcheck.buttonized:hover{background-image:url('../../images/icons/spellcheck.png'),-moz-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/spellcheck.png'),-webkit-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/spellcheck.png'),-o-linear-gradient(#fafafa, #dadada);}
-.i16.override_save.buttonized{background-image:url('../../images/icons/save.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/save.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/save.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.override_save.buttonized:hover{background-image:url('../../images/icons/save.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/save.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/save.png'),-o-linear-gradient(#fafafa, #dadada);}
+.i16.override_save.buttonized{background-image:url('../../images/icons/disk.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/disk.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/disk.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.override_save.buttonized:hover{background-image:url('../../images/icons/disk.png'),-moz-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/disk.png'),-webkit-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/disk.png'),-o-linear-gradient(#fafafa, #dadada);}
 .i16.save_all.buttonized{background-image:url('../../images/icons/save_all.png'),-moz-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/save_all.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/save_all.png'),-o-linear-gradient(#efefef, #cfcfcf);}
@@ -604,12 +604,12 @@
 .i16.tick.buttonized:hover{background-image:url('../../images/icons/tick.png'),-moz-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/tick.png'),-webkit-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/tick.png'),-o-linear-gradient(#fafafa, #dadada);}
-.i16.tick_disabled.buttonized{background-image:url('../../images/icons/tick_disabled.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/tick_disabled.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/tick_disabled.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.tick_disabled.buttonized:hover{background-image:url('../../images/icons/tick_disabled.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/tick_disabled.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/tick_disabled.png'),-o-linear-gradient(#fafafa, #dadada);}
+.i16.tick_disabled.buttonized{background-image:url('../../images/icons/tick-disabled.png'),-moz-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/tick-disabled.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
+	background-image:url('../../images/icons/tick-disabled.png'),-o-linear-gradient(#efefef, #cfcfcf);}
+.i16.tick_disabled.buttonized:hover{background-image:url('../../images/icons/tick-disabled.png'),-moz-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/tick-disabled.png'),-webkit-linear-gradient(#fafafa, #dadada);
+	background-image:url('../../images/icons/tick-disabled.png'),-o-linear-gradient(#fafafa, #dadada);}
 .i16.tick_circle.buttonized{background-image:url('../../images/icons/accept.png'),-moz-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/accept.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/accept.png'),-o-linear-gradient(#efefef, #cfcfcf);}
