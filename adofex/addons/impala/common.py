@@ -15,7 +15,6 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.generic import list_detail
 
 from notification import models as notification
-from haystack.query import SearchQuerySet
 
 from actionlog.models import LogEntry, action_logging
 from transifex.languages.models import Language
@@ -24,8 +23,6 @@ from transifex.projects.models import Project
 from transifex.simpleauth.forms import RememberMeAuthForm
 from transifex.txcommon.filters import LogEntryFilter
 from transifex.txcommon.log import logger
-from transifex.txcommon.haystack_utils import prepare_solr_query_string, \
-    fulltext_fuzzy_match_filter
 
 from transifex.releases import RELEASE_ALL_DATA
 from transifex.releases.models import Release
