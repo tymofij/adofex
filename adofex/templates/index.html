@@ -20,8 +20,27 @@ div#login_index {padding: 0; padding-right: 20px; margin-top:-30px;}
 
 {% if not request.user.is_authenticated %}
 <div id="login_index">
-  <div class="divright">
-  {% include "simpleauth/login_box.html" %}
+  <div class="divright" >
+<form id="login-form" class="tx-form" action="{% url userena_signin %}" method="post">
+<div id="login_index login-block" class="generic_form">
+<fieldset>
+<legend>Sign in</legend>
+      {% csrf_token %}
+<div class="input-cell">
+    <div class="form-label-tag"><label for="id_identification">Email or username</label></div>
+    <div class="form-field"><input id="id_identification" class="required" name="identification" maxlength="75" type="text"></div>
+</div>
+<div class="input-cell">
+    <div class="form-label-tag"><label for="id_password">Password<a tabindex="-1" class="forgot-pass" href="/accounts/password/reset/">(Forgot it?)</a></label></div>
+    <div class="form-field"><input pwfprops="," id="id_password" class="required" name="password" type="password"></div>
+</div>
+<div class="checkbox">
+    <label for="id_remember_me"><input name="remember_me" id="id_remember_me" type="checkbox"> Remember me</label>
+</div>
+<input class="i16 tick buttonized" type="submit" value="Sign in">
+
+</fieldset></div>
+</form>
   </div>
 </div>
 {% else %}
