@@ -5,6 +5,10 @@ from django.conf import settings
 from transifex.projects.urls import PROJECT_URL
 from transifex.releases.urls import RELEASE_URL_PARTIAL
 from transifex.urls import PROJECTS_URL
+from impala.forms import EditProfileForm
+
+from django.contrib.auth.decorators import login_required
+from txcommon.views import profile_edit as txcommon_profile_edit
 
 RELEASE_URL = RELEASE_URL_PARTIAL[1:]
 
@@ -48,5 +52,8 @@ urlpatterns = patterns('',
         view = message_watchers,
         name = 'message_watchers'),
 
-
+    url(regex   =   r'^accounts/(?P<username>(?!signout|signup|signin)[\.\w]+)/$',
+        view    =   login_required(txcommon_profile_edit),
+        kwargs  =   {'edit_profile_form': EditProfileForm},
+        name    =   'userena_profile_edit'),
 )
