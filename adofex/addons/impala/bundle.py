@@ -83,7 +83,13 @@ class Bundle(object):
                 continue
             Handler = _get_handler(filename)
             handler = Handler(filename=filename, resource=self.resources[filename], language=lang, content=data)
-            handler.parse_file(is_source=is_source)
+            try:
+                handler.parse_file(is_source=is_source)
+            except Exception as e:
+                # empty/broken file, ignore it
+                if 'not able to extract any string' in e.message:
+                    self.log(e.message, style="color:red")
+                    continue
             updated, added = handler.save2db(is_source=is_source)
             self.log("%s: %s updated, %s added" %
                 (filename, updated, added), style="padding-left:12px" )

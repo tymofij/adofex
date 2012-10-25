@@ -17,9 +17,8 @@ class ImportForm(forms.Form):
         xpifile = self.cleaned_data['xpifile']
         if xpifile:
             try:
+                # TODO: XPIManager dropped .test(), might need to add some actual tests here
                 xpi = XPIManager(xpifile, name=xpifile.name)
-                if xpi.test():
-                    raise
             except:
                 raise forms.ValidationError(_("File doesn't seem to be valid XPI"))
         return xpifile
