@@ -28,6 +28,12 @@ class Command(BaseCommand):
             p.save()
             for f in legacy.File.objects.filter(extension=e):
                 r = Resource(name=f.name, project=p, slug=slugify(f.name)+str(f.id))
+                if f.name.endswith('.dtd'):
+                    r.i18n_type = 'DTD'
+                elif f.name.endswith('.properties'):
+                    r.i18n_type = 'MOZILLAPROPERTIES'
+                else:
+                    raise Exception("Unknown file type")
                 r.save()
                 for s in legacy.String.objects.filter(file=f, extension=e).select_related('language'):
                     entity, created = SourceEntity.objects.get_or_create(resource=r, string=s.name)
