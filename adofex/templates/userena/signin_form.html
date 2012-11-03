@@ -1,0 +1,87 @@
+{# PATCH should be removed once https://github.com/transifex/transifex/pull/160 goes upstream #}
+
+{% extends 'userena/base_userena.html' %}
+{% load i18n %}
+{% load txcommontags %}
+
+{% block content_title %}
+
+
+{% endblock %}
+
+{% block extrajs%}
+{{ block.super }}
+<script  type="text/javascript">
+$(document).ready(function(){
+	$('<a class="forgot-pass" tabindex="-1" href="{% url userena_password_reset %}">({% trans "Forgot your password?" %})</a>').appendTo('label[for="id_password"]');
+});
+</script>
+{% endblock %}
+
+{% block content_main %}
+
+<div style="margin:0em auto;" class="clearfix">
+	<h2 style="margin-bottom:1.5em;display:inline-block;">{% trans "Sign in" %}</h2>
+	<div style="width:700px;" class="clearfix">
+<div class="grid_4 alpha">
+
+
+	<form id="login-form" class="tx-form" action="" method="post">
+	  {% csrf_token %}
+
+	  <fieldset style="  border-right:3px solid #EB8C25;">
+	    {{ form.non_field_errors }}
+	    {% for field in form %}
+	    {{ field.errors }}
+	    {% comment %} Displaying checkboxes differently {% endcomment %}
+	    {% if field.name == 'remember_me' %}
+	    <div class="checkbox">
+	    	<label for="id_{{ field.name }}">{{ field }} {{ field.label }}</label>
+	    </div>
+	    {% else %}
+	    <div class="input-cell">
+	    	<div class="form-label-tag">{{ field.label_tag }}</div>
+	    	<div class="form-field">{{ field }}</div>
+	    </div>
+	    {% endif %}
+	    {% endfor %}
+		</fieldset>
+	  <input type="submit" class="i16 tick buttonized" value="{% trans "Sign in" %}" />
+	  	  {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
+	</form>
+</div>
+
+{% settings USE_SOCIAL_LOGIN %}
+{% settings SOCIAL_AUTH_ENABLED_BACKENDS as BACKENDS %}
+
+<div id="login-utility-list" class="grid_4 omega">
+  {# http://code.djangoproject.com/ticket/7239 #}
+
+  {% if USE_SOCIAL_LOGIN %}
+  <h5 class="i16 orange-arrow">{% trans "You can also login using:" %}</h5>
+  {% block social_login_backends %}
+  <ul>
+        {% url socialauth_begin 'twitter' as social_twitter_url %}
+		{% if 'twitter' in BACKENDS and social_twitter_url %}
+		  <li><a id="twitter-login" href="{{ social_twitter_url }}?next={{ request|get_next }}" class="social-login smooth-transition" title="{% trans 'Login using Twitter' %}"></a></li>
+		{% endif %}
+		{% if 'linkedin' in BACKENDS %}
+		  <li><a id="linkedin-login" href="{% url socialauth_begin 'linkedin' %}?next={{ request|get_next }}" class="social-login smooth-transition" title="{% trans 'Login using Linkedin' %}"></a></li>
+		{% endif %}
+		{% if 'google-oauth2' in BACKENDS %}
+		  <li><a id="google-login" href="{% url socialauth_begin 'google-oauth2' %}?next={{ request|get_next }}" class="social-login smooth-transition" title="{% trans 'Login using Google' %}"></a></li>
+		{% endif %}
+		{% if 'facebook' in BACKENDS %}
+		  <li><a id="facebook-login" href="{% url socialauth_begin 'facebook' %}?next={{ request|get_next }}" class="social-login smooth-transition" title="{% trans 'Login using Facebook' %}"></a></li>
+		{% endif %}
+  </ul>
+  {% endblock %}
+  {% endif %}
+
+	<h5 style="margin-top:17px;" class="i16 orange-arrow">{% trans "Not yet a member?" %}&nbsp;<a href="{% url userena_signup %}"><strong>{% trans "Register now!" %}</strong></a></h5>
+</div>
+
+
+</div>
+</div>
+{% endblock %}
