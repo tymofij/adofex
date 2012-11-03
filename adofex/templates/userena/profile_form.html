@@ -10,11 +10,12 @@
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
     <script type="text/javascript">
     $(document).ready(function(){
-    	$(".tipsy_enable").tipsy({'html':true, 'gravity':'s'});
-			$('.tx-form .required, .tx-form .field-helptext').each(function(){
-				$(this).appendTo($(this).siblings('label'));
-			});
-		});
+        $(".tipsy_enable").tipsy({'html':true, 'gravity':'s'});
+            $('.tx-form .required, .tx-form .field-helptext').each(function(){
+                $(this).appendTo($(this).siblings('label'));
+            });
+        $("#id_languages").chosen()
+        });
     </script>
 
 {% endblock %}
@@ -26,6 +27,7 @@
   <form class="tx-form dual" action="" enctype="multipart/form-data" method="post">
     {% csrf_token %}
 	  <fieldset>
+     {# PATCH: removed looking for work #}
      {% get_fieldset first_name,last_name,location,languages,tags,blog,twitter,about as profile_fields from form %}
       {% for field in profile_fields %}
         <div id='{{field.html_name}}' class="tx-form-field">
