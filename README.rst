@@ -14,7 +14,7 @@ Installation Instructions
 
     mkdir ~/devel
     cd ~/devel
-    hg clone https://bitbucket.org/indifex/transifex
+    git clone git://github.com/transifex/transifex.git
 
     pip install -r requirements.txt
 
