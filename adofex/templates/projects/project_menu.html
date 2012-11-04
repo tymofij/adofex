@@ -1,0 +1,18 @@
+{% extends "transifex/projects/project_menu.html" %}
+
+{% block project_header %}
+{{ block.super }}
+
+<style>
+#content {position:relative;}
+</style>
+
+<div style="position:absolute; right:20px">
+<a
+  class="i16 buttonized downsource"
+  href="{% url download_big_zip_for_use project.slug %}"
+  rel="nofollow"
+  >ZIP</a>
+</div>
+
+{% endblock %}
