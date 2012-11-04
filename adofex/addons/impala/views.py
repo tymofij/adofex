@@ -5,6 +5,7 @@ from  StringIO import  StringIO
 from validator.chromemanifest import ChromeManifest
 
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
@@ -21,7 +22,7 @@ from transifex.languages.models import Language
 from transifex.resources.backends import FormatsBackend, FormatsBackendError
 from transifex.resources.formats.registry import registry
 from transifex.resources.formats.compilation import Mode
-from transifex.projects.permissions import pr_resource_add_change
+from transifex.projects.permissions import pr_resource_add_change, pr_project_private_perm
 from transifex.txcommon.decorators import one_perm_required_or_403
 from transifex.txcommon.log import logger
 from notification.models import ObservedItem, send
@@ -118,9 +119,9 @@ def message_watchers(request, project_slug):
         })
 
 
-def project_language_download(request, project_slug, lang_code, skip=False):
+def get_translation_zip(request, project_slug, lang_code, mode=None):
     """
-    Download all resources in given release/language in one handy ZIP file
+    Download all resources in given language in one ZIP file
     """
     project = get_object_or_404(Project, slug=project_slug)
     language = get_object_or_404(Language, code=lang_code)
@@ -128,7 +129,7 @@ def project_language_download(request, project_slug, lang_code, skip=False):
     zip_buffer = StringIO()
     zip_file = zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED)
     for resource in Resource.objects.filter(project=project):
-        template = _compile_translation_template(resource, language, skip)
+        template = _compile_translation_template(resource, language, mode)
         zip_file.writestr(resource.name, template)
 
     zip_file.close()
@@ -141,8 +142,30 @@ def project_language_download(request, project_slug, lang_code, skip=False):
     response.write(zip_contents)
     return response
 
+def get_all_translations_zip(request, project_slug, mode=None):
+    """
+    Download all resources/languages in given project in one big ZIP file
+    """
+    project = get_object_or_404(Project, slug=project_slug)
+    resources = Resource.objects.filter(project=project)
+    zip_buffer = StringIO()
+    zip_file = zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED)
+    for stat in RLStats.objects.for_user(request.user).by_project_language_aggregated(project):
+        for resource in resources:
+            template = _compile_translation_template(resource, stat.object, mode)
+            zip_file.writestr("%s/%s" % (stat.object.code, resource.name), template)
 
-def project_language_install(request, project_slug, lang_code):
+    zip_file.close()
+    zip_buffer.flush()
+    zip_contents = zip_buffer.getvalue()
+
+    response = HttpResponse(mimetype='application/zip')
+    response['Content-Disposition'] = 'filename=%s.zip' % (project_slug)
+    response.write(zip_contents)
+    return response
+
+
+def get_translation_xpi(request, project_slug, lang_code):
     """ Compile project's XPI in given language
     """
     project = get_object_or_404(Project, slug=project_slug)
@@ -187,37 +210,39 @@ def project_language_install(request, project_slug, lang_code):
     return response
 
 
-def project_download(request, project_slug, skip=False):
-    """
-    Download all resources/languages in given project in one handy ZIP file
-    """
-    project = get_object_or_404(Project, slug=project_slug)
-    resources = Resource.objects.filter(project=project)
-    zip_buffer = StringIO()
-    zip_file = zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED)
-    for stat in RLStats.objects.for_user(request.user).by_project_language_aggregated(project):
-        for resource in resources:
-            template = _compile_translation_template(resource, stat.object, skip)
-            zip_file.writestr("%s/%s" % (stat.object.code, resource.name), template)
-
-    zip_file.close()
-    zip_buffer.flush()
-    zip_contents = zip_buffer.getvalue()
-
-    response = HttpResponse(mimetype='application/zip')
-    response['Content-Disposition'] = 'filename=%s.zip' % (project_slug)
-    response.write(zip_contents)
-    return response
-
-
-def _compile_translation_template(resource=None, language=None, skip=False):
+def _compile_translation_template(resource=None, language=None, mode=None):
     """
     Given a resource and a language we create the translation file
     """
     # FIXME: doesn't work with Language from RLStats. DAFAQ?
     language = Language.objects.get(code=language.code)
+    if not mode:
+        mode = Mode.DEFAULT # meaning "for use"
+    return FormatsBackend(resource, language).compile_translation(mode=mode)
 
-    # empty strings or English substitutes
-    mode = Mode.TRANSLATED if skip else Mode.DEFAULT
-    fb = FormatsBackend(resource, language)
-    return fb.compile_translation(mode=mode)
+
+# COPY: copied from resourses.views to change filename to simple
+# Restrict access only for private projects (?)
+# DONT allow anonymous access
+@login_required
+@one_perm_required_or_403(pr_project_private_perm, (Project, 'slug__exact', 'project_slug'))
+def get_translation_file(request, project_slug, resource_slug, lang_code, **kwargs):
+    """
+    View to export all translations of a resource for the requested language
+    and give the translation file back to the user.
+    """
+    resource = get_object_or_404(Resource, project__slug = project_slug, slug = resource_slug)
+    language = get_object_or_404(Language, code=lang_code)
+    try:
+        fb = FormatsBackend(resource, language)
+        template = fb.compile_translation(**kwargs)
+    except Exception, e:
+        messages.error(request, "Error compiling translation file.")
+        logger.error("Error compiling '%s' file for '%s': %s" % (language, resource, str(e)))
+        return HttpResponseRedirect(reverse('resource_detail',
+            args=[resource.project.slug, resource.slug]),)
+    response = HttpResponse(
+        template, mimetype=registry.mimetypes_for(resource.i18n_method)[0]
+    )
+    response['Content-Disposition'] = ('attachment; filename=%s' % resource.name)
+    return response
