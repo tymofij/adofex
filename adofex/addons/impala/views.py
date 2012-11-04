@@ -18,7 +18,9 @@ from transifex.projects.models import Project
 from transifex.resources.models import Resource
 from transifex.releases.models import Release, RLStats
 from transifex.languages.models import Language
+from transifex.resources.backends import FormatsBackend, FormatsBackendError
 from transifex.resources.formats.registry import registry
+from transifex.resources.formats.compilation import Mode
 from transifex.projects.permissions import pr_resource_add_change
 from transifex.txcommon.decorators import one_perm_required_or_403
 from transifex.txcommon.log import logger
@@ -80,7 +82,6 @@ def moz_import(request, project_slug):
         })
 
 
-
 @login_required
 @one_perm_required_or_403(pr_resource_add_change,
     (Project, 'slug__exact', 'project_slug'))
@@ -117,19 +118,16 @@ def message_watchers(request, project_slug):
         })
 
 
-
-def release_language_download(request, project_slug, release_slug,
-                                                    lang_code, skip=False):
+def project_language_download(request, project_slug, lang_code, skip=False):
     """
     Download all resources in given release/language in one handy ZIP file
     """
     project = get_object_or_404(Project, slug=project_slug)
-    release = get_object_or_404(Release, slug=release_slug, project=project)
     language = get_object_or_404(Language, code=lang_code)
 
     zip_buffer = StringIO()
     zip_file = zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED)
-    for resource in Resource.objects.filter(releases=release):
+    for resource in Resource.objects.filter(project=project):
         template = _compile_translation_template(resource, language, skip)
         zip_file.writestr(resource.name, template)
 
@@ -138,15 +136,16 @@ def release_language_download(request, project_slug, release_slug,
     zip_contents = zip_buffer.getvalue()
 
     response = HttpResponse(mimetype='application/zip')
-    response['Content-Disposition'] = 'filename=%s_%s_%s.zip' % \
-        (project_slug, release_slug, lang_code)
+    response['Content-Disposition'] = 'filename=%s_%s.zip' % \
+        (project_slug, lang_code)
     response.write(zip_contents)
     return response
 
 
-def release_language_install(request, project_slug, release_slug, lang_code):
+def project_language_install(request, project_slug, lang_code):
+    """ Compile project's XPI in given language
+    """
     project = get_object_or_404(Project, slug=project_slug)
-    release = get_object_or_404(Release, slug=release_slug, project=project)
     language = get_object_or_404(Language, code=lang_code)
     xpi = get_object_or_404(XpiFile, project=project)
 
@@ -165,7 +164,7 @@ def release_language_install(request, project_slug, release_slug, lang_code):
             zip_file.writestr(item, data)
 
     # write our localization
-    for resource in Resource.objects.filter(releases=release):
+    for resource in Resource.objects.filter(project=project):
         template = _compile_translation_template(resource, language)
         zip_file.writestr("tx-locale/%s/%s" % (lang_code, resource.name), template)
 
@@ -188,18 +187,15 @@ def release_language_install(request, project_slug, release_slug, lang_code):
     return response
 
 
-def release_download(request, project_slug, release_slug, skip=False):
+def project_download(request, project_slug, skip=False):
     """
-    Download all resources in given release in one handy ZIP file
+    Download all resources/languages in given project in one handy ZIP file
     """
     project = get_object_or_404(Project, slug=project_slug)
-    release = get_object_or_404(Release, slug=release_slug, project=project)
-
-    resources = Resource.objects.filter(releases=release)
+    resources = Resource.objects.filter(project=project)
     zip_buffer = StringIO()
     zip_file = zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED)
-    for stat in RLStats.objects.select_related('language'
-                        ).by_release_aggregated(release):
+    for stat in RLStats.objects.for_user(request.user).by_project_language_aggregated(project):
         for resource in resources:
             template = _compile_translation_template(resource, stat.object, skip)
             zip_file.writestr("%s/%s" % (stat.object.code, resource.name), template)
@@ -209,7 +205,7 @@ def release_download(request, project_slug, release_slug, skip=False):
     zip_contents = zip_buffer.getvalue()
 
     response = HttpResponse(mimetype='application/zip')
-    response['Content-Disposition'] = 'filename=%s_%s.zip' % (project_slug, release_slug)
+    response['Content-Disposition'] = 'filename=%s.zip' % (project_slug)
     response.write(zip_contents)
     return response
 
@@ -218,29 +214,10 @@ def _compile_translation_template(resource=None, language=None, skip=False):
     """
     Given a resource and a language we create the translation file
     """
-    handler = registry.handler_for(resource.i18n_method)
-    handler.bind_resource(resource)
-    handler.set_language(language)
+    # FIXME: doesn't work with Language from RLStats. DAFAQ?
+    language = Language.objects.get(code=language.code)
 
-    if not skip:
-        # Monkey-patch handler to combine results with the source locale
-        def combine_strings(source_entities, language):
-            source_entities = list(source_entities)
-            result = old_get_strings(source_entities, language)
-            for entity in source_entities:
-                if not result.get(entity, None):
-                    trans = handler._get_translation(entity, source_language, 5)
-                    if trans:
-                        logger.debug(trans.string)
-                        result[entity] = trans.string
-            return result
-        source_language = resource.source_language
-        old_get_strings = handler._get_translation_strings
-        handler._get_translation_strings = combine_strings
-
-    handler.compile()
-
-    if not skip:
-        handler._get_translation_strings = old_get_strings
-
-    return handler.compiled_template
+    # empty strings or English substitutes
+    mode = Mode.TRANSLATED if skip else Mode.DEFAULT
+    fb = FormatsBackend(resource, language)
+    return fb.compile_translation(mode=mode)

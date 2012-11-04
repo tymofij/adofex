@@ -10,50 +10,46 @@ from impala.forms import EditProfileForm
 from django.contrib.auth.decorators import login_required
 from txcommon.views import profile_edit as txcommon_profile_edit
 
-RELEASE_URL = RELEASE_URL_PARTIAL[1:]
+LANG_URL = PROJECT_URL + r'language/(?P<lang_code>[\-_@\w]+)/'
 
-from impala.views import moz_import, message_watchers,\
-    release_download, release_language_download, release_language_install
-
-LANG_URL = PROJECTS_URL + RELEASE_URL[1:] + r'l/(?P<lang_code>[\-_@\w]+)/'
-
-urlpatterns = patterns('',
+urlpatterns = patterns('impala.views',
     url(regex = PROJECT_URL + r'import/$',
-        view = moz_import,
-        name = 'moz_import'),
+        view = "moz_import",
+        name = "moz_import"),
     url(
         regex = LANG_URL + 'install/$',
-        view =  release_language_install,
-        name = 'release_language_install',
+        view = "project_language_install",
+        name = "project_language_install",
     ),
     url(
         regex = LANG_URL + 'download/$',
-        view =  release_language_download,
-        name = 'release_language_download',
+        view = "project_language_download",
+        name = "project_language_download",
     ),
     url(
         regex = LANG_URL + 'download/skipped/$',
-        view =  release_language_download,
-        name = 'release_language_download_skipped',
+        view = "project_language_download",
+        name = "project_language_download_skipped",
         kwargs = {'skip': True},
     ),
    url(
-        regex = PROJECTS_URL+RELEASE_URL[1:] + r'download/$',
-        view =  release_download,
-        name = 'release_download',
+        regex = PROJECT_URL+ r'download/$',
+        view = "project_download",
+        name = "project_download",
     ),
    url(
-        regex = PROJECTS_URL+RELEASE_URL[1:] + r'download/skipped/$',
-        view =  release_download,
-        name = 'release_download_skipped',
+        regex = PROJECT_URL+ r'download/skipped/$',
+        view = "project_download",
+        name = "project_download_skipped",
         kwargs = {'skip': True},
     ),
     url(regex = PROJECT_URL + r'message/$',
-        view = message_watchers,
-        name = 'message_watchers'),
-
+        view = "message_watchers",
+        name = "message_watchers"
+    ),
     url(regex   =   r'^accounts/(?P<username>(?!signout|signup|signin)[\.\w]+)/$',
         view    =   login_required(txcommon_profile_edit),
         kwargs  =   {'edit_profile_form': EditProfileForm},
-        name    =   'userena_profile_edit'),
+        name    =   'userena_profile_edit'
+    ),
 )
