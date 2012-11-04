@@ -9,12 +9,12 @@ applied to Transifex itself (hopefully soon they will be merged in).
 Installation Instructions
 =========================
 
-1. Setup Transifex normally somewhere. This can be either in your
+1. Setup Transifex fork somewhere. This can be either in your
    Python path or elsewhere::
 
     mkdir ~/devel
     cd ~/devel
-    git clone git://github.com/transifex/transifex.git
+    git git clone -b adofex git://github.com/tymofij/transifex.git
 
     pip install -r requirements.txt
 

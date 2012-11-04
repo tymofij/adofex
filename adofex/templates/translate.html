@@ -259,7 +259,8 @@
                     // the source strings and the row tabs.
                     tabs = '<div class="source_string_wrapper">'
                            + plural_indicator
-                           + ' <div class="source_entity nodisplay" id="sourceentity_'+ oObj.iDataRow +'" ><span title="{% trans "Key" %}">'+ clean_array["key"] +'</span></div>'
+                           + ' <div class="source_entity nodisplay" id="sourceentity_'+ oObj.iDataRow +'" ><span title="{% trans "Key" %}">'+ clean_array["key"] {# PATCH show dev comments #}
+                           + '</span><div title="Comment" class="dev_comment">' + clean_array["source_dict"]["developer_comment"]+'</div></div>'
                            + source_divs
                            + ' <div class="row_tabs">'
                            + '  <ul>'
@@ -969,8 +970,8 @@
             <div class="subpanel">
                 <ul>
                     <li class="verbose">
-                        <label>
-                            <input id="toggle_verbose" type="checkbox" />
+                        <label> {# PATCH: verbose by default #}
+                            <input id="toggle_verbose" type="checkbox"  checked="checked"/>
                             <span>{% trans "Verbose editing" %}</span>
                         </label>
                     </li>
@@ -1000,6 +1001,7 @@
 <style> {# PATCH: fit Lotte subpanel options, wrap them in labels, https://github.com/transifex/transifex/pull/164 #}
 #footpanel .subpanel { width: 215px; }
 #settingspanel .subpanel li span { width: 175px; }
+.dev_comment { font-size:12px;font-style:italic; }
 </style>
 
 {% endblock %}
