@@ -12,6 +12,12 @@ from django.utils.encoding import smart_unicode
 from legacy import models as legacy
 from legacy.actions import LangLookup, migrate_user
 
+# sometimes new projects opt to have new slugs.
+# old_slug -> new_slug
+NEW_SLUGS = {
+    'babelzillamenu-13': 'bzmenu'
+}
+
 @transaction.commit_on_success
 class Command(BaseCommand):
     help = "Copies all string from legacy Babelzilla DB to Transifex"
@@ -25,7 +31,8 @@ class Command(BaseCommand):
         # for e in legacy.Extension.objects.filter(slug='smarttemplate4'):
         for e in legacy.Extension.objects.filter(slug='babelzillamenu-13'):
             owner = migrate_user(e.owner.username)
-            p, created = Project.objects.get_or_create(slug=e.slug,
+            slug = NEW_SLUGS.get(e.slug, e.slug)
+            p, created = Project.objects.get_or_create(slug=slug,
                 defaults={
                     'name': smart_unicode(e.name),
                     'description': smart_unicode(e.description),
@@ -49,6 +56,9 @@ class Command(BaseCommand):
                     entity, created = SourceEntity.objects.get_or_create(resource=r, string=s.name)
                     lang = LangLookup.get(s.language.name)
                     if not lang:
+                        # pl_PL and ru_RU are actually never read when newer,
+                        # shorter Languages like 'pl' and 'ru' are present
+                        print "Language lookup failed for %s" % s.language.name
                         continue
                     try:
                         t, created = Translation.objects.get_or_create(

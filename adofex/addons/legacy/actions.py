@@ -10,15 +10,22 @@ from django.contrib.auth.models import User
 
 from transifex.languages.models import Language
 
+# sometimes people do register new accounts
+# old_username -> new_username
+NEW_USERNAMES = {
+    'goofy': 'Goofy'
+}
+
 def migrate_user(username):
     """ Migrate given user to new system, or return existing one
     """
+    new_username = NEW_USERNAMES.get(username, username)
     try:
-        return User.objects.get(username=username)
+        return User.objects.get(username=new_username)
     except User.DoesNotExist:
         pass
     u  = legacy.User.objects.get(username=username)
-    user = UserenaSignup.objects.create_user(u.username,
+    user = UserenaSignup.objects.create_user(new_username,
                                             u.email,
                                             '',
                                             not userena_settings.USERENA_ACTIVATION_REQUIRED,
