@@ -17,7 +17,9 @@
 
 <form method='post' enctype="multipart/form-data">{% csrf_token %}
 
-<h3>Upload your XPI file:</h3>
+<h3>Upload your XPI or TAR file:</h3>
+<p>The importing is slow, may take a minute or so.</p>
+
     <p>
     {{ form.xpifile }}
     <input type="submit" class="i16 submit buttonized" value="Submit" />

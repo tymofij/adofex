@@ -27,7 +27,7 @@ class Command(BaseCommand):
                 description=smart_unicode(e.description), homepage=e.homepage, source_language=en)
             p.save()
             for f in legacy.File.objects.filter(extension=e):
-                r = Resource(name=f.name, project=p, slug=slugify(f.name)+str(f.id))
+                r = Resource(name=f.name, project=p, slug=slugify(f.name))
                 if f.name.endswith('.dtd'):
                     r.i18n_type = 'DTD'
                 elif f.name.endswith('.properties'):

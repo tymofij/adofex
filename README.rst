@@ -46,6 +46,7 @@ Installation Instructions
      ./manage.py txlanguages
      ./manage.py mzlanguages
      ./manage.py mzcreatenoticetypes
+     ./manage.py check_permissions
      ./manage.py collectstatic
 
    To enable registered users create projects, you have to give
