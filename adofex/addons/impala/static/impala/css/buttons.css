@@ -30,8 +30,10 @@ select:hover {
     background-image: -webkit-linear-gradient(#fafafa, #dadada);
     }
 
-input.i16, .i16.buttonized, .microform input[type="submit"]
- { background-position: 5px 50%, 0 0; }
+input.i16, .i16.buttonized, .microform input[type="submit"] {
+    background-position: 5px 50%, 0 0;
+    max-width: 230px; /* 200 is not always enough */
+}
 
 .i16.project {
     background-image: url("../images/addon.png");
