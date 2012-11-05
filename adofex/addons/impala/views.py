@@ -49,30 +49,36 @@ def moz_import(request, project_slug):
             if form.cleaned_data['xpifile']:
                 try:
                     uploaded_xpi = request.FILES['xpifile']
-
-                    filename = "%s-%s.xpi" % (project.id, project_slug)
-                    saved_xpi = file(
-                        os.path.join(settings.XPI_DIR,filename), "w")
-
-                    uploaded_xpi.seek(0)
-                    saved_xpi.write(uploaded_xpi.read())
-                    uploaded_xpi.seek(0)
-                    saved_xpi.close()
-
-                    xpi_row = XpiFile.objects.get_or_create(project=project)[0]
-                    xpi_row.filename = filename
-                    xpi_row.user = request.user
-                    xpi_row.save()
-
-                    bundle = XpiBundle(uploaded_xpi, project,
-                                        name=uploaded_xpi.name)
-                    # just in case we fail on save()
+                    if ".tar" in uploaded_xpi.name:
+                        # tar = StringIO(urllib2.urlopen(
+                        #           BZ_URL % form.cleaned_data['bzid']).read())
+                        tar = StringIO(uploaded_xpi.read())
+                        bundle = TarBundle(tar, project)
+                    elif ".xpi" in uploaded_xpi.name:
+                        # save the file for future recompiling
+                        filename = "%s-%s.xpi" % (project.id, project_slug)
+                        saved_xpi = file(
+                            os.path.join(settings.XPI_DIR,filename), "w")
+                        uploaded_xpi.seek(0)
+                        saved_xpi.write(uploaded_xpi.read())
+                        uploaded_xpi.seek(0)
+                        saved_xpi.close()
+                        xpi_row = XpiFile.objects.get_or_create(project=project)[0]
+                        xpi_row.filename = filename
+                        xpi_row.user = request.user
+                        xpi_row.save()
+                        # parse it for strings
+                        bundle = XpiBundle(uploaded_xpi, project,
+                                            name=uploaded_xpi.name)
+                    else:
+                        raise Exception("Unknown file type")
+                    # note bundle's messages just in case we fail on save()
                     messages = bundle.messages
                     bundle.save()
                     messages = bundle.messages
                 except:
-                    logger.exception("ERROR importing translations from XPI file")
-                    messages += ["ERROR importing translations from XPI file"]
+                    logger.exception("ERROR importing translations from file")
+                    messages += ["ERROR importing translations from file"]
     else:
         form = ImportForm()
 

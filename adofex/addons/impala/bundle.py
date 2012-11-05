@@ -243,4 +243,4 @@ class TarBundle(Bundle):
                 if f.isfile() and f.name.startswith(d.name)]
             for f in files:
                 filename = f.name.split('/')[-1]
-                self.locales[lang][filename] = self.tar.extractfile(f.name)
+                self.locales[lang][filename] = self.tar.extractfile(f.name).read()

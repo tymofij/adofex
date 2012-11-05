@@ -11,18 +11,6 @@ class ImportForm(forms.Form):
     Form to handle uploads (.xpi files) and Babelzilla IDs
     """
     xpifile = forms.FileField(label=_("XPI File"), required=False)
-
-    def clean_xpifile(self):
-        "Make sure that the uploaded file is a valid XPI file."
-        xpifile = self.cleaned_data['xpifile']
-        if xpifile:
-            try:
-                # TODO: XPIManager dropped .test(), might need to add some actual tests here
-                xpi = XPIManager(xpifile, name=xpifile.name)
-            except:
-                raise forms.ValidationError(_("File doesn't seem to be valid XPI"))
-        return xpifile
-
     bzid = forms.IntegerField(label=_("Extension ID"), max_value=9999, required=False)
 
 class MessageForm(forms.Form):
@@ -34,7 +22,6 @@ class MessageForm(forms.Form):
 
 from userena.forms import EditProfileForm as UserenaEditProfileForm
 from userena.utils import get_profile_model
-
 
 class EditProfileForm(UserenaEditProfileForm):
     def __init__(self, *args, **kw):
