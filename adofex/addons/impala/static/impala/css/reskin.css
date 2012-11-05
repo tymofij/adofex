@@ -77,7 +77,7 @@ div.translated_comp {
     background-image: -moz-linear-gradient(#6cd76e, #80B66A);
     background-image: -webkit-linear-gradient(#6cd76e, #80B66A);
 }
-.stats-table {background: white;}
+.stats-table {background: white; width: 960px;} /* Infinite scroll behaves badly on Team page */
 
 /* without it, lines in main project view get crampeled */
 dl.definition dd {height: auto;}

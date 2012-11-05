@@ -2,7 +2,7 @@
 function positionFooter() {
     $("#footer").css({
         position:
-            $(document.body).height() < $(window).height() ? "fixed" : "relative"
+            ($(window).height() - $(document.body).height() > 70)  ? "fixed" : "relative"
     })
 }
 

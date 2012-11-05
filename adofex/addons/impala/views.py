@@ -19,6 +19,7 @@ from transifex.projects.models import Project
 from transifex.resources.models import Resource
 from transifex.releases.models import Release, RLStats
 from transifex.languages.models import Language
+from transifex.teams.models import Team
 from transifex.resources.backends import FormatsBackend, FormatsBackendError
 from transifex.resources.formats.registry import registry
 from transifex.resources.formats.compilation import Mode
@@ -93,15 +94,21 @@ def message_watchers(request, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
 
     ct = ContentType.objects.get(name="project")
-    observing_user_ids = ObservedItem.objects.filter(
-        content_type=ct, object_id=project.id).values_list("user")
-    observing_users = User.objects.filter(id__in=observing_user_ids)
+    user_ids = list(ObservedItem.objects.filter(
+        content_type=ct, object_id=project.id).values_list("user", flat=True))
+
+    for team in Team.objects.filter(project=project):
+        user_ids.extend(list(team.members.values_list("id", flat=True,)))
+        user_ids.extend(list(team.coordinators.values_list("id", flat=True,)))
+        user_ids.extend(list(team.reviewers.values_list("id", flat=True,)))
+
+    users = User.objects.filter(id__in=user_ids)
     sent = False
 
     if request.method == 'POST':
         form = MessageForm(request.POST)
         if form.is_valid():
-            send(observing_users, "project_message", {
+            send(users, "project_message", {
                 'project': project,
                 'subject': form.cleaned_data['subject'],
                 'message': form.cleaned_data['message'],
@@ -114,7 +121,7 @@ def message_watchers(request, project_slug):
         'form': form,
         'project': project,
         'message_watchers': True,
-        'observing_users': observing_users,
+        'observing_users': users,
         'sent': sent,
         })
 

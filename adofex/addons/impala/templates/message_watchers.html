@@ -9,24 +9,29 @@
 
 {% block content_main %}
 
-<h3>Message users observing your project</h3>
+<h3>Message users interested in your project</h3>
 
 <p>
-Namely: {{ observing_users|join:" ," }}
+Namely: {% for c in observing_users %}
+    <img class="border" width="16" height="16" src="{{ c.profile.get_mugshot_url }}" style="vertical-align:middle"/>
+    <a href="{% url profile_public c.username %}">{{ c.username }}</a>&nbsp;&nbsp;
+{% endfor %}
 </p>
 
 {% if sent %}
-<p>Message successfully sent.</p>
+<p style="padding:30px;">Message was successfully sent.</p>
 {% else %}
 <form method="post">{% csrf_token %}
-<b>Subject:</b><br/>
 {{ form.subject.errors }}
 {{ form.subject }}<br/>
-<b>Message:</b><br/>
 {{ form.message.errors }}
 {{ form.message }}<br/>
 <input type="submit" class="i16 submit buttonized" value="Submit" />
 </form>
+<script>
+$("#id_subject").attr('placeholder', 'Subject')
+$("#id_message").attr('placeholder', 'Message')
+</script>
 {% endif %}
 
 {% endblock %}
