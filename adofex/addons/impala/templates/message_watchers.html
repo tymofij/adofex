@@ -12,10 +12,10 @@
 <h3>Message users interested in your project</h3>
 
 <p>
-Namely: {% for c in observing_users %}
-    <img class="border" width="16" height="16" src="{{ c.profile.get_mugshot_url }}"
-    style="vertical-align:middle"/>&nbsp;<a href="{% url profile_public c.username %}">{{ c.username }}</a>
-    &nbsp;&nbsp;
+Namely: {% for c in observing_users %} {# nowrap is needed becouse of Gecko bug 172819 #}
+    <span style="white-space:nowrap"><img class="border" width="16" height="16" src="{{ c.profile.get_mugshot_url }}"
+    style="vertical-align:middle"/>&nbsp;<a href="{% url profile_public c.username %}">{{ c.username }}</a></span>
+    &nbsp;
 {% endfor %}
 </p>
 
