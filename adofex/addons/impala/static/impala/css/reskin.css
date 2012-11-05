@@ -18,6 +18,9 @@ div#content h2.pagetitle {
     letter-spacing: -1px;
 }
 
+/* Projects/Myprojects link is duplicated with logo, and Languages are not that useful */
+#navmenu {display:none;}
+
 /* do not wanna see Droid serif at all */
 .seriftext, .description, .quotes, .timestamp, .tweet_time, .long_description { font-family: Verdana, sans-serif; }
 
