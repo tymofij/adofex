@@ -22,12 +22,22 @@ class Command(BaseCommand):
 
         en = Language.objects.get(code='en-US')
 
-        for e in legacy.Extension.objects.filter(slug='smarttemplate4'):
-            p = Project(slug=e.slug, name=smart_unicode(e.name),
-                description=smart_unicode(e.description), homepage=e.homepage, source_language=en)
-            p.save()
+        # for e in legacy.Extension.objects.filter(slug='smarttemplate4'):
+        for e in legacy.Extension.objects.filter(slug='babelzillamenu-13'):
+            owner = migrate_user(e.owner.username)
+            p, created = Project.objects.get_or_create(slug=e.slug,
+                defaults={
+                    'name': smart_unicode(e.name),
+                    'description': smart_unicode(e.description),
+                    'homepage': e.homepage,
+                    'source_language':en,
+                    'owner': owner,
+                })
+            p.maintainers.add(owner)
+
+            # import Strings and Translations
             for f in legacy.File.objects.filter(extension=e):
-                r = Resource(name=f.name, project=p, slug=slugify(f.name))
+                r, created = Resource.objects.get_or_create(name=f.name, project=p, slug=slugify(f.name))
                 if f.name.endswith('.dtd'):
                     r.i18n_type = 'DTD'
                 elif f.name.endswith('.properties'):
@@ -41,30 +51,40 @@ class Command(BaseCommand):
                     if not lang:
                         continue
                     try:
-                        Translation(string=smart_unicode(s.string), resource=r,
-                            source_entity=entity, language=lang).save()
+                        t, created = Translation.objects.get_or_create(
+                            resource=r, source_entity=entity, language=lang
+                            )
+                        t.string = smart_unicode(s.string)
+                        t.save()
                     except:
-                        print "Error reading String {0}".format(s.id)
+                        print "Error saving String {0}".format(s.id)
 
+            # reset Stats
             for r in Resource.objects.filter(project=p):
                 for l in Language.objects.filter(pk__in=Translation.objects.filter(resource=r
                         ).order_by('language').values_list('language', flat=True).distinct()):
                             invalidate_stats_cache(r, l)
 
-            # p = Project.objects.get(slug=e.slug)
-
+            # import Teams
             for g in legacy.Group.objects.filter(extension=e):
                 l_members = legacy.Membership.objects.filter(group=g).order_by('permissions')
-                # members exist and first one is maintainer
-                if l_members and l_members[0].permissions == 'm':
-                    owner = migrate_user(l_members[0].user.username)
-                else:
-                    owner = migrate_user(e.owner.username)
+                team_owner = migrate_user(e.owner.username)
+                try:
+                    if l_members and l_members[0].permissions == 'm':
+                        # members exist and first one is a maintainer
+                        team_owner = migrate_user(l_members[0].user.username)
+                except legacy.User.DoesNotExist:
+                    print "Invalid membership: %s" % l_members[0].id
+
                 lang = LangLookup.get(g.language.name)
-                team = Team(language=lang, project=p, creator=owner)
-                team.save()
+                team, created = Team.objects.get_or_create(language=lang, project=p,
+                    defaults = {'creator': team_owner} )
                 for m in l_members:
-                    user = migrate_user(m.user.username)
+                    try:
+                        user = migrate_user(m.user.username)
+                    except legacy.User.DoesNotExist:
+                        print "Invalid membership: %s" % l_members[0].id
+                        continue
                     if m.permissions == 'm':
                         team.coordinators.add(user)
                     else:
