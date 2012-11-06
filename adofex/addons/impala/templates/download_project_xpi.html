@@ -1,6 +1,6 @@
 {% if has_xpi %}
     <a class="i16 buttonized xpi"
-       href="{% url release_language_install release.project.slug release.slug language.code %}"
+       href="{% url download_xpi_for_use project.slug language.code %}"
        rel="nofollow"
     >Install XPI</a>
 {% else %}
