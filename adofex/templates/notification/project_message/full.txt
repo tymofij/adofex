@@ -1,8 +1,6 @@
 {% load i18n %}{% url project_detail project_slug=project.slug as project_url %}
-{% blocktrans %}The project called '{{project}}' has sent you a message.{% endblocktrans %}
-
-Subject: {{ subject }}
-
-{{ message }}
-
+{% blocktrans %}the project '{{project}}' has sent you a message.{% endblocktrans %}
+<br/><br/>
+{{ message|linebreaks }}
+<br/><br/>
 {% blocktrans %}Please, visit Babelzilla at http://{{current_site}}{{project_url}} in order to see what's up.{% endblocktrans %}
