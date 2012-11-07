@@ -172,8 +172,15 @@ def get_all_translations_zip(request, project_slug, mode=None, skip=None):
     zip_buffer.flush()
     zip_contents = zip_buffer.getvalue()
 
+    if mode == Mode.TRANSLATED:
+        subname = "translated"
+    elif skip:
+        subname = "skipped"
+    else:
+        subname = "for_use"
+    filename = project_slug + "_" + subname
     response = HttpResponse(mimetype='application/zip')
-    response['Content-Disposition'] = 'filename=%s.zip' % (project_slug)
+    response['Content-Disposition'] = 'filename=%s.zip' % filename
     response.write(zip_contents)
     return response
 
@@ -245,12 +252,13 @@ def _compile_translation_template(resource=None, language=None, mode=None, skip=
         'DTD': '<!ENTITY %s "%s">',
         'MOZILLAPROPERTIES': '%s=%s',
     }
-    en = Language.objects.get(code='en-US')
-    res = []
+    res = ""
     for t in Translation.objects.filter(resource=resource, language=language
         ).select_related('source_entity').order_by('source_entity__order'):
-        res.append(templates[resource.i18n_type] % (t.source_entity.string, handlers[resource.i18n_type]._escape(t.string)))
-    return "\n".join(res).encode('UTF-8')
+        res += templates[resource.i18n_type] % (
+            t.source_entity.string, handlers[resource.i18n_type]._escape(t.string)
+            ) + "\n"
+    return res.encode('UTF-8')
 
 
 # COPY: copied from resourses.views to change filename to simple
