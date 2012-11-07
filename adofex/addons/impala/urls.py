@@ -30,14 +30,14 @@ urlpatterns = patterns('impala.views',
         name = "download_xpi_for_use",
     ),
     url(
-        regex = LANG_URL + 'download/for_use/$',
+        regex = LANG_URL + 'download/replaced/$',
         view = "get_translation_zip",
-        name = "download_zip_for_use",
+        name = "download_zip_replaced",
     ),
     url(
-        regex = LANG_URL + 'download/for_translation/$',
+        regex = LANG_URL + 'download/empty/$',
         view = "get_translation_zip",
-        name = "download_zip_for_translation",
+        name = "download_zip_empty",
         kwargs = {'mode':Mode.TRANSLATED}
     ),
 

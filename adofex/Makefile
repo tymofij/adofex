@@ -19,3 +19,6 @@ install:
 	./manage.py mzlanguages
 	./manage.py check_permissions
 	./manage.py collectstatic
+
+static:
+	@./manage.py static

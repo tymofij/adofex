@@ -149,9 +149,13 @@ def get_translation_zip(request, project_slug, lang_code, mode=None):
     zip_buffer.flush()
     zip_contents = zip_buffer.getvalue()
 
+    if mode == Mode.TRANSLATED:
+        subname = "empty"
+    else:
+        subname = "replaced"
     response = HttpResponse(mimetype='application/zip')
-    response['Content-Disposition'] = 'filename=%s_%s.zip' % \
-        (project_slug, lang_code)
+    response['Content-Disposition'] = 'filename=%s_%s_%s.zip' % \
+        (project_slug, lang_code, subname)
     response.write(zip_contents)
     return response
 

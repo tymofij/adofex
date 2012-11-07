@@ -24,6 +24,11 @@
 
 {% block userena_content %}
 
+  <div class="clearfix">
+        <img src="{{ profile.get_mugshot_url }}" style="height:32px; width:32px; margin-right: 5px;">
+        You can change your avatar on <a href="https://www.gravatar.com">Gravatar.com</a>
+  </div>
+
   <form class="tx-form dual" action="" enctype="multipart/form-data" method="post">
     {% csrf_token %}
 	  <fieldset>
