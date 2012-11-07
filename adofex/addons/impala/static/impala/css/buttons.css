@@ -12,7 +12,7 @@ select:hover {
     }
 */
 
-.buttonized, .buttonized_disabled, .buttonized2, .buttonized_disabled2 {
+.buttonized, .buttonized2 {
   border-color: #ccc #aaa #aaa #ccc !important;
   border-width: 1px !important;
   border-style: solid !important;
@@ -35,11 +35,13 @@ input.i16, .i16.buttonized, .microform input[type="submit"] {
     max-width: 230px; /* 200 is not always enough */
 }
 
+.i16.buttonized.disabled { opacity: 0.6 } /* 0.5 is too transparent */
+
 .i16.project {
     background-image: url("../images/addon.png");
 }
 
-.i16.xpi.buttonized_disabled {
+.i16.xpi.buttonized.disabled, .i16.xpi.buttonized.disabled:hover {
     background-image:url('../images/addon_disabled.png');
     background-position: 5px 50%;
     padding-left: 27px;
