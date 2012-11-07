@@ -18,6 +18,9 @@ NEW_SLUGS = {
     'babelzillamenu-13': 'bzmenu',
     'adblock-plus-616': 'adblock-plus'
 }
+SKIPPED_SLUGS = ( # do not migrate those projects
+	'adblock-plus-616',
+)
 
 @transaction.commit_on_success
 class Command(BaseCommand):
@@ -29,7 +32,7 @@ class Command(BaseCommand):
 
         en = Language.objects.get(code='en-US')
 
-        for e in legacy.Extension.objects.filter(slug='adblock-plus-616'):
+        for e in legacy.Extension.objects.filter(slug='smarttemplate4'):
             owner = migrate_user(e.owner.username)
             slug = NEW_SLUGS.get(e.slug, e.slug)
             p, created = Project.objects.get_or_create(slug=slug,
