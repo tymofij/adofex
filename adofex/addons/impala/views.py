@@ -247,7 +247,8 @@ def _compile_translation_template(resource=None, language=None, mode=None, skip=
     }
     en = Language.objects.get(code='en-US')
     res = []
-    for t in Translation.objects.filter(resource=resource, language=language):
+    for t in Translation.objects.filter(resource=resource, language=language
+        ).select_related('source_entity').order_by('source_entity__order'):
         res.append(templates[resource.i18n_type] % (t.source_entity.string, handlers[resource.i18n_type]._escape(t.string)))
     return "\n".join(res).encode('UTF-8')
 
