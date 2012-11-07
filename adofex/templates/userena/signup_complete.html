@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Signup almost done!" %}{% endblock %}
+
+{% block content_title %}<h2>{% trans "Signup" %}</h2>{% endblock %}
+
+{% block content_main %}
+<p>{% trans "Thank you for signing up with us!" %}</p>
+
+{% if userena_activation_required %}
+<p>{% blocktrans %}You have been sent an e-mail with an activation link to the supplied email.{% endblocktrans %}</p>
+<p>{% blocktrans %}We will store your signup information for {{ userena_activation_days }} days on our server. {% endblocktrans %}</p>
+{% else  %}
+<p style="margin:30px 0 10px;">{% blocktrans %}You can pick one of our <strong><a href="/projects/">projects</a></strong> and start translating!{% endblocktrans %}</p>
+{% endif %}
+{% endblock %}
