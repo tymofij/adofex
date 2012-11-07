@@ -15,7 +15,8 @@ from legacy.actions import LangLookup, migrate_user
 # sometimes new projects opt to have new slugs.
 # old_slug -> new_slug
 NEW_SLUGS = {
-    'babelzillamenu-13': 'bzmenu'
+    'babelzillamenu-13': 'bzmenu',
+    'adblock-plus-616': 'adblock-plus'
 }
 
 @transaction.commit_on_success
@@ -28,8 +29,7 @@ class Command(BaseCommand):
 
         en = Language.objects.get(code='en-US')
 
-        # for e in legacy.Extension.objects.filter(slug='smarttemplate4'):
-        for e in legacy.Extension.objects.filter(slug='babelzillamenu-13'):
+        for e in legacy.Extension.objects.filter(slug='adblock-plus-616'):
             owner = migrate_user(e.owner.username)
             slug = NEW_SLUGS.get(e.slug, e.slug)
             p, created = Project.objects.get_or_create(slug=slug,
