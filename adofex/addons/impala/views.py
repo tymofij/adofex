@@ -155,7 +155,7 @@ def get_translation_zip(request, project_slug, lang_code, mode=None):
     response.write(zip_contents)
     return response
 
-def get_all_translations_zip(request, project_slug, mode=None):
+def get_all_translations_zip(request, project_slug, mode=None, skip=None):
     """
     Download all resources/languages in given project in one big ZIP file
     """
@@ -165,7 +165,7 @@ def get_all_translations_zip(request, project_slug, mode=None):
     zip_file = zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED)
     for stat in RLStats.objects.for_user(request.user).by_project_language_aggregated(project):
         for resource in resources:
-            template = _compile_translation_template(resource, stat.object, mode)
+            template = _compile_translation_template(resource, stat.object, mode, skip)
             zip_file.writestr("%s/%s" % (stat.object.code, resource.name), template)
 
     zip_file.close()
@@ -223,7 +223,7 @@ def get_translation_xpi(request, project_slug, lang_code):
     return response
 
 
-def _compile_translation_template(resource=None, language=None, mode=None):
+def _compile_translation_template(resource=None, language=None, mode=None, skip=None):
     """
     Given a resource and a language we create the translation file
     """
@@ -231,7 +231,25 @@ def _compile_translation_template(resource=None, language=None, mode=None):
     language = Language.objects.get(code=language.code)
     if not mode:
         mode = Mode.DEFAULT # meaning "for use"
-    return FormatsBackend(resource, language).compile_translation(mode=mode)
+    if not skip:
+        return FormatsBackend(resource, language).compile_translation(mode=mode)
+
+    from transifex.resources.formats.dtd import DTDHandler
+    from transifex.resources.formats.mozillaproperties import MozillaPropertiesHandler
+    from transifex.resources.models import Resource, SourceEntity, Translation
+    handlers = {
+        'DTD': DTDHandler(),
+        'MOZILLAPROPERTIES': MozillaPropertiesHandler()
+    }
+    templates = {
+        'DTD': '<!ENTITY %s "%s">',
+        'MOZILLAPROPERTIES': '%s=%s',
+    }
+    en = Language.objects.get(code='en-US')
+    res = []
+    for t in Translation.objects.filter(resource=resource, language=language):
+        res.append(templates[resource.i18n_type] % (t.source_entity.string, handlers[resource.i18n_type]._escape(t.string)))
+    return "\n".join(res).encode('UTF-8')
 
 
 # COPY: copied from resourses.views to change filename to simple

@@ -51,6 +51,12 @@ urlpatterns = patterns('impala.views',
         name = "download_big_zip_for_translation",
         kwargs = {'mode':Mode.TRANSLATED}
     ),
+   url(
+        regex = PROJECT_URL+ r'download/skipped/$',
+        view = "get_all_translations_zip",
+        name = "download_big_zip_for_translation",
+        kwargs = {'skip':True}
+    ),
 
     # redefine resource download urls to make them return simple filenames
     url(regex = RESOURCE_LANG_URL+'download/for_use/$',
