@@ -244,19 +244,27 @@ def _compile_translation_template(resource=None, language=None, mode=None, skip=
     from transifex.resources.formats.dtd import DTDHandler
     from transifex.resources.formats.mozillaproperties import MozillaPropertiesHandler
     from transifex.resources.models import Resource, SourceEntity, Translation
-    handlers = {
-        'DTD': DTDHandler(),
-        'MOZILLAPROPERTIES': MozillaPropertiesHandler()
-    }
-    templates = {
-        'DTD': '<!ENTITY %s "%s">',
-        'MOZILLAPROPERTIES': '%s=%s',
+    formats = {
+        'DTD': {
+            'handler': DTDHandler(),
+            'template': '<!ENTITY %s "%s">',
+            'comment': "<!--%s-->",
+        },
+        'MOZILLAPROPERTIES': {
+            'handler': MozillaPropertiesHandler(),
+            'template': '%s=%s',
+            'comment': "#%s",
+        }
     }
     res = ""
     for t in Translation.objects.filter(resource=resource, language=language
         ).select_related('source_entity').order_by('source_entity__order'):
-        res += templates[resource.i18n_type] % (
-            t.source_entity.string, handlers[resource.i18n_type]._escape(t.string)
+        se = t.source_entity
+        format = formats[resource.i18n_type]
+        if se.developer_comment:
+            res += (format['comment'] % se.developer_comment) + "\n"
+        res += format['template'] % (
+            se.string, format['handler']._escape(t.string)
             ) + "\n"
     return res.encode('UTF-8')
 
