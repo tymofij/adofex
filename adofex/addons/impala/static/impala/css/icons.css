@@ -604,12 +604,6 @@
 .i16.tick.buttonized:hover{background-image:url('../../images/icons/tick.png'),-moz-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/tick.png'),-webkit-linear-gradient(#fafafa, #dadada);
 	background-image:url('../../images/icons/tick.png'),-o-linear-gradient(#fafafa, #dadada);}
-.i16.tick_disabled.buttonized{background-image:url('../../images/icons/tick-disabled.png'),-moz-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/tick-disabled.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
-	background-image:url('../../images/icons/tick-disabled.png'),-o-linear-gradient(#efefef, #cfcfcf);}
-.i16.tick_disabled.buttonized:hover{background-image:url('../../images/icons/tick-disabled.png'),-moz-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/tick-disabled.png'),-webkit-linear-gradient(#fafafa, #dadada);
-	background-image:url('../../images/icons/tick-disabled.png'),-o-linear-gradient(#fafafa, #dadada);}
 .i16.tick_circle.buttonized{background-image:url('../../images/icons/accept.png'),-moz-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/accept.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
 	background-image:url('../../images/icons/accept.png'),-o-linear-gradient(#efefef, #cfcfcf);}

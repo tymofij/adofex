@@ -35,7 +35,9 @@ input.i16, .i16.buttonized, .microform input[type="submit"] {
     max-width: 230px; /* 200 is not always enough */
 }
 
-.i16.buttonized.disabled { opacity: 0.6 } /* 0.5 is too transparent */
+.i16.buttonized.disabled { opacity: 0.8 } /* 0.5 is too transparent */
+.i16.tick_disabled.buttonized{background-image:url('../../images/icons/tick-disabled.png'); opacity: 0.8;}
+.i16.tick_disabled.buttonized:hover{background-image:url('../../images/icons/tick-disabled.png');}
 
 .i16.project {
     background-image: url("../images/addon.png");

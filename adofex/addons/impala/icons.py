@@ -105,7 +105,7 @@ rules = [
 ('team_request', 'group_gear.png'),
 ('text', 'page_white_text.png'),
 ('tick', 'tick.png'),
-('tick_disabled', 'tick-disabled.png'),
+# ('tick_disabled', 'tick-disabled.png'), - because it is disabled, yeah
 ('tick_circle', 'accept.png'),
 ('tip', 'lightbulb.png'),
 ('twitter', 'twitter.png'),
