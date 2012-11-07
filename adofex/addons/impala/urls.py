@@ -23,7 +23,7 @@ urlpatterns = patterns('impala.views',
         name = "message_watchers"
     ),
 
-    # our download urls
+    # Language download
     url(
         regex = LANG_URL + 'download/xpi/$',
         view = "get_translation_xpi",
@@ -40,21 +40,23 @@ urlpatterns = patterns('impala.views',
         name = "download_zip_for_translation",
         kwargs = {'mode':Mode.TRANSLATED}
     ),
-   url(
-        regex = PROJECT_URL+ r'download/for_use/$',
+
+    # Project download
+    url(
+        regex = PROJECT_URL+ r'download/replaced/$',
         view = "get_all_translations_zip",
-        name = "download_big_zip_for_use",
+        name = "download_big_zip_replaced",
     ),
-   url(
-        regex = PROJECT_URL+ r'download/for_translation/$',
+    url(
+        regex = PROJECT_URL+ r'download/empty/$',
         view = "get_all_translations_zip",
-        name = "download_big_zip_for_translation",
+        name = "download_big_zip_empty",
         kwargs = {'mode':Mode.TRANSLATED}
     ),
-   url(
+    url(
         regex = PROJECT_URL+ r'download/skipped/$',
         view = "get_all_translations_zip",
-        name = "download_big_zip_for_translation",
+        name = "download_big_zip_skipped",
         kwargs = {'skip':True}
     ),
 

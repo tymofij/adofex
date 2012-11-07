@@ -173,11 +173,11 @@ def get_all_translations_zip(request, project_slug, mode=None, skip=None):
     zip_contents = zip_buffer.getvalue()
 
     if mode == Mode.TRANSLATED:
-        subname = "translated"
+        subname = "empty"
     elif skip:
         subname = "skipped"
     else:
-        subname = "for_use"
+        subname = "replaced"
     filename = project_slug + "_" + subname
     response = HttpResponse(mimetype='application/zip')
     response['Content-Disposition'] = 'filename=%s.zip' % filename
@@ -248,12 +248,12 @@ def _compile_translation_template(resource=None, language=None, mode=None, skip=
         'DTD': {
             'handler': DTDHandler(),
             'template': '<!ENTITY %s "%s">',
-            'comment': "<!--%s-->",
+            'comment': lambda s: "<!--%s-->" % s,
         },
         'MOZILLAPROPERTIES': {
             'handler': MozillaPropertiesHandler(),
             'template': '%s=%s',
-            'comment': "#%s",
+            'comment': lambda s: "\n".join(["#" + l for l in s.split("\n")]),
         }
     }
     res = ""
@@ -262,7 +262,7 @@ def _compile_translation_template(resource=None, language=None, mode=None, skip=
         se = t.source_entity
         format = formats[resource.i18n_type]
         if se.developer_comment:
-            res += (format['comment'] % se.developer_comment) + "\n"
+            res += format['comment'](se.developer_comment) + "\n"
         res += format['template'] % (
             se.string, format['handler']._escape(t.string)
             ) + "\n"

@@ -99,3 +99,9 @@ div.searchform.content_header_prim input.query {width: 18em; background: none;}
 
 /* to make Verdana fit */
 div.team-statbar > div.stats {width:530px !important;}
+
+/* to make it align properly inside tall wrapper */
+#teamcode-arrow {
+    margin-right: 8px;
+    margin-top: 22px;
+}
