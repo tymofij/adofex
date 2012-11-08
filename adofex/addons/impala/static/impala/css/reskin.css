@@ -108,3 +108,25 @@ div.team-statbar > div.stats {width:530px !important;}
 
 /* make really long breadcrumb lines fit */
 div#content_title {width: 960px; }
+
+#project-logo-main div {
+    min-width: 48px;
+    min-height: 64px;
+
+
+    display : -moz-box;
+    display : -webkit-box;
+    display : box;
+
+    -moz-box-orient : horizontal;
+    -moz-box-pack : center;
+    -moz-box-align : center;
+
+    -webkit-box-orient : horizontal;
+    -webkit-box-pack : center;
+    -webkit-box-align : center;
+
+    box-orient : horizontal;
+    box-pack : center;
+    box-align : center;
+    }
