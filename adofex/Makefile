@@ -21,4 +21,4 @@ install:
 	./manage.py collectstatic
 
 static:
-	@./manage.py static
+	@./manage.py collectstatic
