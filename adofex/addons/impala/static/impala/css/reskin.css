@@ -105,3 +105,6 @@ div.team-statbar > div.stats {width:530px !important;}
     margin-right: 8px;
     margin-top: 22px;
 }
+
+/* make really long breadcrumb lines fit */
+div#content_title {width: 960px; }
