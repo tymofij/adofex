@@ -174,6 +174,8 @@ class XpiBundle(Bundle):
             code, location = locale["object"].split()
 
             # finding out the language of the locale
+            # no duplicate checking here, as it is not expected for real XPIs
+            # to have both "uk" and "uk_UA" locales in manifest
             try:
                 lang = self._get_lang(code)
             except Language.DoesNotExist:
@@ -230,17 +232,23 @@ class TarBundle(Bundle):
         Bundle.__init__(self, project, release)
         self.tar = tarfile.open(fileobj=fileobject)
         # walk top dirs
-        for d in [d for d in self.tar.getmembers() if d.isdir()]:
+        for d_name in sorted([d.name for d in self.tar.getmembers() if d.isdir()]):
             # finding out the language of the locale
             try:
-                lang = self._get_lang(d.name)
+                lang = self._get_lang(d_name)
             except Language.DoesNotExist:
-                self.log("Locale %s SKIPPED" % d.name, "font-weight:bold")
+                self.log("Locale %s SKIPPED, unknown" % d_name, "font-weight:bold")
+                continue
+
+            # "uk_UA" will go after "uk" and will be omitted here
+            if lang in self.locales:
+                self.messages.pop() # drop message about subtitution, it is confusing
+                self.log("Locale %s SKIPPED, duplicate" % d_name, "font-weight:bold")
                 continue
 
             self.locales[lang] = {}
             files = [f for f in self.tar.getmembers()
-                if f.isfile() and f.name.startswith(d.name)]
+                if f.isfile() and f.name.startswith(d_name+'/')]
             for f in files:
                 filename = f.name.split('/')[-1]
                 self.locales[lang][filename] = self.tar.extractfile(f.name).read()
