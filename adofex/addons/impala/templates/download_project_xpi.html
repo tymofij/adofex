@@ -1,8 +1,15 @@
 {% if has_xpi %}
-    <a class="i16 buttonized xpi"
+  {% if user.is_authenticated %}
+    <a class="i16 buttonized xpi tipsy_enable"
        href="{% url download_xpi_for_use project.slug language.code %}"
        rel="nofollow"
+       original-title="Install repacked XPI"
     >Install XPI</a>
+  {% else%}
+    <a class="i16 buttonized disabled xpi tipsy_enable"
+       original-title="You must be logged in download repacked XPIs"
+    >Install XPI</a>
+  {% endif %}
 {% else %}
     <a class="i16 buttonized disabled xpi tipsy_enable"
        original-title="Project maintainer has not uploaded an XPI file yet"

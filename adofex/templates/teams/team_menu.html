@@ -12,11 +12,15 @@
 {% download_project_xpi project %}
 
 <a
-  class="i16 buttonized downsource"
+{% if user.is_authenticated %}
+  class="i16 buttonized downsource tipsy_enable"
   href="{% url download_zip_replaced project.slug language.code %}"
   rel="nofollow"
   title="All files zipped"
+{% else %}
+  class="i16 buttonized disabled downsource tipsy_enable"
+  original-title="You must login to get locale zipped"
+{% endif %}
   >ZIP</a>
 </div>
-
 {% endblock %}

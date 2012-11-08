@@ -9,11 +9,19 @@
 
 <div style="position:absolute; right:20px">
 <a
-  class="i16 buttonized downsource"
+{% if user.is_authenticated %}
+  class="i16 buttonized downsource tipsy_enable"
   href="{% url download_big_zip_replaced project.slug %}"
   rel="nofollow"
-  title="All locales zipped"
-  >ZIP</a>
+  original-title="All locales zipped"
+{% else %}
+  class="i16 buttonized disabled downsource tipsy_enable"
+  original-title="You must login to get all locales zipped"
+{% endif %}
+>ZIP</a>
 </div>
+
+
+
 
 {% endblock %}

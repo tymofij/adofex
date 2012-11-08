@@ -49,6 +49,12 @@ input.i16, .i16.buttonized, .microform input[type="submit"] {
     padding-left: 27px;
 }
 
+.i16.downsource.buttonized.disabled, .i16.downsource.buttonized.disabled:hover {
+    background-image:url('../images/package_disabled.png');
+    background-position: 5px 50%;
+    padding-left: 27px;
+}
+
 .i16.xpi.buttonized{background-image:url('../images/addon.png'),-moz-linear-gradient(#efefef, #cfcfcf);
     background-image:url('../images/addon.png'),-webkit-linear-gradient(#efefef, #cfcfcf);
     background-image:url('../images/addon.png'),-o-linear-gradient(#efefef, #cfcfcf);}
