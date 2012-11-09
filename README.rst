@@ -3,8 +3,8 @@
 =======================
 
 Transifex Adofex is a project to provide a web service to localize
-Mozilla extensions. It is a set of Transifex addons and few patches
-applied to Transifex itself (hopefully soon they will be merged in).
+Mozilla extensions. It is a set of Transifex addons and few views,
+and relies on forked Transifex instanse.
 
 Installation Instructions
 =========================
@@ -55,3 +55,22 @@ Installation Instructions
 .. _`Installation Instructions`: http://docs.transifex.org/intro/install.html
 
 That's it!
+
+Downloading resources
+=====================
+
+ * http://beta.babelzilla.org/projects/p/PROJECT/download/replaced/
+   (missing entities replaced with en-US)
+ * http://beta.babelzilla.org/projects/p/PROJECT/download/empty/
+   (missing entities set to "")
+ * http://beta.babelzilla.org/projects/p/PROJECT/download/skipped/
+   (missing entities not present at all)
+
+
+Command-Line Tool
+=================
+
+Allows you interact with Adofex without visiting the site.
+Adofex needs a little improved Transifex client, please see
+
+https://github.com/tymofij/transifex-client/tree/adofex
