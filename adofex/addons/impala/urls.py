@@ -76,6 +76,10 @@ urlpatterns = patterns('impala.views',
         name='download_reviewed_translation',
         kwargs={'mode':Mode.REVIEWED}
     ),
+    # and also add ability to download skipped version of the translation
+    url(regex = RESOURCE_LANG_URL+'download/skipped/$',
+        view  = "get_tranlation_file_skipped",
+    ),
 
     # redefine to change form to ours
     url(regex  = r'^accounts/(?P<username>(?!signout|signup|signin)[\.\w]+)/$',

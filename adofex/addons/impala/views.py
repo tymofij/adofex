@@ -189,6 +189,16 @@ def get_all_translations_zip(request, project_slug, mode=None, skip=None):
     return response
 
 
+def get_tranlation_file_skipped(request, project_slug, resource_slug, lang_code):
+    """ Download Skipped version of the resource's translation
+    """
+    project = get_object_or_404(Project, slug=project_slug)
+    resource =  get_object_or_404(Resource, slug=resource_slug)
+    language = get_object_or_404(Language, code=lang_code)
+    template = _compile_translation_template(resource, language, skip=True)
+    response = HttpResponse(template, mimetype='text/plain')
+    return response
+
 def get_translation_xpi(request, project_slug, lang_code):
     """ Compile project's XPI in given language
     """
