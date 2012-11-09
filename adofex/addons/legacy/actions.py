@@ -56,6 +56,6 @@ class LangLookup(object):
                 lang = Language.objects.get(code=code.replace("_", "-").split("-")[0])
             except Language.DoesNotExist:
                 print "Language {0} not found in TX".format(code)
-                lang = None
+                raise
         LangLookup.langs[code] = lang
         return lang

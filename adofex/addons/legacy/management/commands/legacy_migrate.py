@@ -57,10 +57,11 @@ class Command(BaseCommand):
                 r.save()
                 for s in legacy.String.objects.filter(file=f, extension=e).select_related('language'):
                     entity, created = SourceEntity.objects.get_or_create(resource=r, string=s.name)
-                    lang = LangLookup.get(s.language.name)
-                    if not lang:
-                        # pl_PL and ru_RU are actually never read when newer,
-                        # shorter Languages like 'pl' and 'ru' are present
+                    try:
+                        lang = LangLookup.get(s.language.name)
+                    except Language.DoesNotExist:
+                        # FIXME: might overwrite "pl" strings with "pl_PL" ones
+                        # when both are present
                         print "Language lookup failed for %s" % s.language.name
                         continue
                     try:

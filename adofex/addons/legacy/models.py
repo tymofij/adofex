@@ -21,6 +21,7 @@ class Extension(models.Model):
     homepage = models.URLField(blank=True, verify_exists=False, db_column='homepageURL')
     lastupdate = models.DateField(blank=True, null=True)
     schema = models.CharField(db_column='locale_path', max_length=255)
+    topic = models.IntegerField()
 
     def __unicode__(self):
         return self.name

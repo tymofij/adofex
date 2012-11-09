@@ -18,7 +18,9 @@
 <form method='post' enctype="multipart/form-data">{% csrf_token %}
 
 <h3>Upload your XPI or TAR file:</h3>
-<p>The importing is slow, may take a minute or so.</p>
+<p>The importing is slow, may take a minute or two.</p>
+<p>Please note, that uploading "replaced" bumps tranlation status to 100%,<br/>
+    but that might not be what you're after.</p>
 
     <p>
     {{ form.xpifile }}
