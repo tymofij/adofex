@@ -29,10 +29,6 @@ Namely: {% for c in observing_users %} {# nowrap is needed becouse of Gecko bug 
 {{ form.message }}<br/>
 <input type="submit" class="i16 submit buttonized" value="Submit" />
 </form>
-<script>
-$("#id_subject").attr('placeholder', 'Subject')
-$("#id_message").attr('placeholder', 'Message')
-</script>
 {% endif %}
 
 {% endblock %}

@@ -17,8 +17,12 @@ class MessageForm(forms.Form):
     """
     Form to send messages to the people watching the project
     """
-    subject = forms.CharField(max_length=100)
-    message = forms.CharField(widget=forms.Textarea)
+    subject = forms.CharField(max_length=100,
+        widget=forms.TextInput(attrs={'placeholder':'Subject'})
+        )
+    message = forms.CharField(
+        widget=forms.Textarea(attrs={'placeholder':'Message'})
+        )
 
 from userena.forms import EditProfileForm as UserenaEditProfileForm
 from userena.utils import get_profile_model
