@@ -8,6 +8,11 @@ from transifex.languages.models import Language
 class Command(NoArgsCommand):
     help = "Remove languages not used by Mozilla, tweak codes, add missing"
 
+    missing_langs = {
+        'lg': 'Luganda',
+        'dsb': 'Lower Sorbian',
+    }
+
     def handle_noargs(self, **options):
         codes = open(os.path.join(os.path.dirname(__file__), 'all-locales')
             ).read().split()
@@ -32,6 +37,7 @@ class Command(NoArgsCommand):
             print "Deleting %s" % l
             l.delete()
         # Transifex at the moment does not have Luganda language in fixture
-        if not Language.objects.filter(code="lg").exists():
-            print "Adding Luganda (lg)"
-            Language(name="Luganda", code="lg").save()
+        for (code, name) in self.missing_langs.items():
+            if not Language.objects.filter(code=code).exists():
+                print "Adding {} ({})".format(name, code)
+                Language(name=name, code=code).save()
