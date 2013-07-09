@@ -78,6 +78,8 @@ class Bundle(object):
         """
         self.log("%s" % lang, "font-style:italic")
         for (filename, data) in files.items():
+            if not data:
+                continue
             # whether that file is present in source ones
             if filename not in self.resources:
                 continue
@@ -88,9 +90,14 @@ class Bundle(object):
             except Exception as e:
                 # empty/broken file, ignore it
                 if 'not able to extract any string' in e.message:
-                    self.log(e.message, style="color:red")
+                    self.log(e.message, style="color:silver")
                     continue
-            updated, added = handler.save2db(is_source=is_source)
+            try:
+                updated, added = handler.save2db(is_source=is_source)
+            except Exception as e:
+                # empty/broken file, ignore it
+                self.log(e.message, style="color:red")
+                continue
             self.log("%s: %s updated, %s added" %
                 (filename, updated, added), style="padding-left:12px" )
 
