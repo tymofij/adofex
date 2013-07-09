@@ -217,7 +217,7 @@ class XpiBundle(Bundle):
             result = {}
             for f in package.package_contents():
                 f = f.strip("/")
-                if f.startswith(location) and f != location:
+                if f.startswith(location+"/") and ('.' in f):
                     result[f.split("/")[-1]] = package.read(f)
 
             # file with same name in different jars can get overwritten
