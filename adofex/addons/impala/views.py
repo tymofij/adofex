@@ -77,7 +77,6 @@ def moz_import(request, project_slug):
                     bundle.save()
                     messages = bundle.messages
                 except:
-                    raise
                     logger.exception("ERROR importing translations from file")
                     messages += ["ERROR importing translations from file"]
     else:
