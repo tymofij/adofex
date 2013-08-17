@@ -77,6 +77,7 @@ def moz_import(request, project_slug):
                     bundle.save()
                     messages = bundle.messages
                 except:
+                    raise
                     logger.exception("ERROR importing translations from file")
                     messages += ["ERROR importing translations from file"]
     else:
@@ -193,7 +194,7 @@ def get_tranlation_file_skipped(request, project_slug, resource_slug, lang_code)
     """ Download Skipped version of the resource's translation
     """
     project = get_object_or_404(Project, slug=project_slug)
-    resource =  get_object_or_404(Resource, slug=resource_slug)
+    resource =  get_object_or_404(Resource, slug=resource_slug, project=project)
     language = get_object_or_404(Language, code=lang_code)
     template = _compile_translation_template(resource, language, skip=True)
     response = HttpResponse(template, mimetype='text/plain')
