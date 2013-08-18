@@ -28,8 +28,7 @@ class Command(NoArgsCommand):
         # this is to be run after txlanguages, doing cleanup
         for l in Language.objects.all():
             # already there
-            if l.code in mz_codes or l.code in missing_langs.keys():
-                print "Found %s" % l
+            if l.code in mz_codes:
                 continue
             # Mozilla uses dashes, not underscores
             if l.code.replace("_", "-") in codes:
@@ -70,6 +69,4 @@ def fill_the_database_verbose(data):
         lang, created = Language.objects.get_or_create(code=fields['code'])
         if created:
             print (u'Creating %s language (%s)' % (fields['name'], fields['code'])).encode('UTF-8')
-        else:
-            print (u'Updating %s language (%s)' % (fields['name'], fields['code'])).encode('UTF-8')
-        fill_language_data(lang, fields)
+            fill_language_data(lang, fields)
