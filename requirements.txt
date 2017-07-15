@@ -1,6 +1,3 @@
-# for legacy import
-mysql-python
-
 # installing Transifex as requirement fails:
 # https://github.com/transifex/transifex/issues/158
 # https://github.com/transifex/transifex/pull/94
@@ -10,7 +7,5 @@ mysql-python
 # Levenshtein django-tagging django-notification django-pagination
 
 # Needed to read XPI's and parse .manifest's
--e git://github.com/mozilla/amo-validator.git#egg=amo-validator
+-e git://github.com/mozilla/amo-validator.git@8b91609f94a1e4f7293e67e312eceae3d1f02b32#egg=amo-validator
 
-# doesn't hurt
-django-debug-toolbar
