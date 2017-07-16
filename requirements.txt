@@ -1,11 +1,10 @@
-# installing Transifex as requirement fails:
+# installing Transifex as requirement fails, so it has to be installed manually
+# and referenced in TX_ROOT
+# see:
 # https://github.com/transifex/transifex/issues/158
 # https://github.com/transifex/transifex/pull/94
 # https://github.com/transifex/transifex/issues/157
-# also those are missing
-# django-compressor django-haystack django-bulk
-# Levenshtein django-tagging django-notification django-pagination
 
-# Needed to read XPI's and parse .manifest's
--e git://github.com/mozilla/amo-validator.git@8b91609f94a1e4f7293e67e312eceae3d1f02b32#egg=amo-validator
+# read XPI's and parse .manifest's
+amo-validator==1.7.6
 
