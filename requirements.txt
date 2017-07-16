@@ -5,6 +5,4 @@
 # https://github.com/transifex/transifex/pull/94
 # https://github.com/transifex/transifex/issues/157
 
-# read XPI's and parse .manifest's
-amo-validator==1.7.6
 
