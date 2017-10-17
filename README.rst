@@ -1,10 +1,15 @@
 =======================
- Transifex Adofex
+ Transifex Adofex (DISCONTINUED, WILL BE CLOSED DOWN BY THE END OF 2017)
 =======================
 
-Transifex Adofex is a project to provide a web service to localize
-Mozilla extensions. It is a set of Transifex addons and few views,
-and relies on forked Transifex instanse.
+Mozilla plans to stop supporting legacy Firefox extensions in November 2017,
+and so a platform for localizing XPI extensions would not be needed at all.
+
+Those who need to translate .properties and .dtd files can use Transifex.com
+
+Transifex Adofex was a project to provide a web service to localize
+Mozilla extensions. It wass a set of Transifex addons and few views,
+and relied on forked Transifex instanse.
 
 Installation Instructions
 =========================
