@@ -1,8 +1,11 @@
-image = "ubuntu:17.10"
+image = "ubuntu:ado"
 name = "adofex"
 
+build:
+	docker build . --tag $(image)
+
 docker:
-	docker run --name $(name) -p 3000:3000 -p 8080:8080 -v `pwd`:/web/adofex -v ~/projects/indifex:/web/indifex -it $(image)
+	docker run --name $(name) -p 800:800 -v `pwd`:/web/adofex -it $(image)
 
 start:
 	@docker container start $(name)
