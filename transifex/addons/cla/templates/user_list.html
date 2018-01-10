@@ -1,0 +1,33 @@
+{% load i18n %}
+<div class="facebox-content">
+  <h4>{% blocktrans with project.name as project_name %}{{ project_name }} CLA{% endblocktrans %}</h4>
+  <div id='cla_signed'>
+    <h3>{% trans "Users that have signed the CLA:" %}</h3>
+    {% if signed_user_list %}
+      <ul>
+        {% for user in signed_user_list %}
+        <li>
+          <a href="{% url profile_public user.username %}">{{ user.username }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      {% trans "No user has signed the CLA yet." %}
+    {% endif %}
+  </div>
+
+  <div id='cla_unsigned'>
+    <h3>{% trans "Users that have NOT signed the current CLA:" %}</h3>
+    {% if unsigned_user_list %}
+    <ul>
+      {% for user in unsigned_user_list %}
+      <li>
+        <a href="{% url profile_public user.username %}">{{ user.username }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      {% trans "No users without signing the CLA." %}
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,110 @@
+{% load i18n %}
+{% load helptext_tags %}
+
+{% register_helptext "slug" %}
+<h3>{% trans "Slug" %}</h3>
+<p>
+{% blocktrans %}
+The slug is a short word, summarizing and uniquely defining a project.
+Slug should be self-explainable, but it is most important to be unique.
+Its main purpose is to be part of a reference URL for the specific object.
+{% endblocktrans %}
+</p>
+{% endregister_helptext %}
+
+{% register_helptext "name" %}
+<h3>{% trans "Name" %}</h3>
+<p>
+{% blocktrans %}
+The name is a short name for the project. This is the "codename" of the
+project. E.g. this would be "Transifex" for transifex project.
+{% endblocktrans %}
+</p>
+{% endregister_helptext %}
+
+{% register_helptext "description" %}
+<h3>{% trans "Description" %}</h3>
+<p>
+{% blocktrans %}
+The description must be one or two sentences length. This is a short
+summary about the project. It is a required field for the project form.
+E.g. Transifex description : "An open translation platform."
+{% endblocktrans %}
+</p>
+{% endregister_helptext %}
+
+{% register_helptext "long_description" %}
+<h3>{% trans "Long description" %}</h3>
+<p>
+{% blocktrans %}
+The long description field should contain an extensive description of
+the project. E.g. Transifex long description : "Transifex is web system
+ for managing translations from various distributed repositories."
+Caution! <a href="http://en.wikipedia.org/wiki/Markdown">Markdown </a>
+syntax should be used.
+{% endblocktrans %}
+</p>
+{% endregister_helptext %}
+
+{% register_helptext "homepage" %}
+<h3>{% trans "Homepage" %}</h3>
+<p>
+{% blocktrans %}
+Type in the url of the project's home page.
+{% endblocktrans %}
+</p>
+{% endregister_helptext %}
+
+{% register_helptext "feed" %}
+<h3>{% trans "RSS feed" %}</h3>
+<p>
+{% blocktrans %}
+This is the projects feed name. By following feed url, other users,
+which are interested in translation news, can be synchronized with updates
+on the project.
+{% endblocktrans %}
+</p>
+{% endregister_helptext %}
+
+{% register_helptext "bug_tracker" %}
+<h3>{% trans "Bug tracker" %}</h3>
+<p>
+{% blocktrans %}
+This field should contain the url for the maintenance, tracking system of
+the project. For example, the bug tracker url of transifex is at:
+http://code.transifex.com/transifex/issues/
+{% endblocktrans %}
+</p>
+{% endregister_helptext %}
+
+{% register_helptext "tags" %}
+<h3>{% trans "Tags" %}</h3>
+<p>
+{% blocktrans %}
+Tags are keywords that annotate an object. Tags separated by whitespaces
+should be used to help searching for the specific project. They are also
+a compact description of a project. For example, Transifex has the following
+tags: i18n l10n translations.
+{% endblocktrans %}
+</p>
+{% endregister_helptext %}
+
+{% register_helptext "maintainers" %}
+<h3>{% trans "Maintainers" %}</h3>
+<p>
+{% blocktrans %}
+Maintainers are the people responsible for the administration of the project.
+They have permissions to edit the project and to add translators. They can
+also add, edit remove resources of a project.
+{% endblocktrans %}
+</p>
+<p>
+{% blocktrans %}
+This field is ajax powered so it is possible to type only a few characters
+and be redirected to the wishing username. Type the preferred username and
+will be appeared above to be added. If you want to remove a maintainer remove
+him from the list under the text box.
+{% endblocktrans %}
+</p>
+{% endregister_helptext %}
+

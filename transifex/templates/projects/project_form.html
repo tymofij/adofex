@@ -1,0 +1,103 @@
+{% extends "projects/project_settings.html" %}
+{% load i18n %}
+{% load txcommontags %}
+{% load permissions %}
+{% load txpermissions %}
+{% load addons %}
+{% load fieldsets %}
+
+{% block title %}
+  {% if not project %}
+    {{ block.super }} | {% trans "Add a project" %}
+  {% else %}
+    {{ block.super }} | {{ project.name}}
+  {% endif %}
+{% endblock %}
+
+{% block breadcrumb %}
+  {% if not project %}
+    {{ block.super }} &raquo; {% trans "Add a project" %}
+  {% else %}
+    {{ block.super }} &raquo;
+    {% blocktrans with project.name as project_name %}Edit {{ project_name }}{% endblocktrans %}
+  {% endif %}
+{% endblock %}
+
+{% block content_title %}
+  {% include "projects/logo.html" %}
+  <h2 class="pagetitle with_description">
+  {% if not project %}
+    {% trans "New project" %}
+  {% else %}
+    {% blocktrans with project.name as project_name %}Edit {{ project_name }}{% endblocktrans %}
+  {% endif %}
+  </h2>
+
+   <div class="description">
+	<p>{% if not project %}
+    {% trans "Create a new project on Transifex" %}
+  {% else %}
+    {% trans "Manage your project" %}
+  {% endif %}
+    </p>
+</div>
+
+{% endblock %}
+
+{% block project_settings_content %}
+<div id="project-form-container">
+{% include "helptext/project_form_helptext.html" %}
+{% hook "extra_helptext.html" %}
+<h3>
+{% if not project %}
+    {% trans "Add the details of your project" %}
+{% else %}
+    {% trans "Edit the details of your project" %}
+{% endif %}
+</h3>
+
+
+<div class="tx-form dual">
+	  <form action='' enctype="multipart/form-data" method='post'>{% csrf_token %}
+
+      {{ project_form.non_field_errors }}
+
+      <fieldset id="project-edit-simple">
+        {% get_fieldset slug,name,slug,description,source_language,maintainers,private as simple_fields from project_form %}
+        {% for field in simple_fields %}
+          <div class="tx-form-field">
+            {{ field.label_tag }}{% if field.field.required %}<span class="required">*</span>{% endif %}
+	          {% if field.field.help_text %}<span class="field-helptext tipsy_enable" title="{{ field.help_text }}">?</span>{% endif %}
+            {{ field }}
+            {{ field.errors }}
+        </div>
+        {% endfor %}
+      </fieldset>
+
+			<div class="clearfix advform-cont" style="width:560px;">
+				<span id="display-advform">{% trans "View advanced fields" %}</span>
+			</div>
+      <fieldset id="project-edit-advanced" style="display:none;">
+        {% get_fieldset homepage,trans_instructions,feed,bug_tracker,long_description,webhook,auto_translate_select_service,auto_translate_api_key,logo as advanced_fields from project_form %}
+        {% for field in advanced_fields %}
+          <div class="tx-form-field">
+            {{ field.label_tag }}{% if field.field.required %}<span class="required">*</span>{% endif %}
+	          {% if field.field.help_text %}<span class="field-helptext tipsy_enable" title="{{ field.help_text }}">?</span>{% endif %}
+            {{ field }}
+            {{ field.errors }}          </div>
+        {% endfor %}
+      </fieldset>
+
+	    <div class="submit">
+        <input type="submit" class="i16 submit buttonized" value="{% trans "Save project" %}" />
+      </div>
+
+    </form>
+</div>
+
+
+  </div>
+</div>
+
+{% endblock %}
+

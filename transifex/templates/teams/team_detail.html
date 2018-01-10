@@ -1,0 +1,261 @@
+{% extends "teams/team_menu.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load cache %}
+{% load pagination_tags %}
+{% load txcommontags %}
+{% load permissions %}
+{% load txpermissions %}
+{% load addons %}
+{% load statistics_resources %}
+{% load project_tags %}
+{% load priority_images %}
+
+{% block extra_head %}
+<link type="text/css" href="{% static "css/jquery.jscrollpane.css" %}" rel="stylesheet" media="all" />
+<script type="text/javascript">
+$(function(){
+  $(".tipsy_enable").tipsy({'html':true, 'gravity':'s', live: true});
+  $("#join-facebox-trigger").facebox();
+  $('#filter-form #id_project').chosen();
+  $('#filter-form #id_project').change(function() {
+    $("#filter-form").submit();
+  });
+
+  $('#stat-row-container').on('click', '.stat-row', function() {
+    var project_slug = $(this).data('project');
+    var resource_slug = $(this).data('resource');
+    var actions_url_tmpl = '{% url resource_actions 11111 22222 language.code %}';
+    var actions_url = actions_url_tmpl.replace('11111', project_slug).replace('22222', resource_slug);
+    $.facebox({ ajax: actions_url })
+  });
+})
+</script>
+  <script type="text/javascript" src="{% static "js/lib/mwheelIntent.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/lib/jquery.mousewheel.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/lib/jquery.jscrollpane.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/lib/jquery.infinitescroll.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/tx.infinitescrollbehaviour.js" %}"></script>
+  <script type="text/javascript">
+    //TODO: remove this with merge of codebase and put it in seperate file
+
+    //Define loader icon to be used with javascript
+    var sloaderUrl = "{% static 'images/icons/scroll-ajax-loader.gif' %}";
+
+    $(function(){
+      infScrollOptions = {
+        navSelector     : ".pagination",
+        nextSelector    : ".pagination a:first",
+        itemSelector    : "#stat-row-container tr.stat-row",
+        errorCallback   : function () {
+          //when done, do a final reinitialise of the jscrollpane to adjust to content
+          $("table.stats-table").parents('.jscrollwrapper').data('jsp').reinitialise();
+        },
+        loading: {
+          finishedMsg   : "",
+          img           : sloaderUrl,
+          msgText       : "" ,
+      }
+    };
+ $("table.stats-table").infscrollbehaviour({}, infScrollOptions);
+
+});
+  </script>
+
+{% endblock %}
+
+{% block title %}{{ block.super }} | {{ project.name }}{% endblock %}
+
+{% block content_main %}
+{% get_permission "project_perm.submit_translations" for request.user and team as "can_submit_translations" %}
+{% get_permission "project_perm.coordinate_team" for request.user and project,language as "is_coordinator" %}
+
+<div class="obj_bigdetails">
+{% if not project.anyone_submit %}
+  <div class="separate-header notopmargin clearfix" style="background:none; margin-bottom:0.8em;padding-bottom:0px;">
+  	<h3  class="sh-label">{% trans "Overall Progress" %}</h3>
+  	<div class="separate-buttons">
+		{% if request.user.is_authenticated and not perms.projects.submit_translations and not can_submit_translations and not user_access_request %}
+			<a id="join-facebox-trigger" class="i16 team_join nude-button" href="#facebox-joinmember">{% trans 'Join team' %}</a>
+		{% endif %}
+	  </div>
+
+	  <div class="no-display">
+		{% if request.user.is_authenticated and not perms.projects.submit_translations and not can_submit_translations and not user_access_request %}
+		<div id="facebox-joinmember"  class="facebox-content">
+		<div class="facebox-content">
+      {% if team %}
+	    <form method="post" action="{% url team_join_request project.slug language.code %}" class="microform">{% csrf_token %}
+	      <p>{% hook "team_request_join_additional.html" %}</p>
+	      <p><input name="team_join" class="i16 tick buttonized" type="submit" title="{% trans 'Join language translation' %}" value="{% trans 'Join language translation' %}"></p>
+	    </form>
+	    {% else %}
+      <form method="post" enctype="multipart/form-data" action="{% url team_request project.slug %}" class="microform">{% csrf_token %}
+        <input type="hidden" name="language" value="{{ language.pk }}" id="id_language">
+        <input type="hidden" name="project" value="{{ project.pk }}" id="id_project">
+	      <p>{% hook "team_request_join_additional.html" %}</p>
+	      <p><input name="team_join" class="i16 tick buttonized" type="submit" title="{% trans 'Join language translation' %}" value="{% trans 'Join language translation' %}"></p>
+      </form>
+	    {% endif %}
+		</div>
+	  </div>
+		{% endif %}
+
+	  </div>
+
+	</div>
+
+  <div class="team-statbar">
+    {% with 480 as barwidth %}
+       {% progress_for_project project language.code barwidth %}
+    {% endwith %}
+  </div>
+
+<div class="team_detail">
+  <dl class="definition clearfix">
+    {% if team.mainlist %}
+      <dt class="i16 email">{% trans "Mainlist:" %}</dt>
+      <dd>{{ team.mainlist|mungify:team.mainlist }} </a></dd>
+    {% endif %}
+
+    {% if coordinators %}
+      <dt class="i16 coordinators">{% blocktrans count coordinators|length as counter %}Coordinator:{% plural %}Coordinators:{% endblocktrans %}</dt>
+      <dd>
+        {% for c in coordinators %}
+          <img class="border" width="16" height="16" src="{{ c.profile.get_mugshot_url }}" style="vertical-align:middle"/>
+          <a href="{% url profile_public c.username %}">{{ c.username }}</a>
+        {% endfor %}
+      </dd>
+    {% endif %}
+  </dl>
+</div>
+{% else %}
+<div class="importantmsg" style="margin-top:2em;">
+  <p class="i16 infomsg" >{% blocktrans %}Since this project is "Free for all" anyone can contribute. You don't have to be a member!{% endblocktrans %}</p>
+</div>
+{% endif %}
+
+
+<div class="list" style="clear:both">
+
+  <div class="separate-header clearfix" style="margin-bottom:0;">
+  	<h3  class="sh-label">{% blocktrans %}Language resources{% endblocktrans %}</h3>
+	</div>
+
+	{% if project.is_hub %}
+<div id="hub-project-selector" class="tx-form clearfix">
+  <form id="filter-form" style="float:right;" action="" method="get">
+    <fieldset style="margin: inherit auto;" class="compact">
+      {% for hidden in filter_form.hidden_fields %}{{ hidden }}{% endfor %}
+      {% for field in filter_form.visible_fields %}
+        {{ field.errors }}
+        {{ field }}
+      {% endfor %}
+    </fieldset>
+  </form>
+  <span style="float:right;padding-top:9px;padding-right:5px;">{%trans "Show resources from:" %}</span>
+</div>
+{% endif %}
+
+  {% if statslist %}
+  <table class="stats-table tablesorter langdetail">
+  <thead>
+    <tr>
+      <th class="onlyarrow tableobject"></th>
+      <th class="onlyarrow tablecompletion"></th>
+      <th class="onlyarrow tablelastupd"></th>
+      <th class="onlyarrow priority_level"></th>
+    </tr>
+  </thead>
+  <tbody id="stat-row-container">
+
+  {% autopaginate statslist 15 %}
+  {% for stat in statslist %}
+  <tr class="stat-row" title="{% trans 'click for translation' %}" data-project="{{ stat.resource.project.slug }}" data-resource="{{ stat.resource.slug }}">
+  {% cache 604800 team_details stat.resource.project.slug language.code stat.resource.id LANGUAGE_CODE %}
+      <td class="tableobject">
+      <span class="linkstyle"><strong>{% if project.is_hub %}{{ stat.resource.project.name }}&nbsp;&rarr;&nbsp;{% endif %} {{ stat.resource.name }}</strong></span>
+      {% if stat.lock.valid %}
+          <img class="tipsy_enable bullet" src="{% static "images/icons/bullet_lock.png" %}" title="{% trans "Locked" %}"/>
+      {% else %}
+        {% if not stat.resource.accept_translations %}
+          <img class="tipsy_enable bullet" src="{% static "images/icons/bullet_red.png" %}" title="{% trans "Not accepting translations at the moment" %}"/>
+        {% endif %}
+      {% endif %}
+      </td>
+      <td class="tablecompletion">
+      {% with 200 as barwidth %}
+          {% stats_bar_simple stat barwidth %}
+      {% endwith %}
+      </td>
+{% endcache %}
+      <td class="tablelastupd">
+      {% with stat.last_update as last_update %}
+        <span  class="i16 table-update tipsy_enable" title="{% trans 'Last update' %}" unixdate="{{ last_update|date:'U' }}">
+        {% with stat.last_committer as last_committer %}
+        {% if last_update %}
+          {{ last_update|date:"M d, h:ia" }}
+        {% else %}
+          {% trans "no activity yet" %}
+        {% endif %}
+      {% endwith %}
+    </span>
+    {% endwith %}
+  </td>
+
+    <td class="priority_level" style="text-align:center">
+      <span style="border:0">
+        {% with stat.resource.priority.level as priority_level %}
+        {% with stat.resource.priority.display_level as display_level %}
+          <span class="priority_sort" style="display:none">{{ priority_level }}</span>
+          {% with priority_level|priority_image_path as priority_image %}
+          <img class="tipsy_enable" src="{% static priority_image %}" style="border:0" title="Priority: {{ display_level }}"/>
+          {% endwith %}
+        {% endwith %}
+        {% endwith %}
+      </span>
+    </td>
+  </tr>
+  {% endfor %}
+
+  </table>
+  {% else %}
+    <p>{% trans "No resources are registered for this project yet." %}</p>
+  {% endif %}
+</div>
+  {% paginate %}
+  <div class="pagination" style="display:none">
+    {% if page_obj.has_next %}
+    <a href="?page{{ page_suffix }}={{ page_obj.next_page_number }}{{ getvars }}{{ hashtag }}"></a>
+    {% endif %}
+  </div>
+</div>
+
+{% if team %}
+<div class="separate-header clearfix">
+    <h3  class="sh-label">{% trans "History" %}</h3>
+</div>
+{% load tx_action_log %}
+{% recent_team_log team as action_log %}
+{% if not action_log %}
+<p>{% trans 'None available' %}</p>
+{% else %}
+<ul class="actionlist nomargin">
+{% for entry in action_log %}
+    <li class="i16 {{entry.action_type}}">
+        <p>{{ entry.message|safe }}</p>
+        <span class="timestamp">{{ entry.action_time|timesince }} ago</span>
+    </li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endif %}
+
+{% endblock %}
+
+
+{% block content_footer %}
+  <div id="content_footer_center"></div>
+
+
+{% endblock %}

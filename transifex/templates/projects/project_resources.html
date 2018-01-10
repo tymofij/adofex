@@ -1,0 +1,199 @@
+{% extends "projects/project_menu.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load humanize %}
+{% load cache %}
+{% load txcommontags %}
+{% load permissions %}
+{% load statistics_resources %}
+{% load upload_manager_tags %}
+{% load priority_images %}
+
+
+{% block project_header %}
+{{block.super}}
+<span>&nbsp;/&nbsp;</span>
+<span><a href="{% url project_resources project.slug %}">{% blocktrans %}Resources{% endblocktrans %}</a></span>
+{% endblock %}
+{% block current_description %}
+<p class="description">{% blocktrans %}Detailed list of the project's resources{% endblocktrans %}</p>
+{% endblock %}
+
+
+{% block content_main %}
+{% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+<div id="resources" class="resources">
+	<div class="separate-header notopmargin clearfix">
+  	<h3  class="sh-label">{% blocktrans %}Project resources{% endblocktrans %}</h3>
+  	{% if perms.projects.pr_resource_add_change or is_maintainer %}
+  	<div class="separate-buttons"><span id="create_new_resource" title="{% trans 'Add new resource' %}" class="i16 nude-button add houdini_toggler linkstyle">{% trans "Add new resource" %}</span></div>
+		{% endif %}
+	</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $(".res_tipsy_enable").tipsy({html:true, gravity:'s', live:true});
+      var tablesorter_resource = $(".tablesorter");
+      tablesorter_resource.tablesorter({
+        widgets: ['zebra'],
+        sortList: [[0,0]],
+        textExtraction: { // Take value inside an object for the columns
+          0: function(node) {return $("a", node).text(); },
+          1: function(node) {
+              var category = $(node).html();
+              if(category == "None")
+                return "zzzzzzzzzzzz";
+              else
+                return category;},
+          2: function(node) {return $(node).find(".wordcount").text();},
+          3: function(node) {return $(".origin_format", node).text();},
+          4: function(node) {return parseInt($(".priority_sort", node).text());}
+        }
+      });
+      var category_is_clicked = false; // holds whether the last click on a table header was on the 'category' header or not
+      var tablesorter_resource_header = $('th', tablesorter_resource); // selects all headers of the table
+      tablesorter_resource_header.click(function() {
+      // set 'category_is_clicked' depending on what was clicked
+      if($(this).attr('id') == 'category_header') {
+          category_is_clicked = true;
+      } else {
+          category_is_clicked = false;
+      }
+      });
+      tablesorter_resource.bind("sortEnd", function(event) {
+          // this is called after the sorting is done
+          if(category_is_clicked) {
+              // if 'category' was clicked
+              var odd = false; // holds whether the current line is to be "painted" as odd or event
+              var last_category = "";
+              $('tr', $(this)).each(function(index, element) {
+                  // iterate over all table lines
+                  var current_category = $('.category_td_class', $(element)).html(); // get new category name
+                  if(current_category != last_category) { // if it is a different category than the last one
+                      last_category = current_category;
+                      odd = ! odd; // toggle the odd value
+                  }
+                  var jq_element = $(element);
+                  jq_element.removeClass(); // remove all classes from the current line
+                  // and add the correct class in order to "paint" appropriately
+                  if(odd) {
+                      jq_element.addClass('odd');
+                  } else {
+                      jq_element.addClass('even');
+                  }
+              });
+          }
+      })
+      {% if request.user.is_authenticated %}
+      $("#new_translation1").click( function (){
+          $("#new_translation_box1").toggle();
+      });
+      $("#start_new_translation").click( function() {
+          var target_lang_code = $(this).prev().val();
+          if ( target_lang_code != "" ) {
+              //request_url = window.location + target_lang_code;
+              //This is _UGLY_. We need to find a way to do reverse url
+              //lookups from JS code. #FIXME
+              request_url ='/resources/project/{{project.slug}}/'+ target_lang_code;
+              window.location = request_url;
+          } else {
+              alert("Please select a target language first and then click Go.");
+          }
+      });
+      {% endif %}
+      {% if is_maintainer %}
+      var resource_priority_cycle_url = '{% url cycle_resource_priority project.slug "1111111111" %}';
+      $("a.resource_priority_trigger").each(function(){
+        $(this).click(function(e){
+          e.stopPropagation();
+          $('.tipsy').remove();
+          id_string = $(this).attr("id");
+          var slug = id_string.substring(id_string.indexOf("_")+1);
+          var pr_url = resource_priority_cycle_url.replace('1111111111', slug)
+          $(this).load(pr_url, function(response, status, xhr) {
+              if (status == "error") {
+                  var msg = "Sorry but there was an error: ";
+                  alert(msg + xhr.status + " " + xhr.statusText);
+              }
+          });
+        });
+      });
+      {% endif %}
+    });
+</script>
+
+	{% if is_maintainer %}
+    {% upload_create_resource_form request project %}
+  {% endif %}
+
+  {% for stat in statslist %}
+  {% if forloop.first %}
+  <table class="stats-table tablesorter resources">
+  <thead>
+   <tr >
+    <th class="onlyarrow tableobject"></th>
+    <th id="category_header" class="onlyarrow category_td_class"></th>
+		<th class="onlyarrow res-size"></th>
+    <th class="onlyarrow tablelastupd"></th>
+    <th class="onlyarrow priority_level"></th>
+   </tr>
+  </thead>
+  <tbody>
+  {% endif %}
+    <tr>
+		{% cache 604800 project_resource_details project.slug stat.slug LANGUAGE_CODE %}
+      <td class="tableobject">
+        <a href="{% url resource_detail project.slug stat.slug %}">{{ stat.name }}</a>
+      </td>
+      <td class="category_td_class">
+        {% if stat.category %}
+          {{ stat.category }}
+        {% else %}
+          {% trans "Uncategorized" %}
+        {% endif %}
+      </td>
+      <td class="res-size"> {% blocktrans with stat.total_entities|intcomma as strings and stat.wordcount|intcomma as words %}<span class="wordcount">{{ words }}</span> words <span style="color:#888;">({{ strings }} strings)</span>{% endblocktrans %}</td>
+      <td class="tablelastupd">
+        {% with stat.last_committer as last_committer %}
+          <span class="i16 table-update res_tipsy_enable" title="{% trans 'Last update' %}">
+        {% endwith %}
+        {% with stat.last_update as last_update %}
+          {% if last_update %}
+            <span class="origin_format" style="display:none">{{ last_update|date:"M d,Y h:i A" }}</span>
+            {{ last_update|date:"M d, h:ia" }}
+          {% else %}
+            {% trans "no translations yet" %}
+          {% endif %}
+        {% endwith %}
+        </span>
+      </td>
+  {% endcache %}
+      <td class="priority_level" style="text-align:center">
+        {% with stat.priority__level as priority_level %}
+        {% with stat.priority__display as display_level %}
+        {% with priority_level|priority_image_path as priority_image %}
+        {% if is_maintainer %}
+        <a id="priority_{{ stat.slug }}" class="resource_priority_trigger" style="cursor:pointer">
+          <span class="priority_sort" style="display:none">{{
+          priority_level }}</span>
+          <img class="res_tipsy_enable" src="{% static priority_image %}" style="border:0" title="Priority: {{ display_level }}"/>
+        </a>
+        {% else %}
+        <span class="priority_sort" style="display:none">{{ priority_level }}</span>
+        <img class="res_tipsy_enable" src="{% static priority_image %}" style="border:0" title="Priority: {{ display_level }}"/>
+        {% endif %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+      </td>
+    </tr>
+  {% if forloop.last %}
+  </tbody>
+  </table>
+  {% endif %}
+  {% empty %}
+    <p class="i16 infomsg">{% trans "No resources are registered for this project yet." %}</p>
+  {% endfor %}
+</div>
+{% endblock %}

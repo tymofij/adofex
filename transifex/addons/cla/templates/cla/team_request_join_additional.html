@@ -1,0 +1,6 @@
+{% load i18n %}
+
+{% if project.cla and not request.user in project.cla.users.all %}
+    <input name="cla_sign" type="checkbox"/>
+    {% blocktrans with project.cla.get_absolute_url as cla_url %}I have read and agree with this project's <a id="cla_facebox" href="{{ cla_url }}">contributor license agreement</a>.{% endblocktrans %}
+{% endif %}

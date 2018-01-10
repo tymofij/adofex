@@ -1,0 +1,26 @@
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-08 10:12+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: actionlog/templates/object_action_list.html:7 txpermissions/forms.py:18
+msgid "This is a large sentence that will have only few small change in the other files."
+msgstr ""
+
+#: actionlog/templates/object_action_list.html:8
+msgid "This is antohter alrge sentence that will haave alot fo changesh in the other file and won;t match the  origingal stinrg"
+msgstr ""
+
+#: actionlog/templates/foo.html:25
+#, fuzzy
+msgid "This string will  not have any change in the other file."
+msgstr ""

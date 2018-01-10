@@ -1,0 +1,42 @@
+{% extends "projects/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load txcommontags %}
+
+{% block body_class %}{{ block.super }} my_projects{% endblock %}
+
+{% block title %}{{ block.super }} | {% trans "My projects" %}{% endblock %}
+
+{% block breadcrumb %}{% homelink %} &raquo; {% trans "My projects" %}{% endblock %}
+
+{% block content_title %}
+<h2 class="pagetitle">
+    {% trans "My projects on Transifex" %}
+</h2>
+{% endblock %}
+
+{% block content_main %}
+
+	<div id="myprojects-links" class="clearfix">
+    {% if request.user.is_authenticated and perms.projects.add_project %}
+	    <p>
+	     	<a class="i16 nude-button add right" href="{% url project_create %}">{% trans "New project" %}</a>
+	    </p>
+    {% endif %}
+	    <p>
+	        <a href="{% url project_list %}" title="{% trans "The projects being served" %}">{% trans "All projects" %}</a>
+	    </p>
+  </div>
+  
+  {% include "projects/project_myprojects_snippet.html" %}
+
+{% endblock %}
+
+{% block content_footer %}
+{% if request.user.is_authenticated and perms.projects.add_project %}
+{% url project_create as project_create %}
+  <div id="content_footer_center">
+    <p><span class="i16 tip">{% blocktrans %}Couldn't find your project? Go ahead and <a href="{{ project_create }}">add it</a>!{% endblocktrans %}</span></p>
+  </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load search_filters %}
+{% load pagination_tags %}
+{% load markup %}
+
+{% block title %}{{ block.super }} | {% trans "Search" %}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; {% if not query %}{% trans "Search" %}{% else %}<a href="{% url search %}">{% trans "Search" %}</a> &raquo; {% trans "Results" %}{% endif %}{% endblock %}
+
+{% block body_class %}search project_list{% endblock %}
+
+{% block content_title %}
+  <h2 class="pagetitle">
+  {% with results|length as result_count %}
+    {% if not query %}{% trans "Search projects" %}{% else %}{% trans "Search results " %}({{ result_count }}){% endif %}
+	{% endwith %}
+  </h2>
+{% endblock %}
+
+{% block content_main %}
+
+  {% with "content_header_prim" as extra_searchform_classes %}
+      {% include "search_form.html" %}
+  {% endwith %}
+
+  {% if query %}
+    {% if spelling_suggestion %}
+      <h3>{% trans 'Did you mean:' %} <a href="{% url search %}?q={{ spelling_suggestion }}">{{ spelling_suggestion }}</a></h3>
+    {% endif %}
+
+    {% if results %}
+      {% autopaginate results 10 %}
+      <div class="searchr project_list">
+      {% for sr in results %}
+        {% highlight terms as name %} {# set `name` object #}
+            {{ sr.name }}
+        {% endhighlight %}
+        {% searchexcerpt terms 6 as description %} {# set `description` object #}
+            {{ sr.description|striptags }}
+        {% endsearchexcerpt %}
+        {% searchexcerpt terms 10 as searchtext %} {# set `searchtext` object #}
+            {{ sr.text|markdown|striptags }}
+        {% endsearchexcerpt %}
+        <div class="entry">
+          <p class="name"><a href="{% url project_detail sr.slug %}">{{ name.highlighted }}</a></p>
+          <p class="description">{{ description.excerpt|highlight:terms }}</p>
+        </div>
+      {% endfor %}
+      <div class="pagination top">{% paginate %}</div>
+      </div>
+    {% else %}
+      <p class="i16 notice notfound">
+          {% blocktrans with query|escape as q %}No projects were found for "{{ q }}". You may want to change your query a bit.{% endblocktrans %}
+      </p>
+    {% endif %}
+  {% endif %}
+
+{% endblock %}
+
+{% block content_footer %}
+{% if request.user.is_authenticated and perms.projects.add_project %}
+  <div id="content_footer_center">
+   <span class="i16 tip">
+       {% url project_create as project_create_url %}
+       {% blocktrans %}Couldn't find your project? Why don't you go ahead and <a href="{{ project_create_url }}">add it</a>?{% endblocktrans %}
+   </span>
+  </div>
+{% endif %}
+{% endblock %}

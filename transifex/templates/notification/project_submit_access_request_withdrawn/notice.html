@@ -1,0 +1,2 @@
+{% load i18n %}{% url project_detail project_slug=project.slug as project_url %}
+{% blocktrans %}<span class="notice_action">Withdrew</span> own <span class="notice_subject">request</span> of access to submit translations to the <span class="notice_action">project</span> <a href="{{ project_url }}">{{ project }}</a>{% endblocktrans %}

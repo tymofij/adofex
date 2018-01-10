@@ -1,0 +1,5915 @@
+# Translation file for Transifex.
+# Copyright (C) 2007-2010 Indifex Ltd.
+# This file is distributed under the same license as the Transifex package.
+#
+# Translators:
+# Anton Karakulov <brutto@darudar.org>, 2011.
+# Azamat Hackimov <azamat.hackimov@gmail.com>, 2011.
+# DCamer <dcamer@mail.ru>, 2011.
+# Diego Búrigo Zacarão <diegobz@indifex.com>, 2011.
+#   <dreel@bk.ru>, 2011.
+# Misha Shnurapet <shnurapet@fedoraproject.org>, 2011.
+# Oleg Koptev <koptev.oleg@gmail.com>, 2011.
+# Paul Kaganer <paul.kaganer@gmail.com>, 2012.
+# Pavel Maryanov <acid@jack.kiev.ua>, 2011.
+# sytkov <sytkov@gmail.com>, 2011.
+#   <tret2003@gmail.com>, 2012.
+# Yuri Kozlov <yuray@komyakino.ru>, 2011.
+# Александр Ю <dobs@bk.ru>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: Transifex\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-29 15:58+0000\n"
+"PO-Revision-Date: 2012-05-28 07:09+0000\n"
+"Last-Translator: Vyacheslav Tretyakov <tret2003@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.net/projects/p/transifex/"
+"language/ru/)\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: actionlog/filters.py:12
+msgid "Search for a username or leave it blank"
+msgstr "Ищите по имени пользователя или оставьте это поле пустым"
+
+#: actionlog/models.py:162 actionlog/templates/object_action_list.html:7
+#: addons/copyright/models.py:80 addons/suggestions/models.py:45
+#: addons/suggestions/models.py:111 projects/models.py:376 teams/models.py:132
+#: teams/models.py:168 txpermissions/forms.py:18
+msgid "User"
+msgstr "Пользователь"
+
+#: actionlog/models.py:171
+msgid "Action type"
+msgstr "Тип действия"
+
+#: actionlog/models.py:172
+msgid "Action time"
+msgstr "Время выполнение"
+
+#: actionlog/models.py:180
+msgid "log entry"
+msgstr "запись журнала"
+
+#: actionlog/models.py:181
+msgid "log entries"
+msgstr "записи журнала"
+
+#: actionlog/templates/object_action_list.html:6
+msgid "Date/Time"
+msgstr "Дата/время"
+
+#: actionlog/templates/object_action_list.html:8
+msgid "Action"
+msgstr "Действие"
+
+#: actionlog/templates/object_action_list.html:14
+#: projects/templates/feeds/timeline_description.html:1
+msgid "DATETIME_FORMAT"
+msgstr "j b Y H:i"
+
+#: actionlog/templates/object_action_list.html:22
+msgid "No changes."
+msgstr "Нет изменений."
+
+#: addons/autofetch/models.py:17
+msgid "Source file URL"
+msgstr "URL исходного файла"
+
+#: addons/autofetch/models.py:19
+msgid ""
+"A URL pointing to the source file of this resource to be used for automatic "
+"updates."
+msgstr ""
+"URL-адрес, указывающий на исходный файл этого ресурса, которые будут "
+"использоваться для автоматического обновления."
+
+#: addons/autofetch/models.py:21
+msgid "Automatically update source file"
+msgstr "Автоматически обновлять исходный файл"
+
+#: addons/autofetch/models.py:22
+msgid ""
+"A boolean field indicating whether the file should be automatically updated "
+"by pulling and merging from the given URL."
+msgstr ""
+"Логическое поле указывающее, должен ли файл использовать автоматическое "
+"обновления, производя слияние с данным URL."
+
+#: addons/autofetch/models.py:27 addons/copyright/models.py:89
+#: resources/models.py:397 resources/models.py:686 resources/models.py:928
+#: resources/models.py:1041 templates/resources/resource_actions.html:71
+msgid "Resource"
+msgstr "Ресурс"
+
+#: addons/autofetch/models.py:29
+msgid "The translation resource."
+msgstr "Ресурс перевода."
+
+#: addons/autofetch/models.py:32
+msgid "url handler"
+msgstr "обработчик URL"
+
+#: addons/autofetch/views.py:25
+msgid "URL not set for this resource."
+msgstr "Для данного ресурса не указан URL."
+
+#: addons/autofetch/views.py:30
+msgid "Error updating source file."
+msgstr "Ошибка обновления исходного файла."
+
+#: addons/autofetch/views.py:35
+msgid "Source file updated successfully."
+msgstr "Исходный файл был успешно обновлен."
+
+#: addons/charts/templates/charts/widget_snippet.html:64
+msgid "Image charts"
+msgstr "Статические диаграммы в виде изображений"
+
+#: addons/charts/templates/charts/widget_snippet.html:70
+#: addons/charts/templates/charts/widget_snippet.html:101
+msgid "Loading..."
+msgstr "Загрузка..."
+
+#: addons/charts/templates/charts/widget_snippet.html:73
+msgid ""
+"Display your project's translation statistics on your own website as a "
+"simple image. Perfect for embedding in wiki pages, Trac instances, and email."
+msgstr ""
+"Отображать перевод статистики вашего проекта на своем сайте в виде простого "
+"изображения. Идеально подходит для встраивания в вики-страницы, экземпляры "
+"Trac и электронной почты."
+
+#: addons/charts/templates/charts/widget_snippet.html:74
+msgid "The chart will always report live Transifex numbers."
+msgstr "Диаграмма всегда будет показывать текущие цифры Transifex."
+
+#: addons/charts/templates/charts/widget_snippet.html:75
+#: addons/charts/templates/charts/widget_snippet.html:109
+msgid "Show code snippet for resource:"
+msgstr "Показать фрагмент кода для ресурса:"
+
+#: addons/charts/templates/charts/widget_snippet.html:77
+#: addons/charts/templates/charts/widget_snippet.html:111
+#: addons/widgets/templates/project_widgets.html:55 projects/models.py:185
+msgid "Hidden"
+msgstr "Скрыт"
+
+#: addons/charts/templates/charts/widget_snippet.html:93
+msgid "Interactive charts"
+msgstr "Интерактивные диаграммы"
+
+#: addons/charts/templates/charts/widget_snippet.html:105
+msgid ""
+"Display your project's translation statistics on your own website as an "
+"interactive chart. This requires modifications to your homepage's HTML code."
+msgstr ""
+"Может отображать перевод статистики вашего проекта на вашем сайте в виде "
+"интерактивной диаграммы. Это требует изменения HTML-кода вашей страницы."
+
+#: addons/charts/templates/charts/widget_snippet.html:107
+msgid ""
+"You can adjust level of detail, dimensions and colors of the chart by "
+"tweaking the code below."
+msgstr ""
+"Вы можете изменить уровень детализации, размеры и цвета диаграммы, изменив "
+"следующий код."
+
+#: addons/charts/templates/charts/widget_snippet.html:128
+msgid "Interactive and Image charts"
+msgstr "Интерактивные и статические диаграммы"
+
+#: addons/charts/templates/charts/widget_snippet.html:129
+msgid ""
+"Sorry, but your project doesn't have any resources with up-to-date "
+"statistics. You need to have at least one resource with statistics to export "
+"charts from Transifex."
+msgstr ""
+"К сожалению, в вашем проекте нет ресурсов со свежими данными. У вас должен "
+"быть по крайней мере один ресурс со статистикой для экспортирования диаграмм "
+"из Transifex."
+
+#: addons/cla/handlers.py:35
+msgid "You have updated this project's CLA."
+msgstr "Вы обновили в проекте это лиц. соглашение — CLA."
+
+#: addons/cla/handlers.py:40
+msgid "You have added a CLA to this project."
+msgstr "Вы добавили в проект это лиц. соглашение — CLA."
+
+#: addons/cla/handlers.py:46
+msgid "You have deleted this project's CLA."
+msgstr "Вы удалили из проекта это лиц. соглашение — CLA."
+
+#: addons/cla/handlers.py:55
+msgid "Enforce a CLA for this project"
+msgstr "Применить CLA для этого проекта"
+
+#: addons/cla/handlers.py:59
+msgid "License text"
+msgstr "Текст лицензии"
+
+#: addons/cla/models.py:12
+msgid "This is the CLA text, keep it in markdown format."
+msgstr ""
+"Это текст лиц. соглашения — CLA, сохранить его в облегчённом формате "
+"разметки."
+
+#: addons/cla/models.py:16
+msgid "The project that this CLA belongs to."
+msgstr "Проект, которому принадлежит это лиц. соглашение — CLA."
+
+#: addons/cla/views.py:51
+msgid "You have signed the CLA."
+msgstr "Вы подписали лиц. соглашение — CLA."
+
+#: addons/cla/templates/project_cla.html:7
+msgid "CLA"
+msgstr "Лицензионное соглашение участника — CLA"
+
+#: addons/cla/templates/project_cla.html:41
+#: addons/cla/templates/user_list.html:3
+#, python-format
+msgid "%(project_name)s CLA"
+msgstr "Лиц. соглашение участника проекта %(project_name)s"
+
+#: addons/cla/templates/project_cla.html:46
+#, python-format
+msgid ""
+"You have signed the current <a id=\"cla_facebox\" href=\"%(cla_url)s"
+"\">contributor license agreement</a>."
+msgstr ""
+"Вы подписали текущее <a id=\"cla_facebox\" href=\"%(cla_url)s\">лицензионное "
+"соглашение участника</a>."
+
+#: addons/cla/templates/project_cla.html:56
+#: addons/cla/templates/cla/team_request_join_additional.html:5
+#, python-format
+msgid ""
+"I have read and agree with this project's <a id=\"cla_facebox\" href="
+"\"%(cla_url)s\">contributor license agreement</a>."
+msgstr ""
+"Я прочёл <a id=\"cla_facebox\" href=\"%(cla_url)s\">лицензионное соглашение "
+"участника</a> проекта, и согласен с ним."
+
+#: addons/cla/templates/project_cla.html:68
+msgid "Sign it"
+msgstr "Подписать его"
+
+#: addons/cla/templates/user_list.html:5
+msgid "Users that have signed the CLA:"
+msgstr "Пользователи, подписавшие лиц. соглашение — CLA:"
+
+#: addons/cla/templates/user_list.html:15
+msgid "No user has signed the CLA yet."
+msgstr "Ещё ни один пользователь не подписал лиц. соглашение — CLA. "
+
+#: addons/cla/templates/user_list.html:20
+msgid "Users that have NOT signed the current CLA:"
+msgstr "Пользователи, не подписавшие лиц. соглашение — CLA:"
+
+#: addons/cla/templates/user_list.html:30
+msgid "No users without signing the CLA."
+msgstr "Нет пользователей, не подписавших лиц. соглашение — CLA."
+
+#: addons/cla/templates/cla/access_control_additional.html:18
+msgid "Show full CLA text"
+msgstr "Показать полный текст лиц. соглашения — CLA"
+
+#: addons/cla/templates/cla/access_control_additional.html:19
+msgid "Show a list of users who have signed the CLA"
+msgstr "Показать список пользователей, подписавших лиц. соглашение — CLA"
+
+#: addons/cla/templates/cla/access_control_additional.html:19
+msgid "Show CLA signees"
+msgstr "Показать подписавших лиц. соглашение — CLA"
+
+#: addons/cla/templates/cla/access_control_additional.html:34
+#, python-format
+msgid ""
+"<strong>Warning</strong>: Modifying or deleting the CLA will clear the "
+"signee list and will require you to inform translators to manually <a href="
+"\"%(cla_sign)s\">sign the new CLA</a>."
+msgstr ""
+"<strong>Внимание</strong>: Изменение или удаление лиц. соглашения — CLA — "
+"очистит список подписей и от вас потребуется самостоятельно проинформировать "
+"переводчиков о необходимости вручную <a href=\"%(cla_sign)s\">подписать "
+"новое соглашение CLA</a>."
+
+#: addons/copyright/models.py:73 projects/models.py:207
+msgid "Owner"
+msgstr "Владелец"
+
+#: addons/copyright/models.py:74
+msgid "The copyright owner in text form."
+msgstr "Информация о правообладателе, в текстовой форме."
+
+#: addons/copyright/models.py:81
+msgid "The Transifex user who owns the copyright, if applicable."
+msgstr ""
+"Пользователь Transifex, которому принадлежат авторские права, если это "
+"применимо."
+
+#: addons/copyright/models.py:84 resources/forms.py:54 resources/forms.py:64
+#: resources/models.py:931 teams/models.py:45 teams/models.py:128
+msgid "Language"
+msgstr "Язык"
+
+#: addons/copyright/models.py:85 addons/watches/models.py:30
+msgid "Language of the translation."
+msgstr "Язык перевода."
+
+#: addons/copyright/models.py:90
+msgid "The resource this copyright is on."
+msgstr "Источник, к которому относится авторское право."
+
+#: addons/copyright/models.py:93
+msgid "Copyright years"
+msgstr "Годы авторского права"
+
+#: addons/copyright/models.py:95
+msgid "The years the copyright is active in."
+msgstr "Годы действия авторского права."
+
+#: addons/copyright/models.py:97
+#: addons/lotte/templates/tab_details_snippet.html:79
+msgid "Comment"
+msgstr "Комментарий"
+
+#: addons/copyright/models.py:99
+msgid "A comment for this copyright."
+msgstr "Комментарий к этому авторскому праву."
+
+#: addons/copyright/models.py:108
+msgid "Imported by"
+msgstr "Импортировано пользователем"
+
+#: addons/copyright/models.py:109
+msgid "How this copyright notice was created."
+msgstr "Как возникли эти авторские права."
+
+#: addons/copyright/models.py:116
+msgid "Copyright Years Text"
+msgstr "Текст о годах авторского права"
+
+#: addons/copyright/models.py:118
+msgid "Textual representation of the copyright years."
+msgstr "Текстовое представление данных о годах авторского права."
+
+#: addons/gtranslate/handlers.py:40
+msgid "Auto Translate Service"
+msgstr "Служба автоматического перевода"
+
+#: addons/gtranslate/handlers.py:42
+msgid ""
+"Select the type of service you want to use for the auto-translate service. "
+"Leave it blank, if you do not want to have the feature enabled. You will "
+"have to insert your API key for the service, too."
+msgstr ""
+"Выберите тип службы, который вы хотите использовать для авто перевода. "
+"Оставьте это поле пустым, если вы не хотите активировать эту функцию. Вам "
+"так же будет необходимо будет вставить ввести API для службы."
+
+#: addons/gtranslate/handlers.py:49
+msgid "Auto Translate API Key"
+msgstr "Ключ API для авто-перевода"
+
+#: addons/gtranslate/handlers.py:51
+msgid ""
+"Enter the API key that Transifex will use for the auto-translate service you "
+"have chosen."
+msgstr ""
+"Введите ключ API, который Transifex сможет использовать для выбранной вами "
+"службы автоматического перевода."
+
+#: addons/gtranslate/handlers.py:61
+msgid "You have to select an API key, too."
+msgstr "Вы также должны выбрать ключ API."
+
+#: addons/gtranslate/handlers.py:64
+msgid "You have to select a service for the auto-translate feature, too."
+msgstr "Вы также должны выбрать службу для функции авто-перевода."
+
+#: addons/gtranslate/models.py:30
+msgid "API key"
+msgstr "Ключ API"
+
+#: addons/gtranslate/models.py:31
+msgid "The API key for the auto-translate service."
+msgstr "Ключ API для службы автоматического перевода."
+
+#: addons/gtranslate/models.py:35
+msgid "Service"
+msgstr "Служба"
+
+#: addons/gtranslate/models.py:37
+msgid "The service you want to use for auto-translation."
+msgstr "Служба, которую вы хотите использовать для автоматического перевода."
+
+#: addons/gtranslate/models.py:42 addons/webhooks/models.py:20
+#: projects/models.py:372 releases/models.py:66 resources/models.py:181
+#: teams/models.py:42 teams/models.py:125
+msgid "Project"
+msgstr "Проект"
+
+#: addons/gtranslate/models.py:43
+msgid "The project this setting applies to."
+msgstr "Проект, в рамках которого применяется эта настройка."
+
+#: addons/helptext/templates/extended_helptext.html:9
+msgid "...more"
+msgstr "...подробнее"
+
+#: addons/locks/handlers.py:59
+msgid "This translation is locked by someone else."
+msgstr "Этот перевод заблокирован кем-то другим."
+
+#: addons/locks/models.py:67
+#, python-format
+msgid ""
+"User '%(user)s' has no permission to submit translations for '%(resource)s' "
+"to '%(language)s'."
+msgstr ""
+"Пользователь %(user)s не имеет достаточных прав для отправки перевода для "
+"«%(resource)s» в «%(language)s»."
+
+#: addons/locks/models.py:79
+#, python-format
+msgid "User '%(user)s' already has maximum allowed %(locks)i locks."
+msgstr ""
+"У пользователя %(user)s уже есть максимально допустимое число блокировок "
+"%(locks)i."
+
+#: addons/locks/models.py:93
+#, python-format
+msgid "This resource language is already locked by '%s'"
+msgstr "Этот языковой ресурс уже заблокирован пользователем %s"
+
+#: addons/locks/models.py:172
+#, python-format
+msgid "User '%(user)s' is not allowed to remove lock '%(lock)s'"
+msgstr "Пользователю %(user)s' не разрешено снимать блокировку '%(lock)s'"
+
+#: addons/locks/notifications.py:15
+msgid "Lock expiration"
+msgstr "Срок истечения блокировки"
+
+#: addons/locks/notifications.py:16
+msgid "when a lock for a translation resource will expire"
+msgstr "когда истекает блокировка ресурса перевода"
+
+#: addons/locks/views.py:45
+msgid "Lock created."
+msgstr "Блокировка создана."
+
+#: addons/locks/views.py:52 addons/locks/views.py:89
+msgid "Sorry, but you need to send a POST request."
+msgstr "Вам необходимо использовать POST-запрос."
+
+#: addons/locks/views.py:80
+msgid "Lock removed."
+msgstr "Блокировка удалена."
+
+#: addons/locks/views.py:82
+msgid "You don't have permission to unlock this file."
+msgstr "У вас нет прав для разблокировки этого файла."
+
+#: addons/locks/views.py:86
+msgid "Unlock failed. Lock doesn't exist."
+msgstr "Разблокировка не удалась. Блокировки не существует."
+
+#: addons/locks/templates/lock_resource_action.html:17
+msgid "You locked this translation."
+msgstr "Вы заблокировали этот перевод."
+
+#: addons/locks/templates/lock_resource_action.html:19
+#, python-format
+msgid "User '%(owner)s' locked this translation."
+msgstr "Пользователь %(owner)s заблокировал этот перевод."
+
+#: addons/locks/templates/lock_resource_action.html:21
+#, python-format
+msgid "(%(lock_expires)s left)"
+msgstr "(осталось %(lock_expires)s)"
+
+#: addons/locks/templates/lock_resource_action.html:23
+msgid "unlock"
+msgstr "разблокировать"
+
+#: addons/locks/templates/lock_resource_action.html:28
+msgid "Click to renew your lock for a fresh period of time."
+msgstr "Щёлкните, чтобы продлить блокировку на новый срок."
+
+#: addons/locks/templates/lock_resource_action.html:29
+#: addons/locks/templates/pofile_lock.html:31
+#, python-format
+msgid "Extend lock by %(hours)s hour."
+msgid_plural "Extend lock by %(hours)s hours."
+msgstr[0] "Продлить блокировку на %(hours)s час."
+msgstr[1] "Продлить блокировку на %(hours)s часа."
+msgstr[2] "Продлить блокировку на %(hours)s часов."
+
+#: addons/locks/templates/lock_resource_action.html:38
+msgid "Lock this translation to notify others you're working with it."
+msgstr ""
+"Заблокируйте перевод, чтобы предупредить остальных о том, что вы работаете "
+"над ним."
+
+#: addons/locks/templates/lock_resource_action.html:42
+msgid ""
+"This translation isn't locked. Most likely no one is working on it right now."
+msgstr ""
+"Этот перевод никем не заблокирован. Скорее всего, сейчас над ним никто не "
+"работает."
+
+#: addons/locks/templates/lock_resource_action.html:56
+msgid "Creating lock..."
+msgstr "Создание блокировки..."
+
+#: addons/locks/templates/lock_resource_action.html:78
+msgid "Removing lock..."
+msgstr "Удаление блокировки..."
+
+#: addons/locks/templates/lock_resource_action.html:101
+msgid "Extending lock..."
+msgstr "Продление блокировки..."
+
+#: addons/locks/templates/pofile_lock.html:19
+#, python-format
+msgid "User '%(owner)s' locked this file."
+msgstr "Пользователь %(owner)s заблокировал этот файл."
+
+#: addons/locks/templates/pofile_lock.html:21
+msgid "Click file to unlock."
+msgstr "Щёлкните файл, чтобы разблокировать его."
+
+#: addons/locks/templates/pofile_lock.html:23
+msgid "Time left:"
+msgstr "Осталось времени:"
+
+#: addons/locks/templates/pofile_lock.html:41
+msgid ""
+"Lock and download this file to notify others that you're working with it."
+msgstr ""
+"Заблокировать и скачать этот файл, чтобы оповестить остальных, что вы "
+"работаете над ним."
+
+#: addons/locks/templates/pofile_lock.html:46
+msgid "This file isn't locked. Most likely no one is working on it right now."
+msgstr ""
+"Этот файл не заблокирован. Скорее всего, сейчас над ним никто не работает."
+
+#: addons/locks/templates/notification/project_resource_language_lock_expiring/notice.html:3
+#, python-format
+msgid ""
+"\n"
+"A lock for <a href=\"http://%(current_site)s%(resource_url)s\">%(resource)s "
+"in %(language)s</a> is about to expire on %(expires)s\n"
+msgstr ""
+"\n"
+"Блокировка для <a href=\"http://%(current_site)s%(resource_url)s\">"
+"%(resource)s в %(language)s</a> истекает %(expires)s\n"
+
+#: addons/lotte/views.py:86
+msgid ""
+"There are multiple source languages for this project. You will only be able "
+"to translate resources for one source language at a time."
+msgstr ""
+"Для этого проекта существует несколько исходных языков. Одновременно вы "
+"можете переводить ресурсы только одного языка."
+
+#: addons/lotte/views.py:107
+msgid ""
+"Cannot edit the source language because this would result in translation "
+"mismatches! If you want to update the source strings consider using the "
+"transifex command-line client."
+msgstr ""
+"Нельзя редактировать исходный язык, поскольку это приведет бы к "
+"несоответствию перевода! Если вы хотите обновить исходные строки, "
+"используйте консольную программу-клиент transifex."
+
+#: addons/lotte/views.py:424
+msgid "Save the specific change"
+msgstr "Сохранить определённое изменение"
+
+#: addons/lotte/views.py:425
+msgid "Check spelling"
+msgstr "Проверить орфрграфию"
+
+#: addons/lotte/views.py:426
+msgid "Undo to initial text"
+msgstr "Вернуть к первоначальному тексту"
+
+#: addons/lotte/views.py:440 addons/lotte/views.py:442
+msgid "Reviewed string"
+msgstr "Проверенная строка"
+
+#: addons/lotte/views.py:796
+msgid "Source string cannot be identified in the DB"
+msgstr "Невозможно идентифицировать исходную строку в БД"
+
+#: addons/lotte/views.py:803
+msgid "The resource of this source string is not accepting translations."
+msgstr "Ресурс исходной строки не принимает переводы."
+
+#: addons/lotte/views.py:826
+msgid ""
+"Cannot save unless plural translations are either completely specified or "
+"entirely empty!"
+msgstr ""
+"Невозможно сохранить, пока разночтения в множественных переводах не будут "
+"полностью устранены или полностью очищены!"
+
+#: addons/lotte/views.py:923
+msgid "You are not allowed to edit a reviewed string."
+msgstr "Вам не разрешено редактировать проверенную строку."
+
+#: addons/lotte/views.py:954
+msgid "The translation string is empty"
+msgstr "Строка перевода пуста"
+
+#: addons/lotte/views.py:962
+#, python-format
+msgid "Error occurred while trying to save translation: %s"
+msgstr "При попытке сохранения перевода произошла следующая ошибка: %s"
+
+#: addons/lotte/views.py:1122
+msgid "Permission error."
+msgstr "Ошибка доступа."
+
+#: addons/lotte/views.py:1124 projects/views/hub.py:185
+msgid "Bad request."
+msgstr "Некорректный запрос."
+
+#: addons/lotte/views.py:1142
+msgid "No such Source Entity for the given project."
+msgstr "Нет подходящей исходной записи для данного проекта."
+
+#: addons/lotte/views.py:1149
+msgid "Ops! Something weird happened. The admins were notified about it."
+msgstr ""
+"Упс! Произошло что-то странное. Администраторы были уведомлены об этом."
+
+#: addons/lotte/templates/filters_menu_resources.html:16
+#: addons/lotte/templates/filters_menu_users.html:16
+msgid "No active contributor!"
+msgstr "Нет активных участников!"
+
+#: addons/lotte/templates/more_languages.html:20
+msgid "No active languages!"
+msgstr "Нет активных языков!"
+
+#: addons/lotte/templates/tab_details_snippet.html:31
+msgid "Reverted to original comment from file."
+msgstr "Вернулся к исходному комментарию из файла."
+
+#: addons/lotte/templates/tab_details_snippet.html:46
+msgid "Cancel"
+msgstr "Отмена"
+
+#: addons/lotte/templates/tab_details_snippet.html:47
+msgid "OK"
+msgstr "ОК"
+
+#: addons/lotte/templates/tab_details_snippet.html:48
+msgid "Click to edit..."
+msgstr "Щелкните для измнения..."
+
+#: addons/lotte/templates/tab_details_snippet.html:49
+msgid "Click here to add a comment"
+msgstr "Щелкните для добавления комментария"
+
+#: addons/lotte/templates/tab_details_snippet.html:61
+msgid "Last translation:"
+msgstr "Последний перевод:"
+
+#: addons/lotte/templates/tab_details_snippet.html:65
+#: templates/resources/resource_actions.html:299
+msgid "by"
+msgstr " "
+
+#: addons/lotte/templates/tab_details_snippet.html:65
+#, python-format
+msgid "%(user)s"
+msgstr "%(user)s"
+
+#: addons/lotte/templates/tab_details_snippet.html:75
+#: addons/lotte/templates/translate.html:262
+msgid "Key"
+msgstr "Ключ"
+
+#: addons/lotte/templates/tab_details_snippet.html:75
+msgid "String ID:"
+msgstr "ID строки:"
+
+#: addons/lotte/templates/tab_details_snippet.html:76
+#: addons/timeline/templates/timeline/timeline_base.html:46
+#: addons/txapps/models.py:49 languages/models.py:61
+#: languages/migrations/0001_initial.py:14
+#: languages/migrations/0002_added_rules_f.py:82 projects/models.py:167
+#: releases/models.py:36 templates/timeline.html:39
+#: templates/helptext/project_form_helptext.html:26
+#: templates/notification/notices.html:42
+msgid "Description"
+msgstr "Описание"
+
+#: addons/lotte/templates/tab_details_snippet.html:76
+msgid "Description:"
+msgstr "Описание:"
+
+#: addons/lotte/templates/tab_details_snippet.html:80
+msgid "Comment: "
+msgstr "Комментарий:"
+
+#: addons/lotte/templates/tab_details_snippet.html:85 resources/models.py:365
+msgid "Occurrences"
+msgstr "Встречаемость"
+
+#: addons/lotte/templates/tab_details_snippet.html:85
+msgid "Occurrences:"
+msgstr "Встречаемость:"
+
+#: addons/lotte/templates/translate.html:11
+#: addons/lotte/templates/view_strings.html:9 addons/txapps/models.py:64
+#: templates/base-sample.html:89 templates/projects/base.html:6
+#: templates/projects/project_list.html:15
+#: templates/resources/resource_detail.html:66
+msgid "Projects"
+msgstr "Проекты"
+
+#: addons/lotte/templates/translate.html:14
+#: addons/lotte/templates/view_strings.html:12
+#, python-format
+msgid "Translate to %(lang)s"
+msgstr "Перевести на %(lang)s"
+
+#: addons/lotte/templates/translate.html:141
+msgid ""
+"There is at least one entry with error that was not saved. Do you want to "
+"continue anyway?"
+msgstr ""
+"Существует по крайней мере одна несохранённая запись с ошибкой. Вы все равно "
+"хотите продолжить?"
+
+#: addons/lotte/templates/translate.html:169
+#: addons/lotte/templates/view_strings.html:42
+msgid "Processing..."
+msgstr "Обработка..."
+
+#: addons/lotte/templates/translate.html:170
+#: addons/lotte/templates/view_strings.html:43
+msgid "Show _MENU_ entries"
+msgstr "Показывать записи _MENU_"
+
+#: addons/lotte/templates/translate.html:171
+#: addons/lotte/templates/view_strings.html:44
+msgid "No matching records found"
+msgstr "Не найдены соответствующие записи"
+
+#: addons/lotte/templates/translate.html:172
+#: addons/lotte/templates/view_strings.html:45
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr "_START_ по _END_ из _TOTAL_ записей"
+
+#: addons/lotte/templates/translate.html:173
+#: addons/lotte/templates/view_strings.html:46
+msgid "Nothing to show"
+msgstr "Нечего показывать"
+
+#: addons/lotte/templates/translate.html:175
+#: addons/lotte/templates/view_strings.html:47
+msgid "(filtered from _MAX_ total entries)"
+msgstr "(отфильтровано, всего: _MAX_)"
+
+#: addons/lotte/templates/translate.html:177 txcommon/feeds.py:42
+msgid " "
+msgstr " "
+
+#: addons/lotte/templates/translate.html:180
+#: addons/lotte/templates/view_strings.html:52
+msgid "First"
+msgstr "Первый"
+
+#: addons/lotte/templates/translate.html:181
+#: addons/lotte/templates/view_strings.html:53
+msgid "Previous"
+msgstr "Назад"
+
+#: addons/lotte/templates/translate.html:182
+#: addons/lotte/templates/view_strings.html:54
+msgid "Next"
+msgstr "Вперед"
+
+#: addons/lotte/templates/translate.html:183
+#: addons/lotte/templates/view_strings.html:55
+msgid "Last"
+msgstr "Последний"
+
+#: addons/lotte/templates/translate.html:267
+msgid "details"
+msgstr "детали"
+
+#: addons/lotte/templates/translate.html:270 addons/suggestions/models.py:54
+msgid "suggestions"
+msgstr "предложения"
+
+#: addons/lotte/templates/translate.html:326
+msgid "auto translate"
+msgstr "автоперевод"
+
+#: addons/lotte/templates/translate.html:328
+msgid "copy source"
+msgstr "копировать источник"
+
+#: addons/lotte/templates/translate.html:350
+#: addons/lotte/templates/view_strings.html:124
+msgid "Loading strings..."
+msgstr "Загрузка строк..."
+
+#: addons/lotte/templates/translate.html:620
+msgid "Translation text will be saved automatically."
+msgstr "Текст перевода будет сохранен автоматически."
+
+#: addons/lotte/templates/translate.html:624
+msgid "Translation text will no longer be saved automatically."
+msgstr "Текст перевода больше не будет сохраняться автоматически."
+
+#: addons/lotte/templates/translate.html:642
+msgid "There are no translations (to delete) on this page!"
+msgstr "На этой странице нет никаких переводов (к удалению)!"
+
+#: addons/lotte/templates/translate.html:643
+msgid ""
+"This will delete all translations on this page. Are you sure you want to "
+"proceed?"
+msgstr ""
+"Это уничтожит все переводы на этой странице. Вы действительно хотите "
+"продолжить?"
+
+#: addons/lotte/templates/translate.html:845
+msgid "Shortcuts"
+msgstr "Сокращения"
+
+#: addons/lotte/templates/translate.html:851
+msgid "Keyboard shortcuts"
+msgstr "Сочетания клавиш"
+
+#: addons/lotte/templates/translate.html:852
+msgid "Moves to the next translations page."
+msgstr "Переход к следующей странице переводов."
+
+#: addons/lotte/templates/translate.html:853
+msgid "Moves to the previous translations page."
+msgstr "Переход к предыдущей странице переводов."
+
+#: addons/lotte/templates/translate.html:854
+msgid "Moves focus one row upwards."
+msgstr "Сместить фокус одну строку вверх."
+
+#: addons/lotte/templates/translate.html:855
+msgid "Moves focus one row downwards."
+msgstr "Сместить фокус одну строку вниз."
+
+#: addons/lotte/templates/translate.html:856
+msgid ""
+"Fill in the translation textarea with the content of the source string. "
+"(Copy the source string as it is, to the translation area.)"
+msgstr ""
+"Введите перевод в текстовое поле с содержимым исходной строки. (Скопируйте "
+"исходную строку, как она есть, в область перевода)."
+
+#: addons/lotte/templates/translate.html:870
+msgid "Show translations in<br /> the selected languages"
+msgstr "Показать переводы в<br /> выбранных языках"
+
+#: addons/lotte/templates/translate.html:873
+msgid "More languages"
+msgstr "Больше языков"
+
+#: addons/lotte/templates/translate.html:878
+msgid "Show only the translations<br /> by the selected users"
+msgstr "Показать переводы<br /> только выбранных пользователей"
+
+#: addons/lotte/templates/translate.html:881
+msgid "Filter by users"
+msgstr "Фильтр по пользователям"
+
+#: addons/lotte/templates/translate.html:887
+msgid "Show only the strings from<br /> the selected resources."
+msgstr "Показать строки только из<br /> выбранных ресурсов."
+
+#: addons/lotte/templates/translate.html:890
+msgid "Filter by resources"
+msgstr "Фильтр по ресурсам"
+
+#: addons/lotte/templates/translate.html:903
+#: addons/lotte/templates/view_strings.html:186
+msgid "Translated"
+msgstr "Переведено"
+
+#: addons/lotte/templates/translate.html:912
+#: addons/lotte/templates/view_strings.html:194
+msgid "Remaining"
+msgstr "Осталось"
+
+#: addons/lotte/templates/translate.html:921
+#: addons/lotte/templates/view_strings.html:202 resources/models.py:669
+msgid "Reviewed"
+msgstr "Просмотрено"
+
+#: addons/lotte/templates/translate.html:930
+#: addons/lotte/templates/view_strings.html:211
+msgid "Total"
+msgstr "Всего"
+
+#: addons/lotte/templates/translate.html:943
+#: addons/lotte/templates/view_strings.html:224
+msgid "Source string"
+msgstr "Исходная строка"
+
+#: addons/lotte/templates/translate.html:944
+#: addons/lotte/templates/view_strings.html:225
+msgid "Translation"
+msgstr "Перевод"
+
+#: addons/lotte/templates/translate.html:949
+msgid "Mark all strings as reviewed."
+msgstr "Пометьте все строки как проверенные."
+
+#: addons/lotte/templates/translate.html:957
+msgid "Save all"
+msgstr "Сохранить все"
+
+#: addons/lotte/templates/translate.html:960
+#: templates/resources/resource_actions.html:276
+msgid "Delete translations"
+msgstr "Удалить переводы"
+
+#: addons/lotte/templates/translate.html:962
+msgid "Save and Exit"
+msgstr "Сохранить и выйти"
+
+#: addons/lotte/templates/translate.html:968
+msgid "General settings"
+msgstr "Общие настройки"
+
+#: addons/lotte/templates/translate.html:973
+msgid "Verbose editing"
+msgstr "Правка в режиме отладки"
+
+#: addons/lotte/templates/translate.html:977
+msgid "Auto save"
+msgstr "Автосохранение"
+
+#: addons/lotte/templates/translate.html:981
+msgid "Enable shortcuts"
+msgstr "Задействовать сочетание клавиш"
+
+#: addons/lotte/templates/translate.html:985
+msgid "Enable suggestions auto-open"
+msgstr "Задействовать авто-открытие предложений"
+
+#: addons/lotte/templates/view_strings.html:49
+msgid "Search:"
+msgstr "Поиск:"
+
+#: addons/priorities/models.py:8
+msgid "Normal"
+msgstr "Обычная"
+
+#: addons/priorities/models.py:9
+msgid "High"
+msgstr "Высокая"
+
+#: addons/priorities/models.py:10
+msgid "Urgent"
+msgstr "Срочно"
+
+#: addons/priorities/models.py:19
+msgid "The resource associated with this priority."
+msgstr "Ресурс, связанный с этим приоритетом."
+
+#: addons/priorities/models.py:20
+msgid "Priority Levels"
+msgstr "Уровни приоритета"
+
+#: addons/priorities/models.py:22
+msgid ""
+"The priority levels, indicating the importance of completing translations "
+"for the resource."
+msgstr "Уровни приоритета указывают на важность завершения перевода ресурса."
+
+#: addons/priorities/models.py:36
+msgid "resource priority"
+msgstr "приоритет ресурса"
+
+#: addons/priorities/models.py:37
+msgid "resource priorities"
+msgstr "приоритеты ресурсов"
+
+#: addons/suggestions/models.py:20 resources/models.py:350
+#: resources/models.py:650
+msgid "String"
+msgstr "Строка"
+
+#: addons/suggestions/models.py:21
+msgid "The actual string content of suggestion."
+msgstr "Фактическое содержание строк из предложения."
+
+#: addons/suggestions/models.py:22 resources/models.py:352
+#: resources/models.py:652
+msgid "String Hash"
+msgstr "Хеш строки"
+
+#: addons/suggestions/models.py:24
+msgid "The hash of the suggestion string used for indexing"
+msgstr "Хеш предложенной строки, используемый для индексирования"
+
+#: addons/suggestions/models.py:25
+msgid "Score Value"
+msgstr "Оценка"
+
+#: addons/suggestions/models.py:26
+msgid ""
+"A value which indicates the relevance of this suggestion to the translation "
+"of the source string."
+msgstr ""
+"Значение, которое указывает на соответствие этого предложения при переводе "
+"исходной строки."
+
+#: addons/suggestions/models.py:35
+msgid "Source Entity"
+msgstr "Исходная запись"
+
+#: addons/suggestions/models.py:37
+msgid "The source entity this suggestion instance translates or affects."
+msgstr "Исходная запись, к которой относится эта подсказка."
+
+#: addons/suggestions/models.py:41 resources/models.py:691
+msgid "Target Language"
+msgstr "Целевой язык"
+
+#: addons/suggestions/models.py:42 resources/models.py:692
+msgid "The language in which this translation string is written."
+msgstr "Язык, на котором написан перевод строки."
+
+#: addons/suggestions/models.py:46
+msgid "The user who committed the specific suggestion."
+msgstr "Пользователь добавивший конкретное предложение."
+
+#: addons/suggestions/models.py:53
+msgid "suggestion"
+msgstr "предложение"
+
+#: addons/suggestions/models.py:107
+msgid "Suggestion"
+msgstr "Предложение"
+
+#: addons/suggestions/models.py:109
+msgid "The suggestion about which the user is voting."
+msgstr "Предложение, за которое проголосовал пользователь."
+
+#: addons/suggestions/models.py:113
+msgid "The user who voted for the specific suggestion."
+msgstr "Пользователь, проголосовавший за предложение."
+
+#: addons/suggestions/models.py:124
+msgid "vote"
+msgstr "голос"
+
+#: addons/suggestions/models.py:125
+msgid "votes"
+msgstr "голосов"
+
+#: addons/suggestions/views.py:28 addons/suggestions/views.py:54
+msgid "POST method only allowed."
+msgstr "Разрешён только метод POST."
+
+#: addons/suggestions/views.py:31
+msgid "POST variable 'suggestion_string' missing."
+msgstr "Отсутствует переменная POST «suggestion_string»."
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:187
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:193
+msgid "User suggestions"
+msgstr "Предложения пользователей"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:201
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:207
+msgid "Vote up for this translation suggestion (click again to undo)."
+msgstr "Проголосовать за это предложение (щёлкните ещё раз для отмены)."
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:203
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:209
+msgid ""
+"The score of the suggestion, indicating its popularity among translators."
+msgstr "Оценка предложения, отражающая популярность среди переводчиков."
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:205
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:211
+msgid "Vote down for this translation suggestion (click again to undo)."
+msgstr "Проголосовать против это предложения (щёлкните ещё раз для отмены)."
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:210
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:216
+msgid "This is the currently accepted translation."
+msgstr "Это принятый перевод."
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:212
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:215
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:218
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:221
+msgid "Use this!"
+msgstr "Использовать!"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:222
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:228
+msgid "New suggestion"
+msgstr "Новое предложение"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:226
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:232
+msgid "You!"
+msgstr "Вы!"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:232
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:238
+msgid "Send suggestion!"
+msgstr "Отправить предложение!"
+
+#: addons/timeline/templates/timeline/project.html:10
+#: addons/timeline/templates/timeline/timeline_project.html:17
+#: addons/timeline/templates/timeline/timeline_project.html:19
+#: addons/timeline/templates/timeline/timeline_project.html:23
+#: addons/timeline/templates/timeline/timeline_user.html:13
+#: templates/projects/project_timeline.html:12
+#: templates/projects/project_timeline.html:14
+#: templates/txcommon/user_timeline.html:12
+msgid "Timeline"
+msgstr "Хронология"
+
+#: addons/timeline/templates/timeline/timeline_account_link.html:3
+msgid "My timeline"
+msgstr "Мой календарный график"
+
+#: addons/timeline/templates/timeline/timeline_base.html:23
+msgid "Filter"
+msgstr "Фильтр"
+
+#: addons/timeline/templates/timeline/timeline_base.html:31
+#: templates/timeline.html:24 templates/teams/team_detail.html:241
+msgid "None available"
+msgstr "Недоступно"
+
+#: addons/timeline/templates/timeline/timeline_base.html:35
+#: templates/timeline.html:28
+#, python-format
+msgid "The query returned %(counter)s result"
+msgid_plural "The query returned %(counter)s results:"
+msgstr[0] "По запросу получено %(counter)s значение"
+msgstr[1] "По запросу получено %(counter)s значения"
+msgstr[2] "По запросу получено %(counter)s значения"
+
+#: addons/timeline/templates/timeline/timeline_project.html:30
+msgid "Your personal timeline"
+msgstr "Ваш персональный график"
+
+#: addons/timeline/templates/timeline/timeline_user.html:16
+#: templates/simpleauth/base_profile.html:4
+#: templates/simpleauth/base_profile.html:7
+#: templates/simpleauth/profile_public.html:5
+#: templates/simpleauth/profile_public.html:6
+#: templates/simpleauth/settings.html:5
+#: templates/txcommon/user_timeline.html:15 templates/userena/public.html:24
+msgid "Profile"
+msgstr "Профиль"
+
+#: addons/timeline/templates/timeline/timeline_user.html:23
+#: templates/projects/project_timeline.html:20
+#: templates/txcommon/user_timeline.html:22
+#, python-format
+msgid "%(project_name)s Timeline"
+msgstr "Хронология %(project_name)s "
+
+#: addons/txapps/models.py:40 projects/models.py:161 releases/models.py:31
+#: resources/models.py:141 templates/helptext/project_form_helptext.html:5
+msgid "Slug"
+msgstr "Часть URL"
+
+#: addons/txapps/models.py:41 projects/models.py:163 releases/models.py:32
+msgid ""
+"A short label to be used in the URL, containing only letters, numbers, "
+"underscores or hyphens."
+msgstr ""
+"Короткий псевдоним, который будет использоваться в URL, может содержать "
+"только буквы, цифры, подчеркивания и дефисы."
+
+#: addons/txapps/models.py:46 languages/models.py:59
+#: languages/migrations/0001_initial.py:19
+#: languages/migrations/0002_added_rules_f.py:94 projects/models.py:165
+#: releases/models.py:34 resources/models.py:145
+#: templates/helptext/project_form_helptext.html:16
+#: templates/userena/profile_detail.html:13 templates/userena/public.html:43
+msgid "Name"
+msgstr "Имя"
+
+#: addons/txapps/models.py:46
+msgid "A short name."
+msgstr "Короткое имя."
+
+#: addons/txapps/models.py:50
+msgid "A small description for the app."
+msgstr "Небольшое описание приложения."
+
+#: addons/txapps/models.py:53 addons/webhooks/models.py:25
+msgid "URL"
+msgstr "URL-адрес"
+
+#: addons/txapps/models.py:54
+msgid "The URL where the app is hosted."
+msgstr "URL-адрес места, где размещается приложение."
+
+#: addons/txapps/models.py:57
+msgid "Allowed URLs"
+msgstr "Допустимые URL-адреса"
+
+#: addons/txapps/models.py:58
+msgid "URLs allowed to be accessed by team members."
+msgstr "URL-адреса, к которым разрешён доступ членам команды."
+
+#: addons/txapps/models.py:65
+msgid "The projects that have enabled this app."
+msgstr "Проекты, в которых включено это приложение."
+
+#: addons/txapps/views.py:165
+#, python-format
+msgid "TxApp responded with an error: %s"
+msgstr "Ответ TxApp содержит ошибку: %s"
+
+#: addons/txapps/views.py:168 addons/txapps/templates/txapp_error.html:5
+msgid "Error contacting app."
+msgstr "Ошибка связи с приложением."
+
+#: addons/txapps/templates/txapp_error.html:7
+#, python-format
+msgid "There was an error, while contacting the app %(app_name)s."
+msgstr "Во время соединения с приложением произошла ошибка %(app_name)s."
+
+#: addons/txapps/templates/txapp_error.html:11
+#, python-format
+msgid "App responded \"%(error_message)s\""
+msgstr "Приложение вернуло сообщение: «%(error_message)s»"
+
+#: addons/txapps/templates/txapp_error.html:15
+msgid "Please, <a href=mailto:admin@transifex.net>report</a> this incident."
+msgstr ""
+"Пожалуйста, <a href=mailto:admin@transifex.net>сообщите</a> об этом "
+"инциденте."
+
+#: addons/watches/models.py:28
+msgid "Resource to watch."
+msgstr "Ресурс для наблюдения."
+
+#: addons/watches/models.py:41
+msgid "translation watch"
+msgstr "Наблюдение за переводом"
+
+#: addons/watches/models.py:42
+msgid "translation watches"
+msgstr "Наблюдения за переводом"
+
+#: addons/watches/views.py:28 addons/watches/views.py:94
+#: projects/views/hub.py:180
+msgid "Must use POST to activate"
+msgstr "Для активации необходимо использовать POST"
+
+#: addons/watches/views.py:31 addons/watches/views.py:97
+msgid "Notification is not enabled"
+msgstr "Оповещения не включены"
+
+#: addons/watches/views.py:55
+msgid "Watch it"
+msgstr "Наблюдать"
+
+#: addons/watches/views.py:73 addons/watches/templates/watch_toggle.html:12
+#: addons/watches/templates/watch_toggle.html:18
+msgid "Stop watching"
+msgstr "Прекратить наблюдение"
+
+#: addons/watches/views.py:114
+msgid "Watch this project"
+msgstr "Наблюдать за проектом"
+
+#: addons/watches/views.py:148
+msgid "Stop watching this project"
+msgstr "Прекратить наблюдение этого проекта"
+
+#: addons/watches/templates/watch_toggle.html:14
+msgid "Watch project"
+msgstr "Наблюдать за проектом"
+
+#: addons/watches/templates/watch_toggle.html:20
+msgid "Watch file"
+msgstr "Наблюдать за файлом"
+
+#: addons/webhooks/handlers.py:82
+msgid "Web hook URL"
+msgstr "URL-адрес веб-обработчика"
+
+#: addons/webhooks/handlers.py:83
+msgid ""
+"You can specify a URL which Transifex will visit whenever a translation of a "
+"resource of the project is changed."
+msgstr ""
+"Можно указать URL-адрес, который посетит Transifex при каждом изменении "
+"перевода ресурсов этого проекта."
+
+#: addons/webhooks/models.py:21
+msgid "The id of the project for the web hook."
+msgstr "Идентификатор проекта для веб-обработчика."
+
+#: addons/webhooks/models.py:26
+msgid "The URL to send the notification to."
+msgstr "URL-адрес для отправки уведомления."
+
+#: addons/webhooks/models.py:30
+msgid "Kind"
+msgstr "Вид"
+
+#: addons/webhooks/models.py:32
+msgid "The kind of web hook (apps or project)"
+msgstr "Вид веб-обработчика (приложение или проект)"
+
+#: addons/widgets/templates/project_widgets.html:13
+#: addons/widgets/templates/project_widgets.html:15
+#: addons/widgets/templates/widgets/project.html:5
+msgid "Widgets"
+msgstr "Виджеты"
+
+#: addons/widgets/templates/project_widgets.html:23
+msgid "Widgets, buttons, etc."
+msgstr "Виджеты, кнопки и др."
+
+#: addons/widgets/templates/project_widgets.html:27
+msgid ""
+"Here are some widgets, buttons and other cool stuff you can add to your "
+"homepage!"
+msgstr ""
+"Здесь представлены некоторые виджеты, кнопки и другие элементы, которые "
+"можно добавить на свою домашнюю страницу."
+
+#: addons/widgets/templates/project_widgets.html:41
+msgid "Userbars"
+msgstr "Юзербары"
+
+#: addons/widgets/templates/project_widgets.html:52
+msgid "You can insert userbars to forums, e-mail signatures, etc."
+msgstr ""
+"Вы можете вставить юзербары на форумах, подписях электронной почты и т. д."
+
+#: addons/widgets/templates/project_widgets.html:53
+msgid "Show code snippet for userbar:"
+msgstr "Показать фрагмент кода для юзербара:"
+
+#: api/views.py:6
+#, python-format
+msgid ""
+"This version of API is obsolete. Please have a look at %(url)s for details."
+msgstr ""
+"Это версия API устарела, пожалуйста, посмотрите %(url)s для получения "
+"подробностей."
+
+#: languages/feeds.py:14
+#, python-format
+msgid "Languages on %(site_name)s"
+msgstr "Языки на %(site_name)s"
+
+#: languages/feeds.py:17
+#, python-format
+msgid "The languages spoken on %s."
+msgstr "Языки общения на %s."
+
+#: languages/models.py:62 languages/migrations/0001_initial.py:13
+#: languages/migrations/0002_added_rules_f.py:79
+msgid "Code"
+msgstr "Код"
+
+#: languages/models.py:65 languages/migrations/0001_initial.py:12
+#: languages/migrations/0002_added_rules_f.py:76
+msgid "Code aliases"
+msgstr "Псевдонимы кода"
+
+#: languages/models.py:68 languages/migrations/0001_initial.py:17
+#: languages/migrations/0002_added_rules_f.py:91
+msgid "Special Chars"
+msgstr "Специальные символы"
+
+#: languages/models.py:69
+msgid "Enter any special characters that users might find difficult to type"
+msgstr "Введите особые символы, которые пользователям трудно вводить"
+
+#: languages/models.py:72 languages/migrations/0001_initial.py:16
+#: languages/migrations/0002_added_rules_f.py:88
+msgid "Number of Plurals"
+msgstr "Число множественных форм"
+
+#: languages/models.py:74 languages/migrations/0001_initial.py:15
+#: languages/migrations/0002_added_rules_f.py:85
+msgid "Plural Equation"
+msgstr "Форма множественного числа"
+
+#: languages/models.py:78
+msgid "Rule zero"
+msgstr "Правило «ноль»"
+
+#: languages/models.py:80
+msgid "Rule one"
+msgstr "Правило «один»"
+
+#: languages/models.py:82
+msgid "Rule two"
+msgstr "Правило «два»"
+
+#: languages/models.py:84
+msgid "Rule few"
+msgstr "Правило «несколько»"
+
+#: languages/models.py:86
+msgid "Rule many"
+msgstr "Правило «много»"
+
+#: languages/models.py:88
+msgid "Rule other"
+msgstr "Правило «другое»"
+
+#: languages/models.py:99
+msgid "language"
+msgstr "язык"
+
+#: languages/models.py:100 templates/languages/language_list.html:14
+msgid "languages"
+msgstr "языки"
+
+#: projects/admin.py:18
+msgid "permission"
+msgstr "разрешение"
+
+#: projects/feeds.py:14
+#, python-format
+msgid "Latest projects on %(site_name)s"
+msgstr "Последние проекты на %(site_name)s"
+
+#: projects/feeds.py:17
+msgid "Updates on changes and additions to registered projects."
+msgstr "Обновлять при изменениях или добавлениях в зарегистрированные проекты."
+
+#: projects/feeds.py:33
+#, python-format
+msgid "%(site_name)s: Resources in %(project)s"
+msgstr "%(site_name)s: ресурсы в %(project)s"
+
+#: projects/feeds.py:38
+#, python-format
+msgid "Latest resources in project %s."
+msgstr "Последние ресурсы в проекте %s."
+
+#: projects/feeds.py:58
+#, python-format
+msgid "%(site_name)s: Timeline for %(project)s"
+msgstr "%(site_name)s: График проекта %(project)s"
+
+#: projects/feeds.py:63
+#, python-format
+msgid "History of the project %s."
+msgstr "История проекта %s."
+
+#: projects/forms.py:27 projects/models.py:199
+#: templates/helptext/project_form_helptext.html:93
+msgid "Maintainers"
+msgstr "Координаторы"
+
+#: projects/forms.py:28 txpermissions/forms.py:19
+msgid "Search for a username"
+msgstr "Найти имя пользователя"
+
+#: projects/forms.py:30 projects/models.py:192
+#: templates/helptext/project_form_helptext.html:81
+msgid "Tags"
+msgstr "Теги"
+
+#: projects/forms.py:88
+msgid "Your password"
+msgstr "Ваш пароль"
+
+#: projects/forms.py:100
+msgid "Invalid password."
+msgstr "Неверный пароль."
+
+#: projects/forms.py:134
+msgid "Typical project"
+msgstr "Типичный проект"
+
+#: projects/forms.py:136
+msgid ""
+"Access control and teams are managed under a single project. Best option for "
+"most cases."
+msgstr ""
+
+#: projects/forms.py:141
+msgid "Project hub"
+msgstr "Центральный проект"
+
+#: projects/forms.py:143
+msgid ""
+"Option for a parent project which will host translation teams and will acts "
+"as an umbrella to others. Ideal for organizations with multiple products."
+msgstr ""
+
+#: projects/forms.py:149
+msgid "Outsourced project"
+msgstr "Проект с внешним управлением"
+
+#: projects/forms.py:151
+msgid ""
+"Option for the child of a hub project. This project will have no teams of "
+"its own but will re-use the parent's ones."
+msgstr ""
+
+#: projects/forms.py:159 templates/projects/project_menu.html:54
+#: templates/teams/team_menu.html:44
+msgid "Free for all"
+msgstr "Свободно для всех"
+
+#: projects/forms.py:161
+msgid ""
+"Allow any logged-in user to submit files to my project. <a href=\"http://www."
+"youtube.com/watch?v=DCX3ZNDZAwY\" target=\"_blank\">Imagine</a> all the "
+"people, sharing all the world. Recommended for quick translations, and when "
+"a post-translation, pre-commit review process is in place."
+msgstr ""
+
+#: projects/forms.py:169
+msgid "Limited access (teams)"
+msgstr "Ограниченный доступ (команды)"
+
+#: projects/forms.py:171
+msgid ""
+"Give access to specific people. Language teams will have access to their "
+"language's files only, and global writers will have access to all "
+"translation files. Recommended for most projects."
+msgstr ""
+
+#: projects/forms.py:270
+msgid "Outsource access to"
+msgstr "Внешний доступ к"
+
+#: projects/forms.py:292
+msgid "Project type do not accept outsource project"
+msgstr "Тип проекта не предполагает возможности внешнего доступа"
+
+#: projects/forms.py:296
+msgid ""
+"This project is being used as outsource by other projects, thus it can not "
+"be set to other project type until having all the outsourced projects "
+"disassociated to it."
+msgstr ""
+"Этот проект используется другими проектами как внешний, таким образом ему не "
+"может быть присвоен другой тип проекта до тех пор, пока от него не будут "
+"отключены все внешние проекты."
+
+#: projects/models.py:157 templates/projects/project_menu.html:69
+#: templates/teams/team_menu.html:59
+msgid "Private"
+msgstr "Закрытый"
+
+#: projects/models.py:158
+msgid ""
+"A private project is visible only by you and your team. Moreover, private "
+"projects are limited according to billing plans for the user account."
+msgstr ""
+
+#: projects/models.py:166
+msgid "A short name or very short description."
+msgstr "Короткое имя или очень короткое описание."
+
+#: projects/models.py:168 releases/models.py:38
+msgid "A sentence or two describing the object."
+msgstr "Пара предложений, описывающих объект."
+
+#: projects/models.py:169 releases/models.py:39
+#: templates/helptext/project_form_helptext.html:37
+msgid "Long description"
+msgstr "Полное описание"
+
+#: projects/models.py:171
+msgid "A longer description (optional). Use Markdown syntax."
+msgstr ""
+"Более полное описание (не обязательно). Можно используйте синтаксис Markdown."
+
+#: projects/models.py:172 releases/models.py:42
+#: templates/helptext/project_form_helptext.html:50
+msgid "Homepage"
+msgstr "Домашняя страница"
+
+#: projects/models.py:173
+msgid "Feed"
+msgstr "Лента новостей"
+
+#: projects/models.py:174
+msgid "An RSS feed with updates to the project."
+msgstr "RSS-лента с обновлениями проекта."
+
+#: projects/models.py:175 templates/helptext/project_form_helptext.html:70
+msgid "Bug tracker"
+msgstr "Система отслеживания ошибок"
+
+#: projects/models.py:176
+msgid "The URL for the bug and tickets tracking system (Bugzilla, Trac, etc.)"
+msgstr "URL сайта, отслеживающего ошибки (Bugzilla, Trac и др.)"
+
+#: projects/models.py:178
+msgid "Translator Instructions"
+msgstr "Инструкции переводчику"
+
+#: projects/models.py:179
+msgid ""
+"A web page containing documentation or instructions for translators, or "
+"localization tips for your community."
+msgstr ""
+"Веб-страница, содержащая документацию или инструкции для переводчиков, а "
+"также советы по локализации для вашего сообщества."
+
+#: projects/models.py:181
+msgid "Anyone can submit"
+msgstr "Любой может совершать отправку"
+
+#: projects/models.py:183
+msgid "Can anyone submit files to this project?"
+msgstr "Все ли могут отправлять файлы в этот проект?"
+
+#: projects/models.py:186
+msgid "Hide this object from the list view?"
+msgstr "Скрывать этот объект из списка?"
+
+#: projects/models.py:187
+msgid "Enabled"
+msgstr "Доступен"
+
+#: projects/models.py:188
+msgid "Enable this object or disable its use?"
+msgstr "Разрешить или запретить использование этого объекта?"
+
+#: projects/models.py:194
+msgid "Logo"
+msgstr "Логотип"
+
+#: projects/models.py:196
+msgid "A logo image displayed for the project."
+msgstr "Изображение логотипа, отображаемое для проекта."
+
+#: projects/models.py:203
+msgid "Outsource project"
+msgstr "Внешний проект"
+
+#: projects/models.py:204
+msgid "Project hub that owns the access control of this project."
+msgstr "Хаб, управляющий доступом для этого проекта."
+
+#: projects/models.py:208
+msgid "The user who owns this project."
+msgstr "Пользователь, который является владельцем этого проекта."
+
+#: projects/models.py:211 resources/models.py:179
+msgid "Source Language"
+msgstr "Исходный язык"
+
+#: projects/models.py:213 resources/models.py:180
+msgid "The source language of this Resource."
+msgstr "Исходный язык данного ресурса."
+
+#: projects/models.py:217
+msgid "Project Hub?"
+msgstr "Это хаб?"
+
+#: projects/models.py:219
+msgid ""
+"Is it a project hub that other regular projects can use to outsource teams "
+"to receive translations?"
+msgstr ""
+"Могут ли команды других обычных проектов использовать этот хаб как внешний "
+"источник получения переводов?"
+
+#: projects/models.py:223 releases/models.py:61
+msgid "HTML Description"
+msgstr "HTML-описание"
+
+#: projects/models.py:225 releases/models.py:63
+msgid "Description in HTML."
+msgstr "Описание в HTML."
+
+#: projects/models.py:243
+msgid "project"
+msgstr "проект"
+
+#: projects/models.py:244 templates/projects/project_list.html:24
+msgid "projects"
+msgstr "проекты"
+
+#: projects/models.py:368
+msgid "Project Hub"
+msgstr "Центральный проект"
+
+#: projects/models.py:370
+msgid "The project hub to outsource teams from."
+msgstr "Центральный проект, предоставляющий команды переводчиков."
+
+#: projects/models.py:374
+msgid "The project that wants to outsource teams from another project."
+msgstr ""
+"Проект, который хочет получить команду переводчиков из другого проекта."
+
+#: projects/models.py:378
+msgid "The user who is requesting to join the project hub."
+msgstr ""
+
+#: projects/models.py:392
+msgid "hub joining request"
+msgstr "заявка на присоединение к центру"
+
+#: projects/models.py:393
+msgid "hub joining requests"
+msgstr "заявки на присоединение к центру"
+
+#: projects/permissions/project.py:46
+msgid "Is allowed to maintain this project"
+msgstr "Этот проект разрешено поддерживать"
+
+#: projects/permissions/project.py:59
+msgid "Is allowed to coordinate a team project"
+msgstr "Этот проект разрешено координировать"
+
+#: projects/permissions/project.py:79
+msgid "Is allowed to review translations for a team project"
+msgstr "Для командного проекта разрешено утверждение переводов."
+
+#: projects/permissions/project.py:131
+msgid "Is allowed to submit translations to this project"
+msgstr "В этот проект разрешена отправка переводов"
+
+#: projects/permissions/project.py:149
+msgid "Is allowed to browse this private project"
+msgstr "Этот закрытый проект разрешено просматривать"
+
+#: projects/templates/feeds/release_description.html:4
+#: projects/templates/feeds/release_language_description.html:4
+msgid "Translated:"
+msgstr "Переведено:"
+
+#: projects/templates/feeds/release_description.html:5
+#: projects/templates/feeds/release_language_description.html:5
+msgid "Untranslated:"
+msgstr "Не переведено:"
+
+#: projects/templates/feeds/release_description.html:6
+#: projects/templates/feeds/release_language_description.html:6
+msgid "Total:"
+msgstr "Всего:"
+
+#: projects/views/hub.py:62
+#, python-format
+msgid "You added '%(project)s' to the '%(project_hub)s' project hub"
+msgstr ""
+
+#: projects/views/hub.py:105
+#, python-format
+msgid ""
+"You rejected the request of '%(project)s' to join the '%(project_hub)s' "
+"project hub"
+msgstr ""
+
+#: projects/views/hub.py:146
+#, python-format
+msgid "Request to join '%s' project hub was withdrawn"
+msgstr ""
+
+#: projects/views/hub.py:210
+msgid "Undo"
+msgstr "Отменить"
+
+#: projects/views/hub.py:225
+#: templates/projects/project_hub_projects_toogler.html:6
+msgid "Disassociate"
+msgstr "Разорвать связь"
+
+#: projects/views/project.py:166
+#, python-format
+msgid "Requested to join the '%s' project hub."
+msgstr "Запрошено присоединение к центру «%s»."
+
+#: projects/views/project.py:270
+#, python-format
+msgid "The project '%s' was deleted."
+msgstr "Проект «%s» удалён."
+
+#: releases/feeds.py:31
+#, python-format
+msgid "%(site_name)s: %(project)s :: %(release)s release"
+msgstr "%(site_name)s: %(project)s :: выпуск %(release)s"
+
+#: releases/feeds.py:37
+#, python-format
+msgid "Translation statistics for all languages against %s release."
+msgstr "Статистика переводов по всем языкам для выпуска %s."
+
+#: releases/feeds.py:69
+#, python-format
+msgid "%(site_name)s: %(project)s :: %(release)s release :: %(lang)s"
+msgstr "%(site_name)s: %(project)s :: выпуск %(release)s :: %(lang)s"
+
+#: releases/feeds.py:76
+#, python-format
+msgid ""
+"Translation statistics for %(lang)s language against %(release)s release."
+msgstr "Статистика переводов языка %(lang)s для выпуска %(release)s."
+
+#: releases/forms.py:13
+msgid "Search for a resource"
+msgstr "Поиск ресурса"
+
+#: releases/forms.py:19
+msgid "Enter a valid date/time in YYYY-MM-DD HH:MM[:ss[.uuuuuu]] format."
+msgstr ""
+"Введите допустимое значение даты/времени в формате ГГГГ-ММ-ДД ЧЧ:ММ[:сс[."
+"мсмсмс]] ."
+
+#: releases/forms.py:42
+msgid ""
+"Select the resources to add to the Release. Once this project is not a "
+"Project Hub, it is only possible to choose resources that belong to this "
+"project."
+msgstr ""
+"Выберите ресурсы для добавления в выпуск. Для проектов, не являющихся "
+"центральными проектами группы, возможен выбор только тех ресурсов, которые "
+"принадлежат к этому проекту."
+
+#: releases/forms.py:54
+msgid "Invalid resource used."
+msgstr "Используется недопустимый ресурс."
+
+#: releases/forms.py:58
+#, python-format
+msgid "%s is an inaccessible private resource. Remove it!"
+msgstr ""
+
+#: releases/forms.py:67
+msgid "This value is reserved and cannot be used."
+msgstr "Это значение зарезервировано и не может быть использовано."
+
+#: releases/forms.py:79
+msgid "Devel freeze date must be after the String freeze date."
+msgstr "Дата заморозки разработки должна быть позже даты заморозки строк."
+
+#: releases/forms.py:85
+msgid "Release date must be after the String freeze date."
+msgstr "Дата выпуска должна быть позже даты заморозки строк."
+
+#: releases/forms.py:91
+msgid "Release date must be after the Devel freeze date."
+msgstr "Дата выпуска должна быть позже даты заморозки разработки."
+
+#: releases/models.py:35
+msgid "A string like a name or very short description."
+msgstr "Строка, содержащая очень короткое описание."
+
+#: releases/models.py:41
+msgid "Use Markdown syntax."
+msgstr "Можно использовать синтаксис Markdown."
+
+#: releases/models.py:44
+msgid "Release date"
+msgstr "Дата выпуска"
+
+#: releases/models.py:46
+msgid "When this release will be available."
+msgstr "Когда этот выпуск будет доступен."
+
+#: releases/models.py:47
+msgid "String freeze date"
+msgstr "Дата заморозки строк"
+
+#: releases/models.py:49
+msgid ""
+"When the translatable strings will be frozen (no strings can be added/"
+"modified which affect translations."
+msgstr ""
+"Дата заморозки переводимых строк (строки, затрагивающие перевод, не могут "
+"быть добавлены/изменены)."
+
+#: releases/models.py:51
+msgid "Devel freeze date"
+msgstr "Дата заморозки разработки"
+
+#: releases/models.py:53
+msgid ""
+"The last date packages from this release can be built from the developers. "
+"Translations sent after this date will not be included in the released "
+"version."
+msgstr ""
+"Дата выпуска пакета разработчиками. После этой даты переводы не будут "
+"включены в выпущенную версию."
+
+#: releases/models.py:69 templates/projects/project_menu.html:87
+#: templates/projects/project_resources.html:16
+#: templates/resources/resource_detail.html:78
+msgid "Resources"
+msgstr "Ресурсы"
+
+#: releases/models.py:76
+#, python-format
+msgid "<Release: %(rel)s (Project %(proj)s)>"
+msgstr "<Выпуск: %(rel)s (проект %(proj)s)>"
+
+#: releases/models.py:87
+msgid "release"
+msgstr "выпуск"
+
+#: releases/models.py:88 templates/projects/release_list.html:18
+#: templates/projects/release_list.html:43
+msgid "releases"
+msgstr "выпуски"
+
+#: releases/models.py:115
+msgid "Before String Freeze"
+msgstr "Перед заморозкой строк"
+
+#: releases/models.py:117
+msgid "Whether the 'Before String Freeze' notification was sent or not."
+msgstr "Было ли отправлено уведомление «Перед заморозкой строк»."
+
+#: releases/models.py:120
+msgid "Being in String Freeze"
+msgstr "В период заморозки строк"
+
+#: releases/models.py:122
+msgid "Whether the 'Being in String Freeze' notification was sent or not."
+msgstr "Было ли отправлено уведомление «В период заморозки строк»."
+
+#: releases/models.py:126
+msgid "Before Translation Deadline"
+msgstr "Перед наступлением конечного срока перевода"
+
+#: releases/models.py:127
+msgid "Whether the 'Before Translation Deadline' notification was sent or not."
+msgstr ""
+"Было ли отправлено уведомление «Перед наступлением конечного срока перевода»."
+
+#: releases/models.py:130
+msgid "Hit Translation Deadline"
+msgstr "Наступил крайний срок перевода"
+
+#: releases/models.py:132
+msgid "Whether the 'Hit Translation Deadline' notification was sent or not."
+msgstr "Было ли отправлено уведомление «Наступил крайний срок перевода»."
+
+#: releases/models.py:137
+msgid "Release"
+msgstr "Выпуск"
+
+#: releases/models.py:143
+#, python-format
+msgid "<ReleaseNotification: %(rel)s (Project %(proj)s)>"
+msgstr "<Уведомление о выпуске: %(rel)s (проект %(proj)s)>"
+
+#: releases/models.py:148
+msgid "release notification"
+msgstr "уведомление о выпуске"
+
+#: releases/models.py:149
+msgid "release notifications"
+msgstr "уведомления о выпусках"
+
+#: releases/views.py:154
+#, python-format
+msgid "The release '%s' was deleted."
+msgstr "Выпуск «%s» был удален."
+
+#: resources/backends.py:83
+#, python-format
+msgid "Error creating resource: %s"
+msgstr "Ошибка при создании ресурса: %s"
+
+#: resources/backends.py:91
+msgid "The content type of the request is not valid."
+msgstr "Недопустимый тип содержимого запроса."
+
+#: resources/backends.py:132
+msgid "No language specified, when importing source file."
+msgstr "При импорте исходного файла не указан язык."
+
+#: resources/forms.py:17
+msgid "Source File"
+msgstr "Исходный файл"
+
+#: resources/forms.py:30
+msgid "Resource File"
+msgstr "Файл ресурсов"
+
+#: resources/forms.py:32
+msgid "I18N Type"
+msgstr "Тип i18n"
+
+#: resources/forms.py:34 resources/models.py:151
+#, python-format
+msgid "The type of i18n method used in this resource (%s)"
+msgstr "Тип i18n, используемый в этом ресурсе (%s)"
+
+#: resources/forms.py:52 resources/forms.py:62
+msgid "Translation File"
+msgstr "Файл перевода"
+
+#: resources/forms.py:55 resources/forms.py:66
+msgid "The language of the translation."
+msgstr "Язык перевода."
+
+#: resources/forms.py:74
+msgid "Pseudo type"
+msgstr "Псевдо-тип"
+
+#: resources/forms.py:77
+msgid ""
+"For more info about each pseudo translation type, please refer to the docs."
+msgstr ""
+"Для получения дополнительной информации о каждом из псевдо-типов перевода "
+"обратитесь к документации."
+
+#: resources/models.py:143
+msgid ""
+"A short label to be used in the URL, containing only letters, numbers, "
+"underscores and hyphens."
+msgstr ""
+"Короткий псевдоним для использования в URL-адресах, содержащий только буквы, "
+"цифры, символы подчеркивания и дефис."
+
+#: resources/models.py:146
+msgid "A descriptive name unique inside the project."
+msgstr "Уникальное внутри проекта описательное имя."
+
+#: resources/models.py:149
+msgid "I18n type"
+msgstr "Тип i18n"
+
+#: resources/models.py:153
+msgid "Accepting translations?"
+msgstr "Принимать переводы?"
+
+#: resources/models.py:155
+msgid "Is this resource accepting translations?"
+msgstr "Переводы этого ресурса приемлемы?"
+
+#: resources/models.py:156
+msgid "Total source entities"
+msgstr "Всего исходных записей"
+
+#: resources/models.py:158
+msgid "The number of source strings in this translation resource."
+msgstr "Количество исходных строк в этом ресурсе перевода."
+
+#: resources/models.py:160
+msgid "Number of words in source entities."
+msgstr "Количество слов в исходных записях."
+
+#: resources/models.py:162
+msgid ""
+"The number of words contained in the source entities in this translation "
+"resource."
+msgstr ""
+"Количество слов, содержащихся в исходных записях в этом ресурсе перевода."
+
+#: resources/models.py:167
+msgid "Category"
+msgstr "Категория"
+
+#: resources/models.py:169
+msgid ""
+"A text field used to help organize a release's resources into categories."
+msgstr ""
+"Текстовое поле, используемое, чтобы упорядочить ресурсы выпусков по "
+"категориям."
+
+#: resources/models.py:183
+msgid "The project containing the translation resource."
+msgstr "Проект, содержащий ресурс перевода."
+
+#: resources/models.py:196
+msgid "resource"
+msgstr "ресурс"
+
+#: resources/models.py:197
+msgid "resources"
+msgstr "ресурсы"
+
+#: resources/models.py:351
+msgid "The actual string content of source string."
+msgstr "Содержимое исходной строки."
+
+#: resources/models.py:354 resources/models.py:654
+msgid "The hash of the translation string used for indexing"
+msgstr "Хеш перевода строки, используемый для индексирования"
+
+#: resources/models.py:355
+msgid "Context"
+msgstr "Контекст"
+
+#: resources/models.py:357
+msgid ""
+"A list of description of the source string. This field specifies the context "
+"of the source string inside the resource."
+msgstr ""
+"Список описаний исходных строк. Это поле указывает контекст исходных строки "
+"внутри данного ресурса."
+
+#: resources/models.py:360
+msgid "Position"
+msgstr "Позиция"
+
+#: resources/models.py:361
+msgid ""
+"The position of the source string in the Resource. For example, the specific "
+"position of a msgid field in a po template (.pot) file in gettext."
+msgstr ""
+
+#: resources/models.py:367
+msgid "The occurrences of the source string in the project code."
+msgstr "Встречаемость исходной строки в коде проекта."
+
+#: resources/models.py:368
+msgid "Flags"
+msgstr "Флаги"
+
+#: resources/models.py:370
+msgid ""
+"The flags which mark the source string. For example, if there is a python "
+"formatted string this is marked as \"#, python-format\" in gettext."
+msgstr ""
+"Флаг, которым помечают исходные строки. Для примера строки отформатированные "
+"python  помечены как \"#, python-format\" в gettext."
+
+#: resources/models.py:373
+msgid "Comments"
+msgstr "Комментарии"
+
+#: resources/models.py:375
+msgid "The comment of the developer."
+msgstr "Комментарий разработчика."
+
+#: resources/models.py:378
+msgid "Extra comments"
+msgstr "Дополнительные комментарии"
+
+#: resources/models.py:380
+msgid "Another comment of the developer"
+msgstr "Еще один комментарий разработчика"
+
+#: resources/models.py:382
+msgid "Pluralized"
+msgstr "Множественная форма"
+
+#: resources/models.py:384
+msgid "Whether the entity is pluralized."
+msgstr "Имеются ли множественные записи."
+
+#: resources/models.py:399
+msgid "The translation resource which owns the source string."
+msgstr "Ресурс перевода, которому принадлежит исходная строка."
+
+#: resources/models.py:408
+msgid "source string"
+msgstr "исходная строка"
+
+#: resources/models.py:409
+msgid "source strings"
+msgstr "исходные строки"
+
+#: resources/models.py:651
+msgid "The actual string content for translation."
+msgstr "Содержание фактических строк для перевода."
+
+#: resources/models.py:655
+msgid "Plural rule"
+msgstr "Правило множественного числа"
+
+#: resources/models.py:657
+msgid ""
+"Number related to the plural rule of the translation. It's 0=zero, 1=one, "
+"2=two, 3=few, 4=many and 5=other. For translations that have no plural "
+"forms, the rule must be 5 (other)."
+msgstr ""
+"Число связанных с переводом правил образования множественного числа. Это 0 = "
+"ноль, 1 = один, 2 = два, 3 = несколько, 4 = много и 5 = прочие. Для "
+"переводов, которые не содержат форм множественного числа, должно "
+"использоваться правило 5 (прочие)."
+
+#: resources/models.py:661
+msgid "Wordcount for this string."
+msgstr "Количество слов в этой строке."
+
+#: resources/models.py:665
+msgid "Origin"
+msgstr "Происхождение"
+
+#: resources/models.py:667
+msgid "The origin of the translation."
+msgstr "Происхождение перевода."
+
+#: resources/models.py:670
+msgid "Marks if the translation has been reviewed or not."
+msgstr "Отметка о том, был перевод проверен, или нет."
+
+#: resources/models.py:681
+msgid "Source String"
+msgstr "Исходная строка"
+
+#: resources/models.py:684
+msgid "The source string this translation string translates."
+msgstr "Исходная строка, которую переводит эта строка."
+
+#: resources/models.py:688
+msgid "The translation resource which owns the translation."
+msgstr "Исходный ресурс, которому принадлежит перевод."
+
+#: resources/models.py:695
+msgid "Committer"
+msgstr "Коммиттер"
+
+#: resources/models.py:696
+msgid "The user who committed the specific translation."
+msgstr "Пользователь, который закоммитил указаный перевод."
+
+#: resources/models.py:706
+msgid "translation string"
+msgstr "строка перевода"
+
+#: resources/models.py:707
+msgid "translation strings"
+msgstr "строки перевода"
+
+#: resources/models.py:907
+msgid "Translated Entities"
+msgstr "Переведённые записи"
+
+#: resources/models.py:908
+msgid ""
+"The number of translated entities in a language for a specific resource."
+msgstr "Количество переведённых записей на языке для конкретного ресурса."
+
+#: resources/models.py:910
+msgid "Wordcount for Translated Entities"
+msgstr "Количество слов в переведённых записях"
+
+#: resources/models.py:911
+msgid ""
+"The number of words containing translated entities in a language for a "
+"specific resource."
+msgstr ""
+"Количество слов, содержащихся в переведенных записях на языке для "
+"конкретного ресурса."
+
+#: resources/models.py:913
+msgid "Untranslated Entities"
+msgstr "Непереведённые записи"
+
+#: resources/models.py:914
+msgid ""
+"The number of untranslated entities in a language for a specific resource."
+msgstr "Количество непереведенных записей на языке для конкретного ресурса."
+
+#: resources/models.py:916
+msgid "Reviewed Entities"
+msgstr "Проверенные записи"
+
+#: resources/models.py:917
+msgid "The number of reviewed entities in a language for a specific resource."
+msgstr "Количество проверенных записей на языке для конкретного ресурса."
+
+#: resources/models.py:919
+msgid "Last Update"
+msgstr "Последнее обновление"
+
+#: resources/models.py:920
+msgid "The datetime that this language was last updated."
+msgstr "Дата и время последнего обновления для этого языка."
+
+#: resources/models.py:923
+msgid "Last Committer"
+msgstr "Последний добавивший перевод"
+
+#: resources/models.py:923
+msgid "The user associated with the last change for this language."
+msgstr "Пользователь, связанный с последним изменением для этого языка."
+
+#: resources/models.py:928
+msgid "The resource to which the statistics are associated."
+msgstr "Ресурс, с которым связана статистика."
+
+#: resources/models.py:931
+msgid "The language to which these statistics refer."
+msgstr "Язык, к которому относятся эти данные."
+
+#: resources/models.py:1039
+msgid "This is the actual content of the template"
+msgstr "Текущее содержимое шаблона"
+
+#: resources/models.py:1043
+msgid ""
+"This is the template of the imported source file which is used to export "
+"translation files from the db to the user."
+msgstr ""
+"Это шаблон импортированного исходного файла, который используется для "
+"экспорта файлов перевода из базы данных для пользователей."
+
+#: resources/models.py:1047
+msgid "Template"
+msgstr "Шаблон"
+
+#: resources/models.py:1048
+msgid "Templates"
+msgstr "Шаблоны"
+
+#: resources/views.py:103
+#, python-format
+msgid "The translation resource '%s' was deleted."
+msgstr "Ресурс перевода «%s» был удален."
+
+#: resources/views.py:154
+msgid "The URL you provided doesn't link to a valid file."
+msgstr "Указанный вами URL-адрес не указывает на корректный файл."
+
+#: resources/views.py:165
+msgid ""
+"You have checked the auto update checkbox but you haven't provided a valid "
+"url."
+msgstr ""
+"Вы установили флажок автоматического обновления, но не указали верный URL."
+
+#: resources/views.py:399
+#, python-format
+msgid "Deleted %(lang)s translation for resource %(resource)s."
+msgstr "Удалены переводы на %(lang)s язык для ресурса %(resource)s."
+
+#: resources/views.py:475
+msgid "Error compiling the pot file."
+msgstr "Ошибка при компиляции .pot файла."
+
+#: resources/views.py:527
+msgid "Sorry, you cannot lock this file!"
+msgstr "К сожалению, вы не можете заблокировать этот файл!"
+
+#: resources/views.py:539
+msgid "Failed to lock the resource!"
+msgstr "Не удалось заблокировать ресурс!"
+
+#: resources/views.py:550
+msgid "Failed to extend lock period on the resource!"
+msgstr "Не удалось продлить блокировку ресурса!"
+
+#: resources/views.py:555
+#, python-format
+msgid "You cannot lock it right now! (Locked by %s )"
+msgstr ""
+"Вы не можете заблокировать его прямо сейчас! (уже заблокирован пользователем "
+"%s)"
+
+#: resources/views.py:589
+msgid "You are not allowed to upload a translation."
+msgstr "Вы не можете загрузить перевод."
+
+#: resources/api/__init__.py:682
+#, python-format
+msgid "%i strings added"
+msgstr "добавлено строк: %i"
+
+#: resources/api/__init__.py:684
+#, python-format
+msgid "%i strings updated"
+msgstr "обновлено строк: %i"
+
+#: resources/formats/core.py:239
+#, python-format
+msgid "Specified file %s does not exist."
+msgstr "Указанный файл %s не существует."
+
+#: resources/formats/core.py:254
+#, python-format
+msgid "The specified object %s is not of type Resource"
+msgstr "Указанный объект %s не относится к типу Ресурс"
+
+#: resources/formats/core.py:752
+#, python-format
+msgid ""
+"We're not able to extract any string from the file uploaded for language "
+"%(language)s in resource %(resource)s."
+msgstr ""
+"Мы не смогли извлечь какую либо строку из файла, загруженного  для языка "
+"%(language)s в ресурсе %(resource)s."
+
+#: resources/formats/desktop.py:190
+#, python-format
+msgid "Unknown language specified: %s"
+msgstr "Указан неизвестный язык: %s"
+
+#: resources/formats/pofile.py:70
+#, python-format
+msgid ""
+"Your file failed a correctness check (msgfmt -c). It returned the following "
+"error:\n"
+"\n"
+"%s\n"
+"\n"
+"Please run this command on your system to see the errors for yourself."
+msgstr ""
+"Ваш файл не удалось проверить на правильность (msgfmt -c). Проверка вернула "
+"следующую ошибку:\n"
+"\n"
+"%s\n"
+"\n"
+"Пожалуйста, выполните эту команду в своей системе, чтобы самостоятельно "
+"убедиться в наличии этой ошибки."
+
+#: resources/formats/pofile.py:244
+#, python-format
+msgid ""
+"Pluralized entries of the file were skipped because the nplural of the "
+"upload file differs from the nplural (%s) for the given language available "
+"in the system."
+msgstr ""
+
+#: resources/formats/qt.py:69 resources/formats/xliff.py:51
+#, python-format
+msgid "Element '%s' not found!"
+msgstr "Элемент «%s» не найден!"
+
+#: resources/formats/qt.py:71 resources/formats/xliff.py:53
+#, python-format
+msgid "Multiple '%s' elements found!"
+msgstr "Обнаружено несколько элементов «%s»!"
+
+#: resources/formats/qt.py:192
+#, python-format
+msgid "Your file doesn't seem to contain valid xml: %s!"
+msgstr "Похоже, что ваш файл не содержит корректного кода xml: %s!"
+
+#: resources/formats/qt.py:196
+msgid "Incorrect doctype!"
+msgstr "Некорректный doctype!"
+
+#: resources/formats/qt.py:198
+msgid "Uploaded file has no Doctype!"
+msgstr "Загруженный файл не содержит Doctype!"
+
+#: resources/formats/qt.py:201
+msgid "Root element is not 'TS'"
+msgstr "Корневой элемент не «TS»"
+
+#: resources/formats/qt.py:236
+msgid "Malformed 'location' element"
+msgstr "Искаженный элемент «location»"
+
+#: resources/formats/qt.py:288
+msgid "Qt Linguist variants are not yet supported."
+msgstr "Переменные Qt Linguist пока не поддерживаются."
+
+#: resources/formats/qt.py:316
+msgid ""
+"Source file could not be imported: Qt Linguist variants are not supported."
+msgstr ""
+"Не удалось импортировать исходный файл: переменные Qt Linguist не "
+"поддерживаются."
+
+#: resources/formats/validators.py:79
+msgid "Translation string only contains whitespaces."
+msgstr "Строка перевода содержит только пробелы."
+
+#: resources/formats/validators.py:95
+#, python-format
+msgid ""
+"Translation string doesn't contain the same number of '%s' as the source "
+"string."
+msgstr "Число «%s» в переводе не совпадает с числом из исходной строки."
+
+#: resources/formats/validators.py:115
+#, python-format
+msgid ""
+"The following url is either missing from the translation or has been "
+"translated: '%s'."
+msgstr ""
+"Следующий URL-адрес указывает либо на отсутствующий, либо на уже "
+"переведенный текст: «%s»."
+
+#: resources/formats/validators.py:133
+#, python-format
+msgid ""
+"The following email is either missing from the translation or has been "
+"translated: '%s'."
+msgstr ""
+"Следующее электронное письмо содержит либо отсутствующий, либо уже "
+"переведенный текст: «%s»."
+
+#: resources/formats/validators.py:149
+msgid "Translation must start with a newline (\\n)"
+msgstr "Перевод должен начинаться новой строкой (\\n)"
+
+#: resources/formats/validators.py:151
+msgid "Translation should not start with a newline (\\n)"
+msgstr "Перевод не должен заканчиваться новой строкой (\\n)"
+
+#: resources/formats/validators.py:167
+msgid "Translation must end with a newline (\\n)"
+msgstr "Перевод должен заканчиваться новой строкой (\\n)"
+
+#: resources/formats/validators.py:169
+msgid "Translation should not end with a newline (\\n)"
+msgstr "Перевод не должен заканчиваться новой строкой (\\n)"
+
+#: resources/formats/validators.py:188
+#, python-format
+msgid "Number %s is in the source string but not in the translation."
+msgstr "В исходной строке есть число «%s», но в переводе его нет."
+
+#: resources/formats/validators.py:217
+msgid ""
+"The number of arguments seems to differ between the source string and the "
+"translation."
+msgstr ""
+"Количество аргументов в исходной строке отличается от количества в переводе."
+
+#: resources/formats/xliff.py:193
+msgid "Root element is not 'xliff'"
+msgstr "Корневой элемент не «xliff»"
+
+#: resources/formats/xliff.py:195
+msgid "Root element 'xliff' does not have a 'version' attribute"
+msgstr "Корневой элемент 'xliff' не имеет атрибута  'version'"
+
+#: simpleauth/forms.py:7
+msgid "Remember me"
+msgstr "Запомнить меня"
+
+#: teams/forms.py:16 teams/models.py:49 templates/teams/team_members.html:28
+msgid "Coordinators"
+msgstr "Координаторы"
+
+#: teams/forms.py:17
+msgid ""
+"Coordinators are people that can manage the members of the team, for "
+"example. Search for usernames."
+msgstr ""
+"Координаторы — это люди, которые могут, например, управлять участниками "
+"команд. Найдите имена пользователей."
+
+#: teams/forms.py:22 teams/models.py:51 templates/teams/team_members.html:15
+#: templates/teams/team_menu.html:74
+msgid "Members"
+msgstr "Участники"
+
+#: teams/forms.py:23
+msgid ""
+"Members are actually people that can submit translations. Search for "
+"usernames."
+msgstr ""
+"Участники команды — обычные люди, которые могут отправлять переводы. Найдите "
+"имена пользователей."
+
+#: teams/forms.py:28 teams/models.py:53 templates/teams/team_members.html:133
+msgid "Reviewers"
+msgstr "Контролеры"
+
+#: teams/forms.py:29
+msgid ""
+"Reviewers are team members that can proofread translations and mark them as "
+"reviewed. Search for usernames."
+msgstr ""
+"Контролеры — это члены команды, которые могут проверять переводы и помечать "
+"их как проверенные. Искать по имени пользователя."
+
+#: teams/forms.py:97 teams/forms.py:162
+msgid "Enter a valid value."
+msgstr "Введите допустимое значение."
+
+#: teams/forms.py:110
+#, python-format
+msgid ""
+"User(s) %s cannot be in both Coordinators and Members lists. Please make "
+"sure that the lists are unique."
+msgstr ""
+"Пользователю(ям) %s нельзя одновременно быть в списках координаторов и "
+"обычных участников. Пожалуйста, убедитесь, что в этих списках никто не "
+"дублируется."
+
+#: teams/forms.py:118
+#, python-format
+msgid ""
+"User(s) %s cannot be in both Coordinators and Reviewers lists. Please make "
+"sure that the lists are unique."
+msgstr ""
+"Пользователю(ям) %s нельзя одновременно быть в списках координаторов и "
+"контролёров. Пожалуйста, убедитесь, что в этих списках никто не дублируется."
+
+#: teams/forms.py:126
+#, python-format
+msgid ""
+"User(s) %s cannot be in both Members and Reviewers lists. Please make sure "
+"that the lists are unique."
+msgstr ""
+"Пользователь(ли) %s не может быть одновременно в списке членов и  "
+"рецензентов. Пожалуйста, убедитесь, что эти списки являются уникальными."
+
+#: teams/forms.py:169
+msgid "All child projects"
+msgstr "Все дочерние проекты"
+
+#: teams/models.py:44 teams/models.py:127
+msgid "The project this team works on."
+msgstr "Проект, над которым работает команда."
+
+#: teams/models.py:47 teams/models.py:130
+msgid ""
+"People in this team will only be able to submit translations files related "
+"to the specific language."
+msgstr ""
+"Участники этой команды могут отправлять переводы, относящихся к конкретному "
+"языку."
+
+#: teams/models.py:56
+msgid "Mainlist"
+msgstr "Список рассылки"
+
+#: teams/models.py:57
+msgid "The main mailing list of the team."
+msgstr "Основная почтовая рассылка команды."
+
+#: teams/models.py:59
+msgid "creator"
+msgstr "создатель"
+
+#: teams/models.py:79
+msgid "team"
+msgstr "команда"
+
+#: teams/models.py:80
+msgid "teams"
+msgstr "команды"
+
+#: teams/models.py:147
+msgid "team creation request"
+msgstr "запрос на создание команды"
+
+#: teams/models.py:148
+msgid "team creation requests"
+msgstr "запросы на создание команды"
+
+#: teams/models.py:166
+msgid "Team"
+msgstr "Команда"
+
+#: teams/models.py:183
+msgid "team access request"
+msgstr "запрос на присоединение к команде"
+
+#: teams/models.py:184
+msgid "team access requests"
+msgstr "запросы на присоединение к команде"
+
+#: teams/views.py:305
+#, python-format
+msgid "The team '%s' was deleted."
+msgstr "Команда «%s» была удалена."
+
+#: teams/views.py:353
+#, python-format
+msgid "You are already on the '%s' team."
+msgstr "Вы уже состоите в команде «%s»."
+
+#: teams/views.py:364
+#, python-format
+msgid "You requested to join the '%s' team."
+msgstr "Вы отправили заявку на присоединение к команде «%s»."
+
+#: teams/views.py:386
+#, python-format
+msgid "You already requested to join the '%s' team."
+msgstr "Вы уже отправляли заявку на присоединение к команде «%s»."
+
+#: teams/views.py:390
+msgid ""
+"You need to sign the Contribution License Agreement for this project before "
+"you join a translation team"
+msgstr ""
+"Вы должны принять Соглашение на участие этого проекта до того, как "
+"присоединиться к команде перевода"
+
+#: teams/views.py:419
+#, python-format
+msgid "User '%(user)s' is already on the '%(team)s' team."
+msgstr "Пользователь «%(user)s» уже состоит в команде «%(team)s»."
+
+#: teams/views.py:426
+#, python-format
+msgid "You added '%(user)s' to the '%(team)s' team."
+msgstr "Вы включили пользователя «%(user)s» в состав команды «%(team)s»."
+
+#: teams/views.py:475
+#, python-format
+msgid ""
+"You rejected the request by user '%(user)s' to join the '%(team)s' team."
+msgstr ""
+"Вы отклонили заявку пользователя «%(user)s» на присоединение к команде "
+"«%(team)s»."
+
+#: teams/views.py:521
+#, python-format
+msgid "You withdrew your request to join the '%s' team."
+msgstr "Вы отозвали свой запрос на присоединение к команде «%s»."
+
+#: teams/views.py:567
+#, python-format
+msgid "You left the '%s' team."
+msgstr "Вы покинули команду «%s»."
+
+#: teams/views.py:589
+#, python-format
+msgid "You are not in the '%s' team."
+msgstr "Вы не в команде «%s»."
+
+#: teams/views.py:612
+msgid "Please select a language before submitting the form."
+msgstr "Пожалуйста, выберите язык перед отправкой формы."
+
+#: teams/views.py:625
+#, python-format
+msgid "'%s' team already exists."
+msgstr "Команда «%s» уже существует."
+
+#: teams/views.py:631
+#, python-format
+msgid "A request to create the '%s' team already exists."
+msgstr "Запрос на создание команды «%s» уже существует."
+
+#: teams/views.py:648
+#, python-format
+msgid "You requested creation of the '%s' team."
+msgstr "Вы запросили создание команды «%s»."
+
+#: teams/views.py:672
+msgid ""
+"You need to sign the Contribution License Agreement for this project before "
+"you submit a team creation request."
+msgstr ""
+"Вы должны принять Лицензионное Соглашение Участника этого проекта до того, "
+"как отправить запрос на создание команды."
+
+#: teams/views.py:701
+#, python-format
+msgid "You approved the '%(team)s' team requested by '%(user)s'."
+msgstr ""
+"Вы одобрили создание команды «%(team)s» по заявке пользователя «%(user)s»."
+
+#: teams/views.py:745
+#, python-format
+msgid "You rejected the request by '%(user)s' for a '%(team)s' team."
+msgstr ""
+"Вы отклонили заявку пользователя «%(user)s» по поводу команды «%(team)s»."
+
+#: templates/403.html:4 templates/403.html.py:7
+msgid "Forbidden access"
+msgstr "Доступ запрещен"
+
+#: templates/403.html:12
+msgid ""
+"Looks like you do not have the necessary permissions for the required action."
+msgstr "Похоже, у вас нет достаточных прав для запрашиваемого действия."
+
+#: templates/403.html:15 templates/404.html:16
+#, python-format
+msgid ""
+"Here's a link to the <a href=\"%(home)s\">homepage</a>. You know, just in "
+"case."
+msgstr ""
+"Вот ссылка на <a href=\"%(home)s\">главную страницу</a>. Так, на всякий "
+"случай."
+
+#: templates/404.html:4 templates/404.html.py:7
+msgid "Page not found"
+msgstr "Страница не найдена"
+
+#: templates/404.html:13
+msgid ""
+"Looks like you followed a bad link. If you think it's our fault, please <a "
+"href='http://code.transifex.com/transifex/issues/'>let us know</a>."
+msgstr ""
+"Выглядит так, как будто вы перешли по неверной ссылке. если вы думаете что "
+"это наша вина, пожалуйста <a href='http://code.transifex.com/transifex/"
+"issues/'>дайте нам знать</a>."
+
+#: templates/500.html:7 templates/500.html.py:22
+msgid "Page unavailable"
+msgstr "Страница не доступна"
+
+#: templates/500.html:23
+msgid "We're sorry, but the requested page is currently unavailable."
+msgstr "Просим прощения, но сейчас запрашиваемая страница не доступна."
+
+#: templates/500.html:24
+msgid ""
+"We're messing around with things internally, and the server had a bit of a "
+"hiccup."
+msgstr "На сервере ведутся работы, возможны перебои в обслуживании."
+
+#: templates/500.html:25
+msgid "Please try again later."
+msgstr "Попробуйте позже."
+
+#: templates/base-sample.html:10 templates/admin/base_site.html:6
+#: templates/flatpages/default.html:6
+msgid "Transifex"
+msgstr "Transifex"
+
+#: templates/base-sample.html:79 txcommon/templates/common_homelink.html:2
+msgid "Go to the start page"
+msgstr "Перейти на стартовую страницу"
+
+#: templates/base-sample.html:80
+msgid "Go to start page"
+msgstr "Перейти на стартовую страницу"
+
+#: templates/base-sample.html:85 templates/projects/project_list.html:49
+#: templates/projects/project_myprojects.html:8
+#: templates/projects/project_myprojects.html:10
+msgid "My projects"
+msgstr "Мои проекты"
+
+#: templates/base-sample.html:87 templates/projects/project_myprojects.html:27
+msgid "The projects being served"
+msgstr "Обслуживаемые проекты"
+
+#: templates/base-sample.html:90
+msgid "The languages our service serves"
+msgstr "Поддерживаемые языки"
+
+#: templates/base-sample.html:90 templates/languages/language_list.html:8
+#: templates/projects/project_detail_languages.html:22
+#: templates/userena/public.html:50 txcommon/models.py:33
+msgid "Languages"
+msgstr "Языки"
+
+#: templates/base-sample.html:97
+#, python-format
+msgid ""
+"Welcome <a title=\"Profile settings\" href=\"%(user_profile)s\">"
+"%(user_username)s</a>!"
+msgstr ""
+"Здравствуйте, <a title=\"Настройки профиля\" href=\"%(user_profile)s\">"
+"%(user_username)s</a>!"
+
+#: templates/base-sample.html:103
+msgid "Sign out from the website"
+msgstr "Выйти из сайта"
+
+#: templates/base-sample.html:103
+msgid "Sign out"
+msgstr "Выйти"
+
+#: templates/base-sample.html:110 templates/simpleauth/login_box.html:10
+#: templates/simpleauth/login_box.html:26 templates/simpleauth/logout.html:4
+#: templates/simpleauth/logout.html.py:5 templates/simpleauth/logout.html:6
+#: templates/simpleauth/signin.html:4 templates/simpleauth/signin.html.py:5
+#: templates/simpleauth/signin.html:6 templates/userena/signin_form.html:22
+#: templates/userena/signin_form.html:48
+msgid "Sign in"
+msgstr "Войти"
+
+#: templates/base-sample.html:113 templates/userena/signup_form.html:6
+#: templates/userena/signup_form.html:49
+msgid "Register"
+msgstr "Регистрация"
+
+#: templates/base-sample.html:181
+msgid "Learn more about Transifex"
+msgstr "Подробнее о Transifex"
+
+#: templates/base-sample.html:181
+msgid "About"
+msgstr "О нас"
+
+#: templates/base-sample.html:183
+msgid "Drops us a line"
+msgstr "Оставьте нам пару строк"
+
+#: templates/base-sample.html:183
+msgid "Feedback"
+msgstr "Обратная связь"
+
+#: templates/base-sample.html:187
+msgid ""
+"Powered by <a href=\"http://transifex.org/\" title=\"Transifex community"
+"\">Transifex</a>, the Open Translation Platform"
+msgstr ""
+"Работает под управлением <a href=\"http://transifex.org/\" title=\"Transifex "
+"community\">Transifex</a>, открытой платформы для переводов"
+
+#: templates/index.html:27
+msgid "Welcome to Transifex"
+msgstr "Добро пожаловать в Transifex"
+
+#: templates/index.html:34
+msgid ""
+"Transifex is a service aimed at helping translators keep track of their "
+"favorite translation projects."
+msgstr ""
+"Transifex — это служба, призванная помочь переводчикам отслеживать свои "
+"любимые проекты."
+
+#: templates/index.html:41
+#, python-format
+msgid ""
+"You could also browse through <a href=\"%(project_list)s\">all projects</a>."
+msgstr ""
+"Также вы можете пройтись по <a href=\"%(project_list)s\">всем проектам</a>."
+
+#: templates/search.html:7 templates/search.html.py:9
+#: templates/search_form.html:6
+msgid "Search"
+msgstr "Поиск"
+
+#: templates/search.html:9
+msgid "Results"
+msgstr "Результат"
+
+#: templates/search.html:16
+msgid "Search projects"
+msgstr "Поиск проектов"
+
+#: templates/search.html:16
+msgid "Search results "
+msgstr "Результаты поиска "
+
+#: templates/search.html:29
+msgid "Did you mean:"
+msgstr "Вы имели в виду:"
+
+#: templates/search.html:54
+#, python-format
+msgid ""
+"No projects were found for \"%(q)s\". You may want to change your query a "
+"bit."
+msgstr "Для «%(q)s» не найдено ни одного проекта. Измените немного запрос."
+
+#: templates/search.html:66
+#, python-format
+msgid ""
+"Couldn't find your project? Why don't you go ahead and <a href="
+"\"%(project_create_url)s\">add it</a>?"
+msgstr ""
+"Не можете найти свой проект? Почему бы тогда не <a href="
+"\"%(project_create_url)s\">добавить его</a>?"
+
+#: templates/timeline.html:11
+msgid "Filter results"
+msgstr "Фильтр результатов"
+
+#: templates/timeline.html:17 templates/resources/resource_actions.html:180
+msgid "Go"
+msgstr "Перейти"
+
+#: templates/admin/base_site.html:11
+msgid "Transifex administration"
+msgstr "Администрация Transifex"
+
+#: templates/contact_form/contact_form.html:5
+#: templates/contact_form/contact_form.html:6
+msgid "Contact us"
+msgstr "Связь с нами"
+
+#: templates/contact_form/contact_form.html:7
+msgid "Let us know what you think!"
+msgstr "Сообщите нам о своем мнении!"
+
+#: templates/contact_form/contact_form.html:10
+msgid ""
+"We'd like to make this web service as useful as possible for our users. If "
+"you have any feedback to provide, please do so!"
+msgstr ""
+"Мы хотим сделать этот веб-сервис самым удобным для наших пользователей. Если "
+"у вас есть предложение, как это сделать, отправьте его нам!"
+
+#: templates/contact_form/contact_form.html:22
+msgid "Send feedback"
+msgstr "Отправить запрос"
+
+#: templates/contact_form/contact_form_sent.html:4
+msgid "Thanks for the feedback!"
+msgstr "Спасибо за запрос!"
+
+#: templates/contact_form/contact_form_sent.html:7
+msgid "Thanks!"
+msgstr "Спасибо!"
+
+#: templates/contact_form/contact_form_sent.html:11
+msgid "Thank you for your feedback."
+msgstr "Спасибо за ваш запрос."
+
+#: templates/helptext/project_form_helptext.html:7
+msgid ""
+"\n"
+"The slug is a short word, summarizing and uniquely defining a project.\n"
+"Slug should be self-explainable, but it is most important to be unique.\n"
+"Its main purpose is to be part of a reference URL for the specific object.\n"
+msgstr ""
+"\n"
+"Часть URL — это короткое слово, которое делает проект уникальным.\n"
+"Часть должна быть понятной, но важнее всего — уникальной.\n"
+"Основная ее задача — быть частью URL определенного объекта.\n"
+
+#: templates/helptext/project_form_helptext.html:18
+msgid ""
+"\n"
+"The name is a short name for the project. This is the \"codename\" of the\n"
+"project. E.g. this would be \"Transifex\" for transifex project.\n"
+msgstr ""
+"\n"
+"Имя — это короткое название проекта, его «кодовое имя».\n"
+"Например, «Transifex» для проекта transifex.\n"
+
+#: templates/helptext/project_form_helptext.html:28
+msgid ""
+"\n"
+"The description must be one or two sentences length. This is a short\n"
+"summary about the project. It is a required field for the project form.\n"
+"E.g. Transifex description : \"An open translation platform.\"\n"
+msgstr ""
+"\n"
+"Описание должно быть длиной в одно-два предложения.\n"
+"Это краткое резюме проекта. В форме проекта это обязательное поле.\n"
+"Например, описание Transifex — «Открытая платформа переводов».\n"
+
+#: templates/helptext/project_form_helptext.html:39
+msgid ""
+"\n"
+"The long description field should contain an extensive description of\n"
+"the project. E.g. Transifex long description : \"Transifex is web system\n"
+" for managing translations from various distributed repositories.\"\n"
+"Caution! <a href=\"http://en.wikipedia.org/wiki/Markdown\">Markdown </a>\n"
+"syntax should be used.\n"
+msgstr ""
+"\n"
+"Подробное описание раскрывает более детально цели проекта.\n"
+"Например, описание Transifex: «Transifex — это веб-платформа\n"
+" для управления переводами из различных источников».\n"
+"Внимание! Используйте синтаксис <a href=\"http://en.wikipedia.org/wiki/"
+"Markdown\">Markdown</a>.\n"
+
+#: templates/helptext/project_form_helptext.html:52
+msgid ""
+"\n"
+"Type in the url of the project's home page.\n"
+msgstr ""
+"\n"
+"Введите адрес домашней страницы проекта.\n"
+
+#: templates/helptext/project_form_helptext.html:59
+msgid "RSS feed"
+msgstr "RSS-канал"
+
+#: templates/helptext/project_form_helptext.html:61
+msgid ""
+"\n"
+"This is the projects feed name. By following feed url, other users,\n"
+"which are interested in translation news, can be synchronized with updates\n"
+"on the project.\n"
+msgstr ""
+"\n"
+"Имя ленты проекта. Необходима для агрегации новостей для\n"
+"пользователей, которым нужны новости обновлений переводов.\n"
+"Синхронизируется вместе с обновлениями проекта.\n"
+
+#: templates/helptext/project_form_helptext.html:72
+msgid ""
+"\n"
+"This field should contain the url for the maintenance, tracking system of\n"
+"the project. For example, the bug tracker url of transifex is at:\n"
+"http://code.transifex.com/transifex/issues/\n"
+msgstr ""
+"\n"
+"Это поле должно содержать ссылку для обслуживания, систему контроля за "
+"проектом. Например, система контроля ошибок transifex: http://code.transifex."
+"com/transifex/issues/\n"
+
+#: templates/helptext/project_form_helptext.html:83
+msgid ""
+"\n"
+"Tags are keywords that annotate an object. Tags separated by whitespaces\n"
+"should be used to help searching for the specific project. They are also\n"
+"a compact description of a project. For example, Transifex has the "
+"following\n"
+"tags: i18n l10n translations.\n"
+msgstr ""
+"\n"
+"Теги — это ключевые слова объекта, помогающие находит определенные\n"
+"объекты. Теги разделяются пробелами, они также являются кратким\n"
+"описанием проекта. Например, теги Transifex: i18n l10n translations.\n"
+
+#: templates/helptext/project_form_helptext.html:95
+msgid ""
+"\n"
+"Maintainers are the people responsible for the administration of the "
+"project.\n"
+"They have permissions to edit the project and to add translators. They can\n"
+"also add, edit remove resources of a project.\n"
+msgstr ""
+"\n"
+"Поддерживающие отвечают за администрирование проекта. У них\n"
+"есть права редактирования проекта и добавления переводчиков. Они\n"
+"также могут добавлять, править или удалять ресурсы проекта.\n"
+
+#: templates/helptext/project_form_helptext.html:102
+msgid ""
+"\n"
+"This field is ajax powered so it is possible to type only a few characters\n"
+"and be redirected to the wishing username. Type the preferred username and\n"
+"will be appeared above to be added. If you want to remove a maintainer "
+"remove\n"
+"him from the list under the text box.\n"
+msgstr ""
+"\n"
+"Это поле Ajax работает таким образом, что можно ввести всего несколько "
+"символов,\n"
+"чтобы получить желаемое имя пользователя. Начните вводить нужное вам имя,\n"
+"и подставится то, которое окажется выше всех в списке. Если вы хотите "
+"исключить\n"
+"кого-то из числа поддерживающих, удалите его из списка под текстовым полем.\n"
+
+#: templates/languages/language_list.html:14
+msgid "Languages on Transifex"
+msgstr "Языки на Transifex"
+
+#: templates/languages/language_list.html:17
+msgid "Languages feed"
+msgstr "Лента языков"
+
+#: templates/languages/language_list.html:17
+#: templates/projects/project_detail.html:127
+#: templates/projects/release_detail.html:36
+#: templates/projects/release_language_detail.html:103
+msgid "Subscribe to feed"
+msgstr "Подписаться на ленту"
+
+#: templates/languages/language_list.html:27
+msgid "No languages registered yet. :-("
+msgstr "Пока не зарегистрировано ни одного языка. :-("
+
+#: templates/languages/language_list.html:34
+msgid ""
+"Couldn't find your language? Please use the feedback form and <a href="
+"\"http://help.transifex.com/user-guide/faq.html#where-does-the-language-list-"
+"come-from-how-can-i-add-my-own\">let us know</a>!"
+msgstr ""
+"Не можете найти нужный язык? Пожалуйста, используйте форму обратной связи и  "
+"<a href=\"http://help.transifex.com/user-guide/faq.html#where-does-the-"
+"language-list-come-from-how-can-i-add-my-own\">дайте нам знать</a>!"
+
+#: templates/notification/notices.html:7 templates/notification/notices.html:8
+#: templates/notification/notices.html:9
+msgid "Notifications"
+msgstr "Оповещения"
+
+#: templates/notification/notices.html:32
+msgid "Received notifications"
+msgstr "Полученные уведомления"
+
+#: templates/notification/notices.html:43
+msgid "Time"
+msgstr "Время"
+
+#: templates/notification/notices.html:71
+msgid "Mark all unseen notices seen"
+msgstr "Пометить все оповещения как прочитанные"
+
+#: templates/notification/notices.html:77
+msgid "No notices."
+msgstr "Оповещений нет."
+
+#: templates/notification/notices.html:81
+#: templates/notification/notices.html:83
+msgid "Change your notification settings"
+msgstr "Изменить параметры оповещений"
+
+#: templates/notification/notices.html:81
+#: templates/userena/base_userena.html:37
+msgid "Notification settings"
+msgstr "Настройки оповещений"
+
+#: templates/notification/notices.html:86
+msgid ""
+"You can receive notifications whenever an event occurs in Transifex. Check "
+"the notifications available for you in the list below and choose which "
+"events you would like to be notified by email."
+msgstr ""
+"Можно получать уведомления о любых событиях, возникающих в Transifex. "
+"Просмотрите список доступных уведомлений и выберите, какие из них хотите "
+"получать на свою электронную почту."
+
+#: templates/notification/notices.html:87
+msgid "Primary email"
+msgstr "Основной адрес электронной почты"
+
+#: templates/notification/notices.html:90
+msgid "change under"
+msgstr "изменить под"
+
+#: templates/notification/notices.html:90
+#: templates/notification/notices.html:94
+msgid "Account"
+msgstr "Учетная запись"
+
+#: templates/notification/notices.html:93
+msgid "Note"
+msgstr "Заметка"
+
+#: templates/notification/notices.html:94
+msgid ""
+"You do not have a verified email address to which notices can be sent. You "
+"can add one by going to"
+msgstr ""
+"У вас нет подтвержденного адреса электронной почты, на который будут "
+"высылаться извещения. Вы можете добавить его, перейдя по ссылке:"
+
+#: templates/notification/notices.html:102
+msgid "Notification Type"
+msgstr "Тип оповещения"
+
+#: templates/notification/notices.html:121
+msgid "Change"
+msgstr "Изменить"
+
+#: templates/notification/single.html:5 templates/notification/single.html:8
+msgid "Notice"
+msgstr "Извещение"
+
+#: templates/notification/project_added/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">added</span> <span class=\"notice_subject\">project</span> <a href="
+"\"%(project_url)s\">%(project)s</a> "
+msgstr ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">добавлен</span> <span class=\"notice_subject\">проект</span> <a href="
+"\"%(project_url)s\">%(project)s</a> "
+
+#: templates/notification/project_changed/notice.html:2
+#, python-format
+msgid ""
+" <a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">changed</span> data of <span class=\"notice_subject\">project</span> <a "
+"href=\"%(project_url)s\">%(project)s</a> "
+msgstr ""
+" <a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">изменен</span> данные <span class=\"notice_subject\">проекта</span> <a "
+"href=\"%(project_url)s\">%(project)s</a> "
+
+#: templates/notification/project_deleted/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">deleted</span> <span class=\"notice_subject\">project</span> <a href="
+"\"%(project_url)s\">%(project)s</a>"
+msgstr ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">удален</span> <span class=\"notice_subject\">проект</span> <a href="
+"\"%(project_url)s\">%(project)s</a>"
+
+#: templates/notification/project_hub_join_approved/notice.html:2
+#, python-format
+msgid ""
+"The project <a href=\"%(project_url)s\">%(project_name)s</a> had its <span "
+"class=\"notice_action\">request</span> to join and outsource access to the "
+"<a href=\"%(project_hub_url)s\">%(project_hub_name)s </a> project hub <span "
+"class=\"notice_action\">approved</span>"
+msgstr ""
+
+#: templates/notification/project_hub_join_denied/notice.html:2
+#, python-format
+msgid ""
+"The project <a href=\"%(project_url)s\">%(project_name)s</a> had its <span "
+"class=\"notice_action\">request</span> to join and outsource access to the "
+"<a href=\"%(project_hub_url)s\">%(project_hub_name)s </a> project hub <span "
+"class=\"notice_action\">denied</span>"
+msgstr ""
+
+#: templates/notification/project_hub_join_requested/notice.html:2
+#, python-format
+msgid ""
+"The project <a href=\"%(project_url)s\">%(project_name)s</a> <span class="
+"\"notice_action\">requested</span> to join and outsource its access to the "
+"<a href=\"%(project_hub_url)s\">%(project_hub_name)s </a> project hub"
+msgstr ""
+
+#: templates/notification/project_hub_join_withdrawn/notice.html:2
+#, python-format
+msgid ""
+"The project <a href=\"%(project_url)s\">%(project_name)s</a> had its <span "
+"class=\"notice_action\">request</span> to join and outsource access to the "
+"<a href=\"%(project_hub_url)s\">%(project_hub_name)s </a> project hub<span "
+"class=\"notice_action\">withdrawn</span>"
+msgstr ""
+
+#: templates/notification/project_hub_left/notice.html:2
+#, python-format
+msgid ""
+"The project <a href=\"%(project_url)s\">%(project_name)s</a> has <span class="
+"\"notice_action\">left</span> the <a href=\"%(project_hub_url)s\">"
+"%(project_hub_name)s </a> project hub"
+msgstr ""
+
+#: templates/notification/project_release_added/notice.html:2
+#: templates/notification/project_release_changed/notice.html:2
+#, python-format
+msgid ""
+"A new release <a href=\"%(release_url)s\">%(release_name)s</a> has been "
+"added to the <a href=\"%(project_url)s\">%(project_name)s</a> project"
+msgstr ""
+"В проект <a href=\"%(project_url)s\">%(project_name)s</a> добавлен новый "
+"выпуск <a href=\"%(release_url)s\">%(release_name)s</a>"
+
+#: templates/notification/project_release_before_stringfreeze/notice.html:2
+#, python-format
+msgid ""
+"Notification about the approaching of the <a href=\"%(release_url)s\">"
+"%(release_name)s</a> string freeze of the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> project has been sent"
+msgstr ""
+"Извещение о приближении <a href=\"%(release_url)s\">%(release_name)s</a> и "
+"заморозке строк <a href=\"%(project_url)s\">%(project_name)s</a> проекта "
+"было отправлено"
+
+#: templates/notification/project_release_before_trans_deadline/notice.html:2
+#, python-format
+msgid ""
+"Notification about the approaching of the <a href=\"%(release_url)s\">"
+"%(release_name)s</a> translation deadline of the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> project has been sent"
+msgstr ""
+"Извещение о приближении <a href=\"%(release_url)s\">%(release_name)s</a> и "
+"конце сроков перевода <a href=\"%(project_url)s\">%(project_name)s</a> "
+"проекта было отправлено"
+
+#: templates/notification/project_release_deleted/notice.html:2
+#, python-format
+msgid ""
+"The resource '%(release_name)s' has been deleted from the <a href="
+"\"%(project_url)s\">%(project_name)s</a> project"
+msgstr ""
+"Ресурс '%(release_name)s' удалён из проекта <a href=\"%(project_url)s\">"
+"%(project_name)s</a>"
+
+#: templates/notification/project_release_hit_trans_deadline/notice.html:2
+#, python-format
+msgid ""
+"Notification about translation period of the  <a href=\"%(release_url)s\">"
+"%(release_name)s</a> release of the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> project being over has been sent"
+msgstr ""
+"Извещение о сроках перевода  <a href=\"%(release_url)s\">%(release_name)s</"
+"a> и выпуске <a href=\"%(project_url)s\">%(project_name)s</a> проекта было "
+"отправлено"
+
+#: templates/notification/project_release_in_stringfreeze/notice.html:2
+#, python-format
+msgid ""
+"Notification about <a href=\"%(release_url)s\">%(release_name)s</a> release "
+"of the <a href=\"%(project_url)s\">%(project_name)s</a> project being in "
+"string freeze has been sent"
+msgstr ""
+"Извещение о <a href=\"%(release_url)s\">%(release_name)s</a> выпуске  <a "
+"href=\"%(project_url)s\">%(project_name)s</a> проект в статусе заморозки "
+"строк , было отправлено"
+
+#: templates/notification/project_release_stringfreeze_breakage/notice.html:2
+#, python-format
+msgid ""
+"Notification about <a href=\"%(resource_url)s\">%(resource_name)s</a> "
+"resource string freeze breakage for the <a href=\"%(release_url)s\">"
+"%(release_name)s</a> release of the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> project has been sent"
+msgstr ""
+
+#: templates/notification/project_report_weekly_maintainers/notice.html:2
+#, python-format
+msgid ""
+"The <span class=\"notice_subject\">weekly report</span> of the <a href="
+"\"%(project_url)s\">%(project_name)s</a> project was <span class="
+"\"notice_subject\">generated</span>"
+msgstr ""
+"<span class=\"notice_subject\">Сгенерирован</span> <span class="
+"\"notice_subject\">еженедельный отчет</span> проекта <a href="
+"\"%(project_url)s\">%(project_name)s</a>"
+
+#: templates/notification/project_resource_added/notice.html:2
+#, python-format
+msgid ""
+"A new resource <a href=\"%(resource_url)s\">%(resource_name)s</a> has been "
+"added to the <a href=\"%(project_url)s\">%(project_name)s</a> project"
+msgstr ""
+"В проект <a href=\"%(project_url)s\">%(project_name)s</a> был добавлен новый "
+"ресурс <a href=\"%(resource_url)s\">%(resource_name)s</a>"
+
+#: templates/notification/project_resource_changed/notice.html:2
+#, python-format
+msgid ""
+"The resource <a href=\"%(resource_url)s\">%(resource_name)s</a> of the <a "
+"href=\"%(project_url)s\">%(project_name)s</a> project has been changed"
+msgstr ""
+"Ресурс <a href=\"%(resource_url)s\">%(resource_name)s</a> из проекта <a href="
+"\"%(project_url)s\">%(project_name)s</a> был изменен"
+
+#: templates/notification/project_resource_deleted/notice.html:2
+#, python-format
+msgid ""
+"The resource '%(resource_name)s' has been deleted from the <a href="
+"\"%(project_url)s\">%(project_name)s</a> project"
+msgstr ""
+"Ресурс «%(resource_name)s» был удален из проекта <a href=\"%(project_url)s\">"
+"%(project_name)s</a>"
+
+#: templates/notification/project_resource_full_reviewed/notice.html:2
+#, python-format
+msgid ""
+"The %(language_name)s translation of the project <a href=\"%(project_url)s\">"
+"%(project_name)s</a>, resource <a href=\"%(resource_url)s\">"
+"%(resource_name)s</a> has reached 100%% reviewed strings."
+msgstr ""
+
+#: templates/notification/project_resource_translated/notice.html:2
+#, python-format
+msgid ""
+"A translation for %(language_name)s was sent to <a href=\"%(resource_url)s\">"
+"%(resource_name)s</a> of the <a href=\"%(project_url)s\">%(project_name)s</"
+"a> project"
+msgstr ""
+"Для ресурса <a href=\"%(resource_url)s\">%(resource_name)s</a> проекта <a "
+"href=\"%(project_url)s\">%(project_name)s</a> отправлен перевод на язык "
+"%(language_name)s."
+
+#: templates/notification/project_resource_translation_changed/notice.html:2
+#, python-format
+msgid ""
+"The %(language_name)s translation of the project <a href=\"%(project_url)s\">"
+"%(project_name)s</a>, resource <a href=\"%(resource_url)s\">"
+"%(resource_name)s</a> has been modified."
+msgstr ""
+"Перевод проекта <a href=\"%(project_url)s\">%(project_name)s</a> на язык "
+"%(language_name)s, ресурс <a href=\"%(resource_url)s\">%(resource_name)s</a> "
+"был изменён."
+
+#: templates/notification/project_submit_access_granted/notice.html:2
+#, python-format
+msgid ""
+"The user <a href=\"%(user_url)s\">%(user_request)s</a> had <span class="
+"\"notice_subject\">access to submit translations</span> to the project <a "
+"href=\"%(project_url)s\">%(project)s</a> <span class=\"notice_action"
+"\">granted</span>"
+msgstr ""
+"Пользователю <a href=\"%(user_url)s\">%(user_request)s</a> <span class="
+"\"notice_action\">разрешен</span> <span class=\"notice_subject\">доступ к "
+"отправке переводов</span> для проекта <a href=\"%(project_url)s\">"
+"%(project)s</a> "
+
+#: templates/notification/project_submit_access_request_denied/notice.html:2
+#, python-format
+msgid ""
+"The user <a href=\"%(user_url)s\">%(user_request)s</a> had its <span class="
+"\"notice_subject\">request</span> of access to submit translations to the "
+"project <a href=\"%(project_url)s\">%(project)s</a> <span class="
+"\"notice_action\">denied</span>"
+msgstr ""
+"<span class=\"notice_subject\">Заявка</span> пользователя <a href="
+"\"%(user_url)s\">%(user_request)s</a> на доступ к отправке переводов для "
+"проекта <a href=\"%(project_url)s\">%(project)s</a> <span class="
+"\"notice_action\">отклонена</span>"
+
+#: templates/notification/project_submit_access_request_withdrawn/notice.html:2
+#, python-format
+msgid ""
+"<span class=\"notice_action\">Withdrew</span> own <span class="
+"\"notice_subject\">request</span> of access to submit translations to the "
+"<span class=\"notice_action\">project</span> <a href=\"%(project_url)s\">"
+"%(project)s</a>"
+msgstr ""
+"<span class=\"notice_action\">Отозвана</span> собственная <span class="
+"\"notice_subject\">заявка</span> на доступ к отправке переводов для  <span "
+"class=\"notice_action\">проекта</span> <a href=\"%(project_url)s\">"
+"%(project)s</a>"
+
+#: templates/notification/project_submit_access_requested/notice.html:2
+#, python-format
+msgid ""
+"<span class=\"notice_action\">Requested</span> <span class=\"notice_subject"
+"\">access to submit translations</span> to the <span class=\"notice_action"
+"\">project</span> <a href=\"%(project_url)s\">%(project)s</a>"
+msgstr ""
+"<span class=\"notice_action\">Запрошен</span> <span class=\"notice_subject"
+"\">доступ к отправке переводов</span> для <span class=\"notice_action"
+"\">проекта</span> <a href=\"%(project_url)s\">%(project)s</a>"
+
+#: templates/notification/project_submit_access_revoked/notice.html:2
+#, python-format
+msgid ""
+"The user <a href=\"%(user_url)s\">%(user_request)s</a> had its <span class="
+"\"notice_subject\">access to submit translations</span> to the project <a "
+"href=\"%(project_url)s\">%(project)s</a> <span class=\"notice_action"
+"\">revoked</span>."
+msgstr ""
+"Пользователю <a href=\"%(user_url)s\">%(user_request)s</a> <span class="
+"\"notice_action\">прекращен</span> <span class=\"notice_subject\">доступ к "
+"отправке переводов</span> для проекта <a href=\"%(project_url)s\">"
+"%(project)s</a>."
+
+#: templates/notification/project_team_added/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">added</span> <a href=\"%(team_url)s\">%(team_name)s</a> language "
+"translation to the <a href=\"%(project_url)s\">%(project_name)s</a> project\n"
+msgstr ""
+
+#: templates/notification/project_team_changed/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">changed</span> the <a href=\"%(team_url)s\">%(team_name)s</a> <span class="
+"\"notice_subject\">language</span> translation of the <a href="
+"\"%(project_url)s\">%(project_name)s</a> project\n"
+msgstr ""
+
+#: templates/notification/project_team_deleted/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">deleted</span> the <a href=\"%(team_url)s\">%(team_name)s</a> <span class="
+"\"notice_subject\">language</span> translation from the <a href="
+"\"%(project_url)s\">%(project_name)s</a> project\n"
+msgstr ""
+
+#: templates/notification/project_team_join_approved/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">added</span> the <span class=\"notice_subject\">user</span> <a href="
+"\"%(user_url)s\">%(user_name)s</a> as a member to the <a href=\"%(team_url)s"
+"\">%(team_name)s language translation </a> of the <a href=\"%(project_url)s"
+"\">%(project_name)s</a> project\n"
+msgstr ""
+
+#: templates/notification/project_team_join_denied/notice.html:2
+#, python-format
+msgid ""
+"%(performer)s <span class=\"notice_action\">denied</span> user <a href="
+"\"%(user_url)s\">%(user_name)s</a>'s <span class=\"notice_subject\">request</"
+"span> to join the <a href=\"%(team_url)s\">%(team_name)s language "
+"translation</a> of the <a href=\"%(project_url)s\">%(project_name)s</a> "
+"project"
+msgstr ""
+
+#: templates/notification/project_team_join_requested/notice.html:2
+#, python-format
+msgid ""
+"The user <a href=\"%(user_url)s\">%(user_name)s</a> <span class="
+"\"notice_action\">requested</span> to join the <a href=\"%(team_url)s\">"
+"%(team_name)s language translation</a> of the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> project"
+msgstr ""
+
+#: templates/notification/project_team_join_withdrawn/notice.html:2
+#, python-format
+msgid ""
+"The user <a href=\"%(user_url)s\">%(user_name)s</a> <span class="
+"\"notice_action\">withdrew</span> his request to join the <a href="
+"\"%(team_url)s\">%(team_name)s language translation</a> of the <a href="
+"\"%(project_url)s\">%(project_name)s</a> project"
+msgstr ""
+
+#: templates/notification/project_team_left/notice.html:2
+#, python-format
+msgid ""
+"<span class=\"notice_subject\">User</span> has <span class=\"notice_action"
+"\">left</span> the <a href=\"%(team_url)s\">%(team_name)s language "
+"translation</a> of the <a href=\"%(project_url)s\">%(project_name)s</a> "
+"project"
+msgstr ""
+
+#: templates/notification/project_team_request_denied/notice.html:2
+#, python-format
+msgid ""
+"The <span class=\"notice_subject\">request</span> to create a "
+"%(language_name)s language translation for the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> project was <span class=\"notice_action\">denied</span>"
+msgstr ""
+
+#: templates/notification/project_team_requested/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">requested</span> the creation of a %(language_name)s <span class="
+"\"notice_subject\">language translation</span> for the project <a href="
+"\"%(project_url)s\">%(project_name)s</a>"
+msgstr ""
+
+#: templates/notification/user_nudge/notice.html:2
+#, python-format
+msgid ""
+"The <span class=\"notice_subject\">user</span> <a href=\"%(performer_url)s\">"
+"%(performer)s</a> has <span class=\"notice_subject\">nudged</span> you"
+msgstr ""
+"<span class=\"notice_subject\">Пользователь</span> <a href="
+"\"%(performer_url)s\">%(performer)s</a> отправил вам <span class="
+"\"notice_subject\">уведомление</span>"
+
+#: templates/projects/project_confirm_delete.html:4
+#, python-format
+msgid "Delete %(project_name)s"
+msgstr "Удалить %(project_name)s"
+
+#: templates/projects/project_confirm_delete.html:6
+#, python-format
+msgid "Delete <em>%(project_name)s</em>"
+msgstr "Удаление <em>%(project_name)s</em>"
+
+#: templates/projects/project_confirm_delete.html:8
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/projects/project_confirm_delete.html:11
+#, python-format
+msgid "Say goodbye to <em>%(project_name)s</em>?"
+msgstr "Попрощаться с <em>%(project_name)s</em>?"
+
+#: templates/projects/project_confirm_delete.html:17
+#, python-format
+msgid ""
+"Are you sure you want to permanently delete the registered project "
+"'%(project_name)s'?"
+msgstr ""
+"Вы уверены, что хотите навсегда удалить зарегистрированный проект "
+"«%(project_name)s»?"
+
+#: templates/projects/project_confirm_delete.html:21
+#: templates/teams/team_confirm_delete.html:17
+msgid "Yes, I'm sure!"
+msgstr "Да, всё правильно!"
+
+#: templates/projects/project_delete.html:11
+#: templates/projects/project_delete.html:14
+#: templates/projects/project_settings.html:54
+msgid "Delete project"
+msgstr "Удалить проект"
+
+#: templates/projects/project_detail.html:36
+#: templates/projects/project_myprojects_snippet.html:63
+#: templates/projects/release_detail.html:63
+#: templates/resources/resource_detail.html:101
+msgid "Details"
+msgstr "Детали"
+
+#: templates/projects/project_detail.html:52
+#: templates/projects/release_detail.html:75
+msgid "Homepage:"
+msgstr "Домашняя страница:"
+
+#: templates/projects/project_detail.html:53
+#, python-format
+msgid "Homepage for %(project_name)s"
+msgstr "Домашняя страница %(project_name)s"
+
+#: templates/projects/project_detail.html:58
+#: templates/projects/project_list.html:80
+msgid "Tags:"
+msgstr "Теги:"
+
+#: templates/projects/project_detail.html:65
+msgid "Bug tracker:"
+msgstr "Система отслеживания ошибок:"
+
+#: templates/projects/project_detail.html:66
+#, python-format
+msgid "Bug tracker for %(project_name)s"
+msgstr "Система отслеживания ошибок для %(project_name)s"
+
+#: templates/projects/project_detail.html:71
+msgid "Documentation:"
+msgstr "Документация:"
+
+#: templates/projects/project_detail.html:72
+msgid "Documentation of the translation procedure of this project"
+msgstr "Документация процедуры перевода этого проекта"
+
+#: templates/projects/project_detail.html:72
+msgid "Translation help pages"
+msgstr "Страницы справки по переводу"
+
+#: templates/projects/project_detail.html:79
+msgid "Maintainer:"
+msgid_plural "Maintainers:"
+msgstr[0] "Координатор:"
+msgstr[1] "Координаторы:"
+msgstr[2] "Координаторы:"
+
+#: templates/projects/project_detail.html:105
+msgid "Projects have requested to outsource access"
+msgstr "Проекты, к которым запрошен внешний доступ"
+
+#: templates/projects/project_detail.html:119
+#: templates/resources/resource_detail.html:234
+#: templates/teams/team_detail.html:236
+msgid "History"
+msgstr "История"
+
+#: templates/projects/project_detail.html:127
+msgid "Timeline feed for this project"
+msgstr "Лента расписания для этого проекта"
+
+#: templates/projects/project_detail.html:134
+msgid "No history recorded yet."
+msgstr "Записи в журнале отсутствуют."
+
+#: templates/projects/project_detail_languages.html:20
+msgid "Hub language teams"
+msgstr "Языковые команды центра"
+
+#: templates/projects/project_detail_languages.html:27
+msgid "Request language"
+msgstr "Запрос языка"
+
+#: templates/projects/project_detail_languages.html:31
+msgid "Create language"
+msgstr "Создать язык"
+
+#: templates/projects/project_detail_languages.html:47
+msgid "Request team"
+msgstr "Запросить команду"
+
+#: templates/projects/project_detail_languages.html:61
+msgid "Requested by"
+msgstr "Заявка от"
+
+#: templates/projects/project_detail_languages.html:65
+#: templates/projects/project_hub_join_requests.html:14
+#: templates/teams/team_members.html:74
+msgid "Deny"
+msgstr "Отказать"
+
+#: templates/projects/project_detail_languages.html:68
+#: templates/projects/project_hub_join_requests.html:17
+#: templates/teams/team_members.html:70
+msgid "Approve"
+msgstr "Утвердить"
+
+#: templates/projects/project_detail_languages.html:100
+#: templates/resources/resource_detail.html:193
+msgid "(source language)"
+msgstr "(исходный язык)"
+
+#: templates/projects/project_detail_languages.html:111
+#, python-format
+msgid ""
+"\n"
+"                        (%(counter)s join request)\n"
+"                    "
+msgid_plural ""
+"\n"
+"                        (%(counter)s join requests)\n"
+"                    "
+msgstr[0] ""
+"\n"
+"                        (%(counter)s заявка на присоединение)\n"
+"                    "
+msgstr[1] ""
+"\n"
+"                        (%(counter)s заявки на присоединение)\n"
+"                    "
+msgstr[2] ""
+"\n"
+"                        (%(counter)s заявок на присоединение)\n"
+"                    "
+
+#: templates/projects/project_detail_languages.html:123
+msgid "(no team yet)"
+msgstr "(ещё нет команды)"
+
+#: templates/projects/project_detail_languages.html:134
+#: templates/projects/project_resources.html:159
+#: templates/projects/release_detail.html:172
+#: templates/teams/team_detail.html:194
+msgid "Last update"
+msgstr "Последнее обновление"
+
+#: templates/projects/project_detail_languages.html:141
+msgid "No translation team has been created yet. Why don't you start one?"
+msgstr ""
+"Пока не было создано ни одной команды перевода. Почему бы не создать одну?"
+
+#: templates/projects/project_form.html:11
+#: templates/projects/project_form.html:19
+msgid "Add a project"
+msgstr "Добавить проект"
+
+#: templates/projects/project_form.html:22
+#: templates/projects/project_form.html:31
+#, python-format
+msgid "Edit %(project_name)s"
+msgstr "Править %(project_name)s"
+
+#: templates/projects/project_form.html:29
+#: templates/projects/project_myprojects.html:23
+#: templates/projects/project_settings.html:10
+msgid "New project"
+msgstr "Новый проект"
+
+#: templates/projects/project_form.html:37
+#: templates/projects/project_settings.html:22
+msgid "Create a new project on Transifex"
+msgstr "Создайте новый проект на Transifex"
+
+#: templates/projects/project_form.html:39
+msgid "Manage your project"
+msgstr "Управление своим проектом"
+
+#: templates/projects/project_form.html:52
+msgid "Add the details of your project"
+msgstr "Добавить данные к своему проекту"
+
+#: templates/projects/project_form.html:54
+msgid "Edit the details of your project"
+msgstr "Править данные своего проекта"
+
+#: templates/projects/project_form.html:77
+msgid "View advanced fields"
+msgstr "Просмотр дополнительных полей"
+
+#: templates/projects/project_form.html:91
+msgid "Save project"
+msgstr "Сохранить проект"
+
+#: templates/projects/project_form_access_control.html:11
+#: templates/projects/project_form_access_control.html:13
+#: templates/projects/project_form_permissions.html:8
+#: templates/projects/project_settings.html:56
+msgid "Access control"
+msgstr "Управление доступом"
+
+#: templates/projects/project_form_access_control.html:100
+msgid "Access control settings"
+msgstr "Параметры управления доступом"
+
+#: templates/projects/project_form_access_control.html:105
+#, python-format
+msgid ""
+"This project has an outsource request pending to the '%(project_name)s' hub, "
+"thus it can not change its access control settings while the request is open."
+msgstr ""
+"Этот проект получил заявку на внешнее управление от центра "
+"«%(project_name)s», поэтому невозможно изменить параметры управления "
+"доступом, пока такой запрос открыт."
+
+#: templates/projects/project_form_access_control.html:109
+#: templates/teams/team_members.html:80
+msgid "Withdraw"
+msgstr "Отозвать"
+
+#: templates/projects/project_form_access_control.html:145
+msgid "Give project writer rights"
+msgstr "Предоставить права создания проекта"
+
+#: templates/projects/project_form_access_control.html:150
+#: templates/resources/resource_form.html:85 templates/teams/team_form.html:99
+msgid "Save"
+msgstr "Сохранить"
+
+#: templates/projects/project_form_permissions.html:17
+msgid "Grant access"
+msgstr "Предоставить доступ"
+
+#: templates/projects/project_form_permissions.html:29
+msgid ""
+"Give write access to a translator to send translations to your project "
+"independent of a translation team."
+msgstr ""
+"Предоставить переводчику доступ для отправки переводов в свой проект "
+"независимо от команды переводчиков."
+
+#: templates/projects/project_form_permissions.html:46
+msgid "Pending requests:"
+msgstr "Запросы в очереди:"
+
+#: templates/projects/project_form_permissions.html:70
+#: templates/txpermissions/base_permission_form.html:18
+msgid "Users with access to submit files:"
+msgstr "Пользователи с предоставленным правом отправки файлов:"
+
+#: templates/projects/project_hub_projects.html:11
+msgid "Child projects"
+msgstr "Дочерние проекты"
+
+#: templates/projects/project_hub_projects.html:15
+msgid "List of the hub's child projects"
+msgstr "Список хабов дочерних проектов"
+
+#: templates/projects/project_hub_projects.html:23
+msgid "Hub projects"
+msgstr "Центральные проекты"
+
+#: templates/projects/project_hub_projects.html:43
+msgid "No project is outsourcing access to this project hub."
+msgstr "Нет проекта с внешним доступом к этому центру."
+
+#: templates/projects/project_hub_projects_toogler.html:4
+msgid "Disassociate it"
+msgstr "Разорвать связь"
+
+#: templates/projects/project_latests.html:6
+msgid "Latest projects"
+msgstr "Последние проекты"
+
+#: templates/projects/project_list.html:9
+msgid "Project list"
+msgstr "Список проектов"
+
+#: templates/projects/project_list.html:22
+msgid "Projects on Transifex"
+msgstr "Проекты на Transifex"
+
+#: templates/projects/project_list.html:30
+msgid "Projects feed"
+msgstr "Лента проектов"
+
+#: templates/projects/project_list.html:31 templates/userena/public.html:18
+msgid "Subscribe to this feed"
+msgstr "Подписаться на ленту"
+
+#: templates/projects/project_list.html:43
+msgid "Add new project"
+msgstr "Добавить новый проект"
+
+#: templates/projects/project_list.html:43
+msgid "Create new project"
+msgstr "Создать новый проект"
+
+#: templates/projects/project_list.html:58
+msgid "No available data."
+msgstr "Нет доступных данных."
+
+#: templates/projects/project_list.html:71
+#: templates/projects/release_detail.html:96
+msgid "Resources:"
+msgstr "Ресурсы:"
+
+#: templates/projects/project_list.html:73
+#, python-format
+msgid "Go to resource \"%(resource)s\""
+msgstr "Перейти к ресурсу «%(resource)s»"
+
+#: templates/projects/project_list.html:76
+msgid "No resources in this project."
+msgstr "В этом проекте нет ресурсов."
+
+#: templates/projects/project_list.html:89
+msgid "Bummer. No projects could be found."
+msgstr "Лентяй. Проекты не найдены."
+
+#: templates/projects/project_list.html:92
+#, python-format
+msgid "Why don't you <a href=\"%(project_create)s\">add one</a>?"
+msgstr "Почему бы вам не <a href=\"%(project_create)s\">добавить один</a>?"
+
+#: templates/projects/project_list.html:102
+#: templates/projects/project_myprojects.html:39
+#, python-format
+msgid ""
+"Couldn't find your project? Go ahead and <a href=\"%(project_create)s\">add "
+"it</a>!"
+msgstr ""
+"Не можете найти свой проект? <a href=\"%(project_create)s\">Добавьте его</a>!"
+
+#: templates/projects/project_menu.html:11
+#, python-format
+msgid ""
+" %(project_name)s localization project on Transifex, a modern translation "
+"workflow and crowdsourcing platform."
+msgstr ""
+" Проект локализации «%(project_name)s» на Transifex, современный платформы "
+"для организации совместной работы и краудсорсинга в области перевода."
+
+#: templates/projects/project_menu.html:13
+#, python-format
+msgid ""
+" localization, %(project_name)s localization, localization platform, "
+"%(project_name)stranslation, %(project_name)s crowdsourcing "
+msgstr ""
+
+#: templates/projects/project_menu.html:59
+#, python-format
+msgid " Go to %(hub_project)s hub"
+msgstr " Перейти %(hub_project)s хаб"
+
+#: templates/projects/project_menu.html:59
+msgid "Child project"
+msgstr "Дочерний проект"
+
+#: templates/projects/project_menu.html:64 templates/teams/team_menu.html:54
+msgid "Hub"
+msgstr "Центр"
+
+#: templates/projects/project_menu.html:79
+msgid "Project overview"
+msgstr "Обзор проекта"
+
+#: templates/projects/project_menu.html:83
+#, python-format
+msgid " Hub project <span class=\"tab-stat\">%(counter)s</span> "
+msgid_plural "Child projects <span class=\"tab-stat\">%(counter)s</span> "
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: templates/projects/project_menu.html:91
+msgid "Manage"
+msgstr "Управление"
+
+#: templates/projects/project_myprojects.html:14
+msgid "My projects on Transifex"
+msgstr "Мои проекты на Transifex"
+
+#: templates/projects/project_myprojects.html:27
+msgid "All projects"
+msgstr "Все проекты"
+
+#: templates/projects/project_myprojects_snippet.html:14
+msgid "YOUR PROJECTS"
+msgstr "ВАШИ ПРОЕКТЫ"
+
+#: templates/projects/project_myprojects_snippet.html:17
+#, python-format
+msgid "Maintaining %(num_of_projects)s project"
+msgid_plural "Maintaining %(num_of_projects)s projects"
+msgstr[0] "Координация %(num_of_projects)s проекта"
+msgstr[1] "Координация %(num_of_projects)s проектов"
+msgstr[2] "Координация %(num_of_projects)s проектов"
+
+#: templates/projects/project_myprojects_snippet.html:28
+msgid "This is a \\"
+msgstr "Это \\"
+
+#: templates/projects/project_myprojects_snippet.html:36
+#: templates/projects/project_myprojects_snippet.html:100
+#: templates/projects/project_settings.html:15
+msgid "Edit"
+msgstr "Редактировать"
+
+#: templates/projects/project_myprojects_snippet.html:46
+msgid "Maintaining no projects yet"
+msgstr "Ещё ни один проект не попал в управление"
+
+#: templates/projects/project_myprojects_snippet.html:53
+#, python-format
+msgid "Actively translating <cite>%(num_of_locks)s</cite> resource"
+msgid_plural "Actively translating <cite>%(num_of_locks)s</cite> resources"
+msgstr[0] "Переводит <cite>%(num_of_locks)s</cite> ресурс"
+msgstr[1] "Переводит <cite>%(num_of_locks)s</cite> ресурса"
+msgstr[2] "Переводит <cite>%(num_of_locks)s</cite> ресурсов"
+
+#: templates/projects/project_myprojects_snippet.html:76
+msgid "Currently not translating something"
+msgstr "В данный момент ничего не переводит"
+
+#: templates/projects/project_myprojects_snippet.html:84
+msgid "YOUR TRANSLATION TEAMS"
+msgstr "ВАШИ КОМАНДЫ ПЕРЕВОДА"
+
+#: templates/projects/project_myprojects_snippet.html:89
+#, python-format
+msgid "Coordinating %(num_of_teams)s team"
+msgid_plural "Coordinating %(num_of_teams)s teams"
+msgstr[0] "Координирует %(num_of_teams)s команды"
+msgstr[1] "Координирует %(num_of_teams)s команд"
+msgstr[2] "Координирует %(num_of_teams)s команд"
+
+#: templates/projects/project_myprojects_snippet.html:107
+msgid "Coordinating no teams "
+msgstr "Нет команд для координации "
+
+#: templates/projects/project_myprojects_snippet.html:113
+#, python-format
+msgid "Member of %(num_of_teams)s team"
+msgid_plural "Member of %(num_of_teams)s teams"
+msgstr[0] "Участник %(num_of_teams)s команды"
+msgstr[1] "Участник %(num_of_teams)s команд"
+msgstr[2] "Участник %(num_of_teams)s команд"
+
+#: templates/projects/project_myprojects_snippet.html:121
+#: templates/teams/team_members.html:112 templates/teams/team_members.html:150
+msgid "Leave"
+msgstr "Покинуть"
+
+#: templates/projects/project_myprojects_snippet.html:127
+msgid "Not participating in any team so far"
+msgstr "Пока не участвует ни в какой команде"
+
+#: templates/projects/project_myprojects_snippet.html:133
+msgid "YOUR WATCHES"
+msgstr "ВАШ СПИСОК НАБЛЮДЕНИЯ"
+
+#: templates/projects/project_myprojects_snippet.html:137
+#, python-format
+msgid "Watching %(num_of_projects)s project"
+msgid_plural "Watching %(num_of_projects)s projects"
+msgstr[0] "Наблюдает %(num_of_projects)s проект"
+msgstr[1] "Наблюдает %(num_of_projects)s проекта"
+msgstr[2] "Наблюдает %(num_of_projects)s проектов"
+
+#: templates/projects/project_myprojects_snippet.html:148
+msgid "Not watching any project"
+msgstr "Не наблюдает ни одного проекта"
+
+#: templates/projects/project_myprojects_snippet.html:154
+#, python-format
+msgid "Watching %(num_of_resources)s resource translation"
+msgid_plural "Watching %(num_of_resources)s resource translations"
+msgstr[0] "Наблюдает %(num_of_resources)s ресурс перевода"
+msgstr[1] "Наблюдает %(num_of_resources)s ресурса перевода"
+msgstr[2] "Наблюдает %(num_of_resources)s ресурсов перевода"
+
+#: templates/projects/project_myprojects_snippet.html:168
+msgid "Not watching any resource translation"
+msgstr "Не наблюдает ни один ресурс"
+
+#: templates/projects/project_resources.html:19
+msgid "Detailed list of the project's resources"
+msgstr "Подробный перечень ресурсов проекта"
+
+#: templates/projects/project_resources.html:27
+msgid "Project resources"
+msgstr "Ресурсы проекта"
+
+#: templates/projects/project_resources.html:29
+msgid "Add new resource"
+msgstr "Добавить новый ресурс"
+
+#: templates/projects/project_resources.html:153
+#: templates/projects/release_language_detail.html:159
+msgid "Uncategorized"
+msgstr "Некатегоризовано"
+
+#: templates/projects/project_resources.html:156
+#, python-format
+msgid ""
+"<span class=\"wordcount\">%(words)s</span> words <span style=\"color:#888;\">"
+"(%(strings)s strings)</span>"
+msgstr ""
+"<span class=\"wordcount\">слов: %(words)s</span> <span style=\"color:#888;\">"
+"(строк: %(strings)s)</span>"
+
+#: templates/projects/project_resources.html:166
+#: templates/projects/release_detail.html:177
+#: templates/resources/resource_detail.html:213
+#: templates/resources/resource_list_more.html:27
+msgid "no translations yet"
+msgstr "пока переводов нет"
+
+#: templates/projects/project_resources.html:196
+#: templates/teams/team_detail.html:223
+msgid "No resources are registered for this project yet."
+msgstr "В проекте пока не зарегистрированы никакие ресурсы."
+
+#: templates/projects/project_settings.html:24
+msgid "Modify your project"
+msgstr "Изменить свой проект"
+
+#: templates/projects/project_settings.html:52
+msgid "Edit project"
+msgstr "Изменить проект"
+
+#: templates/projects/release_detail.html:36
+msgid "Statistics feed for this release"
+msgstr "Статистика для этого выпуска"
+
+#: templates/projects/release_detail.html:67
+msgid "Edit release details"
+msgstr "Изменение сведений о выпуске"
+
+#: templates/projects/release_detail.html:67
+msgid "Edit release"
+msgstr "Редактировать выпуск"
+
+#: templates/projects/release_detail.html:80
+msgid "Release date:"
+msgstr "Дата выпуска:"
+
+#: templates/projects/release_detail.html:85
+msgid "String freeze:"
+msgstr "Заморозка строк:"
+
+#: templates/projects/release_detail.html:90
+msgid "Devel freeze:"
+msgstr "Заморозка разработки:"
+
+#: templates/projects/release_detail.html:98
+#: templates/projects/release_detail.html:114
+msgid "Click here to show or hide the resource list"
+msgstr "Щелкните здесь, чтобы показать или скрыть список ресурсов"
+
+#: templates/projects/release_detail.html:99
+#, python-format
+msgid "This release has %(resources_number)s resources."
+msgstr "Количество ресурсов в этом выпуске: %(resources_number)s."
+
+#: templates/projects/release_detail.html:112
+msgid "Priv. resources:"
+msgstr "Частные ресурсы:"
+
+#: templates/projects/release_detail.html:115
+#, python-format
+msgid "%(resources_number)s private resources you have access to"
+msgstr ""
+"количество частных ресурсов, к которым у вас есть доступ  "
+"%(resources_number)s"
+
+#: templates/projects/release_detail.html:140
+msgid "Release languages"
+msgstr "Языки выпуска"
+
+#: templates/projects/release_detail.html:162
+msgid "source language"
+msgstr "исходный язык"
+
+#: templates/projects/release_form.html:15
+#: templates/projects/release_form.html:21
+msgid "Add a release"
+msgstr "Добавить выпуск"
+
+#: templates/projects/release_form.html:16
+#, python-format
+msgid "Edit %(release_name)s"
+msgstr "Править %(release_name)s"
+
+#: templates/projects/release_form.html:24
+#, python-format
+msgid "Editing release '<a href=\"%(release_url)s\">%(release_name)s</a>'"
+msgstr ""
+"Редактировать выпуск «<a href=\"%(release_url)s\">%(release_name)s</a>»"
+
+#: templates/projects/release_form.html:40
+msgid "Save release"
+msgstr "Сохранить выпуск"
+
+#: templates/projects/release_form.html:47
+msgid "Delete release from Transifex"
+msgstr "Удаление выпуска с Transifex"
+
+#: templates/projects/release_form.html:49
+msgid "Delete release..."
+msgstr "Удалить выпуск..."
+
+#: templates/projects/release_form.html:55
+#, python-format
+msgid "Say goodbye to <em>%(release_name)s</em>?"
+msgstr "Попрощаться с <em>%(release_name)s</em>?"
+
+#: templates/projects/release_form.html:57
+#, python-format
+msgid ""
+"Are you sure you want to permanently delete the release '%(release_name)s' "
+"which works on %(project_name)s?"
+msgstr ""
+"Вы уверены, что хотите навсегда удалить выпуск «%(release_name)s» из проекта "
+"«%(project_name)s»?"
+
+#: templates/projects/release_form.html:60
+#: templates/resources/resource_form.html:110
+#: templates/resources/resource_translations_confirm_delete.html:30
+msgid "Yes, I am sure!"
+msgstr "Да, все верно!"
+
+#: templates/projects/release_language_detail.html:100
+#, python-format
+msgid "Release '%(release_name)s"
+msgstr "Выпуск %(release_name)s"
+
+#: templates/projects/release_language_detail.html:103
+msgid "Statistics feed for this language and release"
+msgstr "Статистика для этого языка и выпуска"
+
+#: templates/projects/release_language_detail.html:129
+msgid "Resource under this Release"
+msgid_plural "Resources under this Release"
+msgstr[0] "Ресурс в этом выпуске"
+msgstr[1] "Ресурсы в этом выпуске"
+msgstr[2] "Ресурсы в этом выпуске"
+
+#: templates/projects/release_language_detail.html:148
+#: templates/projects/release_language_detail.html:217
+#: templates/resources/resource_detail.html:197
+#: templates/teams/team_detail.html:179
+msgid "Locked"
+msgstr "Заблокировано"
+
+#: templates/projects/release_language_detail.html:151
+#: templates/projects/release_language_detail.html:220
+#: templates/teams/team_detail.html:182
+msgid "Not accepting translations at the moment"
+msgstr "В данный момент переводы не принимаются"
+
+#: templates/projects/release_language_detail.html:174
+#: templates/projects/release_language_detail.html:236
+#: templates/teams/team_detail.html:199
+msgid "no activity yet"
+msgstr "Еще нет активности"
+
+#: templates/projects/release_language_detail.html:199
+msgid "Private resources you have access to"
+msgstr "Частные ресурсы, к которым у вас есть доступ"
+
+#: templates/projects/release_language_detail.html:267
+#: templates/projects/release_language_detail.html:275
+msgid "click for resource details"
+msgstr "нажмите, чтобы узнать о ресурсе подробнее"
+
+#: templates/projects/release_list.html:11
+#: templates/projects/release_list.html:39
+msgid "Project releases"
+msgstr "Выпуски проекта"
+
+#: templates/projects/release_list.html:13
+msgid "Add"
+msgstr "Добавить"
+
+#: templates/projects/release_list.html:13
+msgid "Add new release "
+msgstr "Добавить новый выпуск "
+
+#: templates/projects/release_list.html:47
+#, python-format
+msgid ""
+"No releases are registered for this project yet. Why don't you <a href="
+"\"%(release_create)s\">add one</a>?"
+msgstr ""
+"В этом проекте пока не зарегистрировано ни одного выпуска. Почему бы его <a "
+"href=\"%(release_create)s\">не добавить</a>?"
+
+#: templates/resources/resource_actions.html:27
+#: templates/resources/resource_detail.html:30
+msgid "Please select a target language first."
+msgstr "Сначала выберите целевой язык."
+
+#: templates/resources/resource_actions.html:38
+msgid "Trying to lock resource..."
+msgstr "Блокировка ресурса..."
+
+#: templates/resources/resource_actions.html:87
+#, python-format
+msgid " Total:&nbsp;%(total_entities)s strings, %(wordcount)s words"
+msgstr " Всего:&nbsp;%(total_entities)s строк, %(wordcount)s слов"
+
+#: templates/resources/resource_actions.html:88
+#, python-format
+msgid " Translated:&nbsp;%(trans_count)s strings, %(trans_wordcount)s words "
+msgstr " Переведено:&nbsp;строк — %(trans_count)s, слов — %(trans_wordcount)s "
+
+#: templates/resources/resource_actions.html:89
+#, python-format
+msgid " Remaining:&nbsp;%(trans_count)s strings (%(trans_wordcount)s words) "
+msgstr " Осталось:&nbsp;строк — %(trans_count)s (слов — %(trans_wordcount)s) "
+
+#: templates/resources/resource_actions.html:90
+#, python-format
+msgid " Reviewed:&nbsp;%(reviewed_count)s strings "
+msgstr " Проверено:&nbsp;%(reviewed_count)s строк "
+
+#: templates/resources/resource_actions.html:105
+msgid ""
+"<span title=\"The source language cannot be translated\">Source language</"
+"span>"
+msgstr ""
+"<span title=\"Исходный язык, не подлежащий переводу\">Исходный язык</span>"
+
+#: templates/resources/resource_actions.html:112
+#, python-format
+msgid ""
+"Warning: This resource is currently locked by '%(lock_owner)s'. He might be "
+"working on it right now."
+msgstr ""
+"Внимание: этот ресурс сейчас заблокирован пользователем '%(lock_owner)s'. "
+"Возможно, прямо сейчас он над ним работает."
+
+#: templates/resources/resource_actions.html:112
+#: templates/resources/resource_actions.html:114
+#: templates/resources/resource_actions.html:118
+#: templates/resources/resource_actions.html:123
+#: templates/resources/resource_actions.html:126
+msgid "Translate now"
+msgstr "Перевести сейчас"
+
+#: templates/resources/resource_actions.html:123
+msgid "This resource is currently not accepting translations"
+msgstr "В данный момент этот ресурс не принимает переводы"
+
+#: templates/resources/resource_actions.html:126
+#, python-format
+msgid ""
+"To translate you need to be logged in and a member of the %(lang_name)s team"
+msgstr ""
+"Чтобы переводить, вам необходимо войти и быть участником команды "
+"%(lang_name)s"
+
+#: templates/resources/resource_actions.html:135
+#: templates/resources/stats_bar_simple.html:4
+msgid "Translated: "
+msgstr "Переведено:"
+
+#: templates/resources/resource_actions.html:135
+msgid "Remaining: "
+msgstr "Осталось: "
+
+#: templates/resources/resource_actions.html:135
+#: templates/resources/stats_bar_simple.html:4
+msgid "Reviewed: "
+msgstr "Проверено: "
+
+#: templates/resources/resource_actions.html:150
+msgid "View strings online"
+msgstr "Просмотр строк онлайн"
+
+#: templates/resources/resource_actions.html:158
+msgid "Visit language team"
+msgstr "Посетить команду переводов"
+
+#: templates/resources/resource_actions.html:164
+#: templates/resources/resource_actions.html:184
+#: templates/resources/resource_actions.html:191
+msgid "Clone to new language"
+msgstr "Клонировать в качестве нового языка"
+
+#: templates/resources/resource_actions.html:166
+msgid ""
+"Copy all the translations from this language to a new (chosen) language in "
+"the specific resource. This will copy the pluralized translations too, if "
+"and only if the two languages have exactly the same plural rules"
+msgstr ""
+"Скопируйте в конкретном ресурсе все переводы из этого языка в новый "
+"(выбранный) язык. Тогда и только тогда, когда эти два языка имеют идентичные "
+"правила образования множественного числа, можно также скопировать и переводы "
+"для таких элементов."
+
+#: templates/resources/resource_actions.html:186
+#: templates/resources/resource_actions.html:193
+msgid ""
+"Copy all the translations from this language to a new (chosen) language in "
+"the specific resource. This will copy the pluralized translations too, if "
+"and only if the two languages have exactly the same plural rules."
+msgstr ""
+"Копировать все переводы с этого языка в новый (выбранный) язык в указанном "
+"ресурсе. Также будут скопированы все переводы множественного числа, при "
+"условии, что у обоих языков правила множественных форм одинаковы."
+
+#: templates/resources/resource_actions.html:201
+#: templates/resources/resource_actions.html:203
+msgid "Download for use"
+msgstr "Скачать для использования"
+
+#: templates/resources/resource_actions.html:203
+msgid "You must login to be able to download the translations."
+msgstr "Вы должны авторизоваться, чтобы скачать переводы."
+
+#: templates/resources/resource_actions.html:206
+msgid ""
+"Add only translated strings into the file. Untranslated strings are NOT "
+"filled with source strings."
+msgstr ""
+"Добавьте в файл только переведенные строки. Непереведенные исходные строки "
+"НЕ заполняются включаются."
+
+#: templates/resources/resource_actions.html:213
+#: templates/resources/resource_actions.html:217
+msgid "Download original pot file"
+msgstr "Скачать оригинальный .pot файл"
+
+#: templates/resources/resource_actions.html:216
+msgid "You must login to be able to download the pot file."
+msgstr ""
+"Вы должны авторизоваться, чтобы получить возможность скачать .pot-файл."
+
+#: templates/resources/resource_actions.html:221
+msgid "PO file template."
+msgstr "Шаблон файла PO."
+
+#: templates/resources/resource_actions.html:231
+msgid "You must login to be able to download the file."
+msgstr "Вы должны авторизоваться для получения возможности скачать файл."
+
+#: templates/resources/resource_actions.html:233
+msgid "Download only reviewed translations"
+msgstr "Скачать только проверенные переводы"
+
+#: templates/resources/resource_actions.html:236
+msgid ""
+"Add only reviewed translations into the file. Untranslated strings are not "
+"filled at all."
+msgstr ""
+"Добавить в файл только проверенные переводы. Все строки, не имеющие "
+"перевода, вообще не заполнять."
+
+#: templates/resources/resource_actions.html:245
+msgid "Resource cannot be locked"
+msgstr "Ресурс не может быть заблокирован"
+
+#: templates/resources/resource_actions.html:245
+#: templates/resources/resource_actions.html:249
+msgid "Download for translation"
+msgstr "Скачать для перевода"
+
+#: templates/resources/resource_actions.html:249
+msgid "You must login to use this action"
+msgstr "Для этого действия вы должны авторизоваться"
+
+#: templates/resources/resource_actions.html:252
+msgid ""
+"Lock the file under your ownership and download it locally to edit it, in "
+"one action. Untranslated strings are filled by source strings."
+msgstr ""
+"Заблокируйте файл и скачайте его для редактирования одним действием. "
+"Непереведённые строки заполнены исходным текстом."
+
+#: templates/resources/resource_actions.html:268
+msgid "Get pseudo translations"
+msgstr "Получить псевдопереводы"
+
+#: templates/resources/resource_actions.html:286
+msgid "This resource currently is not accepting translations."
+msgstr "Этот ресурс в данный момент не принимает переводы."
+
+#: templates/resources/resource_actions.html:297
+msgid "Translation last updated "
+msgstr "Последнее обновление перевода"
+
+#: templates/resources/resource_actions.html:305
+msgid "No translation yet"
+msgstr "Пока нет перевода"
+
+#: templates/resources/resource_detail.html:40
+msgid "Sorry but there was an error: "
+msgstr "К сожалению, произошла ошибка: "
+
+#: templates/resources/resource_detail.html:103
+msgid "Edit resource"
+msgstr "Изменить ресурс"
+
+#: templates/resources/resource_detail.html:110
+msgid "Total strings:"
+msgstr "Всего строк:"
+
+#: templates/resources/resource_detail.html:113
+msgid "words"
+msgstr "слова"
+
+#: templates/resources/resource_detail.html:116
+msgid "Status:"
+msgstr "Статус:"
+
+#: templates/resources/resource_detail.html:119
+msgid "Accepting translations"
+msgstr "Прием переводов"
+
+#: templates/resources/resource_detail.html:121
+msgid "No translations accepted"
+msgstr "Нет принятых переводов"
+
+#: templates/resources/resource_detail.html:129
+msgid "Priority level:"
+msgstr "Уровень приоритета:"
+
+#: templates/resources/resource_detail.html:146
+msgid "Release:"
+msgid_plural "Releases:"
+msgstr[0] "Выпуск:"
+msgstr[1] "Выпуски:"
+msgstr[2] "Выпуски:"
+
+#: templates/resources/resource_detail.html:163
+#, python-format
+msgid "Available languages (%(num_of_langs)s)"
+msgstr "Доступные языки (%(num_of_langs)s)"
+
+#: templates/resources/resource_detail.html:165
+msgid ""
+"If you cannot see your language, click the button below to translate( You "
+"must belong to a language team of this project, to be able to translate! )"
+msgstr ""
+"Если вы не видите свой язык, нажмите на кнопку ниже для перевода (необходимо "
+"принадлежать к команде языка в этом проекте, чтобы иметь возможность "
+"переводить!)"
+
+#: templates/resources/resource_detail.html:165
+msgid "Add new translation"
+msgstr "Добавить новый перевод"
+
+#: templates/resources/resource_detail.html:240
+msgid "No actions recorded yet :)"
+msgstr "Пока не зарегистрировано никаких действий :)"
+
+#: templates/resources/resource_form.html:26
+#, python-format
+msgid "Edit %(resource_name)s"
+msgstr "Править %(resource_name)s"
+
+#: templates/resources/resource_form.html:40
+msgid "Edit the details of the translation resource"
+msgstr "Изменить детали перевода ресурса"
+
+#: templates/resources/resource_form.html:69
+msgid ""
+"\n"
+"\t<div class=\"i16 infomsg\">\n"
+"\t\t<p>To enable automatic \"fetching\" of your source language strings by\n"
+"\t\tTransifex, enter a URL to your source file (e.g. POT file). Refer to\n"
+"\t\t<a href=\"http://help.transifex.com/user-guide/projects.html#projects-"
+"and-resources\">the documentation</a>\n"
+"\t\tfor more information.</p>\n"
+"\n"
+"\t\t<p><strong>Warning</strong>: Transifex will overwrite the existing "
+"source strings\n"
+"\t\tand translations with the ones found in the linked file. This may lead\n"
+"\t\tto <b>loss of translations</b>, so make sure the URL links to the\n"
+"\t\tcorrect file before submitting the form.\n"
+"\t\t</p>\n"
+"\t\t</blink>\n"
+"\t</div>\n"
+"\t"
+msgstr ""
+
+#: templates/resources/resource_form.html:93
+msgid "Delete resource from Transifex"
+msgstr "Удаление ресурса c Transifex"
+
+#: templates/resources/resource_form.html:96
+msgid "By deleting the resource your translations will be lost:"
+msgstr "При удалении ресурса будут утеряны следующие ваши переводы:"
+
+#: templates/resources/resource_form.html:99
+msgid "Delete resource"
+msgstr "Удалить ресурс"
+
+#: templates/resources/resource_form.html:105
+#, python-format
+msgid "Say goodbye to <em>%(resource_name)s</em>?"
+msgstr "Попрощаться с <em>%(resource_name)s</em>?"
+
+#: templates/resources/resource_form.html:107
+#, python-format
+msgid ""
+"Are you sure you want to permanently delete the translation resource "
+"'%(resource_name)s'?"
+msgstr ""
+"Вы уверены что хотите окончательно удалить перевод ресурсов "
+"'%(resource_name)s'?"
+
+#: templates/resources/resource_list_more.html:16
+msgid "edit"
+msgstr "править"
+
+#: templates/resources/resource_list_more.html:17
+msgid "del"
+msgstr "удалить"
+
+#: templates/resources/resource_translations_confirm_delete.html:6
+#, python-format
+msgid ""
+"\n"
+"  Delete translations for %(language_name)s of %(resource_name)s resource.\n"
+msgstr ""
+"\n"
+"  Удалить переводы для %(language_name)s из ресурса %(resource_name)s.\n"
+
+#: templates/resources/resource_translations_confirm_delete.html:14
+#, python-format
+msgid ""
+"\n"
+"Delete <em>%(language_name)s</em>\n"
+msgstr ""
+"\n"
+"Удаление <em>%(language_name)s</em>\n"
+
+#: templates/resources/resource_translations_confirm_delete.html:20
+#, python-format
+msgid "Say goodbye to all translations for <em>%(language_name)s</em>?"
+msgstr "Проститься со всеми переводами для языка <em>%(language_name)s</em>?"
+
+#: templates/resources/resource_translations_confirm_delete.html:25
+#, python-format
+msgid ""
+"\n"
+"  Are you sure you want to permanently delete the translations for "
+"'%(language_name)s' of '%(resource_name)s'?\n"
+msgstr ""
+"\n"
+"  Удалить переводы для «%(language_name)s», принадлежащий ресурсу "
+"%(resource_name)s?\n"
+
+#: templates/resources/stats_bar_simple.html:4
+msgid "Untranslated: "
+msgstr "Не переведено:"
+
+#: templates/resources/upload_create_resource_form.html:22
+msgid "Uploading resource"
+msgstr "Загрузка ресурса"
+
+#: templates/resources/upload_create_resource_form.html:46
+msgid ""
+"\n"
+"\t\t\t\tCreate a resource by selecting a source language and uploading a "
+"source translation file from your workstation, such as an English POT file.\n"
+"\t\t\t\tTransifex will analyze the file, extract the strings from inside it, "
+"and create your resource based on these.\n"
+"\t\t\t\t"
+msgstr ""
+"\n"
+"\t\t\t\tСоздать ресурс, выбрав исходный язык и выгрузить файл исходного "
+"языка с вашего компьютера (например, POT-файл).\n"
+"\t\t\t\tTransifex проанализирует файл, выделит из него строки и создаст на "
+"их основе ресурс.\n"
+"\t\t\t\t"
+
+#: templates/resources/upload_create_resource_form.html:51
+msgid ""
+"If your project have several files, it might be convenient to use the <a "
+"href=\"http://help.transifex.com/features/client/index.html#user-client\" "
+"target=\"_blank\">Transifex Client</a> for mass operations."
+msgstr ""
+
+#: templates/resources/upload_create_resource_form.html:53
+msgid ""
+"For extensive information on the supported file formats, visit the "
+"corresponding <a href=\"http://help.transifex.com/features/formats.html#user-"
+"formats\" target=\"_blank\">Transifex Help page</a>."
+msgstr ""
+
+#: templates/resources/upload_create_resource_form.html:91
+msgid "Create Resource"
+msgstr "Создание ресурса"
+
+#: templates/resources/upload_resource_translation_button.html:16
+#: templates/resources/upload_resource_translation_button.html:33
+msgid "Upload file"
+msgstr "Загрузить файл"
+
+#: templates/resources/upload_resource_translation_button.html:18
+msgid "&nbsp;or&nbsp;"
+msgstr "&nbsp;или&nbsp;"
+
+#: templates/resources/upload_resource_translation_button.html:20
+msgid "Translate online"
+msgstr "Перевод онлайн"
+
+#: templates/simpleauth/base_profile.html:10
+msgid "Profile settings"
+msgstr "Настройки профиля"
+
+#: templates/simpleauth/logout.html:9
+msgid "<p>You have been logged out."
+msgstr "<p>Вы вышли."
+
+#: templates/simpleauth/profile_public.html:9 templates/userena/public.html:27
+#, python-format
+msgid "Public profile of %(user)s"
+msgstr "Открытый профиль %(user)s"
+
+#: templates/simpleauth/profile_public.html:15 txcommon/admin.py:20
+#: txcommon/admin.py:27
+msgid "Username"
+msgstr "Имя пользователя:"
+
+#: templates/simpleauth/settings.html:4
+msgid "Your profile"
+msgstr "Ваш профиль"
+
+#: templates/simpleauth/settings.html:9
+#, python-format
+msgid "Your profile, %(user)s"
+msgstr "Ваш профиль, %(user)s"
+
+#: templates/simpleauth/settings.html:15
+msgid ""
+"Any settings associated with your account are presented and may be modified "
+"here."
+msgstr "Здесь представлены все настройки, связанные с вашей учетной записью."
+
+#: templates/simpleauth/settings.html:23
+msgid "Change notifications"
+msgstr "Изменить извещения"
+
+#: templates/simpleauth/settings.html:24
+msgid "Change notifications associated to your account"
+msgstr "Изменить извещения, связанные с вашей учетной записью"
+
+#: templates/simpleauth/signin.html:10
+msgid "<p>Please sign in with your email or screen name.<br />"
+msgstr "<p>Войдите с помощью электронного адреса или имени пользователя.<br />"
+
+#: templates/teams/team_confirm_delete.html:9
+#, python-format
+msgid "Say goodbye to <em>%(lang_name)s</em> team?"
+msgstr "Попрощаться с командой <em>%(lang_name)s</em>?"
+
+#: templates/teams/team_confirm_delete.html:14
+#, python-format
+msgid ""
+"Are you sure you want to permanently delete the '%(lang_name)s' team which "
+"works on %(project_name)s?"
+msgstr ""
+"Вы уверены, что хотите навсегда удалить команду %(lang_name)s, работающую "
+"над %(project_name)s?"
+
+#: templates/teams/team_detail.html:76
+msgid "Overall Progress"
+msgstr "Общий прогресс"
+
+#: templates/teams/team_detail.html:79
+msgid "Join team"
+msgstr "Присоединяйтесь к команде"
+
+#: templates/teams/team_detail.html:90 templates/teams/team_detail.html:97
+msgid "Join language translation"
+msgstr "Присоединяйтесь к переводу на язык"
+
+#: templates/teams/team_detail.html:117
+msgid "Mainlist:"
+msgstr "Список рассылки:"
+
+#: templates/teams/team_detail.html:122
+msgid "Coordinator:"
+msgid_plural "Coordinators:"
+msgstr[0] "Координатор:"
+msgstr[1] "Координаторы:"
+msgstr[2] "Координаторы:"
+
+#: templates/teams/team_detail.html:134
+msgid ""
+"Since this project is \"Free for all\" anyone can contribute. You don't have "
+"to be a member!"
+msgstr ""
+"Поскольку этот проект «Открыт для всех», каждый может внести свой вклад. Вам "
+"не нужно состоять в какой-то команде!"
+
+#: templates/teams/team_detail.html:142
+msgid "Language resources"
+msgstr "Языковые ресурсы"
+
+#: templates/teams/team_detail.html:156
+msgid "Show resources from:"
+msgstr "Показать ресурсы от:"
+
+#: templates/teams/team_detail.html:174
+msgid "click for translation"
+msgstr "щелкните, чтобы перевести"
+
+#: templates/teams/team_form.html:10 templates/teams/team_form.html.py:36
+msgid "Create team"
+msgstr "Создать команду"
+
+#: templates/teams/team_form.html:38
+#, python-format
+msgid ""
+"Edit %(language_name)s <sup class=\"entry_metalink\">%(language_code)s</sup> "
+"team"
+msgstr ""
+"Изменить %(language_name)s <sup class=\"entry_metalink\">%(language_code)s</"
+"sup> команду"
+
+#: templates/teams/team_form.html:70
+msgid "Edit language-team"
+msgstr "Изменить команду переводчиков"
+
+#: templates/teams/team_form.html:92
+msgid ""
+"Please note that notification will not be sent when coordinators or members "
+"are added or removed on this page."
+msgstr ""
+"Обратите внимание, что на этой странице при добавлении или удалении "
+"координаторов или участников оповещение не будет отправлено."
+
+#: templates/teams/team_form.html:95
+msgid ""
+"The current language has no teams. You can delete the whole language by "
+"deleting all the translations of all resources."
+msgstr ""
+"Выбранный язык не имеет команды переводчиков. Вы можете удалить язык удаляя "
+"переводы его ресурсов."
+
+#: templates/teams/team_form.html:108
+msgid "Delete language-team"
+msgstr "Удалить команду переводчиков"
+
+#: templates/teams/team_form.html:111
+msgid "Do you wish to delete the team?"
+msgstr "Вы хотите удалить команду?"
+
+#: templates/teams/team_form.html:112
+msgid ""
+"After deleting the team of this language its translations will remain. <br/"
+">The language will be deleted only after deleting the translations of all "
+"resources."
+msgstr ""
+
+#: templates/teams/team_form.html:113
+msgid "Delete language"
+msgstr "Удалить язык"
+
+#: templates/teams/team_members.html:52
+msgid "Waiting for approval"
+msgstr "Ожидает утверждения"
+
+#: templates/teams/team_members.html:95
+msgid "Translators"
+msgstr "Переводчики"
+
+#: templates/teams/team_members.html:121
+#, python-format
+msgid ""
+" Translators can help you speed up the localization process. <a href="
+"\"%(url_connect)s\" title=\"Explore our community\" >Connect with them&nbsp;"
+"&raquo;</a> "
+msgstr ""
+
+#: templates/teams/team_members.html:158
+msgid ""
+"Reviewers improve the quality of your translations. How about adding some?"
+msgstr ""
+"Проверяющие улучшили качество ваших переводов. Как насчет добавления еще "
+"чего-нибудь?"
+
+#: templates/teams/team_menu.html:26
+#, python-format
+msgid ""
+"%(language_name)s <sup class=\"entry_metalink\">%(language_code)s</sup></a>"
+msgstr ""
+"%(language_name)s <sup class=\"entry_metalink\">%(language_code)s</sup></a>"
+
+#: templates/teams/team_menu.html:49
+msgid "Outsourcing"
+msgstr "Внешнее управление"
+
+#: templates/teams/team_menu.html:72
+msgid "Overview"
+msgstr "Обзор"
+
+#: templates/teams/team_menu.html:78
+msgid "Edit language team"
+msgstr "Изменить команду переводчиков"
+
+#: templates/teams/team_off.html:12
+msgid "This project does not maintain its own translation teams"
+msgstr "Этот проект не поддерживается своей собственной командой переводчиков"
+
+#: templates/teams/team_off.html:17
+#, python-format
+msgid ""
+"This project does not maintain its own teams, but has chosen to re-use the "
+"teams of project '<a href=%(outsource_url)s>%(outsource_project)s</a>'. In "
+"order to send translations here you'll need to join a team of "
+"'%(outsource_project)s'."
+msgstr ""
+"У этого проекта нет собственных команд, однако он настроен на использование "
+"команд проекта «<a href=%(outsource_url)s>%(outsource_project)s</a>». Для "
+"отправки переводов вам необходимо присоединиться к команде "
+"«%(outsource_project)s»."
+
+#: templates/teams/team_off.html:19
+msgid ""
+"This project allows translation submission from <em>anyone</em>, and thus no "
+"translation teams exist."
+msgstr ""
+"В этом проекте <em>любому</em> разрешено отправлять переводы, поэтому команд "
+"перевода нет."
+
+#: templates/txpermissions/base_permission_form.html:8
+msgid "Give access to a translator to send translations to your project"
+msgstr "Предоставить переводчику доступ для отправки переводов в ваш проект"
+
+#: templates/txpermissions/permission_delete_form.html:5
+msgid "Revoke permission"
+msgstr "Лишить прав"
+
+#: templates/txpermissions/permission_form.html:13
+msgid "Grant permission"
+msgstr "Предоставить права"
+
+#: templates/txpermissions/permission_form.html:15
+msgid "Request permission"
+msgstr "Запросить разрешение"
+
+#: templates/txpermissions/permission_request_approve_form.html:5
+msgid "Approve request"
+msgstr "Утвердить запрос"
+
+#: templates/txpermissions/permission_request_delete_form.html:6
+msgid "Withdraw request"
+msgstr "Отозвать запрос"
+
+#: templates/txpermissions/permission_request_delete_form.html:8
+msgid "Deny request"
+msgstr "Отклонить запрос"
+
+#: templates/userena/activate_fail.html:4
+msgid "Account activation failed."
+msgstr "Сбой активации учётной записи."
+
+#: templates/userena/activate_fail.html:5
+msgid "Your account could not be activated.."
+msgstr "Ваша учетная запись не активирована..."
+
+#: templates/userena/activate_fail.html:8
+msgid ""
+"Your account could not be activated. This could be because your activation "
+"link has aged."
+msgstr ""
+"Ваша учетная запись не активирована. Причиной может быть то, что ваша ссылка "
+"активации устарела."
+
+#: templates/userena/activate_fail.html:9
+msgid ""
+"Please try signing up again or contact us if you think something went wrong."
+msgstr ""
+"Пожалуйста, попробуйте авторизоваться снова, или свяжитесь с нами, если "
+"думаете, что что-то пошло не так."
+
+#: templates/userena/base_userena.html:33
+#: templates/userena/profile_form.html:22
+msgid "Edit profile"
+msgstr "Редактирование профиля"
+
+#: templates/userena/base_userena.html:34 templates/userena/email_form.html:13
+#: templates/userena/userena_menu.html:16
+msgid "Change email"
+msgstr "Изменить адрес электронной почты"
+
+#: templates/userena/base_userena.html:35
+#: templates/userena/password_form.html:4
+#: templates/userena/password_form.html:15
+#: templates/userena/userena_menu.html:15
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: templates/userena/base_userena.html:40
+msgid "Social login"
+msgstr "Авторизация через социальные сети"
+
+#: templates/userena/disabled.html:6
+msgid "Disabled account"
+msgstr "Отключение учетной записи"
+
+#: templates/userena/disabled.html:9
+msgid "Account disabled"
+msgstr "Учётная запись отключена"
+
+#: templates/userena/disabled.html:12
+msgid "It seems your account has been disabled."
+msgstr "Кажется, ваша учетная запись была отключена."
+
+#: templates/userena/disabled.html:13
+msgid ""
+"It is likely that you have created an account but haven't activated it yet. "
+"Please check your e-mail inbox."
+msgstr ""
+"Вполне вероятно, что ваша учетная запись создана, но еще не активирована. "
+"Пожалуйста, проверьте свой почтовый ящик."
+
+#: templates/userena/disabled.html:14
+msgid ""
+"If you feel that injustice has been done to you, feel free to contact the "
+"administrators to find out why."
+msgstr ""
+"Если вы чувствуете, что с вами поступили несправедливо, вы можете связаться "
+"с администраторами для выяснения причин этого."
+
+#: templates/userena/email_change_complete.html:4
+msgid "Email verification"
+msgstr "Проверка адреса электронной почты"
+
+#: templates/userena/email_change_complete.html:5
+msgid "Confirm your new email"
+msgstr "Подтвердите ваш новый адрес электронной почты"
+
+#: templates/userena/email_change_complete.html:8
+#, python-format
+msgid "You have received an email at %(email)s."
+msgstr "Вы получили электронное сообщение на адрес %(email)s."
+
+#: templates/userena/email_change_complete.html:9
+#, python-format
+msgid ""
+"To associate this email address with your account (%(username)s) click on "
+"the link provided in this email."
+msgstr ""
+"Чтобы связать этот адрес электронной почты со своей учетной записью "
+"(%(username)s), перейдите по ссылке в этом письме."
+
+#: templates/userena/email_confirm_complete.html:4
+msgid "Email changed!"
+msgstr "Адрес электронной почты изменен!"
+
+#: templates/userena/email_confirm_complete.html:6
+msgid "New email"
+msgstr "Новый адрес электронной почты"
+
+#: templates/userena/email_confirm_complete.html:8
+msgid "Your new email address is saved."
+msgstr "Ваш новый адрес электронной почты сохранен."
+
+#: templates/userena/email_confirm_fail.html:4
+msgid "Email verification failed."
+msgstr "Ошибка при проверке адреса электронной почты."
+
+#: templates/userena/email_confirm_fail.html:5
+msgid "Your email could not be verified.."
+msgstr "Ваш адрес электронной почты не удалось проверить..."
+
+#: templates/userena/email_confirm_fail.html:8
+msgid "Your email could not be verified..."
+msgstr "Ваш адрес электронной почты не удалось проверить..."
+
+#: templates/userena/email_confirm_fail.html:9
+msgid "You could try changing it again in your account settings."
+msgstr "Попробуйте снова изменить его в настройках своей учетной записи."
+
+#: templates/userena/email_form.html:5
+msgid "Change your email address"
+msgstr "Изменить адрес электронной почты"
+
+#: templates/userena/password_complete.html:4
+msgid "Password changed"
+msgstr "Пароль изменён"
+
+#: templates/userena/password_complete.html:5
+msgid "Your password has been changed"
+msgstr "Ваш пароль был изменён"
+
+#: templates/userena/password_complete.html:8
+msgid "From now on you can use your new password to signin"
+msgstr "Теперь вы можете использовать при авторизации свой новый пароль"
+
+#: templates/userena/password_form.html:6
+msgid "Change your password"
+msgstr "Изменить свой пароль"
+
+#: templates/userena/password_reset_complete.html:6
+#: templates/userena/password_reset_complete.html:10
+msgid "Password reset"
+msgstr "Сброс пароля"
+
+#: templates/userena/password_reset_complete.html:17
+#, python-format
+msgid ""
+"Your password has been reset. You can now <a href=\"%(login_url)s\">sign in</"
+"a> with your new password."
+msgstr ""
+"Ваш пароль был сброшен, теперь вы можете <a href=\"%(login_url)s\">войти</a> "
+"с вашим новым паролем."
+
+#: templates/userena/password_reset_confirm_form.html:6
+#: templates/userena/password_reset_confirm_form.html:10
+#: templates/userena/password_reset_confirm_form.html:20
+#: templates/userena/password_reset_done.html:6
+#: templates/userena/password_reset_done.html:10
+#: templates/userena/password_reset_form.html:6
+#: templates/userena/password_reset_form.html:10
+msgid "Reset password"
+msgstr "Сброс пароля"
+
+#: templates/userena/password_reset_done.html:15
+msgid ""
+"An e-mail has been sent to your account explaining how to reset your "
+"password."
+msgstr ""
+"На ваш адрес было отправлено электронное письмо, где рассказывается, как "
+"сменить пароль для вашей учётной записи."
+
+#: templates/userena/password_reset_form.html:26
+msgid "Submit"
+msgstr "Отправить"
+
+#: templates/userena/profile_detail.html:11
+msgid "Your mugshot"
+msgstr "Ваш портрет"
+
+#: templates/userena/profile_detail.html:16
+msgid "Email"
+msgstr "Электронная почта"
+
+#: templates/userena/profile_detail.html:19
+msgid "Age"
+msgstr "Возраст"
+
+#: templates/userena/profile_detail.html:22
+msgid "Website"
+msgstr "Веб-сайт"
+
+#: templates/userena/profile_detail.html:25 templates/userena/public.html:79
+#: txcommon/models.py:50
+msgid "Location"
+msgstr "Расположение"
+
+#: templates/userena/profile_detail.html:28
+msgid "About me"
+msgstr "Обо мне"
+
+#: templates/userena/profile_form.html:6
+msgid "Account setup"
+msgstr "Настройка учетной записи"
+
+#: templates/userena/profile_form.html:38
+msgid "Save changes"
+msgstr "Сохранить изменения"
+
+#: templates/userena/profile_list.html:4
+msgid "Profiles"
+msgstr "Профили"
+
+#: templates/userena/profile_list.html:21
+msgid "previous"
+msgstr "предыдущая"
+
+#: templates/userena/profile_list.html:25
+#, python-format
+msgid ""
+"\n"
+"      Page %(page)s of %(num_pages)s\n"
+"      "
+msgstr ""
+"\n"
+"      Страница %(page)s из %(num_pages)s\n"
+"      "
+
+#: templates/userena/profile_list.html:31
+msgid "next"
+msgstr "следующая"
+
+#: templates/userena/profile_social_settings.html:4
+#: templates/userena/profile_social_settings.html:6
+msgid "Social login settings"
+msgstr "Параметры авторизации через социальные сети"
+
+#: templates/userena/profile_social_settings.html:27
+msgid ""
+"Link your Transifex account to any of the providers below and log in without "
+"a username or password."
+msgstr ""
+"Связать учётную запись Transifex с любым из нижеуказанных провайдеров и "
+"авторизоваться без имени пользователя или пароля."
+
+#: templates/userena/profile_social_settings.html:39
+#: templates/userena/profile_social_settings.html:48
+msgid "Associated"
+msgstr "Сопоставлено"
+
+#: templates/userena/profile_social_settings.html:61
+#: templates/userena/profile_social_settings.html:69
+msgid "Associate"
+msgstr "Сопоставить"
+
+#: templates/userena/public.html:17
+msgid "User feed"
+msgstr "Пользовательская лента"
+
+#: templates/userena/public.html:61
+msgid "Blog/Site"
+msgstr "Блог/сайт"
+
+#: templates/userena/public.html:67 txcommon/models.py:39
+#: txcommon/migrations/0002_release_06_07.py:23
+#: txcommon/migrations/0004_new_userena_profile.py:84
+msgid "Twitter"
+msgstr "Twitter"
+
+#: templates/userena/public.html:73 txcommon/models.py:38
+#: txcommon/migrations/0002_release_06_07.py:30
+#: txcommon/migrations/0004_new_userena_profile.py:90
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: templates/userena/public.html:92
+msgid "Maintainer of the following project"
+msgid_plural "Maintainer of the following projects"
+msgstr[0] "Координатор проекта"
+msgstr[1] "Координатор проектов"
+msgstr[2] "Координатор проектов"
+
+#: templates/userena/public.html:98
+#, python-format
+msgid "<a class=\"name\" href=\"%(project_url)s\">%(project_name)s</a>"
+msgstr "<a class=\"name\" href=\"%(project_url)s\">%(project_name)s</a>"
+
+#: templates/userena/public.html:112
+msgid "Coordinator of the following team"
+msgid_plural "Coordinator of the following teams"
+msgstr[0] "Координатор следующей команды"
+msgstr[1] "Координатор следующих команд"
+msgstr[2] "Координатор следующих команд"
+
+#: templates/userena/public.html:119 templates/userena/public.html.py:140
+#, python-format
+msgid ""
+"<a class=\"name\" href=\"%(team_url)s\">%(team_name)s</a> team of the <a "
+"class=\"name\" href=\"%(project_url)s\">%(project_name)s</a> project"
+msgstr ""
+"команда <a class=\"name\" href=\"%(team_url)s\">%(team_name)s</a> проекта <a "
+"class=\"name\" href=\"%(project_url)s\">%(project_name)s</a>"
+
+#: templates/userena/public.html:133
+msgid "Member of the following team"
+msgid_plural "Member of the following teams"
+msgstr[0] "Состоит в следующей команде"
+msgstr[1] "Состоит в следующих команд"
+msgstr[2] "Состоит в следующих команд"
+
+#: templates/userena/signin_form.html:14
+msgid "Forgot your password?"
+msgstr "Забыли свой пароль?"
+
+#: templates/userena/signin_form.html:60
+msgid "You can also login using:"
+msgstr "Вы также можете войти, используя:"
+
+#: templates/userena/signin_form.html:65
+msgid "Login using Twitter"
+msgstr "Войти, используя Twitter"
+
+#: templates/userena/signin_form.html:68
+msgid "Login using Linkedin"
+msgstr "Войти, используя Linkedin"
+
+#: templates/userena/signin_form.html:71
+msgid "Login using Google"
+msgstr "Войти, используя Google"
+
+#: templates/userena/signin_form.html:74
+msgid "Login using Facebook"
+msgstr "Войти, используя Facebook"
+
+#: templates/userena/signin_form.html:80
+msgid "Not yet a member?"
+msgstr "Ещё не участник?"
+
+#: templates/userena/signin_form.html:80
+msgid "Register now!"
+msgstr "Зарегистрируйтесь прямо сейчас!"
+
+#: templates/userena/signout.html:6 templates/userena/signout.html.py:9
+msgid "Signed out"
+msgstr "Сеанс завершён"
+
+#: templates/userena/signout.html:12
+msgid "You have been signed out. Till we meet again."
+msgstr "Вы вышли. До новой встречи!"
+
+#: templates/userena/signup_complete.html:4
+msgid "Signup almost done!"
+msgstr "Регистрация почти завершена!"
+
+#: templates/userena/signup_complete.html:6
+msgid "Signup"
+msgstr "Регистрация"
+
+#: templates/userena/signup_complete.html:9
+msgid "Thank you for signing up with us!"
+msgstr "Спасибо за то, что решили к нам присоединиться!"
+
+#: templates/userena/signup_complete.html:12
+msgid ""
+"You have been sent an e-mail with an activation link to the supplied email."
+msgstr ""
+"Вы отправили письмо со ссылкой активации на предоставленный адрес "
+"электронной почты."
+
+#: templates/userena/signup_complete.html:13
+#, python-format
+msgid ""
+"We will store your signup information for %(userena_activation_days)s days "
+"on our server. "
+msgstr ""
+"Мы сохраним на своём сервере вашу регистрационную информацию в течение "
+"%(userena_activation_days)s дней. "
+
+#: templates/userena/signup_complete.html:15
+msgid "You can now use the supplied credentials to signin."
+msgstr ""
+"Теперь можно использовать предоставленные учётные данные для авторизации."
+
+#: templates/userena/signup_form.html:43
+msgid "Billing information"
+msgstr "Платёжная информация"
+
+#: templates/userena/signup_form.html:50
+msgid "Get started with transifex and optimize your localization workflow"
+msgstr "Начните работу с transifex и оптимизируйте рабочий процесс локализации"
+
+#: templates/userena/signup_form.html:56
+msgid "Credentials"
+msgstr "Полномочия"
+
+#: templates/userena/signup_form.html:88
+msgid "Sign up"
+msgstr "Регистрация"
+
+#: templates/userena/userena_menu.html:13
+msgid "View profile"
+msgstr "Просмотреть профиль"
+
+#: templates/userena/userena_menu.html:14
+msgid "Edit details"
+msgstr "Изменить подробные сведения"
+
+#: txcommon/admin.py:10
+msgid ""
+"Required. 30 characters or fewer. Unicode alphanumeric characters only "
+"(letters, digits and underscores)."
+msgstr ""
+"Обязательное поле длиной не более 30 символов. Разрешены только буквенно-"
+"цифровые символы (буквы, цифры и подчеркивание)."
+
+#: txcommon/admin.py:13
+msgid "This value must contain only unicode letters, numbers and underscores."
+msgstr ""
+"Данное значение должно содержать только символы Юникода, цифры и знак "
+"подчеркивания."
+
+#: txcommon/feeds.py:28
+#, python-format
+msgid "Recent activities by %(user)s"
+msgstr "Недавняя активность пользователя %(user)s "
+
+#: txcommon/feeds.py:31
+#, python-format
+msgid "Recent activities by user %s."
+msgstr "Недавняя активность пользователя %s."
+
+#: txcommon/feeds.py:57
+msgid "None"
+msgstr "Нет"
+
+#: txcommon/models.py:30
+msgid "user"
+msgstr "пользователь"
+
+#: txcommon/models.py:35
+msgid "Interested in"
+msgstr "Вы заинтересованы в"
+
+#: txcommon/models.py:36
+msgid "Tags you may be interested in."
+msgstr "Метки тем, которые могут вас заинтересовать."
+
+#: txcommon/models.py:37 txcommon/migrations/0002_release_06_07.py:27
+#: txcommon/migrations/0004_new_userena_profile.py:93
+msgid "Blog"
+msgstr "Блог"
+
+#: txcommon/models.py:40 txcommon/migrations/0002_release_06_07.py:19
+#: txcommon/migrations/0004_new_userena_profile.py:81
+msgid "About yourself"
+msgstr "О себе"
+
+#: txcommon/models.py:42
+msgid "Short description of yourself (140 chars)."
+msgstr "Кратко о себе (140 символов)."
+
+#: txcommon/models.py:43 txcommon/migrations/0002_release_06_07.py:18
+#: txcommon/migrations/0004_new_userena_profile.py:78
+msgid "Looking for work?"
+msgstr "Ищите работу?"
+
+#: txcommon/notifications.py:12
+msgid "New project created"
+msgstr "Новый проект создан"
+
+#: txcommon/notifications.py:13
+msgid "when a new project is created"
+msgstr "когда создаётся новый проект"
+
+#: txcommon/notifications.py:19
+msgid "Project modified"
+msgstr "Проект изменён"
+
+#: txcommon/notifications.py:20
+msgid "when a project is changed"
+msgstr "при изменении проекта"
+
+#: txcommon/notifications.py:26
+msgid "Project deleted"
+msgstr "Проект удалён"
+
+#: txcommon/notifications.py:27
+msgid "when a project is deleted"
+msgstr "при удалении проекта"
+
+#: txcommon/notifications.py:33
+msgid "Requested submit access to project"
+msgstr "Запрошен доступ к отправке переводов в проект"
+
+#: txcommon/notifications.py:34
+msgid "when a user request access to submit files to a project"
+msgstr "когда пользователь запрашивает разрешение загрузки файлов в проект"
+
+#: txcommon/notifications.py:41
+msgid "Denied submit access to project"
+msgstr "Отказано в доступе к отправке переводов в проект"
+
+#: txcommon/notifications.py:42
+msgid "when a maintainer denies a user access to submit files to a project"
+msgstr "когда координатор запрещает пользователю загрузку файлов в проект"
+
+#: txcommon/notifications.py:49
+msgid "Withdrew request for submit access to project"
+msgstr "Отозвана заявка на доступ к отправке переводов в проект"
+
+#: txcommon/notifications.py:50
+msgid ""
+"when a user withdraws the request for access to submit files to a project"
+msgstr ""
+"когда пользователь отзывает запрос на разрешение отправки файлов в проект"
+
+#: txcommon/notifications.py:57
+msgid "Granted submit access to project"
+msgstr "Предоставлен доступ к отправке переводов в проект"
+
+#: txcommon/notifications.py:58
+msgid "when a maintainer grants a user access to submit files to a project"
+msgstr "когда координатор разрешает пользователю загрузку файлов в проект"
+
+#: txcommon/notifications.py:65
+msgid "Revoked submit access to project"
+msgstr "Прекращён доступ к отправке переводов в проект"
+
+#: txcommon/notifications.py:66
+msgid ""
+"when a maintainer revokes the access of an user to submit files to a project"
+msgstr "когда координатор лишает пользователя прав на загрузку файлов в проект"
+
+#: txcommon/notifications.py:75
+msgid "Requested to join a project hub"
+msgstr "Запрошено присоединение к хабу"
+
+#: txcommon/notifications.py:76
+msgid "when a project requests to join a project hub"
+msgstr ""
+"когда проект обращается с просьбой о присоединении к центральному проекту — "
+"хабу"
+
+#: txcommon/notifications.py:83
+msgid "Approved to join project hub"
+msgstr "Одобрено присоединение к хабу"
+
+#: txcommon/notifications.py:84
+msgid "when a project is approved to join a project hub"
+msgstr "когда одобрена заявка на присоединение к центральному проекту — хабу"
+
+#: txcommon/notifications.py:91
+msgid "Denied to join project hub"
+msgstr "Отказано в присоединении к группе проектов"
+
+#: txcommon/notifications.py:92
+msgid "when a project is denied to join a project  hub"
+msgstr ""
+
+#: txcommon/notifications.py:99
+msgid "Withdrew request to join project hub"
+msgstr "Отозвана заявка на присоединение к этой группе проектов"
+
+#: txcommon/notifications.py:100
+msgid "when a project decides not to join a project hub"
+msgstr "когда проект решает не присоединиться к центральному проекту — хабу"
+
+#: txcommon/notifications.py:107
+msgid "Project left project hub"
+msgstr "Отключить проект от хаба"
+
+#: txcommon/notifications.py:108
+msgid "when a project leaves a project hub"
+msgstr "когда проект отключается от центрального проекта — хаба"
+
+#: txcommon/notifications.py:118
+msgid "Release added to project"
+msgstr "Выпуск добавлен к проекту"
+
+#: txcommon/notifications.py:119
+msgid "when a release is added to a project"
+msgstr "при добавлении выпуска в проект"
+
+#: txcommon/notifications.py:125
+msgid "Release modified"
+msgstr "Выпуск изменён"
+
+#: txcommon/notifications.py:126
+msgid "when a release of a project is modified"
+msgstr "когда выпуск проекта изменён"
+
+#: txcommon/notifications.py:131
+msgid "Release deleted"
+msgstr "Выпуск удалён"
+
+#: txcommon/notifications.py:132
+msgid "when a release of a project is deleted"
+msgstr "при удалении выпуска проекта"
+
+#: txcommon/notifications.py:137
+msgid "Release about to enter the string freeze period"
+msgstr "Выпуск готов к стадии заморозки строк"
+
+#: txcommon/notifications.py:138
+msgid "when a release of a project is about to enter the String Freeze period"
+msgstr "когда выпуск проекта готов к переключению в стадию заморозки строк"
+
+#: txcommon/notifications.py:144
+msgid "Release is in string freeze period"
+msgstr "Выпуск находится в стадии заморозки строк"
+
+#: txcommon/notifications.py:145
+msgid "when a release of a project is on enter the String Freeze period"
+msgstr "когда выпуск проекта находится в стадии заморозки строк"
+
+#: txcommon/notifications.py:151
+msgid "Release about to hit the translation deadline"
+msgstr "Выпуск близок к крайнему сроку завершения перевода"
+
+#: txcommon/notifications.py:152
+msgid ""
+"when a release of a project is about to hit the Translation Deadline date"
+msgstr "когда выпуск проекта близок к крайнему сроку завершения перевода"
+
+#: txcommon/notifications.py:158
+msgid "Release has hit the translation deadline"
+msgstr "Выпуск вышел за крайний срок завершения перевода"
+
+#: txcommon/notifications.py:159
+msgid "when a release of a project hits the Translation Deadline date"
+msgstr "когда выпуск проекта вышел за крайний срок завершения перевода"
+
+#: txcommon/notifications.py:165
+msgid "Release string freeze breakage"
+msgstr "Заморозка строк для выпуска прервана"
+
+#: txcommon/notifications.py:166
+msgid "when a release of a project has a string freeze breakage"
+msgstr ""
+"когда в процессе подготовки выпуска проекта заморозка строк оказалась "
+"прервана"
+
+#: txcommon/notifications.py:176
+msgid "New team created"
+msgstr "Новая команда создана"
+
+#: txcommon/notifications.py:177
+msgid "when a new translation team is added to a project"
+msgstr "при добавлении новой команды к проекту"
+
+#: txcommon/notifications.py:184
+msgid "Team modified"
+msgstr "Команда изменена"
+
+#: txcommon/notifications.py:185
+msgid "when a translation team of a project is modified"
+msgstr "когда меняется команда перевода для проекта"
+
+#: txcommon/notifications.py:192
+msgid "Team removed"
+msgstr "Команда удалена"
+
+#: txcommon/notifications.py:193
+msgid "when a translation team of a project is removed"
+msgstr "когда удаляется команда перевода для проекта"
+
+#: txcommon/notifications.py:200
+msgid "Requested team creation"
+msgstr "Запрошено создание команды"
+
+#: txcommon/notifications.py:201
+msgid "when the creation of a translation team is requested for a project"
+msgstr "когда для проекта запрашивается создание команды перевода"
+
+#: txcommon/notifications.py:208
+msgid "Denied request for team creation"
+msgstr "Отклонена заявка на создание команды"
+
+#: txcommon/notifications.py:209
+msgid ""
+"when the creation of a translation team for a project is denied by a "
+"maintainer"
+msgstr "когда создание команды перевода для проекта запрещено координатором"
+
+#: txcommon/notifications.py:216
+msgid "Requested to join translation team"
+msgstr "Запрошено присоединение к команде перевода"
+
+#: txcommon/notifications.py:217
+msgid "when a user requests to join a project translation team"
+msgstr ""
+"когда пользователь отправляет запрос на присоединение к команде перевода "
+"проекта"
+
+#: txcommon/notifications.py:224
+msgid "Approved to join translation team"
+msgstr "Одобрено присоединение к команде перевода"
+
+#: txcommon/notifications.py:225
+msgid "when a user is approved as a member of a project translation team"
+msgstr "когда пользователь утвержден как участник команды переводчиков проекта"
+
+#: txcommon/notifications.py:232
+msgid "Denied to join translation team"
+msgstr "Отказано в присоединении к команде переводчиков"
+
+#: txcommon/notifications.py:233
+msgid "when a user is denied as a member of a project translation team"
+msgstr ""
+"когда пользователь получает отказ на участие в команде перевода проекта"
+
+#: txcommon/notifications.py:240
+msgid "Withdrew request to join team"
+msgstr "Отозвана заявка на присоединение к команде"
+
+#: txcommon/notifications.py:241
+msgid "when a user decides not to join a project translation team"
+msgstr "когда пользователь решает не присоединяться команде перевода проекта"
+
+#: txcommon/notifications.py:248
+msgid "User left translation team"
+msgstr "Пользователь покинул команду перевода"
+
+#: txcommon/notifications.py:249
+msgid "when a user leaves a project translation team"
+msgstr "когда пользователь покидает команду перевода проекта"
+
+#: txcommon/notifications.py:259
+msgid "Weekly project report for maintainers"
+msgstr "Еженедельный отчет для координаторов"
+
+#: txcommon/notifications.py:260
+msgid "when you receive the weekly report of projects that you maintain."
+msgstr "при получении Вами еженедельного отчета по поддерживаемым проектам."
+
+#: txcommon/notifications.py:267
+msgid "User nudge"
+msgstr "Подтолкнуть пользователя"
+
+#: txcommon/notifications.py:268
+msgid "when a user nudges you"
+msgstr "когда пользователь уведомляет вас"
+
+#: txcommon/notifications.py:277
+msgid "Resource created"
+msgstr "Ресурс создан"
+
+#: txcommon/notifications.py:278
+msgid "when a new resource is added to a project"
+msgstr "при добавлении нового ресурса в проект"
+
+#: txcommon/notifications.py:284
+msgid "Resource modified"
+msgstr "Ресурс изменён"
+
+#: txcommon/notifications.py:285
+msgid "when a resource of a project is changed"
+msgstr "при изменении ресурса проекта"
+
+#: txcommon/notifications.py:291
+msgid "Resource deleted"
+msgstr "Ресурс удалён"
+
+#: txcommon/notifications.py:292
+msgid "when a resource of a project is deleted"
+msgstr "при удалении ресурса проекта"
+
+#: txcommon/notifications.py:298
+msgid "Resource translated"
+msgstr "Ресурс переведён"
+
+#: txcommon/notifications.py:299
+msgid "when a translation is sent to a project resource"
+msgstr "при отправке перевода в ресурс проекта"
+
+#: txcommon/notifications.py:306
+msgid "Resource translation updated"
+msgstr "Обновился перевод ресурса"
+
+#: txcommon/notifications.py:307
+msgid "when a resource translation you are watching changes"
+msgstr "при изменении отслеживаемого вами перевода ресурса"
+
+#: txcommon/notifications.py:314
+msgid "Resource translation fully reviewed"
+msgstr "Перевод ресурса проверен полностью"
+
+#: txcommon/notifications.py:315
+msgid ""
+"when a resource translation of one of your projects becomes fully reviewed"
+msgstr ""
+"когда перевод ресурса одного из ваших проектов становится полностью "
+"пересмотрен"
+
+#: txcommon/db/models.py:84
+msgid "Enter 0 or more comma-separated integers in parentheses."
+msgstr "Введите 0 или более целых чисел в скобках, разделенных запятыми."
+
+#: txcommon/db/models.py:86
+msgid "You must enter at least a pair of parentheses containing nothing."
+msgstr "Вы должны ввести хотя бы одну пару скобок с пустым значением."
+
+#: txcommon/migrations/0002_release_06_07.py:20
+#: txcommon/migrations/0004_new_userena_profile.py:60
+msgid "Surname"
+msgstr "Фамилия"
+
+#: txcommon/migrations/0002_release_06_07.py:21
+#: txcommon/migrations/0004_new_userena_profile.py:63
+msgid "First name"
+msgstr "Имя"
+
+#: txcommon/migrations/0002_release_06_07.py:24
+msgid "Native Language"
+msgstr "Родной язык"
+
+#: txcommon/templatetags/txcommontags.py:80
+msgid "Home"
+msgstr "Домой"
+
+#: txpermissions/views.py:94
+msgid "You added a permission."
+msgstr "Вы добавили разрешение"
+
+#: txpermissions/views.py:96
+msgid "You added a permission request."
+msgstr "Вы добавили запрос на разрешение."
+
+#: txpermissions/views.py:133
+msgid "You approved the permission request."
+msgstr "Вы утвердили запрос на разрешение."
+
+#: txpermissions/views.py:151
+msgid "You removed the permission."
+msgstr "Вы удалили разрешение."
+
+#: txpermissions/views.py:153
+msgid "You removed the permission request."
+msgstr "Вы удалили запрос на разрешение."
+
+#~ msgid "Slug for the mapping. Usually the same as the old component slug."
+#~ msgstr ""
+#~ "Фрагмент для сопоставления. Обычно такой же, как и старый компонент."
+
+#~ msgid "Mapping in JSON format."
+#~ msgstr "Отображение в формате JSON."
+
+#~ msgid "Project to which the JSON mapping belongs."
+#~ msgstr "Проект, которому принадлежит отображение JSON."
+
+#~ msgid "JSONMap"
+#~ msgstr "Отображение JSON"
+
+#~ msgid "JSONMaps"
+#~ msgstr "Отображения JSON"
+
+#~ msgid "Search translations"
+#~ msgstr "Поиск переводов"
+
+#~ msgid "%(source_language)s &rarr; %(translation_language)s"
+#~ msgstr "%(source_language)s &rarr; %(translation_language)s"
+
+#~ msgid "Location:"
+#~ msgstr "Расположение:"
+
+#~ msgid "Tough luck! No translations obtained."
+#~ msgstr "Вот это удача! Не найдено ни одного перевода."
+
+#~ msgid "Search for a string:"
+#~ msgstr "Найти строку:"
+
+#~ msgid "From:"
+#~ msgstr "От:"
+
+#~ msgid "To:"
+#~ msgstr "Кому:"
+
+#~ msgid ""
+#~ "Search in Transifex memory for existing translations (uses a new tab/"
+#~ "window)"
+#~ msgstr ""
+#~ "Поиск в памяти Transifex существующих переводов (в новой вкладке/окне)"

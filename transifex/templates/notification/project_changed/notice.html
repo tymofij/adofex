@@ -1,0 +1,2 @@
+{% load i18n %}{% url project_detail project_slug=project.slug as project_url %}
+{% blocktrans %} <a href="{{ sender_url }}">{{sender}}</a> <span class="notice_action">changed</span> data of <span class="notice_subject">project</span> <a href="{{ project_url }}">{{ project }}</a> {% endblocktrans %}

@@ -1,0 +1,57 @@
+{% load staticfiles %}
+
+google.load('visualization', '1', {'packages':['barchart']});
+google.setOnLoadCallback(init);
+
+
+function init() {
+    var query = new google.visualization.Query('{{SITE_URL_PREFIX}}{% url chart_project_json project.slug %}');
+    query.send(handleResponse);
+    //drawToolbar();
+}
+
+function handleResponse(response) {
+    if (response.isError()) {
+        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        return;
+    }
+    var data = response.getDataTable();
+
+    container = document.getElementById('txchart-{{ project.slug }}');
+    container.style.textAlign = "center";
+
+    chart_div = document.createElement('div');
+    chart_div.style.width = "100%";
+    chart_div.style.height = "210px";
+
+    link_tx = document.createElement("a");
+    link_tx.target = "_blank";
+    link_tx.href = "{{SITE_URL_PREFIX}}{% url transifex.home %}";
+    link_tx.title = "See more information on Transifex.net";
+    link_tx.innerHTML = "<img border=\"0\" src=\"{% static "charts/images/tx-logo-micro.png\" %}"/>";
+
+    link_resource = document.createElement("a");
+    link_resource.target = "_blank";
+    link_resource.style.textDecoration = "none";
+    link_resource.style.color = "black";
+    link_resource.style.fontSize = "66%";
+    link_resource.href = "{{SITE_URL_PREFIX}}{% url project_detail project.slug %}";
+    link_resource.innerHTML = "Top translations: {{project.name}}";
+
+
+    container.innerHTML = "";
+    container.appendChild(link_resource);
+    container.appendChild(chart_div);
+    container.appendChild(link_tx);
+
+    var chart = new google.visualization.BarChart(chart_div);
+    chart.draw(data, {
+        isStacked : true,
+        min : 0,
+//        title : "Project: {{project.name}}",
+        legend : "none",
+        titleColor : '333333',
+        colors : ['78dc7d', 'dae1ee', 'efefef'],
+    });
+}
+

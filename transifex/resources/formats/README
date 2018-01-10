@@ -1,0 +1,65 @@
+===================
+ Transifex Formats
+===================
+
+This package is responsible for the formats supported by Transifex.
+
+
+Overview
+========
+
+The ``registry``
+----------------
+
+There is a central registry of the available formats. The registry acts
+as a repository for the available formats, their handler classes and
+data such as the mime type and file extensions each format uses. The
+registry reads the data from the *settings*, but it also provides
+functions to register a new format dynamically. The registry is the
+single point of entrance to the formats code; whenever a handler is
+needed, it should be requested from the registry.
+
+
+Formats
+-------
+
+If you want to implement support for a new format, you will need to
+inherit a base class that provides the default functionality. Then, just
+override the necessary class variables and methods.
+
+
+Format Structure
+================
+
+Each format is consisted of four parts:
+
+- The *information* part.
+- The *parsing* part.
+- The *saving* part.
+- The *compilation* part.
+
+Compilation
+-----------
+
+The sub-package ``compilation`` has all compilers and helper classes
+used in the formats.
+
+The ``compilers`` module has the ``Compiler`` class, which compiles a
+template to a translation file. That is, the ``Compiler`` encapsulates
+the *process* of compilation.
+
+There are two steps that have been factored out of the ``Compiler``
+class:
+
+- Building the *translation set*. This is handled by a
+  ``TranslationBuilder`` class, which is responsible to return the
+  correct set of translations to be used by the ``Compiler``. All
+  ``Translation
+- *Decorating* a translation string. This is handled by a
+   ``DecoratorBuilder`` class, which is responsible to decorate the
+   translation string before using it  in the template.
+
+The default behavior is to do a search-and-replace on the template based
+on the set of translations that is returned by the
+``TranslationBuilder`` subclass. Each translation string is first
+escaped with the ``_escape`` function each format defines.

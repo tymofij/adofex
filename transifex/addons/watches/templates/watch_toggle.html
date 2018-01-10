@@ -1,0 +1,25 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load watches_tags %}
+{% if ENABLE_NOTICES and request.user.is_authenticated %}
+<script type="text/javascript" src="{% static "watches/js/watch_toggle.js" %}"></script>
+			<span id="watch-{% if obj.is_project %}project{% endif %}{% if obj.is_resource %}resource-{{ obj.id }}{% endif %}"
+      class="i16 nude-button linkstyle {% if obj.is_watched %}watch_remove{% else %}watch_add{% endif %} smooth-transition"
+      onClick="watch_toggle(this, '{{ obj.toggle_watch_url }}')">
+      
+      {% if obj.is_project %}
+  			{% if obj.is_watched %}
+  			  <span class="projectlabel">{% trans "Stop watching" %}</span>
+      	{% else %}
+      		<span class="projectlabel">{% trans "Watch project" %}</span>
+      	{% endif %}
+      {% else %}
+      	{% if obj.is_watched %}
+  			  <span class="projectlabel">{% trans "Stop watching" %}</span>
+      	{% else %}
+      		<span class="projectlabel">{% trans "Watch file" %}</span>
+      {% endif %}
+            	
+      {% endif %}
+      </span>
+{% endif %}

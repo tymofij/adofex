@@ -1,0 +1,5 @@
+{% load i18n %}{% url team_list team_request.project.slug as team_url %}{% with team_request.language.name as team_name %}{% with team_request.project.name as project_name %}
+{% blocktrans %}{{ performer }} denied the request to create a '{{ team_name }}' translation team for the '{{ project_name }}' project was denied.{% endblocktrans %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{team_url}} in order to see the list of teams in the project.{% endblocktrans %}
+{% endwith %}{% endwith %}

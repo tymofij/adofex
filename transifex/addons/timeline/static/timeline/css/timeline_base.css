@@ -1,0 +1,16 @@
+table.timeline span {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border: 0px;
+}
+
+table.timeline td {
+  max-width: 700px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+/* Fix 'Go' button of timeline */
+#timeline-submit {
+  padding-left: 24px;
+}

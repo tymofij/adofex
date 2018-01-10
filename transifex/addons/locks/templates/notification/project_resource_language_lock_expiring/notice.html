@@ -1,0 +1,5 @@
+{% load i18n %}
+{% url resource_detail project.slug resource.slug as resource_url %}
+{% blocktrans %}
+A lock for <a href="http://{{current_site}}{{resource_url}}">{{ resource }} in {{ language }}</a> is about to expire on {{expires}}
+{% endblocktrans %}

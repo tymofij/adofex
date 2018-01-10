@@ -1,0 +1,103 @@
+{% extends "projects/project_menu.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load txcommontags %}
+{% load addons %}
+
+{% block extracss %}
+<link media="screen" href="{% static "widgets/css/widgets.css" %}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body_class %}{{ block.super }} project_widgets{% endblock %}
+
+{% block title %}{{ block.super }} | {{ project.name }} | {% trans "Widgets" %}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> &raquo; {% trans "Widgets" %}{% endblock %}
+
+{% block addon_header %}
+
+{% endblock %}
+
+
+{% block project_header %}
+{{block.super}}<span>&nbsp;/&nbsp;</span><span>{% blocktrans %}Widgets, buttons, etc.{% endblocktrans %}</span>
+{% endblock%}
+
+{% block current_description %}
+<p class="description">{% blocktrans %}Here are some widgets, buttons and other cool stuff you can add to your homepage!{% endblocktrans %}</p>
+{% endblock %}
+
+{% block header_menu %}
+{% endblock %}
+
+{% block content_main %}
+  <div class="obj_bigdetails">
+  {% hook "widget_snippet.html" %}
+
+  <!-- Userbars are not so important so put them into the end -->
+  <div class="details">
+
+  <div class="separate-header clearfix">
+  	<h3  class="sh-label">{% blocktrans %}Userbars{% endblocktrans %}</h3>
+	</div>
+
+
+  <table class="widget">
+      <tr>
+          <td class="userbars">
+              <img src="{% static "widgets/images/transifex-userbar.png" %}"/><br/>
+              <img src="{% static "widgets/images/transifex-userbar-2.png" %}"/>
+          </td>
+          <td>
+              <p>{% blocktrans %}You can insert userbars to forums, e-mail signatures, etc.{% endblocktrans %}</p>
+              <p>{% blocktrans %}Show code snippet for userbar:{% endblocktrans %}
+              <select id="userbar-menu">
+                  <option value="">{% blocktrans %}Hidden{% endblocktrans %}</option>
+                  <option value="transifex-userbar">Multilinguist :: Transifex.net</option>
+                  <option value="transifex-userbar-2">I can speek lotz da languagez</option>
+              </select>
+              </p>
+          </td>
+      </tr>
+  </table>
+  <pre id="userbar-snippet" class="code_snippet">&nbsp;</pre>
+  </div>
+
+</div>
+
+    <script type="text/javascript">
+
+    String.prototype.entityify = function () {
+    return this.
+        replace(/&/g, "&amp;").
+        replace(/</g, "&lt;").
+        replace(/>/g, "&gt;").
+        replace(/"/g, "&quot;");
+    };
+
+    $(document).ready(function (){
+        var filenames = ["{% static "widgets/images/transifex-userbar.png" %}", "{% static "widgets/images/transifex-userbar-2.png" %}"]
+
+        $("#userbar-menu").change(function(){
+            var snippet = $("#userbar-snippet");
+            var filename = $("#userbar-menu option:selected").val();
+            if (filename == "transifex-userbar") {
+                filename = filenames[0]
+            } else if (filename == "transifex-userbar-2") {
+                filename = filenames[1]
+            } else {
+                snippet.slideUp("slow");
+                return;
+            }
+            var code = "<a href=\"{{SITE_URL_PREFIX}}{% url transifex.home %}\">\n";
+            code += "<img border=\"0\" src=\"" + filename + "\">\n";
+            code += "</a>";
+            snippet.html(code.entityify());
+            snippet.slideDown("slow");
+        });
+    });
+    </script>
+
+{% endblock %}
+
+

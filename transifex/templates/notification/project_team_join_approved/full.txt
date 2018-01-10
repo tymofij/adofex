@@ -1,0 +1,5 @@
+{% load i18n %}{% url team_detail access_request.team.project.slug access_request.team.language.code as team_url %}{% with access_request.team.language.name as team_name %}{% with access_request.team.project.name as project_name %}{% with access_request.user.username as user_name %}
+{% blocktrans %}The user '{{ user_name }}' was added as a member to the '{{ team_name }}' translation team of the '{{ project_name }}' project.{% endblocktrans %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{team_url}} in order to see this team.{% endblocktrans %}
+{% endwith %}{% endwith %}{% endwith %}

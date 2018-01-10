@@ -1,0 +1,2 @@
+{% load i18n %}{% url project_detail project_slug=project.slug as project_url %}
+{% blocktrans %}The project '{{ project }}' was deleted.{% endblocktrans %}

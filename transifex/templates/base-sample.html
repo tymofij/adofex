@@ -1,0 +1,194 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load txcommontags %}
+{% load compress %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+{% load addons %}
+<html lang="en">
+<head>
+  <title>{% block title %}{% trans "Transifex" %}{% endblock %}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  {% block basecss %}
+  <link media="screen" href="{% static "css/base.css" %}" type="text/css" rel="stylesheet" />
+  <link media="screen" href="{% static "css/txo-style.css" %}" type="text/css" rel="stylesheet" />
+  <link media="screen" href="{% static "css/stats.css" %}" type="text/css" rel="stylesheet" />
+  <link media="screen" href="{% static "css/icons.css" %}" type="text/css" rel="stylesheet" />
+  <link media="screen" href="{% static "css/tipsy.css" %}" type="text/css" rel="stylesheet" />
+  <link media="screen" href="{% static "css/facebox.css" %}" type="text/css" rel="stylesheet" />
+  <link media="screen" href="{% static "css/chosen.css" %}" type="text/css" rel="stylesheet" />
+  <link media="screen" href="{% static "css/jquery.autocomplete.css" %}" type="text/css" rel="stylesheet" />
+  <link media="screen" href="{% static "css/tablesorter.css" %}" type="text/css" rel="stylesheet" />
+  {% endblock %}
+  {% hook "base.html" headcss %}
+  {% block basejs %}
+
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+  <script type="text/javascript">
+    var csrf_token = "{% csrf_token %}";
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='{% static 'js/jquery.min.js' %}' type='text/javascript'%3E%3C/script%3E"));
+    }
+  </script>
+
+  {% compress js %}
+  <script type="text/javascript" src="{% static "js/lib/chosen.jquery.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/lib/json2.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/lib/jquery.placeholder.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/lib/jquery.tablesorter.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/base.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/lib/jquery.tipsy.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/lib/ajaxupload.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/lib/sprintf.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/tx.core.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/ajaxcsrf.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/lib/facebox.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/lib/jquery.autocomplete.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/lib/amplify.store.min.js" %}"></script>
+  <script type="text/javascript">
+  $.facebox.settings.loadingImage = '{% static 'images/loading.gif' %}';
+  $.facebox.settings.closeImage = '{% static 'images/closelabel.png' %}';
+  </script>
+  {% endcompress %}
+  {% endblock %}
+  {% hook "base.html" headjs %}
+
+  {% block shortcut_icon %}
+  <link rel="shortcut icon" href="{% static "images/favicon.ico" %}" type="image/x-icon" />
+  {% endblock %}
+  {% block extracss %}{% endblock %}
+  {% block extrajs %}{% endblock %}
+  {% block extra_head %}{% endblock %}
+  {% block final_head %}
+    {% ifequal LANGUAGE_DIRECTION 'rtl' %}
+      <link media="screen" href="{% static "css/rtl.css" %}" type="text/css" rel="stylesheet" />
+    {% endifequal %}
+  {% endblock %}
+  {% hook "base.html" head %}
+</head>
+<body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
+<div class="wrapper">
+  <div id="notification-container" style="width:20em; left:50%; margin-left:-10em; border: 2px solid #a6bbdb; position: fixed; z-index: 10000; display:none;
+      border-style: none solid solid; border-radius: 0px 0px 1em 1em; -moz-border-radius: 0px 0px 1em 1em; background-color: #fff8f8; padding:0.5em;">
+    <div class="i16 waiting" onClick="$('#notifier').slideUp()">
+    Loading languages...
+    </div>
+  </div>
+  <div id="header">
+    <div id="logo">
+      <a class="simlink" href="{% url transifex.home %}" title="{% trans "Go to the start page" %}">
+        {% block logo %}<img border="0" src="{% static "images/tx-logo.png" %}"  alt="{% trans "Go to start page" %}" width="200" />{% endblock %}
+      </a>
+    </div>
+    <div id="navmenu">
+      {% if request.user.is_authenticated %}
+         <a href="{% url myprojects %}" title="{% trans "My projects" %}">
+      {% else %}
+      <a href="{% url project_list %}" title="{% trans "The projects being served" %}">
+      {% endif %}
+      {% trans "Projects" %}</a>
+      | <a href="{% url language_list %}" title="{% trans "The languages our service serves" %}">{% trans "Languages" %}</a>
+    </div>
+    <div id="header_secnav">
+      <!-- <span id="login">-->
+          {% if user.is_authenticated %}
+              {% hook "transifex_base.html" global-usernav %}
+              {% url userena_profile_detail user.username as user_profile %}
+              {% blocktrans with user.username as user_username %}Welcome <a title="Profile settings" href="{{ user_profile }}">{{ user_username }}</a>!{% endblocktrans %}&nbsp; | &nbsp;
+              {% url userena_signout as signout_url %}
+              {% if not signout_url %}
+                  {% url logout as signout_url %}
+              {% endif %}
+              <form action="{{ signout_url }}?next={{request.path}}" method="POST" class="microform">{% csrf_token %}
+                <input type="submit" title="{% trans "Sign out from the website" %}" class="i16 logout buttonized" value="{% trans "Sign out" %}" style="padding: 3px 8px 3px 27px;font-size: 0.923em;font-weight:normal;"/>
+              </form>
+          {% else %}
+              {% url userena_signin as signin_url %}
+              {% if not signin_url %}
+                  {% url login as signin_url %}
+              {% endif %}
+              <a href="{{ signin_url }}?next={{request|get_next}}">{% trans "Sign in" %}</a>
+              {% url userena_signup as signup_url %}
+              {% if signup_url %}
+              &nbsp; | &nbsp; <a href="{{ signup_url }}">{% trans "Register" %}</a>
+              {% endif %}
+          {% endif %}
+      <!--</span> -->
+    {% url django.views.i18n.set_language as set_language_url %} &nbsp;
+    {% with request.session.django_language as django_language %}
+    <form id="global-language-chooser" class="microform" action="{{ set_language_url }}" method="post">{% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path }}" />
+            <select id="language_switch" name="language">
+            {% for lang in LANGUAGES %}
+               <option value="{{ lang.0 }}" {% if django_language == lang.0 or not django_language and lang.0 == LANGUAGE_CODE  %}selected="selected"{% endif %}>{{ lang.0 }}</option>
+            {% endfor %}
+            </select>
+    </form>
+    {% endwith %}
+    </div>
+    <div id="header_trinav">
+    {% block header_trinav %}
+      {% include "search_form_plain.html" %}
+    {% endblock %}
+    </div>
+  </div>
+
+  <div id="content" class="clearfix">
+		{% block messages %}
+	    {% if messages %}
+	        <div class="messages">
+	        {% for message in messages %}
+	            <span class="message{% if message.tags %}_{{ message.tags }}{% endif %}">{{ message }}</span>
+	        {% endfor %}
+	        </div>
+	    {% endif %}
+	  {% endblock %}
+    <div id="content_header">
+    {% block content_header %}
+      {% comment %}
+      <div id="breadcrumbs">
+        {% block breadcrumb %}{% homelink %}{% endblock %}
+      </div>
+      {% endcomment %}
+      <div id="content_title" class="grid_10">
+        {% block content_title %}{% endblock %}
+      </div>
+      <div id="content_header_sec" class="grid_2">
+        {% block content_header_sec %}{% endblock %}
+      </div>
+      <div id="header_menu" class="grid_12 clearfix">{% block header_menu%}{% endblock %} </div>
+    {% endblock %}
+    </div>
+    <div class="wrapper">
+
+		{% block content %}
+		<div class="wrapper clearfix">
+			<div id="content_main" class="grid_12">{% block content_main %}{% endblock %}</div>
+		</div>
+		{% endblock %}
+
+    </div>
+    <div id="content_footer">
+      {% block content_footer %}{% endblock %}
+    </div>
+  </div>
+</div>
+
+  <div id="footer">{% block footer %}
+    <p class="main-footer center">
+      {% block footerlinks %}
+        <a href="http://help.transifex.com/user-guide/getting-started.html" title="{% trans "Learn more about Transifex" %}">{% trans "About" %}</a>
+        {% if settings.ENABLE_CONTACT_FORM %}
+          | <a href="{% url contact_form %}" title="{% trans "Drops us a line" %}">{% trans "Feedback" %}</a>
+        {% endif %}
+      {% endblock %}
+    </p>
+    {% block powered %}<p class="powered">{% blocktrans %}Powered by <a href="http://transifex.org/" title="Transifex community">Transifex</a>, the Open Translation Platform{% endblocktrans %}</p>{% endblock %}
+    {% block txversionblock %}<p class="version">v{% txversion_full %} </p>{% endblock %}
+    {% block extrafooter %}{% endblock %}
+  {% endblock %}</div>
+{% block bodyend %}{% endblock %}
+{% block custom_js_footer %}
+{% endblock %}
+</body>
+</html>

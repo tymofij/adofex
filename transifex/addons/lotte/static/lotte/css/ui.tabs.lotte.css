@@ -1,0 +1,60 @@
+/* A plain style for tabs in lotte editor */
+
+.row_tabs {
+  height:14px;
+  margin:0;
+  padding:0;
+  font-size:0.85em;
+  /* positioning */
+  visibility:hidden;
+  bottom:2px;
+  position:absolute;
+  text-align:right;
+  white-space:nowrap;
+}
+
+.row_tabs ul {
+  margin:0;
+  padding:0;
+}
+
+.row_tabs li {
+  border:medium none;
+  display:inline;
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+
+.row_tabs ul a.current:link, .row_tabs ul a.current:visited {
+  color:#B65B0B;
+  background:#FFF none repeat scroll 0 0;
+  margin:0 1px;
+  padding-bottom:7px;
+  text-decoration:none;
+  border-bottom: 0px;
+}
+
+.row_tabs ul a:link, .row_tabs ul a:visited {
+  float:left;
+  font-size:10px;
+  font-weight:normal;
+  line-height:12px;
+  margin:0 1px;
+  padding:3px 5px 5px;
+  border: 1px solid #CCCCCC;
+  -moz-border-radius-topleft:8px;
+  -moz-border-radius-topright:1px;
+  border-radius:4px 1px 0 0;
+}
+
+div.row_tabs a:link, div.row_tabs a:visited {
+  text-decoration:none;
+}
+
+.row_tabs ul a:link, .row_tabs ul a:visited {
+  background-color:#F5F5F5;
+  color:#8f8f8f;
+}

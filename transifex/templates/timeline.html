@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load pagination_tags %}
+{% load sorting_tags %}
+{% load txcommontags %}
+{% autosort actionlog %}
+{% with actionlog.count as actionlog_total %}
+{% autopaginate actionlog 30 %}
+
+<div class="generic_form">
+<fieldset style="margin: inherit auto;" class="compact">
+  <legend><span class="i16 filter">{% trans "Filter results" %}</span></legend>
+        <form action="" method="get">
+          <table class="definition">
+            {% form_as_table_rows f.form %}
+          <tr>
+            <td></td>
+            <td><input type="submit" class="i16 submit buttonized" value="{% trans "Go" %}"/></td></tr>
+          </table>
+        </form>
+</fieldset>
+</div>
+
+{% if not actionlog %}
+<p>{% trans 'None available' %}</p>
+{% else %}
+
+<h3>
+{% blocktrans count actionlog_total as counter %}The query returned {{ counter }} result{% plural %}The query returned {{ counter }} results{% endblocktrans %}
+</h3>
+
+  <div class="pagination">{% paginate %}</div>
+
+  <table class="tablesorter compact withair timeline">
+   <thead>
+    <tr>
+      <th><span>{% anchor action_type # %}</span></th>
+      <th><span class="i16 user">{% anchor user User %}</span></th>
+      <th><span class="i16 clock">{% anchor action_time "Time" %}</span></th>
+      <th><span class="i16 text">{% trans "Description" %}</span></th>
+    </tr>
+   </thead>
+   <tbody>
+{% for entry in actionlog %}
+     <tr>
+       <td><span class="i16 {{ entry.action_type_short }}" title="{{ entry.action_type }}"></span></td>
+       <td><a href="{% url profile_public entry.user.username %}">{{ entry.user }}</td>
+       <td>{{ entry.action_time|timesince }}</td>
+       <td>{{ entry.message|safe }}</td>
+     </tr>
+{% endfor %}
+   </tbody>
+  </table>
+
+  <div class="pagination">{% paginate %}</div>
+
+{% endif %}
+</div>
+{% endwith %}

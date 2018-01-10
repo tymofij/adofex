@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+{{ block.super }} |
+{% trans "Signed out" %}
+{% endblock %}
+
+{% block content_title %}<h2>{% trans "Signed out" %}</h2>{% endblock %}
+
+{% block content_main %}
+<p class="i16 infomsg empty">{% trans "You have been signed out. Till we meet again." %}</p>
+{% endblock %}

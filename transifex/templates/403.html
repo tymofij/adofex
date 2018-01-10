@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }} | {% trans "Forbidden access" %}{% endblock %}
+
+{% block content_title %}
+  <h2 class="pagetitle">{% trans "Forbidden access" %}</h2>
+{% endblock %}
+
+{% block content_main %}
+
+<p>{% trans "Looks like you do not have the necessary permissions for the required action." %}</p>
+
+{% url transifex.home as home %}
+<p>{% blocktrans %}Here's a link to the <a href="{{ home }}">homepage</a>. You know, just in case.{% endblocktrans %}</p>
+
+{% endblock %}

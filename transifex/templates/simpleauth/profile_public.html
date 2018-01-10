@@ -1,0 +1,20 @@
+{% extends "simpleauth/base.html" %}
+{% load i18n %}
+{% load txcommontags %}
+
+{% block title %}{{ block.super }} | {% trans "Profile" %} | {{ user }} {% endblock %}
+{% block breadcrumb %}{% homelink %} &raquo; {% trans "Profile" %} &raquo; {{ user }} {% endblock %}
+
+{% block content_title %}
+<h2 class="pagetitle">{% blocktrans %}Public profile of {{ user }}{% endblocktrans %}</h2>
+{% endblock %}
+
+
+{% block content_main %}
+<div id="settings-intro">
+    <p>{% trans "Username" %}: {{ user }}</p>
+</div>
+
+
+
+{% endblock %}

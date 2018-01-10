@@ -1,0 +1,5 @@
+{% load i18n %}{% url resource_detail resource.project.slug resource.slug as resource_url %}{% url project_detail resource.project.slug as project_url %}{% with resource.name as resource_name %}{% with resource.project.name as project_name %}
+{% blocktrans %}A new resource called '{{ resource_name }}' has been added to the '{{ project_name }}' project.{% endblocktrans %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{resource_url}} in order to see this new resource.{% endblocktrans %}
+{% endwith %}{% endwith %}

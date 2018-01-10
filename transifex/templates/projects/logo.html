@@ -1,0 +1,3 @@
+{% if project.logo %}
+    <a href="{{ project.get_absolute_url }}" id="project-logo-main"><img src="{{ project.get_logo_url }}" /></a>
+{% endif %}

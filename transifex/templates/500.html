@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+{% load i18n %}
+<html lang="en">
+<head>
+  <title>Transifex | {% trans "Page unavailable" %}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link media="screen" href="{% static "css/base.css" %}" type="text/css" rel="stylesheet" />
+  <link rel="shortcut icon" href="{% static "images/favicon.ico" %}" type="image/x-icon" />
+</head>
+<body>
+<div id="wrapper">
+  <div id="header">
+    <div id="logo">
+        <img border="0" src="{% static "images/tx-logo.png" %}"/>
+    </div>
+  </div>
+  <div id="content">
+    <div id="body">
+        <div id="body_main" class="errorpage">
+        <h2 class="pagetitle">{% trans "Page unavailable" %}</h2>
+        <p>{% trans "We're sorry, but the requested page is currently unavailable." %}</p>
+        <p>{% trans "We're messing around with things internally, and the server had a bit of a hiccup." %}</p>
+        <p>{% trans "Please try again later." %}</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

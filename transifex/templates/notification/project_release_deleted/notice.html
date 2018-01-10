@@ -1,0 +1,3 @@
+{% load i18n %}{% url release_detail release.project.slug release.slug as release_url %}{% url project_detail release.project.slug as project_url %}{% with release.name as release_name %}{% with release.project.name as project_name %}
+{% blocktrans %}The resource '{{ release_name }}' has been deleted from the <a href="{{ project_url }}">{{ project_name }}</a> project{% endblocktrans %}
+{% endwith %}{% endwith %}

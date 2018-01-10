@@ -1,0 +1,5876 @@
+# Translation file for Transifex.
+# Copyright (C) 2007-2010 Indifex Ltd.
+# This file is distributed under the same license as the Transifex package.
+#
+# Translators:
+# Chandan kumar <chandankumar.093047@gmail.com>, 2012.
+# Gaurav Kumar <aavrug@gmail.com>, 2012.
+#   <gkambition@gmail.com>, 2011, 2012.
+#   <koustava.2007@gmail.com>, 2011.
+# Ratnadeep Debnath <rtnpro@gmail.com>, 2011.
+# Ratnadeep Debnath <rtnpro@indifex.com>, 2012.
+#   <sayan.chowdhury2012@gmail.com>, 2011.
+# Sayan Chowdhury <sayan.chowdhury2012@gmail.com>, 2012.
+#   <shaktimaanshuvash@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: Transifex\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-29 16:04+0000\n"
+"PO-Revision-Date: 2012-05-21 02:25+0000\n"
+"Last-Translator: Ratnadeep Debnath <rtnpro@indifex.com>\n"
+"Language-Team: Hindi (http://www.transifex.net/projects/p/transifex/language/"
+"hi/)\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: actionlog/filters.py:12
+msgid "Search for a username or leave it blank"
+msgstr "उपयोगकर्ता का खोजें या खाली छोड़ दें"
+
+#: actionlog/models.py:162 actionlog/templates/object_action_list.html:7
+#: addons/copyright/models.py:80 addons/suggestions/models.py:45
+#: addons/suggestions/models.py:111 projects/models.py:376 teams/models.py:132
+#: teams/models.py:168 txpermissions/forms.py:18
+msgid "User"
+msgstr "युजर"
+
+#: actionlog/models.py:171
+msgid "Action type"
+msgstr "कार्य के प्रकार"
+
+#: actionlog/models.py:172
+msgid "Action time"
+msgstr "कार्य का समय"
+
+#: actionlog/models.py:180
+msgid "log entry"
+msgstr "लॉग प्रविष्टि"
+
+#: actionlog/models.py:181
+msgid "log entries"
+msgstr "लॉग प्रविष्टियों"
+
+#: actionlog/templates/object_action_list.html:6
+msgid "Date/Time"
+msgstr "दिनांक / समय"
+
+#: actionlog/templates/object_action_list.html:8
+msgid "Action"
+msgstr "कार्य"
+
+#: actionlog/templates/object_action_list.html:14
+#: projects/templates/feeds/timeline_description.html:1
+msgid "DATETIME_FORMAT"
+msgstr "DATETIME_FORMAT"
+
+#: actionlog/templates/object_action_list.html:22
+msgid "No changes."
+msgstr "कोई परिवर्तन नहीं."
+
+#: addons/autofetch/models.py:17
+msgid "Source file URL"
+msgstr "source फ़ाईल URL"
+
+#: addons/autofetch/models.py:19
+msgid ""
+"A URL pointing to the source file of this resource to be used for automatic "
+"updates."
+msgstr ""
+"इस संसाधन के स्रोत फ़ाइल की ओर इशारा करते URL स्वत: अद्यतनों के लिए इस्तेमाल किया जाएगा|"
+
+#: addons/autofetch/models.py:21
+msgid "Automatically update source file"
+msgstr "स्वचालित रूप से स्रोत फ़ाइल का अद्यतन"
+
+#: addons/autofetch/models.py:22
+msgid ""
+"A boolean field indicating whether the file should be automatically updated "
+"by pulling and merging from the given URL."
+msgstr ""
+"एक बूलीयन का संकेत है कि फ़ाइल स्वचालित रूप से खींच और दिए गए URL से विलय के द्वारा "
+"अद्यतन किया जाना चाहिए क्षेत्र|"
+
+#: addons/autofetch/models.py:27 addons/copyright/models.py:89
+#: resources/models.py:397 resources/models.py:686 resources/models.py:928
+#: resources/models.py:1041 templates/resources/resource_actions.html:71
+msgid "Resource"
+msgstr "संसाधन"
+
+#: addons/autofetch/models.py:29
+msgid "The translation resource."
+msgstr "अनुवाद संसाधन|"
+
+#: addons/autofetch/models.py:32
+msgid "url handler"
+msgstr "url हैंडलर"
+
+#: addons/autofetch/views.py:25
+msgid "URL not set for this resource."
+msgstr "इस संसाधन के लिए URL सेट नहीं है|"
+
+#: addons/autofetch/views.py:30
+msgid "Error updating source file."
+msgstr "स्रोत फ़ाइल के अद्यतन करने में त्रुटि|"
+
+#: addons/autofetch/views.py:35
+msgid "Source file updated successfully."
+msgstr "स्रोत फ़ाइल सफलतापूर्वक अपडेट किया गया|"
+
+#: addons/charts/templates/charts/widget_snippet.html:64
+msgid "Image charts"
+msgstr "छवि के चार्ट्स"
+
+#: addons/charts/templates/charts/widget_snippet.html:70
+#: addons/charts/templates/charts/widget_snippet.html:101
+msgid "Loading..."
+msgstr "लोड हो रहा है ..."
+
+#: addons/charts/templates/charts/widget_snippet.html:73
+msgid ""
+"Display your project's translation statistics on your own website as a "
+"simple image. Perfect for embedding in wiki pages, Trac instances, and email."
+msgstr ""
+"एक सरल छवि के रूप में अपनी स्वयं की वेबसाइट पर अपनी परियोजना के अनुवाद आँकड़े प्रदर्शित "
+"करता है. wiki page, Trac उदाहरणों, और ईमेल में एम्बेड करने के लिए बिल्कुल सही।"
+
+#: addons/charts/templates/charts/widget_snippet.html:74
+msgid "The chart will always report live Transifex numbers."
+msgstr "चार्ट हमेशा रहते Transifex संख्या को रिपोर्ट करेंगे|"
+
+#: addons/charts/templates/charts/widget_snippet.html:75
+#: addons/charts/templates/charts/widget_snippet.html:109
+msgid "Show code snippet for resource:"
+msgstr "संसाधन के लिए कोड स्निपेट दिखाएँ:"
+
+#: addons/charts/templates/charts/widget_snippet.html:77
+#: addons/charts/templates/charts/widget_snippet.html:111
+#: addons/widgets/templates/project_widgets.html:55 projects/models.py:185
+msgid "Hidden"
+msgstr "हिडन"
+
+#: addons/charts/templates/charts/widget_snippet.html:93
+msgid "Interactive charts"
+msgstr "इंटरैक्टिव चार्ट"
+
+#: addons/charts/templates/charts/widget_snippet.html:105
+msgid ""
+"Display your project's translation statistics on your own website as an "
+"interactive chart. This requires modifications to your homepage's HTML code."
+msgstr ""
+"एक इंटरैक्टिव चार्ट के रूप में अपनी स्वयं की वेबसाइट पर अपनी परियोजना के अनुवाद आँकड़े "
+"प्रदर्शित करता है. यह आपके होमपेज के HTML कोड के लिए संशोधन की आवश्यकता है|"
+
+#: addons/charts/templates/charts/widget_snippet.html:107
+msgid ""
+"You can adjust level of detail, dimensions and colors of the chart by "
+"tweaking the code below."
+msgstr ""
+"आप विस्तार, आयाम, और नीचे दिए गए कोड tweaking द्वारा चार्ट के रंग के स्तर को "
+"समायोजित कर सकते हैं|"
+
+#: addons/charts/templates/charts/widget_snippet.html:128
+msgid "Interactive and Image charts"
+msgstr "इंटरएक्टिव और छवि के चार्ट"
+
+#: addons/charts/templates/charts/widget_snippet.html:129
+msgid ""
+"Sorry, but your project doesn't have any resources with up-to-date "
+"statistics. You need to have at least one resource with statistics to export "
+"charts from Transifex."
+msgstr ""
+"क्षमा करें, लेकिन अपनी परियोजना के अप करने की तारीख के आँकड़े के साथ किसी भी संसाधन नहीं "
+"है. आप आँकड़ों के साथ कम से कम एक संसाधन है Transifex से चार्ट निर्यात करने की आवश्यकता है|"
+
+#: addons/cla/handlers.py:35
+msgid "You have updated this project's CLA."
+msgstr "आपने इस परियोजना का CLA अद्यतन किया है।"
+
+#: addons/cla/handlers.py:40
+msgid "You have added a CLA to this project."
+msgstr "आपने इस परियोजना के लिए एक CLA जोड़ दिया है।"
+
+#: addons/cla/handlers.py:46
+msgid "You have deleted this project's CLA."
+msgstr "आपने इस परियोजना का CLA नष्ट कर दिया।"
+
+#: addons/cla/handlers.py:55
+msgid "Enforce a CLA for this project"
+msgstr "इस परियोजना के लिए एक CLA लागू करे"
+
+#: addons/cla/handlers.py:59
+msgid "License text"
+msgstr "लायसेंस पाठ"
+
+#: addons/cla/models.py:12
+msgid "This is the CLA text, keep it in markdown format."
+msgstr "यह CLA टेक्स्ट है, इसे markdown स्वरूप में रखे।"
+
+#: addons/cla/models.py:16
+msgid "The project that this CLA belongs to."
+msgstr "वह परियोजना जिसके अंतर्गत यह CLA आता है।"
+
+#: addons/cla/views.py:51
+msgid "You have signed the CLA."
+msgstr "आपने यह सीएलए पर हस्ताक्षर कर दिया हैं।"
+
+#: addons/cla/templates/project_cla.html:7
+msgid "CLA"
+msgstr "CLA"
+
+#: addons/cla/templates/project_cla.html:41
+#: addons/cla/templates/user_list.html:3
+#, python-format
+msgid "%(project_name)s CLA"
+msgstr "%(project_name)s CLA"
+
+#: addons/cla/templates/project_cla.html:46
+#, python-format
+msgid ""
+"You have signed the current <a id=\"cla_facebox\" href=\"%(cla_url)s"
+"\">contributor license agreement</a>."
+msgstr ""
+"आपने वर्तमान में <a id=\"cla_facebox\" href=\"%(cla_url)s\">योगदानकर्ता लाइसेंस "
+"समझौते पर हस्ताक्षर किया है।"
+
+#: addons/cla/templates/project_cla.html:56
+#: addons/cla/templates/cla/team_request_join_additional.html:5
+#, python-format
+msgid ""
+"I have read and agree with this project's <a id=\"cla_facebox\" href="
+"\"%(cla_url)s\">contributor license agreement</a>."
+msgstr ""
+"मैंने इस परियोजना के <a id=\"cla_facebox\" href=\"%(cla_url)s\">योगदानकर्ता लाइसेंस "
+"समझौते को पढ़ा और मैं इससे सहमत हूँ।"
+
+#: addons/cla/templates/project_cla.html:68
+msgid "Sign it"
+msgstr "इसे साइन करें"
+
+#: addons/cla/templates/user_list.html:5
+msgid "Users that have signed the CLA:"
+msgstr "उपयोगकर्ता जो की CLA पर हस्ताक्षर किए हैं:"
+
+#: addons/cla/templates/user_list.html:15
+msgid "No user has signed the CLA yet."
+msgstr "कोई उपयोगकर्ता अभी तक CLA पर हस्ताक्षर नही किए हैं।"
+
+#: addons/cla/templates/user_list.html:20
+msgid "Users that have NOT signed the current CLA:"
+msgstr "उपयोगकर्ता जो की वर्तमान CLA पर हस्ताक्षर नहीं किए हैं:"
+
+#: addons/cla/templates/user_list.html:30
+msgid "No users without signing the CLA."
+msgstr "कोई उपयोगकर्ता CLA हस्ताक्षर करने के बिना।"
+
+#: addons/cla/templates/cla/access_control_additional.html:18
+msgid "Show full CLA text"
+msgstr "पूर्ण CLA पाठ दिखाएँ"
+
+#: addons/cla/templates/cla/access_control_additional.html:19
+msgid "Show a list of users who have signed the CLA"
+msgstr "उपयोगकर्ताओं को दिखाएँ जो सीएलए पर हस्ताक्षर किए हैं "
+
+#: addons/cla/templates/cla/access_control_additional.html:19
+msgid "Show CLA signees"
+msgstr "CLA को साइन करने वालों को दिखाएँ"
+
+#: addons/cla/templates/cla/access_control_additional.html:34
+#, python-format
+msgid ""
+"<strong>Warning</strong>: Modifying or deleting the CLA will clear the "
+"signee list and will require you to inform translators to manually <a href="
+"\"%(cla_sign)s\">sign the new CLA</a>."
+msgstr ""
+"<strong>Warning</strong>: संशोधित करने या हटाने से सीएलए सिग्नी की सूची साफ हो "
+"जाएगा और आपको अनुवादकों को मैन्युअल रूप से सूचित करने की आवश्यकता होगी  <a href="
+"\"%(cla_sign)s\">नया सीएलए साइन इन करें</a>."
+
+#: addons/copyright/models.py:73 projects/models.py:207
+msgid "Owner"
+msgstr "स्वामी"
+
+#: addons/copyright/models.py:74
+msgid "The copyright owner in text form."
+msgstr "कॉपीराइट के स्वामी पाठ के रूप में।"
+
+#: addons/copyright/models.py:81
+msgid "The Transifex user who owns the copyright, if applicable."
+msgstr "Transifex उपयोगकर्ता जो कॉपीराइट का मालिक है, यदि लागू हो।"
+
+#: addons/copyright/models.py:84 resources/forms.py:54 resources/forms.py:64
+#: resources/models.py:931 teams/models.py:45 teams/models.py:128
+msgid "Language"
+msgstr "भाषा"
+
+#: addons/copyright/models.py:85 addons/watches/models.py:30
+msgid "Language of the translation."
+msgstr "अनुवाद की भाषा|"
+
+#: addons/copyright/models.py:90
+msgid "The resource this copyright is on."
+msgstr "संसाधन इस कॉपीराइट  पर है।"
+
+#: addons/copyright/models.py:93
+msgid "Copyright years"
+msgstr "कॉपीराइट सालें"
+
+#: addons/copyright/models.py:95
+msgid "The years the copyright is active in."
+msgstr "सालें जिनमे कॉपीराइट सक्रिय है।"
+
+#: addons/copyright/models.py:97
+#: addons/lotte/templates/tab_details_snippet.html:79
+msgid "Comment"
+msgstr "टिप्पणी"
+
+#: addons/copyright/models.py:99
+msgid "A comment for this copyright."
+msgstr "यह कॉपीराइट के लिए एक टिप्पणी।"
+
+#: addons/copyright/models.py:108
+msgid "Imported by"
+msgstr "जिनके द्वारा आयात किए गए"
+
+#: addons/copyright/models.py:109
+msgid "How this copyright notice was created."
+msgstr "यह कॉपीराइट नोटिस कैसे बनाया गया था।"
+
+#: addons/copyright/models.py:116
+msgid "Copyright Years Text"
+msgstr "कॉपीराइट सालों का पाठ"
+
+#: addons/copyright/models.py:118
+msgid "Textual representation of the copyright years."
+msgstr "कॉपीराइट सालों का मूलपाठ में प्रतिनिधित्व।"
+
+#: addons/gtranslate/handlers.py:40
+msgid "Auto Translate Service"
+msgstr "स्वत: अनुवाद सेवा"
+
+#: addons/gtranslate/handlers.py:42
+msgid ""
+"Select the type of service you want to use for the auto-translate service. "
+"Leave it blank, if you do not want to have the feature enabled. You will "
+"have to insert your API key for the service, too."
+msgstr ""
+"सेवा के प्रकार जो आप स्वत:-अनुवाद सेवा के लिए उपयोग करना चाहते हैं का चयन करें.इसे खाली "
+"छोड़ दें, यदि आप सुविधा को सक्षम नहीं करना चाहते हैं.आप सेवा के लिए अपने एपीआई कुंजी "
+"सम्मिलित करते हैं."
+
+#: addons/gtranslate/handlers.py:49
+msgid "Auto Translate API Key"
+msgstr "स्वत: अनुवादित एपीआई कुंजी"
+
+#: addons/gtranslate/handlers.py:51
+msgid ""
+"Enter the API key that Transifex will use for the auto-translate service you "
+"have chosen."
+msgstr ""
+"वह API कुंजी दर्ज करें जो Transifex आपके द्वारा चुने हुए स्वत: अनुवाद सेवा के लिए इस्तेमाल "
+"करेगा।"
+
+#: addons/gtranslate/handlers.py:61
+msgid "You have to select an API key, too."
+msgstr "आपको एक API कुंजी का भी चयन करना होगा।"
+
+#: addons/gtranslate/handlers.py:64
+msgid "You have to select a service for the auto-translate feature, too."
+msgstr "आपको स्वतः अनुवाद सुविधा के लिए एक सेवा का भी चयन करना होगा।"
+
+#: addons/gtranslate/models.py:30
+msgid "API key"
+msgstr "API कुंजी"
+
+#: addons/gtranslate/models.py:31
+msgid "The API key for the auto-translate service."
+msgstr "स्वत: अनुवाद-सेवा के लिए API कुंजी।"
+
+#: addons/gtranslate/models.py:35
+msgid "Service"
+msgstr "सेवा"
+
+#: addons/gtranslate/models.py:37
+msgid "The service you want to use for auto-translation."
+msgstr "स्वत: अनुवाद के लिए जो सेवा आप उपयोग करना चाहते हैं।"
+
+#: addons/gtranslate/models.py:42 addons/webhooks/models.py:20
+#: projects/models.py:372 releases/models.py:66 resources/models.py:181
+#: teams/models.py:42 teams/models.py:125
+msgid "Project"
+msgstr "परियोजना"
+
+#: addons/gtranslate/models.py:43
+msgid "The project this setting applies to."
+msgstr "वह परियोजना जिसके लिए यह सेटिंग लागू होती है।"
+
+#: addons/helptext/templates/extended_helptext.html:9
+msgid "...more"
+msgstr "अधिक ..."
+
+#: addons/locks/handlers.py:59
+msgid "This translation is locked by someone else."
+msgstr "यह अनुवाद किसी और के द्वारा अवरोधित किया गया है।"
+
+#: addons/locks/models.py:67
+#, python-format
+msgid ""
+"User '%(user)s' has no permission to submit translations for '%(resource)s' "
+"to '%(language)s'."
+msgstr ""
+"उपयोगकर्ता %(user)s' '' %(resource)s' ''%(language)s' एस 'के लिए अनुवाद प्रस्तुत "
+"की अनुमति नहीं है."
+
+#: addons/locks/models.py:79
+#, python-format
+msgid "User '%(user)s' already has maximum allowed %(locks)i locks."
+msgstr "युजर के पास '%(user)s' पहले से ही अधिकतम %(locks)i लॉकें हैं|"
+
+#: addons/locks/models.py:93
+#, python-format
+msgid "This resource language is already locked by '%s'"
+msgstr "इस संसाधन भाषा पहले से ही '%s' द्वारा बंद है"
+
+#: addons/locks/models.py:172
+#, python-format
+msgid "User '%(user)s' is not allowed to remove lock '%(lock)s'"
+msgstr "उपयोगकर्ता%(user)s', 'ताला हटायें की अनुमति नहीं है '%(lock)s'"
+
+#: addons/locks/notifications.py:15
+msgid "Lock expiration"
+msgstr "बंद समाप्ति"
+
+#: addons/locks/notifications.py:16
+msgid "when a lock for a translation resource will expire"
+msgstr "जब अनुवाद संसाधन के लिए ताला समाप्त हो जाएगा"
+
+#: addons/locks/views.py:45
+msgid "Lock created."
+msgstr "लॉक बनाया गया|"
+
+#: addons/locks/views.py:52 addons/locks/views.py:89
+msgid "Sorry, but you need to send a POST request."
+msgstr "क्षमा करें, लेकिन आप एक पोस्ट अनुरोध भेजने की जरूरत है|"
+
+#: addons/locks/views.py:80
+msgid "Lock removed."
+msgstr "लॉक हटाया।"
+
+#: addons/locks/views.py:82
+msgid "You don't have permission to unlock this file."
+msgstr "आपको इस फ़ाइल को अनलॉक करने की अनुमति नहीं है|"
+
+#: addons/locks/views.py:86
+msgid "Unlock failed. Lock doesn't exist."
+msgstr "अनलॉक में विफल रहा| बंद मौजूद नहीं है|"
+
+#: addons/locks/templates/lock_resource_action.html:17
+msgid "You locked this translation."
+msgstr "आप इस अनुवाद बंद कर दिया|"
+
+#: addons/locks/templates/lock_resource_action.html:19
+#, python-format
+msgid "User '%(owner)s' locked this translation."
+msgstr "उपयोगकर्ता %(owner)s' इस अनुवाद को बंद किया है|"
+
+#: addons/locks/templates/lock_resource_action.html:21
+#, python-format
+msgid "(%(lock_expires)s left)"
+msgstr "(%(lock_expires)s छोड़ दिया)"
+
+#: addons/locks/templates/lock_resource_action.html:23
+msgid "unlock"
+msgstr "अनलॉक"
+
+#: addons/locks/templates/lock_resource_action.html:28
+msgid "Click to renew your lock for a fresh period of time."
+msgstr " समय की एक ताजा अवधि के लिए अपना ताला नवीनीकृत करने के लिए क्लिक करें|"
+
+#: addons/locks/templates/lock_resource_action.html:29
+#: addons/locks/templates/pofile_lock.html:31
+#, python-format
+msgid "Extend lock by %(hours)s hour."
+msgid_plural "Extend lock by %(hours)s hours."
+msgstr[0] "%(hours)s द्वारा ताला  घंटे बढ़ाएँ|"
+msgstr[1] "%(hours)s द्वारा ताला  घंटे बढ़ाएँ|"
+
+#: addons/locks/templates/lock_resource_action.html:38
+msgid "Lock this translation to notify others you're working with it."
+msgstr "इस अनुवाद को लॉक कारे  ताकि दूसरों को आप   काम कर रहे हैं सूचितहो जाई|"
+
+#: addons/locks/templates/lock_resource_action.html:42
+msgid ""
+"This translation isn't locked. Most likely no one is working on it right now."
+msgstr "यह अनुवाद नहीं बंद है| सबसे अधिक संभावना है कोई भी इस पर अभी काम कर रहा है|"
+
+#: addons/locks/templates/lock_resource_action.html:56
+msgid "Creating lock..."
+msgstr "ताला बनाना ..."
+
+#: addons/locks/templates/lock_resource_action.html:78
+msgid "Removing lock..."
+msgstr "अनुवादक आपको स्थानीकरण प्रक्रिया में तेजी लाने में मदद कर सकते हैं."
+
+#: addons/locks/templates/lock_resource_action.html:101
+msgid "Extending lock..."
+msgstr "ताला विस्तार हो रहा है ..."
+
+#: addons/locks/templates/pofile_lock.html:19
+#, python-format
+msgid "User '%(owner)s' locked this file."
+msgstr "उपयोगकर्ता %(owner)s' इस फाइल को बंद कार दिया है|"
+
+#: addons/locks/templates/pofile_lock.html:21
+msgid "Click file to unlock."
+msgstr "अनलॉक करने के लिए फ़ाइल क्लिक करें|"
+
+#: addons/locks/templates/pofile_lock.html:23
+msgid "Time left:"
+msgstr "समय बचा हुआ है:"
+
+#: addons/locks/templates/pofile_lock.html:41
+msgid ""
+"Lock and download this file to notify others that you're working with it."
+msgstr ""
+"इस फाइल को डाउनलोड करे और ताला बाँध कर दे ताकि  दूसरों को   सूचित है कि आप इसके साथ "
+"काम कर रहे हैं|"
+
+#: addons/locks/templates/pofile_lock.html:46
+msgid "This file isn't locked. Most likely no one is working on it right now."
+msgstr "यह फ़ाइल बंद नहीं है| सबसे अधिक संभावना है कोई भी इस पर अभी काम कर रहा है|"
+
+#: addons/locks/templates/notification/project_resource_language_lock_expiring/notice.html:3
+#, python-format
+msgid ""
+"\n"
+"A lock for <a href=\"http://%(current_site)s%(resource_url)s\">%(resource)s "
+"in %(language)s</a> is about to expire on %(expires)s\n"
+msgstr ""
+"\n"
+"A lock for <a href=\"http://%(current_site)s%(resource_url)s\">%(resource)s "
+"in %(language)s</a> is about to expire on %(expires)s\n"
+
+#: addons/lotte/views.py:86
+msgid ""
+"There are multiple source languages for this project. You will only be able "
+"to translate resources for one source language at a time."
+msgstr ""
+"इस परियोजना के लिए अनेक स्रोत भाषाएँ हैं.आप केवल एक समय में एक स्रोत भाषा के लिए संसाधनों "
+"का अनुवाद करने में सक्षम होगे."
+
+#: addons/lotte/views.py:107
+msgid ""
+"Cannot edit the source language because this would result in translation "
+"mismatches! If you want to update the source strings consider using the "
+"transifex command-line client."
+msgstr ""
+"स्रोत भाषा को संपादित नहीं कर सकते हैं क्योंकि इस के परिणामस्वरूप से अनुवाद में असंतुलन होगा!"
+"यदि आप स्रोत स्ट्रिंग्स को अद्यतन करना चाहते हैं तो Transifex क्लाइंट निर्देश-पंक्ति का "
+"उपयोग पर विचार करें."
+
+#: addons/lotte/views.py:424
+msgid "Save the specific change"
+msgstr "विशिष्ट परिवर्तन सहेजें"
+
+#: addons/lotte/views.py:425
+msgid "Check spelling"
+msgstr "वर्तनी की जाँच करें"
+
+#: addons/lotte/views.py:426
+msgid "Undo to initial text"
+msgstr "प्रारंभिक पाठ करने के लिए पूर्ववत् करें"
+
+#: addons/lotte/views.py:440 addons/lotte/views.py:442
+msgid "Reviewed string"
+msgstr "समीक्षित स्ट्रिंग"
+
+#: addons/lotte/views.py:796
+msgid "Source string cannot be identified in the DB"
+msgstr "स्रोत स्ट्रिंग DB में पहचान नहीं कर सकते हैं"
+
+#: addons/lotte/views.py:803
+msgid "The resource of this source string is not accepting translations."
+msgstr "इस सौरसे स्ट्रिंग के संसाधन नहीं अनुवादों को स्वीकार है|"
+
+#: addons/lotte/views.py:826
+msgid ""
+"Cannot save unless plural translations are either completely specified or "
+"entirely empty!"
+msgstr ""
+"जब तक बहुवचन अनुवाद पूरी तरह से निर्दिष्ट या पूरी तरह से खाली नहीं हैं तब तक उन्हें सहेज "
+"नहीं सकते!"
+
+#: addons/lotte/views.py:923
+msgid "You are not allowed to edit a reviewed string."
+msgstr "आपको एक समीक्षित स्ट्रिंग को संपादित करने की अनुमति नहीं है।"
+
+#: addons/lotte/views.py:954
+msgid "The translation string is empty"
+msgstr "अनुवाद स्ट्रिंग खाली है"
+
+#: addons/lotte/views.py:962
+#, python-format
+msgid "Error occurred while trying to save translation: %s"
+msgstr "अनुवाद सहेजने की प्रयास करते समय त्रुटि उत्पन्न हुई: %s"
+
+#: addons/lotte/views.py:1122
+msgid "Permission error."
+msgstr "अनुमति त्रुटि।"
+
+#: addons/lotte/views.py:1124 projects/views/hub.py:185
+msgid "Bad request."
+msgstr "दोषपूर्ण अनुरोध।"
+
+#: addons/lotte/views.py:1142
+msgid "No such Source Entity for the given project."
+msgstr "दिए गए प्रोजेक्ट के लिए कोई ऐसी स्रोत इकाई नहीं।"
+
+#: addons/lotte/views.py:1149
+msgid "Ops! Something weird happened. The admins were notified about it."
+msgstr "Ops! कुछ अजीब हुआ। व्यवस्थापकों को इसके बारे में अधिसूचित किया गया।"
+
+#: addons/lotte/templates/filters_menu_resources.html:16
+#: addons/lotte/templates/filters_menu_users.html:16
+msgid "No active contributor!"
+msgstr "कोई सक्रिय कोन्त्रिबुटर नहीं!"
+
+#: addons/lotte/templates/more_languages.html:20
+msgid "No active languages!"
+msgstr "कोई सक्रिय भाषाओं  नहीं !"
+
+#: addons/lotte/templates/tab_details_snippet.html:31
+msgid "Reverted to original comment from file."
+msgstr " फ़ाइल से मूल टिप्पणी पर वापस सौंप दिया।"
+
+#: addons/lotte/templates/tab_details_snippet.html:46
+msgid "Cancel"
+msgstr "रद्द करें"
+
+#: addons/lotte/templates/tab_details_snippet.html:47
+msgid "OK"
+msgstr "ठीक है"
+
+#: addons/lotte/templates/tab_details_snippet.html:48
+msgid "Click to edit..."
+msgstr "संपादित करने के लिए क्लिक करें..."
+
+#: addons/lotte/templates/tab_details_snippet.html:49
+msgid "Click here to add a comment"
+msgstr "एक टिप्पणी जोड़ने के लिए यहाँ क्लिक करें"
+
+#: addons/lotte/templates/tab_details_snippet.html:61
+msgid "Last translation:"
+msgstr "पिछला अनुवाद:"
+
+#: addons/lotte/templates/tab_details_snippet.html:65
+#: templates/resources/resource_actions.html:299
+msgid "by"
+msgstr "द्वारा"
+
+#: addons/lotte/templates/tab_details_snippet.html:65
+#, python-format
+msgid "%(user)s"
+msgstr "%(user)s"
+
+#: addons/lotte/templates/tab_details_snippet.html:75
+#: addons/lotte/templates/translate.html:262
+msgid "Key"
+msgstr "कुंजी"
+
+#: addons/lotte/templates/tab_details_snippet.html:75
+msgid "String ID:"
+msgstr "स्ट्रिंग आईडी:"
+
+#: addons/lotte/templates/tab_details_snippet.html:76
+#: addons/timeline/templates/timeline/timeline_base.html:46
+#: addons/txapps/models.py:49 languages/models.py:61
+#: languages/migrations/0001_initial.py:14
+#: languages/migrations/0002_added_rules_f.py:82 projects/models.py:167
+#: releases/models.py:36 templates/timeline.html:39
+#: templates/helptext/project_form_helptext.html:26
+#: templates/notification/notices.html:42
+msgid "Description"
+msgstr "विवरण"
+
+#: addons/lotte/templates/tab_details_snippet.html:76
+msgid "Description:"
+msgstr "विवरण:"
+
+#: addons/lotte/templates/tab_details_snippet.html:80
+msgid "Comment: "
+msgstr "टिप्पणी: "
+
+#: addons/lotte/templates/tab_details_snippet.html:85 resources/models.py:365
+msgid "Occurrences"
+msgstr "संयोग"
+
+#: addons/lotte/templates/tab_details_snippet.html:85
+msgid "Occurrences:"
+msgstr "संयोग:"
+
+#: addons/lotte/templates/translate.html:11
+#: addons/lotte/templates/view_strings.html:9 addons/txapps/models.py:64
+#: templates/base-sample.html:89 templates/projects/base.html:6
+#: templates/projects/project_list.html:15
+#: templates/resources/resource_detail.html:66
+msgid "Projects"
+msgstr "परियोजनाओं"
+
+#: addons/lotte/templates/translate.html:14
+#: addons/lotte/templates/view_strings.html:12
+#, python-format
+msgid "Translate to %(lang)s"
+msgstr "%(lang)s अनुवाद करने के लिए"
+
+#: addons/lotte/templates/translate.html:141
+msgid ""
+"There is at least one entry with error that was not saved. Do you want to "
+"continue anyway?"
+msgstr ""
+"वहाँ जो सहेजा नहीं गया था त्रुटि के साथ कम से कम एक प्रविष्टि है। क्या आप फिर भी आगे "
+"बढ़ना चाहते हैं?"
+
+#: addons/lotte/templates/translate.html:169
+#: addons/lotte/templates/view_strings.html:42
+msgid "Processing..."
+msgstr "प्रसंस्करण ..."
+
+#: addons/lotte/templates/translate.html:170
+#: addons/lotte/templates/view_strings.html:43
+msgid "Show _MENU_ entries"
+msgstr "दिखाएँ _MENU_ प्रविष्टियों"
+
+#: addons/lotte/templates/translate.html:171
+#: addons/lotte/templates/view_strings.html:44
+msgid "No matching records found"
+msgstr "कोई मिलान रिकॉर्ड पाया"
+
+#: addons/lotte/templates/translate.html:172
+#: addons/lotte/templates/view_strings.html:45
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr "_START_ दिखा रहा है _TOTAL_ प्रविष्टियों की _END_"
+
+#: addons/lotte/templates/translate.html:173
+#: addons/lotte/templates/view_strings.html:46
+msgid "Nothing to show"
+msgstr " दिखाने के लिए कुछ नहीं"
+
+#: addons/lotte/templates/translate.html:175
+#: addons/lotte/templates/view_strings.html:47
+msgid "(filtered from _MAX_ total entries)"
+msgstr "(_MAX_ कुल प्रविष्टियों से फ़िल्टर्ड)"
+
+#: addons/lotte/templates/translate.html:177 txcommon/feeds.py:42
+msgid " "
+msgstr " "
+
+#: addons/lotte/templates/translate.html:180
+#: addons/lotte/templates/view_strings.html:52
+msgid "First"
+msgstr "पहले"
+
+#: addons/lotte/templates/translate.html:181
+#: addons/lotte/templates/view_strings.html:53
+msgid "Previous"
+msgstr "पिछला"
+
+#: addons/lotte/templates/translate.html:182
+#: addons/lotte/templates/view_strings.html:54
+msgid "Next"
+msgstr "अगला"
+
+#: addons/lotte/templates/translate.html:183
+#: addons/lotte/templates/view_strings.html:55
+msgid "Last"
+msgstr "अंतिम"
+
+#: addons/lotte/templates/translate.html:267
+msgid "details"
+msgstr "विवरण"
+
+#: addons/lotte/templates/translate.html:270 addons/suggestions/models.py:54
+msgid "suggestions"
+msgstr "सुझाव"
+
+#: addons/lotte/templates/translate.html:326
+msgid "auto translate"
+msgstr "ऑटो अनुवाद"
+
+#: addons/lotte/templates/translate.html:328
+msgid "copy source"
+msgstr "प्रतिलिपि सौरसे"
+
+#: addons/lotte/templates/translate.html:350
+#: addons/lotte/templates/view_strings.html:124
+msgid "Loading strings..."
+msgstr "लोड हो रहा है तार ..."
+
+#: addons/lotte/templates/translate.html:620
+msgid "Translation text will be saved automatically."
+msgstr "अनुवाद पाठ स्वचालित रूप से सहेजा जाएगा|"
+
+#: addons/lotte/templates/translate.html:624
+msgid "Translation text will no longer be saved automatically."
+msgstr "अनुवाद पाठ अब स्वतः सहेज लिया नहीं जाएगा|"
+
+#: addons/lotte/templates/translate.html:642
+msgid "There are no translations (to delete) on this page!"
+msgstr "इस पृष्ठ पर कोई अनुवाद (नष्ट करने के लिए) नहीं हैं!"
+
+#: addons/lotte/templates/translate.html:643
+msgid ""
+"This will delete all translations on this page. Are you sure you want to "
+"proceed?"
+msgstr "यह इस पन्ने पर सभी अनुवादों को हटा देगा। क्या वाकई आप आगे बढ़ना चाहते हैं?"
+
+#: addons/lotte/templates/translate.html:845
+msgid "Shortcuts"
+msgstr "शॉर्टकट्स"
+
+#: addons/lotte/templates/translate.html:851
+msgid "Keyboard shortcuts"
+msgstr "कुंजीपटल शॉर्टकट्स"
+
+#: addons/lotte/templates/translate.html:852
+msgid "Moves to the next translations page."
+msgstr "यह अगले अनुवाद पृष्ठ में ले जाता है।"
+
+#: addons/lotte/templates/translate.html:853
+msgid "Moves to the previous translations page."
+msgstr "पिछले अनुवाद पृष्ठ में ले जाता है।"
+
+#: addons/lotte/templates/translate.html:854
+msgid "Moves focus one row upwards."
+msgstr "फोकस एक पंक्ति ऊपर केंद्रित करती है। "
+
+#: addons/lotte/templates/translate.html:855
+msgid "Moves focus one row downwards."
+msgstr "फोकस एक पंक्ति नीचे केंद्रित करती है।"
+
+#: addons/lotte/templates/translate.html:856
+msgid ""
+"Fill in the translation textarea with the content of the source string. "
+"(Copy the source string as it is, to the translation area.)"
+msgstr ""
+"अनुवाद टेक्स्ट क्षेत्र को स्रोत स्ट्रिंग के सामग्री के साथ भरें। (स्रोत स्ट्रिंग को अनुवाद क्षेत्र में "
+"कॉपी करे।)"
+
+#: addons/lotte/templates/translate.html:870
+msgid "Show translations in<br /> the selected languages"
+msgstr "में अनुवाद दिखाएँ <br /> चयनित भाषाओं"
+
+#: addons/lotte/templates/translate.html:873
+msgid "More languages"
+msgstr "अधिक भाषाएं"
+
+#: addons/lotte/templates/translate.html:878
+msgid "Show only the translations<br /> by the selected users"
+msgstr "दिखाएँ केवल अनुवाद <br /> चयनित उपयोगकर्ताओं द्वारा"
+
+#: addons/lotte/templates/translate.html:881
+msgid "Filter by users"
+msgstr "उपयोगकर्ताओं द्वारा फ़िल्टर"
+
+#: addons/lotte/templates/translate.html:887
+msgid "Show only the strings from<br /> the selected resources."
+msgstr "से केवल तार दिखाएँ <br /> चयनित संसाधनों|"
+
+#: addons/lotte/templates/translate.html:890
+msgid "Filter by resources"
+msgstr "संसाधनों के द्वारा फ़िल्टर"
+
+#: addons/lotte/templates/translate.html:903
+#: addons/lotte/templates/view_strings.html:186
+msgid "Translated"
+msgstr "अनूदित"
+
+#: addons/lotte/templates/translate.html:912
+#: addons/lotte/templates/view_strings.html:194
+msgid "Remaining"
+msgstr "शेष"
+
+#: addons/lotte/templates/translate.html:921
+#: addons/lotte/templates/view_strings.html:202 resources/models.py:669
+msgid "Reviewed"
+msgstr "समीक्षित"
+
+#: addons/lotte/templates/translate.html:930
+#: addons/lotte/templates/view_strings.html:211
+msgid "Total"
+msgstr "कुल"
+
+#: addons/lotte/templates/translate.html:943
+#: addons/lotte/templates/view_strings.html:224
+msgid "Source string"
+msgstr "स्रोत स्ट्रिंग"
+
+#: addons/lotte/templates/translate.html:944
+#: addons/lotte/templates/view_strings.html:225
+msgid "Translation"
+msgstr "अनुवाद"
+
+#: addons/lotte/templates/translate.html:949
+msgid "Mark all strings as reviewed."
+msgstr "सभी स्ट्रिंग्स को समीक्षा के रूप में चिह्नित करें।"
+
+#: addons/lotte/templates/translate.html:957
+msgid "Save all"
+msgstr "सब को बचाने के"
+
+#: addons/lotte/templates/translate.html:960
+#: templates/resources/resource_actions.html:276
+msgid "Delete translations"
+msgstr "अनुवाद हटाएँ"
+
+#: addons/lotte/templates/translate.html:962
+msgid "Save and Exit"
+msgstr "सहेजें और बाहर निकलें"
+
+#: addons/lotte/templates/translate.html:968
+msgid "General settings"
+msgstr "सामान्य सेटिंग्स"
+
+#: addons/lotte/templates/translate.html:973
+msgid "Verbose editing"
+msgstr "वर्बोज़ संपादन"
+
+#: addons/lotte/templates/translate.html:977
+msgid "Auto save"
+msgstr "ऑटो बचाने के"
+
+#: addons/lotte/templates/translate.html:981
+msgid "Enable shortcuts"
+msgstr "शॉर्टकट सक्षम करें"
+
+#: addons/lotte/templates/translate.html:985
+msgid "Enable suggestions auto-open"
+msgstr ""
+
+#: addons/lotte/templates/view_strings.html:49
+msgid "Search:"
+msgstr "खोज:"
+
+#: addons/priorities/models.py:8
+msgid "Normal"
+msgstr "सामान्य"
+
+#: addons/priorities/models.py:9
+msgid "High"
+msgstr "उच्च"
+
+#: addons/priorities/models.py:10
+msgid "Urgent"
+msgstr "तत्काल"
+
+#: addons/priorities/models.py:19
+msgid "The resource associated with this priority."
+msgstr "संसाधन इस प्राथमिकता के साथ जुड़ा हुआ है|"
+
+#: addons/priorities/models.py:20
+msgid "Priority Levels"
+msgstr "प्राथमिकता स्तर"
+
+#: addons/priorities/models.py:22
+msgid ""
+"The priority levels, indicating the importance of completing translations "
+"for the resource."
+msgstr "प्राथमिकता स्तर, संसाधन के लिए अनुवादों को पूरा करने के महत्व का संकेत है."
+
+#: addons/priorities/models.py:36
+msgid "resource priority"
+msgstr "संसाधन प्राथमिकता"
+
+#: addons/priorities/models.py:37
+msgid "resource priorities"
+msgstr "संसाधन प्राथमिकताओं"
+
+#: addons/suggestions/models.py:20 resources/models.py:350
+#: resources/models.py:650
+msgid "String"
+msgstr "स्ट्रिंग"
+
+#: addons/suggestions/models.py:21
+msgid "The actual string content of suggestion."
+msgstr "सुझाव के वास्तविक स्ट्रिंग सामग्री|"
+
+#: addons/suggestions/models.py:22 resources/models.py:352
+#: resources/models.py:652
+msgid "String Hash"
+msgstr "स्ट्रिंग हैश"
+
+#: addons/suggestions/models.py:24
+msgid "The hash of the suggestion string used for indexing"
+msgstr "सुझाव अनुक्रमण के लिए इस्तेमाल किया स्ट्रिंग के हैश"
+
+#: addons/suggestions/models.py:25
+msgid "Score Value"
+msgstr "कुल मूल्य"
+
+#: addons/suggestions/models.py:26
+msgid ""
+"A value which indicates the relevance of this suggestion to the translation "
+"of the source string."
+msgstr ""
+"एक मूल्य है जो स्रोत स्ट्रिंग का अनुवाद करने के लिए इस सुझाव की प्रासंगिकता को दर्शाता है|"
+
+#: addons/suggestions/models.py:35
+msgid "Source Entity"
+msgstr "स्रोत इकाई की"
+
+#: addons/suggestions/models.py:37
+msgid "The source entity this suggestion instance translates or affects."
+msgstr "स्रोत इकाई इस सुझाव उदाहरण अनुवाद या प्रभावित करता है|"
+
+#: addons/suggestions/models.py:41 resources/models.py:691
+msgid "Target Language"
+msgstr "लक्ष्य भाषा"
+
+#: addons/suggestions/models.py:42 resources/models.py:692
+msgid "The language in which this translation string is written."
+msgstr "जिस भाषा में इस अनुवाद स्ट्रिंग लिखा है|"
+
+#: addons/suggestions/models.py:46
+msgid "The user who committed the specific suggestion."
+msgstr "उपयोगकर्ता जो विशिष्ट सुझाव प्रतिबद्ध|"
+
+#: addons/suggestions/models.py:53
+msgid "suggestion"
+msgstr "सुझाव"
+
+#: addons/suggestions/models.py:107
+msgid "Suggestion"
+msgstr "सुझाव"
+
+#: addons/suggestions/models.py:109
+msgid "The suggestion about which the user is voting."
+msgstr "सुझाव के बारे में जो उपयोगकर्ता वोटिंग है|"
+
+#: addons/suggestions/models.py:113
+msgid "The user who voted for the specific suggestion."
+msgstr "उपयोगकर्ता जो विशिष्ट सुझाव के लिए मतदान किया|"
+
+#: addons/suggestions/models.py:124
+msgid "vote"
+msgstr "वोट"
+
+#: addons/suggestions/models.py:125
+msgid "votes"
+msgstr "वोट"
+
+#: addons/suggestions/views.py:28 addons/suggestions/views.py:54
+msgid "POST method only allowed."
+msgstr "केवल स्वीकृत विधि के बाद।"
+
+#: addons/suggestions/views.py:31
+msgid "POST variable 'suggestion_string' missing."
+msgstr "POST वेरीअब्ल 'suggestion_string' उपलब्ध नही हैै।"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:187
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:193
+msgid "User suggestions"
+msgstr "उपयोगकर्ता सुझाव"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:201
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:207
+msgid "Vote up for this translation suggestion (click again to undo)."
+msgstr "इस अनुवाद सुझाव के लिए वोट (पूर्ववत करने के लिए फिर से क्लिक करें)|"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:203
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:209
+msgid ""
+"The score of the suggestion, indicating its popularity among translators."
+msgstr "सुझाव स्कोर, अनुवादकों के बीच इसकी लोकप्रियता का संकेत|"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:205
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:211
+msgid "Vote down for this translation suggestion (click again to undo)."
+msgstr "इस अनुवाद सुझाव के लिए नीचे वोट (पूर्ववत करने के लिए फिर से क्लिक करें)|"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:210
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:216
+msgid "This is the currently accepted translation."
+msgstr "यह वर्तमान में स्वीकार अनुवाद है|"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:212
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:215
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:218
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:221
+msgid "Use this!"
+msgstr "इस का प्रयोग करें!"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:222
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:228
+msgid "New suggestion"
+msgstr "नए सुझाव"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:226
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:232
+msgid "You!"
+msgstr "तुम!"
+
+#: addons/suggestions/templates/lotte_suggestions_snippet.html:232
+#: addons/suggestions/templates/suggestions/suggestions_snippet.html:238
+msgid "Send suggestion!"
+msgstr "सुझाव भेजें!"
+
+#: addons/timeline/templates/timeline/project.html:10
+#: addons/timeline/templates/timeline/timeline_project.html:17
+#: addons/timeline/templates/timeline/timeline_project.html:19
+#: addons/timeline/templates/timeline/timeline_project.html:23
+#: addons/timeline/templates/timeline/timeline_user.html:13
+#: templates/projects/project_timeline.html:12
+#: templates/projects/project_timeline.html:14
+#: templates/txcommon/user_timeline.html:12
+msgid "Timeline"
+msgstr "समयरेखा"
+
+#: addons/timeline/templates/timeline/timeline_account_link.html:3
+msgid "My timeline"
+msgstr "मेरी समयरेखा"
+
+#: addons/timeline/templates/timeline/timeline_base.html:23
+msgid "Filter"
+msgstr "फ़िल्टर"
+
+#: addons/timeline/templates/timeline/timeline_base.html:31
+#: templates/timeline.html:24 templates/teams/team_detail.html:241
+msgid "None available"
+msgstr "उपलब्ध कोई नहीं"
+
+#: addons/timeline/templates/timeline/timeline_base.html:35
+#: templates/timeline.html:28
+#, python-format
+msgid "The query returned %(counter)s result"
+msgid_plural "The query returned %(counter)s results:"
+msgstr[0] "क्वेरी %(counter)s परिणाम लौटे"
+msgstr[1] "क्वेरी %(counter)s परिणाम लौटे"
+
+#: addons/timeline/templates/timeline/timeline_project.html:30
+msgid "Your personal timeline"
+msgstr "आपकी व्यक्तिगत समयरेखा"
+
+#: addons/timeline/templates/timeline/timeline_user.html:16
+#: templates/simpleauth/base_profile.html:4
+#: templates/simpleauth/base_profile.html:7
+#: templates/simpleauth/profile_public.html:5
+#: templates/simpleauth/profile_public.html:6
+#: templates/simpleauth/settings.html:5
+#: templates/txcommon/user_timeline.html:15 templates/userena/public.html:24
+msgid "Profile"
+msgstr "प्रोफ़ाइल"
+
+#: addons/timeline/templates/timeline/timeline_user.html:23
+#: templates/projects/project_timeline.html:20
+#: templates/txcommon/user_timeline.html:22
+#, python-format
+msgid "%(project_name)s Timeline"
+msgstr "%(project_name)s एस समयरेखा"
+
+#: addons/txapps/models.py:40 projects/models.py:161 releases/models.py:31
+#: resources/models.py:141 templates/helptext/project_form_helptext.html:5
+msgid "Slug"
+msgstr "काउंटर"
+
+#: addons/txapps/models.py:41 projects/models.py:163 releases/models.py:32
+msgid ""
+"A short label to be used in the URL, containing only letters, numbers, "
+"underscores or hyphens."
+msgstr ""
+"एक छोटी URL में इस्तेमाल किया जा लेबल, केवल अक्षर, संख्या, रेखांकित या हाइफ़न से युक्त|"
+
+#: addons/txapps/models.py:46 languages/models.py:59
+#: languages/migrations/0001_initial.py:19
+#: languages/migrations/0002_added_rules_f.py:94 projects/models.py:165
+#: releases/models.py:34 resources/models.py:145
+#: templates/helptext/project_form_helptext.html:16
+#: templates/userena/profile_detail.html:13 templates/userena/public.html:43
+msgid "Name"
+msgstr "नाम"
+
+#: addons/txapps/models.py:46
+msgid "A short name."
+msgstr "एक संक्षिप्त नाम।"
+
+#: addons/txapps/models.py:50
+msgid "A small description for the app."
+msgstr "App के लिए एक छोटा वर्णन।"
+
+#: addons/txapps/models.py:53 addons/webhooks/models.py:25
+msgid "URL"
+msgstr "URL"
+
+#: addons/txapps/models.py:54
+msgid "The URL where the app is hosted."
+msgstr "वह URL जहाँ app की मेजबानी है।"
+
+#: addons/txapps/models.py:57
+msgid "Allowed URLs"
+msgstr "अनुमति प्राप्त किए गए URLs"
+
+#: addons/txapps/models.py:58
+msgid "URLs allowed to be accessed by team members."
+msgstr "टीम के सदस्यों द्वारा पहुँचे जाने की अनुमति दिए जाने वाली URLs।"
+
+#: addons/txapps/models.py:65
+msgid "The projects that have enabled this app."
+msgstr "वह परियोजनाएँ जिन्होने इस app को सक्षम किया है।"
+
+#: addons/txapps/views.py:165
+#, python-format
+msgid "TxApp responded with an error: %s"
+msgstr "TxApp मे एक त्रुटि है: %s"
+
+#: addons/txapps/views.py:168 addons/txapps/templates/txapp_error.html:5
+msgid "Error contacting app."
+msgstr "App को संपर्क करने में  त्रुटि।"
+
+#: addons/txapps/templates/txapp_error.html:7
+#, python-format
+msgid "There was an error, while contacting the app %(app_name)s."
+msgstr "%(app_name)s app से संपर्क करते समय एक त्रुटि आई।"
+
+#: addons/txapps/templates/txapp_error.html:11
+#, python-format
+msgid "App responded \"%(error_message)s\""
+msgstr "App ने जवाब दिया \"%(error_message)s\""
+
+#: addons/txapps/templates/txapp_error.html:15
+msgid "Please, <a href=mailto:admin@transifex.net>report</a> this incident."
+msgstr "कृपया, यह घटना <a href=mailto:admin@transifex.net> रिपोर्ट</a> करें।"
+
+#: addons/watches/models.py:28
+msgid "Resource to watch."
+msgstr "घड़ी संसाधन."
+
+#: addons/watches/models.py:41
+msgid "translation watch"
+msgstr "अनुवाद घड़ी"
+
+#: addons/watches/models.py:42
+msgid "translation watches"
+msgstr "अनुवाद घड़ियों"
+
+#: addons/watches/views.py:28 addons/watches/views.py:94
+#: projects/views/hub.py:180
+msgid "Must use POST to activate"
+msgstr "पोस्ट का उपयोग सक्रिय करना होगा"
+
+#: addons/watches/views.py:31 addons/watches/views.py:97
+msgid "Notification is not enabled"
+msgstr "अधिसूचना सक्षम नहीं है"
+
+#: addons/watches/views.py:55
+msgid "Watch it"
+msgstr "देखो"
+
+#: addons/watches/views.py:73 addons/watches/templates/watch_toggle.html:12
+#: addons/watches/templates/watch_toggle.html:18
+msgid "Stop watching"
+msgstr "देख रहा बंद करो"
+
+#: addons/watches/views.py:114
+msgid "Watch this project"
+msgstr "देखो इस परियोजना"
+
+#: addons/watches/views.py:148
+msgid "Stop watching this project"
+msgstr "इस परियोजना देख बंद करो"
+
+#: addons/watches/templates/watch_toggle.html:14
+msgid "Watch project"
+msgstr "परियोजना पर नज़र रखे"
+
+#: addons/watches/templates/watch_toggle.html:20
+msgid "Watch file"
+msgstr "फाइल पर नज़र रखे  "
+
+#: addons/webhooks/handlers.py:82
+msgid "Web hook URL"
+msgstr "Web hook URL"
+
+#: addons/webhooks/handlers.py:83
+msgid ""
+"You can specify a URL which Transifex will visit whenever a translation of a "
+"resource of the project is changed."
+msgstr ""
+"आप एक URL निर्दिष्ट कर सकते हैं जो Transifex यह परियोजना की एक संसाधन की एक अनुवाद "
+"के परिवर्तित किए जाने पर भेंट करेगी।"
+
+#: addons/webhooks/models.py:21
+msgid "The id of the project for the web hook."
+msgstr "वेब हुक के लिए परियोजना का आईडी।"
+
+#: addons/webhooks/models.py:26
+msgid "The URL to send the notification to."
+msgstr "सूचना भेजने के लिए URL।"
+
+#: addons/webhooks/models.py:30
+msgid "Kind"
+msgstr "प्रकार"
+
+#: addons/webhooks/models.py:32
+msgid "The kind of web hook (apps or project)"
+msgstr "web hook का प्रकार (apps या परियोजना)"
+
+#: addons/widgets/templates/project_widgets.html:13
+#: addons/widgets/templates/project_widgets.html:15
+#: addons/widgets/templates/widgets/project.html:5
+msgid "Widgets"
+msgstr "विजेट"
+
+#: addons/widgets/templates/project_widgets.html:23
+msgid "Widgets, buttons, etc."
+msgstr "विजेट्स, बटन, आदि"
+
+#: addons/widgets/templates/project_widgets.html:27
+msgid ""
+"Here are some widgets, buttons and other cool stuff you can add to your "
+"homepage!"
+msgstr "यहाँ कुछ विगेट्स, बटन और अन्य शांत सामान आप अपने मुखपृष्ठ में जोड़ सकते हैं!"
+
+#: addons/widgets/templates/project_widgets.html:41
+msgid "Userbars"
+msgstr "Userbars"
+
+#: addons/widgets/templates/project_widgets.html:52
+msgid "You can insert userbars to forums, e-mail signatures, etc."
+msgstr "आप userbars मंचों, ई - मेल हस्ताक्षर, आदि को सम्मिलित कर सकते हैं"
+
+#: addons/widgets/templates/project_widgets.html:53
+msgid "Show code snippet for userbar:"
+msgstr "दिखाएँ userbar के लिए कोड का टुकड़ा:"
+
+#: api/views.py:6
+#, python-format
+msgid ""
+"This version of API is obsolete. Please have a look at %(url)s for details."
+msgstr ""
+
+#: languages/feeds.py:14
+#, python-format
+msgid "Languages on %(site_name)s"
+msgstr "%(site_name)s पर भाषाएँ"
+
+#: languages/feeds.py:17
+#, python-format
+msgid "The languages spoken on %s."
+msgstr "%s पर बोली जाने वाली भाषाओं|"
+
+#: languages/models.py:62 languages/migrations/0001_initial.py:13
+#: languages/migrations/0002_added_rules_f.py:79
+msgid "Code"
+msgstr "कोड"
+
+#: languages/models.py:65 languages/migrations/0001_initial.py:12
+#: languages/migrations/0002_added_rules_f.py:76
+msgid "Code aliases"
+msgstr "कोड उपनाम"
+
+#: languages/models.py:68 languages/migrations/0001_initial.py:17
+#: languages/migrations/0002_added_rules_f.py:91
+msgid "Special Chars"
+msgstr "विशेष chars"
+
+#: languages/models.py:69
+msgid "Enter any special characters that users might find difficult to type"
+msgstr ""
+"कि उपयोगकर्ताओं को करने के लिए टाइप मुश्किल मिल सकता है किसी भी विशेष वर्ण दर्ज करें"
+
+#: languages/models.py:72 languages/migrations/0001_initial.py:16
+#: languages/migrations/0002_added_rules_f.py:88
+msgid "Number of Plurals"
+msgstr "बहुवचन की संख्या"
+
+#: languages/models.py:74 languages/migrations/0001_initial.py:15
+#: languages/migrations/0002_added_rules_f.py:85
+msgid "Plural Equation"
+msgstr "बहुवचन समीकरण"
+
+#: languages/models.py:78
+msgid "Rule zero"
+msgstr "शून्य नियम"
+
+#: languages/models.py:80
+msgid "Rule one"
+msgstr "एक नियम"
+
+#: languages/models.py:82
+msgid "Rule two"
+msgstr "दो नियम"
+
+#: languages/models.py:84
+msgid "Rule few"
+msgstr "कुछ नियम"
+
+#: languages/models.py:86
+msgid "Rule many"
+msgstr "कई नियम"
+
+#: languages/models.py:88
+msgid "Rule other"
+msgstr "अन्य नियम"
+
+#: languages/models.py:99
+msgid "language"
+msgstr "भाषा"
+
+#: languages/models.py:100 templates/languages/language_list.html:14
+msgid "languages"
+msgstr "भाषाओं"
+
+#: projects/admin.py:18
+msgid "permission"
+msgstr "अनुमति"
+
+#: projects/feeds.py:14
+#, python-format
+msgid "Latest projects on %(site_name)s"
+msgstr "पर नवीनतम परियोजनाओं %(site_name)s "
+
+#: projects/feeds.py:17
+msgid "Updates on changes and additions to registered projects."
+msgstr "पंजीकृत परियोजनाओं के लिए परिवर्तन और परिवर्धन पर अपडेट|"
+
+#: projects/feeds.py:33
+#, python-format
+msgid "%(site_name)s: Resources in %(project)s"
+msgstr "%(site_name)s: %(project)s में संसाधन"
+
+#: projects/feeds.py:38
+#, python-format
+msgid "Latest resources in project %s."
+msgstr "परियोजना में नवीनतम संसाधने  %s।"
+
+#: projects/feeds.py:58
+#, python-format
+msgid "%(site_name)s: Timeline for %(project)s"
+msgstr "%(project)s के लिए समयरेखा:%(site_name)s"
+
+#: projects/feeds.py:63
+#, python-format
+msgid "History of the project %s."
+msgstr "%s परियोजना का इतिहास।"
+
+#: projects/forms.py:27 projects/models.py:199
+#: templates/helptext/project_form_helptext.html:93
+msgid "Maintainers"
+msgstr "Maintainers"
+
+#: projects/forms.py:28 txpermissions/forms.py:19
+msgid "Search for a username"
+msgstr "एक उपयोगकर्ता नाम के लिए खोज"
+
+#: projects/forms.py:30 projects/models.py:192
+#: templates/helptext/project_form_helptext.html:81
+msgid "Tags"
+msgstr "टैग"
+
+#: projects/forms.py:88
+msgid "Your password"
+msgstr "अपना पासवर्ड"
+
+#: projects/forms.py:100
+msgid "Invalid password."
+msgstr "अमान्य पासवर्ड।"
+
+#: projects/forms.py:134
+msgid "Typical project"
+msgstr "ठेठ परियोजना"
+
+#: projects/forms.py:136
+msgid ""
+"Access control and teams are managed under a single project. Best option for "
+"most cases."
+msgstr ""
+"अभिगम नियंत्रण और टीमों को एक परियोजना के तहत प्रबंधित की जाती हैं.\n"
+"अधिकांश मामलों के लिए सबसे अच्छा विकल्प है."
+
+#: projects/forms.py:141
+msgid "Project hub"
+msgstr "प्रोजेक्ट केंद्र"
+
+#: projects/forms.py:143
+msgid ""
+"Option for a parent project which will host translation teams and will acts "
+"as an umbrella to others. Ideal for organizations with multiple products."
+msgstr ""
+"एक पैरेंट परियोजना जो अनुवाद टीमों की मेजबानी के लिए और दूसरों के लिए एक छतरी के रूप में "
+"कार्य करता है के लिए विकल्प.कई उत्पादों वाले संगठनों के लिए आदर्श है."
+
+#: projects/forms.py:149
+msgid "Outsourced project"
+msgstr "आउटसोर्स परियोजना"
+
+#: projects/forms.py:151
+msgid ""
+"Option for the child of a hub project. This project will have no teams of "
+"its own but will re-use the parent's ones."
+msgstr ""
+"एक छोटे हब परियोजना के लिए विकल्प.इस परियोजना में अपनी खुद की कोई टीमों नहीं होगा,"
+"लेकिन पैरेंट को फिर से उपयोग करे."
+
+#: projects/forms.py:159 templates/projects/project_menu.html:54
+#: templates/teams/team_menu.html:44
+msgid "Free for all"
+msgstr "सभी के लिए नि: शुल्क"
+
+#: projects/forms.py:161
+msgid ""
+"Allow any logged-in user to submit files to my project. <a href=\"http://www."
+"youtube.com/watch?v=DCX3ZNDZAwY\" target=\"_blank\">Imagine</a> all the "
+"people, sharing all the world. Recommended for quick translations, and when "
+"a post-translation, pre-commit review process is in place."
+msgstr ""
+"अपनी परियोजना के फ़ाइलें को प्रस्तुत करने के लिए किसी भी लॉगड-इन उपयोगकर्ता को अनुमति दें."
+"<a href=\"http://www.youtube.com/watch?v=DCX3ZNDZAwY\" target=\"_blank"
+"\">शायद</a>सभी लोग, सारी दुनिया को बांटे.त्वरित अनुवाद के लिए अनुशंसित,और जब एक पूर्व-"
+"अनुवाद, पूर्व-प्रतिबद्ध समीक्षा प्रक्रिया जारी है."
+
+#: projects/forms.py:169
+msgid "Limited access (teams)"
+msgstr "सीमित पहुँच (टीमे)"
+
+#: projects/forms.py:171
+msgid ""
+"Give access to specific people. Language teams will have access to their "
+"language's files only, and global writers will have access to all "
+"translation files. Recommended for most projects."
+msgstr ""
+"विशिष्ट लोगों के लिए पहुँच दे.भाषा टीमों को केवल उनकी भाषा के फ़ाइलें के लिए पहुच होगा,और "
+"वैश्विक लेखकों को सभी अनुवाद फाइल के लिए पहुच होगा.सबसे परियोजनाओं के लिए अनुशंसित."
+
+#: projects/forms.py:270
+msgid "Outsource access to"
+msgstr "के लिए आउटसोर्स एक्सेस"
+
+#: projects/forms.py:292
+msgid "Project type do not accept outsource project"
+msgstr "परियोजना के प्रकार आउटसोर्स परियोजना को स्वीकार नहीं करती है"
+
+#: projects/forms.py:296
+msgid ""
+"This project is being used as outsource by other projects, thus it can not "
+"be set to other project type until having all the outsourced projects "
+"disassociated to it."
+msgstr ""
+"यह परियोजना अन्य परियोजनाओं के लिए आउटसोर्स के रूप में इस्तेमाल किया जा रहा है, यथा सभी "
+"आउटसोर्स परियोजनाओं से असंम्बद्ध नहीं होने तक इस परियोजना को अन्य परियोजना प्रकार "
+"निर्धारित नहीं कर सकते हैं।"
+
+#: projects/models.py:157 templates/projects/project_menu.html:69
+#: templates/teams/team_menu.html:59
+msgid "Private"
+msgstr "निजी"
+
+#: projects/models.py:158
+msgid ""
+"A private project is visible only by you and your team. Moreover, private "
+"projects are limited according to billing plans for the user account."
+msgstr ""
+"एक निजी परियोजना केवल आप और आपके टीम के द्वारा दिखाई देता है.इसके अलावा, निजी "
+"परियोजनाओं उपयोगकर्ता खाते के लिए बिलिंग की योजना के अनुसार सीमित हैं."
+
+#: projects/models.py:166
+msgid "A short name or very short description."
+msgstr "एक संक्षिप्त नाम या बहुत ही कम वर्णन|"
+
+#: projects/models.py:168 releases/models.py:38
+msgid "A sentence or two describing the object."
+msgstr "एक वाक्य या दो ऑब्जेक्ट का वर्णन|"
+
+#: projects/models.py:169 releases/models.py:39
+#: templates/helptext/project_form_helptext.html:37
+msgid "Long description"
+msgstr "लंबे वर्णन"
+
+#: projects/models.py:171
+msgid "A longer description (optional). Use Markdown syntax."
+msgstr "अब वर्णन (वैकल्पिक)| Markdown वाक्यविन्यास का उपयोग करें|"
+
+#: projects/models.py:172 releases/models.py:42
+#: templates/helptext/project_form_helptext.html:50
+msgid "Homepage"
+msgstr "मुखपृष्ठ"
+
+#: projects/models.py:173
+msgid "Feed"
+msgstr "चारा"
+
+#: projects/models.py:174
+msgid "An RSS feed with updates to the project."
+msgstr "इस परियोजना के लिए अद्यतन के साथ एक आरएसएस फ़ीड|"
+
+#: projects/models.py:175 templates/helptext/project_form_helptext.html:70
+msgid "Bug tracker"
+msgstr "बग tracker"
+
+#: projects/models.py:176
+msgid "The URL for the bug and tickets tracking system (Bugzilla, Trac, etc.)"
+msgstr "बग और ट्रैकिंग प्रणाली टिकट के लिए URL (Bugzilla, Trac, आदि)"
+
+#: projects/models.py:178
+msgid "Translator Instructions"
+msgstr "अनुवादक का निर्देश"
+
+#: projects/models.py:179
+msgid ""
+"A web page containing documentation or instructions for translators, or "
+"localization tips for your community."
+msgstr ""
+"एक वेब पेज जिसमे आपके समुदाय के लिए दस्तावेज या अनुवादको के लिए निर्देश या स्थानीयकरण "
+"युक्तियाँ है"
+
+#: projects/models.py:181
+msgid "Anyone can submit"
+msgstr "कोई भी सबमिट कर सकते हैं"
+
+#: projects/models.py:183
+msgid "Can anyone submit files to this project?"
+msgstr "किसी को भी इस परियोजना के लिए फ़ाइलों को प्रस्तुत कर सकते हैं?"
+
+#: projects/models.py:186
+msgid "Hide this object from the list view?"
+msgstr "सूची दृश्य से इस वस्तु  कैसे छिपाएँ?"
+
+#: projects/models.py:187
+msgid "Enabled"
+msgstr "सक्रिय"
+
+#: projects/models.py:188
+msgid "Enable this object or disable its use?"
+msgstr "इस वस्तु सक्षम या इसके उपयोग को निष्क्रिय किया जय?"
+
+#: projects/models.py:194
+msgid "Logo"
+msgstr "लोगो"
+
+#: projects/models.py:196
+msgid "A logo image displayed for the project."
+msgstr "इस परियोजना के लिए प्रदर्शित लोगो की एक छवि।"
+
+#: projects/models.py:203
+msgid "Outsource project"
+msgstr "परियोजना आउटसोर्स"
+
+#: projects/models.py:204
+msgid "Project hub that owns the access control of this project."
+msgstr "परियोजना हब कि इस परियोजना का पहुँच नियंत्रण करता है।"
+
+#: projects/models.py:208
+msgid "The user who owns this project."
+msgstr "उपयोगकर्ता जो इस परियोजना का मालिक है|"
+
+#: projects/models.py:211 resources/models.py:179
+msgid "Source Language"
+msgstr "स्रोत भाषा"
+
+#: projects/models.py:213 resources/models.py:180
+msgid "The source language of this Resource."
+msgstr "इस संसाधन के स्रोत भाषा|"
+
+#: projects/models.py:217
+msgid "Project Hub?"
+msgstr "प्रोजेक्ट केंद्र?"
+
+#: projects/models.py:219
+msgid ""
+"Is it a project hub that other regular projects can use to outsource teams "
+"to receive translations?"
+msgstr ""
+"क्या यह परियोजना केंद्र है जो अन्य नियमित रूप से परियोजनाओं आउटसोर्स टीमों से प्राप्त "
+"अनुवाद का उपयोग कर सकते हैं?"
+
+#: projects/models.py:223 releases/models.py:61
+msgid "HTML Description"
+msgstr "HTML विवरण"
+
+#: projects/models.py:225 releases/models.py:63
+msgid "Description in HTML."
+msgstr "HTML में विवरण|"
+
+#: projects/models.py:243
+msgid "project"
+msgstr "परियोजना"
+
+#: projects/models.py:244 templates/projects/project_list.html:24
+msgid "projects"
+msgstr "परियोजनाओं"
+
+#: projects/models.py:368
+msgid "Project Hub"
+msgstr "प्रोजेक्ट केंद्र "
+
+#: projects/models.py:370
+msgid "The project hub to outsource teams from."
+msgstr "परियोजना हब टीमों से आउटसोर्स करने के लिए।"
+
+#: projects/models.py:374
+msgid "The project that wants to outsource teams from another project."
+msgstr "परियोजना जो कि एक अन्य परियोजना के टीमों से आउटसोर्स करना चाहती है।"
+
+#: projects/models.py:378
+msgid "The user who is requesting to join the project hub."
+msgstr "उपयोगकर्ता जो परियोजना हब में शामिल होने का अनुरोध किया है."
+
+#: projects/models.py:392
+msgid "hub joining request"
+msgstr "केंद्र में शामिल होने का अनुरोध"
+
+#: projects/models.py:393
+msgid "hub joining requests"
+msgstr "केंद्र में शामिल होने के अनुरोध "
+
+#: projects/permissions/project.py:46
+msgid "Is allowed to maintain this project"
+msgstr "इस परियोजना को बनाए रखने की अनुमति दी है"
+
+#: projects/permissions/project.py:59
+msgid "Is allowed to coordinate a team project"
+msgstr "एक टीम परियोजना समन्वय की अनुमति दी है"
+
+#: projects/permissions/project.py:79
+msgid "Is allowed to review translations for a team project"
+msgstr "एक टीम परियोजना की अनुवादों की समीक्षा करने के लिए अनुमति दी जाती है"
+
+#: projects/permissions/project.py:131
+msgid "Is allowed to submit translations to this project"
+msgstr "अनुवाद करने के लिए इस परियोजना के लिए प्रस्तुत करने की अनुमति दी है"
+
+#: projects/permissions/project.py:149
+msgid "Is allowed to browse this private project"
+msgstr "इस निजी परियोजना Brouwse करने की अनुमति दी है"
+
+#: projects/templates/feeds/release_description.html:4
+#: projects/templates/feeds/release_language_description.html:4
+msgid "Translated:"
+msgstr "अनूदित:"
+
+#: projects/templates/feeds/release_description.html:5
+#: projects/templates/feeds/release_language_description.html:5
+msgid "Untranslated:"
+msgstr "Untranslated:"
+
+#: projects/templates/feeds/release_description.html:6
+#: projects/templates/feeds/release_language_description.html:6
+msgid "Total:"
+msgstr "कुल:"
+
+#: projects/views/hub.py:62
+#, python-format
+msgid "You added '%(project)s' to the '%(project_hub)s' project hub"
+msgstr "आप '%(project)s' को '%(project_hub)s' परियोजना हब से जोड़ा   "
+
+#: projects/views/hub.py:105
+#, python-format
+msgid ""
+"You rejected the request of '%(project)s' to join the '%(project_hub)s' "
+"project hub"
+msgstr ""
+"आप '%(project_hub)s' परियोजना हब में शामिल होने से '%(project)s' के अनुरोध को "
+"खारिज कर दिया"
+
+#: projects/views/hub.py:146
+#, python-format
+msgid "Request to join '%s' project hub was withdrawn"
+msgstr "'%s' हब परियोजना में शामिल होने के अनुरोध को वापस ले लिया गया"
+
+#: projects/views/hub.py:210
+msgid "Undo"
+msgstr "पूर्ववत् करें"
+
+#: projects/views/hub.py:225
+#: templates/projects/project_hub_projects_toogler.html:6
+msgid "Disassociate"
+msgstr "अलग"
+
+#: projects/views/project.py:166
+#, python-format
+msgid "Requested to join the '%s' project hub."
+msgstr "'%s' परियोजना केंद्र में शामिल होने का अनुरोध किया।"
+
+#: projects/views/project.py:270
+#, python-format
+msgid "The project '%s' was deleted."
+msgstr "परियोजना '%s' हटा दिया गया था।"
+
+#: releases/feeds.py:31
+#, python-format
+msgid "%(site_name)s: %(project)s :: %(release)s release"
+msgstr "%(site_name)s :%(project)s :: %(release)s रिलीज"
+
+#: releases/feeds.py:37
+#, python-format
+msgid "Translation statistics for all languages against %s release."
+msgstr "%s की रिहाई के खिलाफ सभी भाषाओं के लिए अनुवाद आंकड़े|"
+
+#: releases/feeds.py:69
+#, python-format
+msgid "%(site_name)s: %(project)s :: %(release)s release :: %(lang)s"
+msgstr "%(site_name)s : है:%(project)s :: %(release)s जारी::%(lang)s"
+
+#: releases/feeds.py:76
+#, python-format
+msgid ""
+"Translation statistics for %(lang)s language against %(release)s release."
+msgstr "%(lang)s %(release)s रिहाई के खिलाफ भाषा के लिए अनुवाद आंकड़े."
+
+#: releases/forms.py:13
+msgid "Search for a resource"
+msgstr "एक संसाधन के लिए खोज"
+
+#: releases/forms.py:19
+msgid "Enter a valid date/time in YYYY-MM-DD HH:MM[:ss[.uuuuuu]] format."
+msgstr "YYYY-MM-DD HH:MM[:ss[.uuuuuu]] स्वरूप में कोई मान्य दिनांक/समय दर्ज करें।"
+
+#: releases/forms.py:42
+msgid ""
+"Select the resources to add to the Release. Once this project is not a "
+"Project Hub, it is only possible to choose resources that belong to this "
+"project."
+msgstr ""
+"संसाधनों का चयन करके रिलीज के लिए जोड़ना.एक बार यह परियोजना एक परियोजना केंद्र नहीं "
+"हो सकता है.यह तभी संभव है कि इस परियोजना के लिए संबंधित संसाधनों का चुनें."
+
+#: releases/forms.py:54
+msgid "Invalid resource used."
+msgstr "अमान्य संसाधन का उपयोग किया।"
+
+#: releases/forms.py:58
+#, python-format
+msgid "%s is an inaccessible private resource. Remove it!"
+msgstr "%s एक अगम्य निजी संसाधन है.इसे हटा दें!"
+
+#: releases/forms.py:67
+msgid "This value is reserved and cannot be used."
+msgstr "यह मान आरक्षित हैं और उपयोग नहीं किया जा सकता।"
+
+#: releases/forms.py:79
+msgid "Devel freeze date must be after the String freeze date."
+msgstr "Devel फ्रीज़ की तारीख स्ट्रिंग फ्रीज़ की तारीख के बाद होना आवश्यक है।"
+
+#: releases/forms.py:85
+msgid "Release date must be after the String freeze date."
+msgstr "रिलीज की तारीख स्ट्रिंग फ्रीज़ की तारीख के बाद होना आवश्यक है।"
+
+#: releases/forms.py:91
+msgid "Release date must be after the Devel freeze date."
+msgstr "रिलीज की तारीख devel फ्रीज़ की तारीख के बाद होना आवश्यक है।"
+
+#: releases/models.py:35
+msgid "A string like a name or very short description."
+msgstr "एक नाम या बहुत ही कम वर्णन की तरह एक स्ट्रिंग|"
+
+#: releases/models.py:41
+msgid "Use Markdown syntax."
+msgstr "Markdown syntax का उपयोग करें|"
+
+#: releases/models.py:44
+msgid "Release date"
+msgstr "रिलीज की तारीख"
+
+#: releases/models.py:46
+msgid "When this release will be available."
+msgstr "जब इस रिलीज में उपलब्ध हो जाएगा|"
+
+#: releases/models.py:47
+msgid "String freeze date"
+msgstr "स्ट्रिंग फ्रीज की तारीख"
+
+#: releases/models.py:49
+msgid ""
+"When the translatable strings will be frozen (no strings can be added/"
+"modified which affect translations."
+msgstr ""
+"जब अनुवाद स्ट्रिंग जमे हुए किया जाएगा (कोई स्ट्रिंग  जोड़ा जा सकता है /संशोधित जो अनुवादों "
+"को प्रभावित|"
+
+#: releases/models.py:51
+msgid "Devel freeze date"
+msgstr "Devel freeze की तारीख"
+
+#: releases/models.py:53
+msgid ""
+"The last date packages from this release can be built from the developers. "
+"Translations sent after this date will not be included in the released "
+"version."
+msgstr ""
+"इस रिलीज से अंतिम तिथि संकुल डेवलपर्स से बनाया जा सकता है.| इस तिथि के बाद भेजे गए "
+"अनुवाद के रूप में जारी की संस्करण में शामिल नहीं किया जाएगा|"
+
+#: releases/models.py:69 templates/projects/project_menu.html:87
+#: templates/projects/project_resources.html:16
+#: templates/resources/resource_detail.html:78
+msgid "Resources"
+msgstr "संसाधन"
+
+#: releases/models.py:76
+#, python-format
+msgid "<Release: %(rel)s (Project %(proj)s)>"
+msgstr "<Release: %(rel)s (Project %(proj)s)>"
+
+#: releases/models.py:87
+msgid "release"
+msgstr "रिहाई"
+
+#: releases/models.py:88 templates/projects/release_list.html:18
+#: templates/projects/release_list.html:43
+msgid "releases"
+msgstr "विज्ञप्ति"
+
+#: releases/models.py:115
+msgid "Before String Freeze"
+msgstr "स्ट्रिंग फ्रीज़ के पहले"
+
+#: releases/models.py:117
+msgid "Whether the 'Before String Freeze' notification was sent or not."
+msgstr "क्या 'स्ट्रिंग फ्रीज से पहले' की अधिसूचना भेजा गया था या नहीं।"
+
+#: releases/models.py:120
+msgid "Being in String Freeze"
+msgstr "स्ट्रिंग फ्रीज़ मे होने के नाते"
+
+#: releases/models.py:122
+msgid "Whether the 'Being in String Freeze' notification was sent or not."
+msgstr "क्या 'स्ट्रिंग फ्रीज में होने' की सूचना भेजा गया था या नहीं।"
+
+#: releases/models.py:126
+msgid "Before Translation Deadline"
+msgstr "अनुवाद की समय सीमा से पहले"
+
+#: releases/models.py:127
+msgid "Whether the 'Before Translation Deadline' notification was sent or not."
+msgstr "क्या 'अनुवाद की समय सीमा से पहले' की अधिसूचना  भेजा गया था या नहीं।"
+
+#: releases/models.py:130
+msgid "Hit Translation Deadline"
+msgstr "अनुवाद की समय सीमा को हिट किया"
+
+#: releases/models.py:132
+msgid "Whether the 'Hit Translation Deadline' notification was sent or not."
+msgstr "क्या 'अनुवाद की समु सीमा को पार करने' की अधिसूचना भेजा गया था या नहीं।"
+
+#: releases/models.py:137
+msgid "Release"
+msgstr "रिलीज"
+
+#: releases/models.py:143
+#, python-format
+msgid "<ReleaseNotification: %(rel)s (Project %(proj)s)>"
+msgstr "<ReleaseNotification: %(rel)s (परियोजना %(proj)s)>"
+
+#: releases/models.py:148
+msgid "release notification"
+msgstr "रिलीज की अधिसूचना"
+
+#: releases/models.py:149
+msgid "release notifications"
+msgstr "रिलीज की अधिसूचनाएँ"
+
+#: releases/views.py:154
+#, python-format
+msgid "The release '%s' was deleted."
+msgstr "रिलीज '%s' को नष्ट कर दिया गया|"
+
+#: resources/backends.py:83
+#, python-format
+msgid "Error creating resource: %s"
+msgstr "संसाधन बनाने में त्रुटि: %s"
+
+#: resources/backends.py:91
+msgid "The content type of the request is not valid."
+msgstr "अनुरोध की सामग्री प्रकार मान्य नहीं है।"
+
+#: resources/backends.py:132
+msgid "No language specified, when importing source file."
+msgstr "कोई भाषा निर्दिष्ट नही है, जब स्रोत फ़ाइल आयात कर रहे है।"
+
+#: resources/forms.py:17
+msgid "Source File"
+msgstr "स्रोत फ़ाइल"
+
+#: resources/forms.py:30
+msgid "Resource File"
+msgstr "संसाधन की फ़ाइल"
+
+#: resources/forms.py:32
+msgid "I18N Type"
+msgstr "I18N की प्रकार"
+
+#: resources/forms.py:34 resources/models.py:151
+#, python-format
+msgid "The type of i18n method used in this resource (%s)"
+msgstr "i18n विधि के प्रकार इस संसाधन में इस्तेमाल किया (%s)"
+
+#: resources/forms.py:52 resources/forms.py:62
+msgid "Translation File"
+msgstr "अनुवाद की फ़ाइल"
+
+#: resources/forms.py:55 resources/forms.py:66
+msgid "The language of the translation."
+msgstr "अनुवाद की भाषा।"
+
+#: resources/forms.py:74
+msgid "Pseudo type"
+msgstr "Pseudo प्रकार"
+
+#: resources/forms.py:77
+msgid ""
+"For more info about each pseudo translation type, please refer to the docs."
+msgstr ""
+"प्रत्येक छद्म अनुवाद प्रकार के बारे में अधिक जानकारी के लिए, कृपया दस्तावेज़ीकरण का संदर्भ लें।"
+
+#: resources/models.py:143
+msgid ""
+"A short label to be used in the URL, containing only letters, numbers, "
+"underscores and hyphens."
+msgstr "URL में केवल अक्षर, संख्याएँ, रेखांकित और हाइफ़न वाले एक लघु लेबल इस्तेमाल करे।"
+
+#: resources/models.py:146
+msgid "A descriptive name unique inside the project."
+msgstr "परियोजना के अंदर एक वर्णनात्मक नाम अद्वितीय है|"
+
+#: resources/models.py:149
+msgid "I18n type"
+msgstr "I18n प्रकार"
+
+#: resources/models.py:153
+msgid "Accepting translations?"
+msgstr "अनुवाद स्वीकारना?"
+
+#: resources/models.py:155
+msgid "Is this resource accepting translations?"
+msgstr "क्या यह संसाधन अनुवादों को स्वीकार कर रहा है?"
+
+#: resources/models.py:156
+msgid "Total source entities"
+msgstr "कुल स्रोत संस्थाएँ"
+
+#: resources/models.py:158
+msgid "The number of source strings in this translation resource."
+msgstr "इस संसाधन के अनुवाद में स्रोत स्ट्रिंग की संख्या।"
+
+#: resources/models.py:160
+msgid "Number of words in source entities."
+msgstr "स्रोत संस्थाओं में शब्दों की संख्या।"
+
+#: resources/models.py:162
+msgid ""
+"The number of words contained in the source entities in this translation "
+"resource."
+msgstr "इस अनुवाद संसाधन में स्रोत संस्थाओं में समाहित शब्दों की संख्या।"
+
+#: resources/models.py:167
+msgid "Category"
+msgstr "श्रेणी"
+
+#: resources/models.py:169
+msgid ""
+"A text field used to help organize a release's resources into categories."
+msgstr ""
+"एक पाठ क्षेत्र जो एक रिलीज की संसाधनों को श्रेणियों में व्यवस्थित करने में मदद करने के लिए "
+"इस्तेमाल किया जाता है।"
+
+#: resources/models.py:183
+msgid "The project containing the translation resource."
+msgstr "अनुवाद परियोजना संसाधन युक्त|"
+
+#: resources/models.py:196
+msgid "resource"
+msgstr "संसाधन"
+
+#: resources/models.py:197
+msgid "resources"
+msgstr "संसाधनों"
+
+#: resources/models.py:351
+msgid "The actual string content of source string."
+msgstr "वास्तविक स्रोत स्ट्रिंग की स्ट्रिंग सामग्री|"
+
+#: resources/models.py:354 resources/models.py:654
+msgid "The hash of the translation string used for indexing"
+msgstr "अनुवाद अनुक्रमण के लिए इस्तेमाल किया स्ट्रिंग के हैश"
+
+#: resources/models.py:355
+msgid "Context"
+msgstr "प्रसंग"
+
+#: resources/models.py:357
+msgid ""
+"A list of description of the source string. This field specifies the context "
+"of the source string inside the resource."
+msgstr ""
+"स्रोत स्ट्रिंग का वर्णन की एक सूची है। इस फ़ील्ड में स्रोत स्ट्रिंग संसाधन के अंदर के संदर्भ "
+"निर्दिष्ट करता है।"
+
+#: resources/models.py:360
+msgid "Position"
+msgstr "स्थान"
+
+#: resources/models.py:361
+msgid ""
+"The position of the source string in the Resource. For example, the specific "
+"position of a msgid field in a po template (.pot) file in gettext."
+msgstr ""
+"संसाधन में स्रोत स्ट्रिंग की स्थिति.उदाहरण के लिए,gettext के पो टेम्पलेट (.pot)फ़ाइल में "
+"msgid क्षेत्र की विशिष्ट स्थिति."
+
+#: resources/models.py:367
+msgid "The occurrences of the source string in the project code."
+msgstr "परियोजना कोड में स्रोत स्ट्रिंग की घटनाओं|"
+
+#: resources/models.py:368
+msgid "Flags"
+msgstr "Flags"
+
+#: resources/models.py:370
+msgid ""
+"The flags which mark the source string. For example, if there is a python "
+"formatted string this is marked as \"#, python-format\" in gettext."
+msgstr ""
+"ध्वजों जो स्रोत स्ट्रिंग को चिह्नित करते है.अगर वहाँ एक पाइथन स्वरूपित स्ट्रिंग है तो "
+"gettext में \"#, python-format\"के रूप में चिह्नित है."
+
+#: resources/models.py:373
+msgid "Comments"
+msgstr "टिप्पणियाँ"
+
+#: resources/models.py:375
+msgid "The comment of the developer."
+msgstr "डेवलपर की टिप्पणी|"
+
+#: resources/models.py:378
+msgid "Extra comments"
+msgstr "अतिरिक्त टिप्पणियाँ"
+
+#: resources/models.py:380
+msgid "Another comment of the developer"
+msgstr "डेवलपर का एक और टिप्पणी"
+
+#: resources/models.py:382
+msgid "Pluralized"
+msgstr "बहुवचन"
+
+#: resources/models.py:384
+msgid "Whether the entity is pluralized."
+msgstr "क्या एन्टिटी बहुवचन मे हैं।"
+
+#: resources/models.py:399
+msgid "The translation resource which owns the source string."
+msgstr "अनुवाद संसाधन, जो स्रोत स्ट्रिंग के मालिक|"
+
+#: resources/models.py:408
+msgid "source string"
+msgstr "स्रोत स्ट्रिंग"
+
+#: resources/models.py:409
+msgid "source strings"
+msgstr "स्रोत स्ट्रिंग्स"
+
+#: resources/models.py:651
+msgid "The actual string content for translation."
+msgstr "अनुवाद के लिए वास्तविक स्ट्रिंग सामग्री।"
+
+#: resources/models.py:655
+msgid "Plural rule"
+msgstr "बहुवचन नियम"
+
+#: resources/models.py:657
+msgid ""
+"Number related to the plural rule of the translation. It's 0=zero, 1=one, "
+"2=two, 3=few, 4=many and 5=other. For translations that have no plural "
+"forms, the rule must be 5 (other)."
+msgstr ""
+"अनुवाद के बहुलवादी नियम से संबंधित संख्या.यह 0 =शून्य , 1 =एक, 2=दो, 3= कुछ ,4=कई और 5 "
+"= अन्य है.वैसे अनुवाद जिनके लिए कोई बहुलवादी रूप न हो,नियम 5 (अन्य) होनी चाहिए"
+
+#: resources/models.py:661
+msgid "Wordcount for this string."
+msgstr "इस स्ट्रिंग के लिए शब्द गणना।"
+
+#: resources/models.py:665
+msgid "Origin"
+msgstr "उत्पत्ति"
+
+#: resources/models.py:667
+msgid "The origin of the translation."
+msgstr "यह अनुवाद की उत्पत्ति।"
+
+#: resources/models.py:670
+msgid "Marks if the translation has been reviewed or not."
+msgstr "यह चिह्नित करता है कि अनुवाद की समीक्षा की गई है या नहीं।"
+
+#: resources/models.py:681
+msgid "Source String"
+msgstr "स्रोत स्ट्रिंग"
+
+#: resources/models.py:684
+msgid "The source string this translation string translates."
+msgstr "स्रोत स्ट्रिंग इस अनुवाद स्ट्रिंग अनुवाद|"
+
+#: resources/models.py:688
+msgid "The translation resource which owns the translation."
+msgstr "अनुवाद संसाधन, जो अनुवाद का मालिक है।"
+
+#: resources/models.py:695
+msgid "Committer"
+msgstr "कमीटर"
+
+#: resources/models.py:696
+msgid "The user who committed the specific translation."
+msgstr "युजर जो स्पेसिफिक ट्रांसलेशन के लिये कमिटेड है।"
+
+#: resources/models.py:706
+msgid "translation string"
+msgstr "अनुवाद स्ट्रिंग"
+
+#: resources/models.py:707
+msgid "translation strings"
+msgstr "अनुवाद स्ट्रिंग्स"
+
+#: resources/models.py:907
+msgid "Translated Entities"
+msgstr "अनुवादित संस्थाएँ"
+
+#: resources/models.py:908
+msgid ""
+"The number of translated entities in a language for a specific resource."
+msgstr "एक विशेष संसाधन के लिए एक भाषा में अनुवादित संस्थाओं की संख्या।"
+
+#: resources/models.py:910
+msgid "Wordcount for Translated Entities"
+msgstr "अनुदित संस्थाओं के लिए Wordcount"
+
+#: resources/models.py:911
+msgid ""
+"The number of words containing translated entities in a language for a "
+"specific resource."
+msgstr "एक विशिष्ट संसाधन के लिए एक भाषा में अनुवाद संस्थाओं वाले शब्दों की संख्या।"
+
+#: resources/models.py:913
+msgid "Untranslated Entities"
+msgstr "अनुवाद नहीं किए गए संस्थाएँ"
+
+#: resources/models.py:914
+msgid ""
+"The number of untranslated entities in a language for a specific resource."
+msgstr "एक विशेष संसाधन के लिए एक भाषा में un translated संस्थाओं की संख्या।"
+
+#: resources/models.py:916
+msgid "Reviewed Entities"
+msgstr "समीक्षित संस्थाओं"
+
+#: resources/models.py:917
+msgid "The number of reviewed entities in a language for a specific resource."
+msgstr "।"
+
+#: resources/models.py:919
+msgid "Last Update"
+msgstr "पिछले अद्यतन"
+
+#: resources/models.py:920
+msgid "The datetime that this language was last updated."
+msgstr "इस भाषा कि अंतिम अद्यतन की गई दिनांक समय।"
+
+#: resources/models.py:923
+msgid "Last Committer"
+msgstr "पिछले कमिटर"
+
+#: resources/models.py:923
+msgid "The user associated with the last change for this language."
+msgstr "उपयोगकर्ता इस भाषा के अंतिम परिवर्तन के साथ जुड़े है।"
+
+#: resources/models.py:928
+msgid "The resource to which the statistics are associated."
+msgstr "संसाधन के लिए जो आँकड़े जुड़े हुए हैं।"
+
+#: resources/models.py:931
+msgid "The language to which these statistics refer."
+msgstr "इस भाषा सम्बंधित आँकड़ो को देखें।"
+
+#: resources/models.py:1039
+msgid "This is the actual content of the template"
+msgstr "इस टेम्पलेट के वास्तविक सामग्री है "
+
+#: resources/models.py:1043
+msgid ""
+"This is the template of the imported source file which is used to export "
+"translation files from the db to the user."
+msgstr ""
+"यह आयात स्रोत फ़ाइल जो db से यूजर के लिए अनुवाद फ़ाइलें निर्यात करने के लिए प्रयोग किया "
+"जाता है का टेम्पलेट है।"
+
+#: resources/models.py:1047
+msgid "Template"
+msgstr "टेम्पलेट"
+
+#: resources/models.py:1048
+msgid "Templates"
+msgstr "टेम्पलेट्स"
+
+#: resources/views.py:103
+#, python-format
+msgid "The translation resource '%s' was deleted."
+msgstr "अनुवाद संसाधन '%s' को नष्ट कर दिया गया।"
+
+#: resources/views.py:154
+msgid "The URL you provided doesn't link to a valid file."
+msgstr "आपको प्रदान किया गया URL एक मान्य फ़ाइल से लिंक नहीं करता हेेै ।"
+
+#: resources/views.py:165
+msgid ""
+"You have checked the auto update checkbox but you haven't provided a valid "
+"url."
+msgstr ""
+"आपने ऑटो अपडेट चेकबॉक्स की जाँच की है, लेकिन आपने एक मान्य url  प्रदान नहीं किया है।"
+
+#: resources/views.py:399
+#, python-format
+msgid "Deleted %(lang)s translation for resource %(resource)s."
+msgstr "संसाधन %(resource)s की %(lang)s में अनुवाद को नष्ट कर दिया गया।"
+
+#: resources/views.py:475
+msgid "Error compiling the pot file."
+msgstr "पॉट फ़ाइल संकलन में त्रुटि।"
+
+#: resources/views.py:527
+msgid "Sorry, you cannot lock this file!"
+msgstr "क्षमा करें, आप इस फ़ाइल को अवरोधित नहीं कर सकते!"
+
+#: resources/views.py:539
+msgid "Failed to lock the resource!"
+msgstr "संसाधन बंद करने में विफल!"
+
+#: resources/views.py:550
+msgid "Failed to extend lock period on the resource!"
+msgstr "संसाधन को बंद करने की अवधि का विस्तार करने में विफल!"
+
+#: resources/views.py:555
+#, python-format
+msgid "You cannot lock it right now! (Locked by %s )"
+msgstr "आप इसे अभी लॉक नहीं कर सकते! (%s के द्वारा लॉक किया गया)"
+
+#: resources/views.py:589
+msgid "You are not allowed to upload a translation."
+msgstr "आपको अनुवाद अपलोड करने की अनुमति नहीं है।"
+
+#: resources/api/__init__.py:682
+#, python-format
+msgid "%i strings added"
+msgstr "%i स्ट्रिंग्स जोड़ा गया"
+
+#: resources/api/__init__.py:684
+#, python-format
+msgid "%i strings updated"
+msgstr "%i स्ट्रिंग्स अद्यतन"
+
+#: resources/formats/core.py:239
+#, python-format
+msgid "Specified file %s does not exist."
+msgstr "निर्दिष्ट फ़ाइल %s मौजूद नहीं है।"
+
+#: resources/formats/core.py:254
+#, python-format
+msgid "The specified object %s is not of type Resource"
+msgstr "निर्दिष्ट ऑब्जेक्ट %s संसाधन प्रकार की नहीं है"
+
+#: resources/formats/core.py:752
+#, python-format
+msgid ""
+"We're not able to extract any string from the file uploaded for language "
+"%(language)s in resource %(resource)s."
+msgstr ""
+"हम भाषा %(language)s में संसाधन %(resource)s के लिए अपलोड की गई फ़ाइल से कोई भी "
+"स्ट्रिंग निकालने में सक्षम नहीं हो रहे है ।"
+
+#: resources/formats/desktop.py:190
+#, python-format
+msgid "Unknown language specified: %s"
+msgstr "निर्दिष्ट भाषा:%s अज्ञात है"
+
+#: resources/formats/pofile.py:70
+#, python-format
+msgid ""
+"Your file failed a correctness check (msgfmt -c). It returned the following "
+"error:\n"
+"\n"
+"%s\n"
+"\n"
+"Please run this command on your system to see the errors for yourself."
+msgstr ""
+"आपकी फ़ाइल( msgfmt-c) सत्यता की जांच विफल . इस में निम्नलिखित त्रुटि लौटा :\n"
+"\n"
+"\n"
+"%s\n"
+"\n"
+"कृपया अपने सिस्टम पर इस कमांड को चलाने के लिए खुद के लिए त्रुटियाँ देखें."
+
+#: resources/formats/pofile.py:244
+#, python-format
+msgid ""
+"Pluralized entries of the file were skipped because the nplural of the "
+"upload file differs from the nplural (%s) for the given language available "
+"in the system."
+msgstr ""
+"फ़ाइल की बहुवचन प्रविष्टियों को छोड़ दिया गया है क्योकि अपलोड फ़ाइल की बहुलवादी प्रणाली "
+"में दिए गए उपलब्ध भाषा के  बहुलवादी  (%s) से  लिए अलग है."
+
+#: resources/formats/qt.py:69 resources/formats/xliff.py:51
+#, python-format
+msgid "Element '%s' not found!"
+msgstr "'%s' तत्व नहीं मिला!"
+
+#: resources/formats/qt.py:71 resources/formats/xliff.py:53
+#, python-format
+msgid "Multiple '%s' elements found!"
+msgstr "एकाधिक '%s' तत्व पाए गए!"
+
+#: resources/formats/qt.py:192
+#, python-format
+msgid "Your file doesn't seem to contain valid xml: %s!"
+msgstr "आपकी फ़ाइल मान्य xml:%s शामिल करने के लिए प्रतीत नहीं होती है!"
+
+#: resources/formats/qt.py:196
+msgid "Incorrect doctype!"
+msgstr "ग़लत doctype!"
+
+#: resources/formats/qt.py:198
+msgid "Uploaded file has no Doctype!"
+msgstr "अपलोड की गई फ़ाइल में कोई Doctype नहीं है!"
+
+#: resources/formats/qt.py:201
+msgid "Root element is not 'TS'"
+msgstr "रूट तत्व 'TS' नहीं है"
+
+#: resources/formats/qt.py:236
+msgid "Malformed 'location' element"
+msgstr "विकृत 'स्थान' तत्व"
+
+#: resources/formats/qt.py:288
+msgid "Qt Linguist variants are not yet supported."
+msgstr "Qt भाषाविद् वेरिएंट अभी तक समर्थित नहीं हैं।"
+
+#: resources/formats/qt.py:316
+msgid ""
+"Source file could not be imported: Qt Linguist variants are not supported."
+msgstr "स्रोत फ़ाइल को आयात नहीं किया जा सका: Qt भाषाविद् वेरिएंट समर्थित नहीं हैं।"
+
+#: resources/formats/validators.py:79
+msgid "Translation string only contains whitespaces."
+msgstr "अनुवाद स्ट्रिंग मैं केवल whitespaces शामिल हैं।"
+
+#: resources/formats/validators.py:95
+#, python-format
+msgid ""
+"Translation string doesn't contain the same number of '%s' as the source "
+"string."
+msgstr "अनुवाद स्ट्रिंग '%s' का स्रोत स्ट्रिंग के रूप में एक ही नंबर शामिल नहीं है।"
+
+#: resources/formats/validators.py:115
+#, python-format
+msgid ""
+"The following url is either missing from the translation or has been "
+"translated: '%s'."
+msgstr "निम्नलिखित URL या तो अनुवाद नही है या अनुवाद किया गया है: '%s'।"
+
+#: resources/formats/validators.py:133
+#, python-format
+msgid ""
+"The following email is either missing from the translation or has been "
+"translated: '%s'."
+msgstr "निम्नलिखित ईमेल या तो अनुवाद मे नही है या अनुवाद कर दिया गया है: '%s'।"
+
+#: resources/formats/validators.py:149
+msgid "Translation must start with a newline (\\n)"
+msgstr "अनुवाद एक नई (\\ n) के साथ शुरू करना चाहिए"
+
+#: resources/formats/validators.py:151
+msgid "Translation should not start with a newline (\\n)"
+msgstr "अनुवाद एक नई (\\ n) के साथ शुरू नहीं करना चाहिए"
+
+#: resources/formats/validators.py:167
+msgid "Translation must end with a newline (\\n)"
+msgstr "अनुवाद एक नई (\\ n) के साथ समाप्त होगा"
+
+#: resources/formats/validators.py:169
+msgid "Translation should not end with a newline (\\n)"
+msgstr "अनुवाद एक नई (\\ n) के साथ अंत नहीं करना चाहिए"
+
+#: resources/formats/validators.py:188
+#, python-format
+msgid "Number %s is in the source string but not in the translation."
+msgstr "संख्या %s सौरसे स्ट्रिंग में नहीं बल्कि अनुवाद में है."
+
+#: resources/formats/validators.py:217
+msgid ""
+"The number of arguments seems to differ between the source string and the "
+"translation."
+msgstr "तर्कों की संख्या के सौरसे स्ट्रिंग और अनुवाद के बीच अलग लगता है|"
+
+#: resources/formats/xliff.py:193
+msgid "Root element is not 'xliff'"
+msgstr "रूट तत्व 'xliff' नहीं है"
+
+#: resources/formats/xliff.py:195
+msgid "Root element 'xliff' does not have a 'version' attribute"
+msgstr "मूल तत्व \"xliff\" एक 'संस्करण' विशेषता नहीं है,"
+
+#: simpleauth/forms.py:7
+msgid "Remember me"
+msgstr "मुझे याद रखें"
+
+#: teams/forms.py:16 teams/models.py:49 templates/teams/team_members.html:28
+msgid "Coordinators"
+msgstr "कोओरडीनेटर्स"
+
+#: teams/forms.py:17
+msgid ""
+"Coordinators are people that can manage the members of the team, for "
+"example. Search for usernames."
+msgstr ""
+"कोओरडीनेटर्स लोग वो होते हैं जो टीम के सदस्यों का प्रबंधन कर सकते हैं उदाहरण के लिए, यूजरनेम "
+"के लिए खोजें।"
+
+#: teams/forms.py:22 teams/models.py:51 templates/teams/team_members.html:15
+#: templates/teams/team_menu.html:74
+msgid "Members"
+msgstr "मेम्बेर्स"
+
+#: teams/forms.py:23
+msgid ""
+"Members are actually people that can submit translations. Search for "
+"usernames."
+msgstr "सदस्य वास्तव में वो लोग होते हैं जो अनुवाद को प्रस्तुत कर सकते हैं। यूजरनेम के लिए खोजें।"
+
+#: teams/forms.py:28 teams/models.py:53 templates/teams/team_members.html:133
+msgid "Reviewers"
+msgstr "समीक्षक"
+
+#: teams/forms.py:29
+msgid ""
+"Reviewers are team members that can proofread translations and mark them as "
+"reviewed. Search for usernames."
+msgstr ""
+"समीक्षक टीम के सदस्यों है जो अनुवादों को सही और उन्हें समीक्षित के रूप में चिह्नित करते है."
+"उपयोगकर्ता नाम खोजें."
+
+#: teams/forms.py:97 teams/forms.py:162
+msgid "Enter a valid value."
+msgstr "एक मान्य मान दर्ज करें।"
+
+#: teams/forms.py:110
+#, python-format
+msgid ""
+"User(s) %s cannot be in both Coordinators and Members lists. Please make "
+"sure that the lists are unique."
+msgstr ""
+"उपयोगकर्ता(s) %s समन्वयकों तथा सदस्यों दोनों की सूचियों में नहीं हो सकते। कृपया सुनिश्चित "
+"करें कि ये सूचियाँ अद्वितीय हैं।"
+
+#: teams/forms.py:118
+#, python-format
+msgid ""
+"User(s) %s cannot be in both Coordinators and Reviewers lists. Please make "
+"sure that the lists are unique."
+msgstr ""
+"उपयोगकर्ता(s) %s समन्वयकों तथा समीक्षकों दोनों की सूचियों में नहीं हो सकते। कृपया सुनिश्चित "
+"करें कि ये सूचियाँ अद्वितीय हैं।"
+
+#: teams/forms.py:126
+#, python-format
+msgid ""
+"User(s) %s cannot be in both Members and Reviewers lists. Please make sure "
+"that the lists are unique."
+msgstr ""
+
+#: teams/forms.py:169
+msgid "All child projects"
+msgstr "सभी छोटे परियोजनाओं"
+
+#: teams/models.py:44 teams/models.py:127
+msgid "The project this team works on."
+msgstr " यह टीम इस परियोजना पर काम करता है।"
+
+#: teams/models.py:47 teams/models.py:130
+msgid ""
+"People in this team will only be able to submit translations files related "
+"to the specific language."
+msgstr ""
+"इस टीम के लोग केवल अनुवाद विशिष्ट भाषा से संबंधित फाइलों को प्रस्तुत करने में सक्षम होंगे।"
+
+#: teams/models.py:56
+msgid "Mainlist"
+msgstr "मेनलिस्ट"
+
+#: teams/models.py:57
+msgid "The main mailing list of the team."
+msgstr "टीम के मुख्य मेलिंग लिस्ट।"
+
+#: teams/models.py:59
+msgid "creator"
+msgstr "क्रियेटर"
+
+#: teams/models.py:79
+msgid "team"
+msgstr "टीम"
+
+#: teams/models.py:80
+msgid "teams"
+msgstr "टीम्स"
+
+#: teams/models.py:147
+msgid "team creation request"
+msgstr "टीम क्रियेसन रिक्वेस्ट"
+
+#: teams/models.py:148
+msgid "team creation requests"
+msgstr "टीम क्रियेसन रिक्वेस्ट्स"
+
+#: teams/models.py:166
+msgid "Team"
+msgstr "टीम"
+
+#: teams/models.py:183
+msgid "team access request"
+msgstr "टीम एक्सेस रिक्वेस्ट"
+
+#: teams/models.py:184
+msgid "team access requests"
+msgstr "टीम एक्सेस रिक्वेस्ट्स"
+
+#: teams/views.py:305
+#, python-format
+msgid "The team '%s' was deleted."
+msgstr "टीम '%s' को नष्ट कर दिया गया|"
+
+#: teams/views.py:353
+#, python-format
+msgid "You are already on the '%s' team."
+msgstr "आप पहले से ही '%s' टीम पर हैं।"
+
+#: teams/views.py:364
+#, python-format
+msgid "You requested to join the '%s' team."
+msgstr "आपको '%s' टीम में शामिल होने का अनुरोध किया गया।"
+
+#: teams/views.py:386
+#, python-format
+msgid "You already requested to join the '%s' team."
+msgstr "आपने पहले से ही '%s' टीम में शामिल होने का अनुरोध किया हैं।"
+
+#: teams/views.py:390
+msgid ""
+"You need to sign the Contribution License Agreement for this project before "
+"you join a translation team"
+msgstr ""
+"आप इस परियोजना के लिए योगदान लाइसेंस समझौते पर हस्ताक्षर करने की आवश्यकता है इससे पहले "
+"कि आप एक अनुवाद टीम में शामिल"
+
+#: teams/views.py:419
+#, python-format
+msgid "User '%(user)s' is already on the '%(team)s' team."
+msgstr "उपयोगकर्ता '%(user)s' पहले से ही ' %(team)s ' टीम पर है।"
+
+#: teams/views.py:426
+#, python-format
+msgid "You added '%(user)s' to the '%(team)s' team."
+msgstr "आपने '%(user)s' को '%(team)s' टीम से जोड़ दिया।"
+
+#: teams/views.py:475
+#, python-format
+msgid ""
+"You rejected the request by user '%(user)s' to join the '%(team)s' team."
+msgstr ""
+"आपने उपयोगकर्ता '%(user)s' के द्वारा '%(team)s' टीम में शामिल होने के अनुरोध को "
+"अस्वीकृत कर दिया।"
+
+#: teams/views.py:521
+#, python-format
+msgid "You withdrew your request to join the '%s' team."
+msgstr " आपने '%s' टीम में शामिल होने के का अनुरोध वापस ले लिया।"
+
+#: teams/views.py:567
+#, python-format
+msgid "You left the '%s' team."
+msgstr "आपने '%s' टीम छोड़ दिया है।"
+
+#: teams/views.py:589
+#, python-format
+msgid "You are not in the '%s' team."
+msgstr "आप '%s' टीम में नहीं हैं|"
+
+#: teams/views.py:612
+msgid "Please select a language before submitting the form."
+msgstr "फार्म प्रस्तुत करने से पहले कृपया किसी भाषा का चयन करें।"
+
+#: teams/views.py:625
+#, python-format
+msgid "'%s' team already exists."
+msgstr "'%s' टीम पहले से ही मौजूद है।"
+
+#: teams/views.py:631
+#, python-format
+msgid "A request to create the '%s' team already exists."
+msgstr "'%s' टीम बनाने के लिए एक अनुरोध पहले से ही मौजूद है।"
+
+#: teams/views.py:648
+#, python-format
+msgid "You requested creation of the '%s' team."
+msgstr "आपने '%s' टीम के निर्माण का अनुरोध किया है।"
+
+#: teams/views.py:672
+msgid ""
+"You need to sign the Contribution License Agreement for this project before "
+"you submit a team creation request."
+msgstr ""
+"आप इस परियोजना के लिए योगदान लाइसेंस समझौते पर हस्ताक्षर करना होगा इसके पहले की आप "
+"एक टीम के निर्माण का अनुरोध सबमिट करे|"
+
+#: teams/views.py:701
+#, python-format
+msgid "You approved the '%(team)s' team requested by '%(user)s'."
+msgstr "आपने '%(user)s' द्वारा अनुरोध किए गए '%(team)s' टीम को मंजूरी दे दी।"
+
+#: teams/views.py:745
+#, python-format
+msgid "You rejected the request by '%(user)s' for a '%(team)s' team."
+msgstr ""
+"आपने '%(user)s' द्वारा '%(team)s' टीम मे शामिल होने का अनुरोध अस्वीकार कर दिया।"
+
+#: templates/403.html:4 templates/403.html.py:7
+msgid "Forbidden access"
+msgstr "फोरबिडेन एक्सेस"
+
+#: templates/403.html:12
+msgid ""
+"Looks like you do not have the necessary permissions for the required action."
+msgstr "ऐसा लगता है कि आपके पास इन रेक्व्यार्ड एक्सन के लिए नेसेसरी परमिशन नहीं है।"
+
+#: templates/403.html:15 templates/404.html:16
+#, python-format
+msgid ""
+"Here's a link to the <a href=\"%(home)s\">homepage</a>. You know, just in "
+"case."
+msgstr "यहाँ एक लिंक है <a href=\"%(home)s\">होमपेज</a> . तुम्हें पता है, जस्ट इन केस।"
+
+#: templates/404.html:4 templates/404.html.py:7
+msgid "Page not found"
+msgstr "पेज नोट फ़ाउंड "
+
+#: templates/404.html:13
+msgid ""
+"Looks like you followed a bad link. If you think it's our fault, please <a "
+"href='http://code.transifex.com/transifex/issues/'>let us know</a>."
+msgstr ""
+
+#: templates/500.html:7 templates/500.html.py:22
+msgid "Page unavailable"
+msgstr "पेज अनअभ्लेबल"
+
+#: templates/500.html:23
+msgid "We're sorry, but the requested page is currently unavailable."
+msgstr "हमें खेद है, लेकिन रिक्वेस्टेड पेज करेंटली अनअभ्लेबल है।"
+
+#: templates/500.html:24
+msgid ""
+"We're messing around with things internally, and the server had a bit of a "
+"hiccup."
+msgstr "हम चीजों के साथ खिलवाड़ के आसपास रहे हैं आंतरिक और सर्वर एक हिचकी के एक सा था."
+
+#: templates/500.html:25
+msgid "Please try again later."
+msgstr "कृपया बाद में फिर से कोशिश करें।"
+
+#: templates/base-sample.html:10 templates/admin/base_site.html:6
+#: templates/flatpages/default.html:6
+msgid "Transifex"
+msgstr "Transifex"
+
+#: templates/base-sample.html:79 txcommon/templates/common_homelink.html:2
+msgid "Go to the start page"
+msgstr "इस स्टार्ट पेज पर जाएँ"
+
+#: templates/base-sample.html:80
+msgid "Go to start page"
+msgstr "स्टार्ट पेज पर जाएँ"
+
+#: templates/base-sample.html:85 templates/projects/project_list.html:49
+#: templates/projects/project_myprojects.html:8
+#: templates/projects/project_myprojects.html:10
+msgid "My projects"
+msgstr "मेरा परियोजनाये"
+
+#: templates/base-sample.html:87 templates/projects/project_myprojects.html:27
+msgid "The projects being served"
+msgstr "प्रोजेक्ट्स सर्व किया जा रहा है"
+
+#: templates/base-sample.html:90
+msgid "The languages our service serves"
+msgstr "भाषाएँ हमारी सेवा सर्व करति हैं"
+
+#: templates/base-sample.html:90 templates/languages/language_list.html:8
+#: templates/projects/project_detail_languages.html:22
+#: templates/userena/public.html:50 txcommon/models.py:33
+msgid "Languages"
+msgstr "भाषाएँ"
+
+#: templates/base-sample.html:97
+#, python-format
+msgid ""
+"Welcome <a title=\"Profile settings\" href=\"%(user_profile)s\">"
+"%(user_username)s</a>!"
+msgstr ""
+"<a title=\"Profile settings\" href=\"%(user_profile)s\">%(user_username)s</"
+"a> आपका स्वागत है !"
+
+#: templates/base-sample.html:103
+msgid "Sign out from the website"
+msgstr "वेबसाइट से साइन आउट करें"
+
+#: templates/base-sample.html:103
+msgid "Sign out"
+msgstr "साइन आउट करें"
+
+#: templates/base-sample.html:110 templates/simpleauth/login_box.html:10
+#: templates/simpleauth/login_box.html:26 templates/simpleauth/logout.html:4
+#: templates/simpleauth/logout.html.py:5 templates/simpleauth/logout.html:6
+#: templates/simpleauth/signin.html:4 templates/simpleauth/signin.html.py:5
+#: templates/simpleauth/signin.html:6 templates/userena/signin_form.html:22
+#: templates/userena/signin_form.html:48
+msgid "Sign in"
+msgstr "साइन इन करें"
+
+#: templates/base-sample.html:113 templates/userena/signup_form.html:6
+#: templates/userena/signup_form.html:49
+msgid "Register"
+msgstr "रजिस्टर"
+
+#: templates/base-sample.html:181
+msgid "Learn more about Transifex"
+msgstr "Transifex के बारे में और अधिक जानें"
+
+#: templates/base-sample.html:181
+msgid "About"
+msgstr "के बारे में"
+
+#: templates/base-sample.html:183
+msgid "Drops us a line"
+msgstr "हमें एक लाइन गिरता"
+
+#: templates/base-sample.html:183
+msgid "Feedback"
+msgstr "फीडबैक"
+
+#: templates/base-sample.html:187
+msgid ""
+"Powered by <a href=\"http://transifex.org/\" title=\"Transifex community"
+"\">Transifex</a>, the Open Translation Platform"
+msgstr ""
+"द्वारा संचालित <a href=\"http://transifex.org/\" title=\"Transifex समुदाय"
+"\">Transifex</a> , ओपन अनुवाद प्लेटफार्म"
+
+#: templates/index.html:27
+msgid "Welcome to Transifex"
+msgstr "Transifex में आपका स्वागत है"
+
+#: templates/index.html:34
+msgid ""
+"Transifex is a service aimed at helping translators keep track of their "
+"favorite translation projects."
+msgstr ""
+"Transifex मदद अनुवादकों के लिए अपने पसंदीदा अनुवाद परियोजनाओं का ट्रैक रखने के उद्देश्य से "
+"एक सेवा है।"
+
+#: templates/index.html:41
+#, python-format
+msgid ""
+"You could also browse through <a href=\"%(project_list)s\">all projects</a>."
+msgstr ""
+"आप सभी परियोजनाओं के लिए<a href=\"%(project_list)s\">के माध्यम से भी ब्राउज़ कर "
+"सकते</a> हैं।"
+
+#: templates/search.html:7 templates/search.html.py:9
+#: templates/search_form.html:6
+msgid "Search"
+msgstr "खोज"
+
+#: templates/search.html:9
+msgid "Results"
+msgstr "परिणाम"
+
+#: templates/search.html:16
+msgid "Search projects"
+msgstr "सर्च प्रोजेक्ट्स"
+
+#: templates/search.html:16
+msgid "Search results "
+msgstr "खोज परिणाम "
+
+#: templates/search.html:29
+msgid "Did you mean:"
+msgstr "आप मतलब था:"
+
+#: templates/search.html:54
+#, python-format
+msgid ""
+"No projects were found for \"%(q)s\". You may want to change your query a "
+"bit."
+msgstr ""
+"\"%(q)s\" के लिए प्रोजेक्ट्स नहीं पाए गए।आप क्वेरी में छोटा सा परिवर्तन करना चाहते हो।"
+
+#: templates/search.html:66
+#, python-format
+msgid ""
+"Couldn't find your project? Why don't you go ahead and <a href="
+"\"%(project_create_url)s\">add it</a>?"
+msgstr ""
+"आपका प्रोजेक्ट नहीं मिल सकता हैं? आप आगे जाएँ और <a href=\"%(project_create_url)s"
+"\">इसे जोड़ दें</a> ?"
+
+#: templates/timeline.html:11
+msgid "Filter results"
+msgstr "फ़िल्टर परिणाम"
+
+#: templates/timeline.html:17 templates/resources/resource_actions.html:180
+msgid "Go"
+msgstr "जाना"
+
+#: templates/admin/base_site.html:11
+msgid "Transifex administration"
+msgstr "Transifex एडमीन्सट्रेसन"
+
+#: templates/contact_form/contact_form.html:5
+#: templates/contact_form/contact_form.html:6
+msgid "Contact us"
+msgstr "हमसे संपर्क करें"
+
+#: templates/contact_form/contact_form.html:7
+msgid "Let us know what you think!"
+msgstr "हमें पता है कि आप क्या सोचते हैं!"
+
+#: templates/contact_form/contact_form.html:10
+msgid ""
+"We'd like to make this web service as useful as possible for our users. If "
+"you have any feedback to provide, please do so!"
+msgstr ""
+"हम हमारे यूजर्स के लिए इस वेब सेवा को अधिक से अधिक संभावित उपयोगी बनाना चाहते हैं. यदि "
+"आप किसी भी प्रकार का फीडबैक देना चाहते है तो एसा ही करें!"
+
+#: templates/contact_form/contact_form.html:22
+msgid "Send feedback"
+msgstr "फीडबैक भेजें"
+
+#: templates/contact_form/contact_form_sent.html:4
+msgid "Thanks for the feedback!"
+msgstr "फीडबैक के लिए धन्यवाद!"
+
+#: templates/contact_form/contact_form_sent.html:7
+msgid "Thanks!"
+msgstr "धन्यवाद!"
+
+#: templates/contact_form/contact_form_sent.html:11
+msgid "Thank you for your feedback."
+msgstr "आपकी फीडबैक के लिए धन्यवाद."
+
+#: templates/helptext/project_form_helptext.html:7
+msgid ""
+"\n"
+"The slug is a short word, summarizing and uniquely defining a project.\n"
+"Slug should be self-explainable, but it is most important to be unique.\n"
+"Its main purpose is to be part of a reference URL for the specific object.\n"
+msgstr ""
+"\n"
+"स्लग एक छोटा शब्द है, जो सारांश और विशिष्ट रूप से एक प्रोजेक्ट को परिभाषित करता है । "
+"स्लग सेल्फ-इक्स्प्लेनेब्ल होना चाहिए, लेकिन यह सबसे महत्वपूर्ण है कि अद्वितीय हो। इसका मुख्य "
+"उद्देश्य है की विशिष्ट ऑब्जेक्ट के लिए एक संदर्भ URL का हिस्सा हो।\n"
+
+#: templates/helptext/project_form_helptext.html:18
+msgid ""
+"\n"
+"The name is a short name for the project. This is the \"codename\" of the\n"
+"project. E.g. this would be \"Transifex\" for transifex project.\n"
+msgstr ""
+"\n"
+"यह नाम प्रोजेक्ट के लिए एक संक्षिप्त नाम है।  यह प्रोजेक्ट का \"codename\" है। उदाहरण के "
+"लिए transifex प्रोजेक्ट के लिए \"Transifex\" होगा।\n"
+
+#: templates/helptext/project_form_helptext.html:28
+msgid ""
+"\n"
+"The description must be one or two sentences length. This is a short\n"
+"summary about the project. It is a required field for the project form.\n"
+"E.g. Transifex description : \"An open translation platform.\"\n"
+msgstr ""
+"\n"
+"विवरण एक या दो वाक्य के लंबाई का होना आवश्यक है.परियोजना के बारे में सारांश\n"
+"छोटा है.यह परियोजना फार्म के लिए जरूरी क्षेत्र है.\n"
+"जैसे Transifex विवरण :\"एक खुला अनुवाद मंच\".\n"
+
+#: templates/helptext/project_form_helptext.html:39
+msgid ""
+"\n"
+"The long description field should contain an extensive description of\n"
+"the project. E.g. Transifex long description : \"Transifex is web system\n"
+" for managing translations from various distributed repositories.\"\n"
+"Caution! <a href=\"http://en.wikipedia.org/wiki/Markdown\">Markdown </a>\n"
+"syntax should be used.\n"
+msgstr ""
+"\n"
+"यह लंबा विवरण क्षेत्र प्रोजेक्ट के लिए एक विस्तृत वर्णन शामिल करना चाहिए। \n"
+"उदाहरण Transifex लंबा वर्णन: \"Transifex विभिन्न वितरित रिपोजिट्री \n"
+"से अनुवाद के प्रबंधन के लिए वेब सिस्टम है।\" सावधानी! <a \n"
+"href=\"http://en.wikipedia.org\n"
+"/wiki/Markdown\">markdown</a>सिंटेक्स यूज किया जाना\n"
+" चाहिए।\n"
+
+#: templates/helptext/project_form_helptext.html:52
+msgid ""
+"\n"
+"Type in the url of the project's home page.\n"
+msgstr ""
+"\n"
+"प्रोजेक्ट के होम पेज के url में टाइप करें।\n"
+
+#: templates/helptext/project_form_helptext.html:59
+msgid "RSS feed"
+msgstr "RSS फ़ीड"
+
+#: templates/helptext/project_form_helptext.html:61
+msgid ""
+"\n"
+"This is the projects feed name. By following feed url, other users,\n"
+"which are interested in translation news, can be synchronized with updates\n"
+"on the project.\n"
+msgstr ""
+"\n"
+"यह प्रोजेक्ट्स फ़ीड नाम है। फ़ीड url को फ़ॉलो करके, अन्य यूजर्स को, जो\n"
+" अनुवाद खबर में रुचि रखते हैं,  प्रोजेक्ट पर अपडेट के साथ सिंक्रनाइज़ किया जा सकता है।\n"
+
+#: templates/helptext/project_form_helptext.html:72
+msgid ""
+"\n"
+"This field should contain the url for the maintenance, tracking system of\n"
+"the project. For example, the bug tracker url of transifex is at:\n"
+"http://code.transifex.com/transifex/issues/\n"
+msgstr ""
+
+#: templates/helptext/project_form_helptext.html:83
+msgid ""
+"\n"
+"Tags are keywords that annotate an object. Tags separated by whitespaces\n"
+"should be used to help searching for the specific project. They are also\n"
+"a compact description of a project. For example, Transifex has the "
+"following\n"
+"tags: i18n l10n translations.\n"
+msgstr ""
+"\n"
+"टैग कीवर्ड्स है जो कि एक वस्तु को एनोटेट कर रहे हैं। Whitespaces द्वारा\n"
+" अलग टैग करने के लिए विशेष प्रोजेक्ट के लिए खोज में मदद किया जाना\n"
+" चाहिए। उन्होंने यह भी एक प्रोजेक्ट के एक कॉम्पैक्ट वर्णन कर रहे हैं। \n"
+"उदाहरण के लिए, Transifex निम्नलिखित टैग है: I18n l10n अनुवाद।\n"
+
+#: templates/helptext/project_form_helptext.html:95
+msgid ""
+"\n"
+"Maintainers are the people responsible for the administration of the "
+"project.\n"
+"They have permissions to edit the project and to add translators. They can\n"
+"also add, edit remove resources of a project.\n"
+msgstr ""
+"\n"
+"Maintainers प्रोजेक्ट के एडमीन्सट्रेसन के लिए जिम्मेदार लोग हैं। उन्हें\n"
+" प्रोजेक्ट को संपादित और ट्रांसलेटर्स को जोड़ने की अनुमति है। वे एक प्रोजेक्ट के संसाधनों को "
+"जोड़, हटा या संपादित कर सकते हैं।\n"
+
+#: templates/helptext/project_form_helptext.html:102
+msgid ""
+"\n"
+"This field is ajax powered so it is possible to type only a few characters\n"
+"and be redirected to the wishing username. Type the preferred username and\n"
+"will be appeared above to be added. If you want to remove a maintainer "
+"remove\n"
+"him from the list under the text box.\n"
+msgstr ""
+"\n"
+"इस क्षेत्र के लिए ajax संचालित है तो यह संभव है केवल कुछ वर्ण लिखें और इच्छुक यूजरनेम करने के "
+"लिए पुनः निर्देशित हो। पसंदीदा यूजरनेम टाइप करें और ऊपर प्रकट हो जाएगा जोड़ा जाए। यदि "
+"आप एक मेंटेनर को निकालना\n"
+" चाहते हैं तो टेक्स्ट बॉक्स के लिस्ट से निकाल दें ।\n"
+
+#: templates/languages/language_list.html:14
+msgid "Languages on Transifex"
+msgstr "Transifex पर भाषाएँ"
+
+#: templates/languages/language_list.html:17
+msgid "Languages feed"
+msgstr "भाषाओ की फ़ीड"
+
+#: templates/languages/language_list.html:17
+#: templates/projects/project_detail.html:127
+#: templates/projects/release_detail.html:36
+#: templates/projects/release_language_detail.html:103
+msgid "Subscribe to feed"
+msgstr "फ़ीड की सदस्यता लें"
+
+#: templates/languages/language_list.html:27
+msgid "No languages registered yet. :-("
+msgstr "अभी तक कोई भाषाएँ  दर्ज नहीं की गई। :-("
+
+#: templates/languages/language_list.html:34
+msgid ""
+"Couldn't find your language? Please use the feedback form and <a href="
+"\"http://help.transifex.com/user-guide/faq.html#where-does-the-language-list-"
+"come-from-how-can-i-add-my-own\">let us know</a>!"
+msgstr ""
+
+#: templates/notification/notices.html:7 templates/notification/notices.html:8
+#: templates/notification/notices.html:9
+msgid "Notifications"
+msgstr "नोटीफिकेसन्स"
+
+#: templates/notification/notices.html:32
+msgid "Received notifications"
+msgstr "प्राप्त सूचनाएँ"
+
+#: templates/notification/notices.html:43
+msgid "Time"
+msgstr "समय"
+
+#: templates/notification/notices.html:71
+msgid "Mark all unseen notices seen"
+msgstr "सभी अनसीन नोटिस को सीन मार्क करें"
+
+#: templates/notification/notices.html:77
+msgid "No notices."
+msgstr "कोई नोटिस नहीं।"
+
+#: templates/notification/notices.html:81
+#: templates/notification/notices.html:83
+msgid "Change your notification settings"
+msgstr "अपनी नोटीफिकेसन सेटिंग्स बदलें"
+
+#: templates/notification/notices.html:81
+#: templates/userena/base_userena.html:37
+msgid "Notification settings"
+msgstr "नोटीफिकेसन सेटिंग्स"
+
+#: templates/notification/notices.html:86
+msgid ""
+"You can receive notifications whenever an event occurs in Transifex. Check "
+"the notifications available for you in the list below and choose which "
+"events you would like to be notified by email."
+msgstr ""
+"आप सूचनाएँ प्राप्त कर सकते हैं जब भी एक घटना Transifex में होति है। निचे की सूचि में उपलब्ध "
+"सूचनाओं की जाँच करें और  चुनें जिस घटना को आप इमेल द्वारा सूचित करना चाहते हैं।"
+
+#: templates/notification/notices.html:87
+msgid "Primary email"
+msgstr "प्राइमरी ईमेल"
+
+#: templates/notification/notices.html:90
+msgid "change under"
+msgstr "के तहत बदलाव"
+
+#: templates/notification/notices.html:90
+#: templates/notification/notices.html:94
+msgid "Account"
+msgstr "अकाउंट"
+
+#: templates/notification/notices.html:93
+msgid "Note"
+msgstr "नोट"
+
+#: templates/notification/notices.html:94
+msgid ""
+"You do not have a verified email address to which notices can be sent. You "
+"can add one by going to"
+msgstr ""
+"आपको एक सत्यापित ईमेल पते के लिए नोटिस भेजा जा सकता है नहीं है। आप जा के एक जोड़ सकते हैं"
+
+#: templates/notification/notices.html:102
+msgid "Notification Type"
+msgstr "अधिसूचना प्रकार"
+
+#: templates/notification/notices.html:121
+msgid "Change"
+msgstr "परिवर्तन"
+
+#: templates/notification/single.html:5 templates/notification/single.html:8
+msgid "Notice"
+msgstr "नोटिस"
+
+#: templates/notification/project_added/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">added</span> <span class=\"notice_subject\">project</span> <a href="
+"\"%(project_url)s\">%(project)s</a> "
+msgstr ""
+"<span class=\"notice_subject\">प्रोजेक्ट</span> <a href=\"%(project_url)s\">"
+"%(project)s</a><a href=\"%(sender_url)s\">%(sender)s</a>जोड़ा गया<span class="
+"\"notice_action\">deleted</span>"
+
+#: templates/notification/project_changed/notice.html:2
+#, python-format
+msgid ""
+" <a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">changed</span> data of <span class=\"notice_subject\">project</span> <a "
+"href=\"%(project_url)s\">%(project)s</a> "
+msgstr ""
+"<span class=\"notice_subject\">परियोजना</span> <a href=\"%(project_url)s\">"
+"%(project)s</a>की तारीख <a href=\"%(sender_url)s\">%(sender)s</a> <span "
+"class=\"notice_action\">changed</span> परिवर्तित"
+
+#: templates/notification/project_deleted/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">deleted</span> <span class=\"notice_subject\">project</span> <a href="
+"\"%(project_url)s\">%(project)s</a>"
+msgstr ""
+"<span class=\"notice_subject\">प्रोजेक्ट</span> <a href=\"%(project_url)s\">"
+"%(project)s</a><a href=\"%(sender_url)s\">%(sender)s</a>हटाया गया<span class="
+"\"notice_action\">deleted</span>"
+
+#: templates/notification/project_hub_join_approved/notice.html:2
+#, python-format
+msgid ""
+"The project <a href=\"%(project_url)s\">%(project_name)s</a> had its <span "
+"class=\"notice_action\">request</span> to join and outsource access to the "
+"<a href=\"%(project_hub_url)s\">%(project_hub_name)s </a> project hub <span "
+"class=\"notice_action\">approved</span>"
+msgstr ""
+" परियोजना <a href=\"%(project_url)s\">%(project_name)s</a> अपने अनुरोध में <span "
+"class=\"notice_action\"></span>शामिल और<a href=\"%(project_hub_url)s\">"
+"%(project_hub_name)s </a> परियोजना केंद्र का आउटसोर्स उपयोग  <span >class="
+"\"notice_action\">के लिए अनुमोदित</span>"
+
+#: templates/notification/project_hub_join_denied/notice.html:2
+#, python-format
+msgid ""
+"The project <a href=\"%(project_url)s\">%(project_name)s</a> had its <span "
+"class=\"notice_action\">request</span> to join and outsource access to the "
+"<a href=\"%(project_hub_url)s\">%(project_hub_name)s </a> project hub <span "
+"class=\"notice_action\">denied</span>"
+msgstr ""
+" परियोजना <a href=\"%(project_url)s\">%(project_name)s</a> अपने अनुरोध में <span "
+"class=\"notice_action\"></span>शामिल और<a href=\"%(project_hub_url)s\">"
+"%(project_hub_name)s </a> परियोजना केंद्र का आउटसोर्स उपयोग  <span >class="
+"\"notice_action\">के लिए वंचित</span>"
+
+#: templates/notification/project_hub_join_requested/notice.html:2
+#, python-format
+msgid ""
+"The project <a href=\"%(project_url)s\">%(project_name)s</a> <span class="
+"\"notice_action\">requested</span> to join and outsource its access to the "
+"<a href=\"%(project_hub_url)s\">%(project_hub_name)s </a> project hub"
+msgstr ""
+" परियोजना <a href=\"%(project_url)s\">%(project_name)s</a>में शामिल होने के "
+"लिए<span class=\"notice_action\"></span> अनुरोध और<a href="
+"\"%(project_hub_url)s\">%(project_hub_name)s </a> परियोजना केंद्र का आउटसोर्स "
+"उपयोग"
+
+#: templates/notification/project_hub_join_withdrawn/notice.html:2
+#, python-format
+msgid ""
+"The project <a href=\"%(project_url)s\">%(project_name)s</a> had its <span "
+"class=\"notice_action\">request</span> to join and outsource access to the "
+"<a href=\"%(project_hub_url)s\">%(project_hub_name)s </a> project hub<span "
+"class=\"notice_action\">withdrawn</span>"
+msgstr ""
+" परियोजना <a href=\"%(project_url)s\">%(project_name)s</a> अपने अनुरोध में <span "
+"class=\"notice_action\"></span>शामिल और<a href=\"%(project_hub_url)s\">"
+"%(project_hub_name)s </a> परियोजना केंद्र का आउटसोर्स उपयोग  <span >class="
+"\"notice_action\">करने से वापस लिया</span>"
+
+#: templates/notification/project_hub_left/notice.html:2
+#, python-format
+msgid ""
+"The project <a href=\"%(project_url)s\">%(project_name)s</a> has <span class="
+"\"notice_action\">left</span> the <a href=\"%(project_hub_url)s\">"
+"%(project_hub_name)s </a> project hub"
+msgstr ""
+"परियोजना <a href=\"%(project_url)s\">%(project_name)s</a><span class="
+"\"notice_action\">ने </span><a href=\"%(project_hub_url)s\">"
+"%(project_hub_name)s </a>परियोजना केंद्र को छोड़ दिया"
+
+#: templates/notification/project_release_added/notice.html:2
+#: templates/notification/project_release_changed/notice.html:2
+#, python-format
+msgid ""
+"A new release <a href=\"%(release_url)s\">%(release_name)s</a> has been "
+"added to the <a href=\"%(project_url)s\">%(project_name)s</a> project"
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a>परियोजना में एक नया <a href="
+"\"%(release_url)s\">%(release_name)s</a>रिलीज जोड़ा गया है।"
+
+#: templates/notification/project_release_before_stringfreeze/notice.html:2
+#, python-format
+msgid ""
+"Notification about the approaching of the <a href=\"%(release_url)s\">"
+"%(release_name)s</a> string freeze of the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> project has been sent"
+msgstr ""
+"परियोजना <a href=\"%(project_url)s\">%(project_name)s</a>के स्ट्रिंग फ्रीज<a href="
+"\"%(release_url)s\">%(release_name)s</a>के निकटता के बारे में अधिसूचना भेज दिया गया "
+"है"
+
+#: templates/notification/project_release_before_trans_deadline/notice.html:2
+#, python-format
+msgid ""
+"Notification about the approaching of the <a href=\"%(release_url)s\">"
+"%(release_name)s</a> translation deadline of the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> project has been sent"
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a>परियोजना के अनुवाद की समय सीमा "
+"<a href=\"%(release_url)s\">%(release_name)s</a>के निकटता के बारे में अधिसूचना भेजा "
+"जा चुका है."
+
+#: templates/notification/project_release_deleted/notice.html:2
+#, python-format
+msgid ""
+"The resource '%(release_name)s' has been deleted from the <a href="
+"\"%(project_url)s\">%(project_name)s</a> project"
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a>परियोजना से "
+"'%(release_name)s' संसाधन को हटा दिया गया है।"
+
+#: templates/notification/project_release_hit_trans_deadline/notice.html:2
+#, python-format
+msgid ""
+"Notification about translation period of the  <a href=\"%(release_url)s\">"
+"%(release_name)s</a> release of the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> project being over has been sent"
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a>परियोजना के विज्ञप्ति जारी की  "
+"<a href=\"%(release_url)s\">%(release_name)s</a>अनुवाद अवधि के बारे में अधिसूचना "
+"भेज दिया गया है"
+
+#: templates/notification/project_release_in_stringfreeze/notice.html:2
+#, python-format
+msgid ""
+"Notification about <a href=\"%(release_url)s\">%(release_name)s</a> release "
+"of the <a href=\"%(project_url)s\">%(project_name)s</a> project being in "
+"string freeze has been sent"
+msgstr ""
+" <a href=\"%(release_url)s\">%(release_name)s</a> के बारे में अधिसूचना को  स्ट्रिंग "
+"स्थिर में <a href=\"%(project_url)s\">%(project_name)s</a> परियोजना की रिहाई के "
+"लिए भेज दिया गया है"
+
+#: templates/notification/project_release_stringfreeze_breakage/notice.html:2
+#, python-format
+msgid ""
+"Notification about <a href=\"%(resource_url)s\">%(resource_name)s</a> "
+"resource string freeze breakage for the <a href=\"%(release_url)s\">"
+"%(release_name)s</a> release of the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> project has been sent"
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a>परियोजना के  <a href="
+"\"%(release_url)s\">%(release_name)s</a> विज्ञप्ति जारी के <a href="
+"\"%(resource_url)s\">%(resource_name)s</a> संसाधित स्ट्रिंग फ्रीज के टूटने की "
+"अधिसूचना भेजा दिया गया है"
+
+#: templates/notification/project_report_weekly_maintainers/notice.html:2
+#, python-format
+msgid ""
+"The <span class=\"notice_subject\">weekly report</span> of the <a href="
+"\"%(project_url)s\">%(project_name)s</a> project was <span class="
+"\"notice_subject\">generated</span>"
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a>प्रोजेक्ट के<span class="
+"\"notice_subject\">साप्ताहिक रिपोर्ट को</span>  <span class=\"notice_subject"
+"\">उत्पन्न</span> किया गया था।"
+
+#: templates/notification/project_resource_added/notice.html:2
+#, python-format
+msgid ""
+"A new resource <a href=\"%(resource_url)s\">%(resource_name)s</a> has been "
+"added to the <a href=\"%(project_url)s\">%(project_name)s</a> project"
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a> प्रोजेक्ट में एक नए रिसोर्स <a "
+"href=\"%(resource_url)s\">%(resource_name)s</a> को जोड़ा गया है "
+
+#: templates/notification/project_resource_changed/notice.html:2
+#, python-format
+msgid ""
+"The resource <a href=\"%(resource_url)s\">%(resource_name)s</a> of the <a "
+"href=\"%(project_url)s\">%(project_name)s</a> project has been changed"
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a>प्रोजेक्ट के रिसोर्स<a href="
+"\"%(resource_url)s\">%(resource_name)s</a> को बदल दिया गया है"
+
+#: templates/notification/project_resource_deleted/notice.html:2
+#, python-format
+msgid ""
+"The resource '%(resource_name)s' has been deleted from the <a href="
+"\"%(project_url)s\">%(project_name)s</a> project"
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a>प्रोजेक्ट से संसाधन "
+"'%(resource_name)s' को हटा दिया गया है"
+
+#: templates/notification/project_resource_full_reviewed/notice.html:2
+#, python-format
+msgid ""
+"The %(language_name)s translation of the project <a href=\"%(project_url)s\">"
+"%(project_name)s</a>, resource <a href=\"%(resource_url)s\">"
+"%(resource_name)s</a> has reached 100%% reviewed strings."
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a>परियोजना के %(language_name)s "
+"अनुवाद,<a href=\"%(resource_url)s\">%(resource_name)s</a>संसाधन 100%% समीक्षित "
+"स्ट्रिंग्स पर पहुंच गया है."
+
+#: templates/notification/project_resource_translated/notice.html:2
+#, python-format
+msgid ""
+"A translation for %(language_name)s was sent to <a href=\"%(resource_url)s\">"
+"%(resource_name)s</a> of the <a href=\"%(project_url)s\">%(project_name)s</"
+"a> project"
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a>परियोजना का <a href="
+"\"%(resource_url)s\">%(resource_name)s</a>का अनुवाद %(language_name)s  भेजा "
+"गया था"
+
+#: templates/notification/project_resource_translation_changed/notice.html:2
+#, python-format
+msgid ""
+"The %(language_name)s translation of the project <a href=\"%(project_url)s\">"
+"%(project_name)s</a>, resource <a href=\"%(resource_url)s\">"
+"%(resource_name)s</a> has been modified."
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a>परियोजना का "
+"%(language_name)s अनुवाद, <a href=\"%(resource_url)s\">%(resource_name)s</a> "
+"संसाधन संशोधित किया गया है."
+
+#: templates/notification/project_submit_access_granted/notice.html:2
+#, python-format
+msgid ""
+"The user <a href=\"%(user_url)s\">%(user_request)s</a> had <span class="
+"\"notice_subject\">access to submit translations</span> to the project <a "
+"href=\"%(project_url)s\">%(project)s</a> <span class=\"notice_action"
+"\">granted</span>"
+msgstr ""
+"यूजर <a href=\"%(user_url)s\">%(user_request)s</a> <span class="
+"\"notice_subject\">का उपयोग</span> किया था इस परियोजना के लिए <span class="
+"\"notice_subject\">अनुवाद प्रस्तुत</span> <a href=\"%(project_url)s\">"
+"%(project)s,</a> <span class=\"notice_action\">दी</span>"
+
+#: templates/notification/project_submit_access_request_denied/notice.html:2
+#, python-format
+msgid ""
+"The user <a href=\"%(user_url)s\">%(user_request)s</a> had its <span class="
+"\"notice_subject\">request</span> of access to submit translations to the "
+"project <a href=\"%(project_url)s\">%(project)s</a> <span class="
+"\"notice_action\">denied</span>"
+msgstr ""
+"उपयोगकर्ता <a href=\"%(user_url)s\">%(user_request)s</a> अपने  <span class="
+"\"notice_subject\"> अनुरोध </span>को परियोजना <a href=\"%(project_url)s\">"
+"%(project)s</a> <span class=\"notice_action\">के प्रस्तुत अनुवादों की तक पहुँच "
+"स्थापित करने से इनकार किया </span>"
+
+#: templates/notification/project_submit_access_request_withdrawn/notice.html:2
+#, python-format
+msgid ""
+"<span class=\"notice_action\">Withdrew</span> own <span class="
+"\"notice_subject\">request</span> of access to submit translations to the "
+"<span class=\"notice_action\">project</span> <a href=\"%(project_url)s\">"
+"%(project)s</a>"
+msgstr ""
+"इस <span class=\"notice_action\">पारियोजना</span><a href=\"%(project_url)s\">"
+"%(project)s</a>में अनुवाद प्रस्तुत करने का <span class=\"notice_subject\">अनुरोध </"
+"span><span class=\"notice_action\">वापस</span> ले ले"
+
+#: templates/notification/project_submit_access_requested/notice.html:2
+#, python-format
+msgid ""
+"<span class=\"notice_action\">Requested</span> <span class=\"notice_subject"
+"\">access to submit translations</span> to the <span class=\"notice_action"
+"\">project</span> <a href=\"%(project_url)s\">%(project)s</a>"
+msgstr ""
+"<span class=\"notice_action\">परियोजना</span><a href=\"%(project_url)s\">"
+"%(project)s</a>मे <span class=\"notice_subject\">अनुवाद प्रस्तुत करने के लिए एक्सेस </"
+"span> <span class=\"notice_action\">अनुरोध किया</span>"
+
+#: templates/notification/project_submit_access_revoked/notice.html:2
+#, python-format
+msgid ""
+"The user <a href=\"%(user_url)s\">%(user_request)s</a> had its <span class="
+"\"notice_subject\">access to submit translations</span> to the project <a "
+"href=\"%(project_url)s\">%(project)s</a> <span class=\"notice_action"
+"\">revoked</span>."
+msgstr ""
+"उपयोगकर्ता <a href=\"%(user_url)s\">%(user_request)s</a><span class="
+"\"notice_subject\">परियोजना<a href=\"%(project_url)s\">%(project)s</a> <span "
+"class=\"notice_action\">के प्रस्तुत अनुवादों की तक पहुँच को रद्द कर दिया </span>"
+
+#: templates/notification/project_team_added/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">added</span> <a href=\"%(team_url)s\">%(team_name)s</a> language "
+"translation to the <a href=\"%(project_url)s\">%(project_name)s</a> project\n"
+msgstr ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action\">को</"
+"span> <a href=\"%(team_url)s\">%(team_name)s</a>भाषा में अनुवाद करने के लिए<a "
+"href=\"%(project_url)s\">%(project_name)s</a> परियोजना से जोड़ा\n"
+
+#: templates/notification/project_team_changed/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">changed</span> the <a href=\"%(team_url)s\">%(team_name)s</a> <span class="
+"\"notice_subject\">language</span> translation of the <a href="
+"\"%(project_url)s\">%(project_name)s</a> project\n"
+msgstr ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action\">को</"
+"span> <a href=\"%(team_url)s\">%(team_name)s</a>भाषा में अनुवाद करने के लिए<a "
+"href=\"%(project_url)s\">%(project_name)s</a> परियोजना से परिवर्तित किया\n"
+
+#: templates/notification/project_team_deleted/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">deleted</span> the <a href=\"%(team_url)s\">%(team_name)s</a> <span class="
+"\"notice_subject\">language</span> translation from the <a href="
+"\"%(project_url)s\">%(project_name)s</a> project\n"
+msgstr ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action\">को</"
+"span> <a href=\"%(team_url)s\">%(team_name)s</a>भाषा में अनुवाद करने के लिए<a "
+"href=\"%(project_url)s\">%(project_name)s</a> परियोजना से हटाए गए\n"
+
+#: templates/notification/project_team_join_approved/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">added</span> the <span class=\"notice_subject\">user</span> <a href="
+"\"%(user_url)s\">%(user_name)s</a> as a member to the <a href=\"%(team_url)s"
+"\">%(team_name)s language translation </a> of the <a href=\"%(project_url)s"
+"\">%(project_name)s</a> project\n"
+msgstr ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">उपयोगकर्ता</span><span class=\"notice_subject\">को</span> <a href="
+"\"%(user_url)s\">%(user_name)s</a> सदस्य के रूप में <a href=\"%(team_url)s\">"
+"%(team_name)s भाषा अनुवाद</a> के लिए <a href=\"%(project_url)s\">"
+"%(project_name)s</a>परियोजना में शामिल हो \n"
+"\n"
+
+#: templates/notification/project_team_join_denied/notice.html:2
+#, python-format
+msgid ""
+"%(performer)s <span class=\"notice_action\">denied</span> user <a href="
+"\"%(user_url)s\">%(user_name)s</a>'s <span class=\"notice_subject\">request</"
+"span> to join the <a href=\"%(team_url)s\">%(team_name)s language "
+"translation</a> of the <a href=\"%(project_url)s\">%(project_name)s</a> "
+"project"
+msgstr ""
+"उपयोगकर्ता <a href=\"%(user_url)s\">%(user_name)s</a> ने  <a href="
+"\"%(project_url)s\">%(project_name)s</a> परियोजना के<a href=\"%(team_url)s\">"
+"%(team_name)sभाषा अनुवाद में  </a> शामिल  होने के <span class=\"notice_subject"
+"\">अनुरोध को </span> %(performer)s <span class=\"notice_action\"> इनकार कर "
+"दिया </span>  "
+
+#: templates/notification/project_team_join_requested/notice.html:2
+#, python-format
+msgid ""
+"The user <a href=\"%(user_url)s\">%(user_name)s</a> <span class="
+"\"notice_action\">requested</span> to join the <a href=\"%(team_url)s\">"
+"%(team_name)s language translation</a> of the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> project"
+msgstr ""
+"उपयोगकर्ता <a href=\"%(user_url)s\">%(user_name)s</a> <a href="
+"\"%(project_url)s\">%(project_name)s</a> परियोजना के <a href=\"%(team_url)s\">"
+"%(team_name)s भाषा अनुवाद</a> में में शामिल होने <span class=\"notice_action"
+"\">अनुरोध करता हैं </span>"
+
+#: templates/notification/project_team_join_withdrawn/notice.html:2
+#, python-format
+msgid ""
+"The user <a href=\"%(user_url)s\">%(user_name)s</a> <span class="
+"\"notice_action\">withdrew</span> his request to join the <a href="
+"\"%(team_url)s\">%(team_name)s language translation</a> of the <a href="
+"\"%(project_url)s\">%(project_name)s</a> project"
+msgstr ""
+"उपयोगकर्ता <a href=\"%(user_url)s\">%(user_name)s</a> <span class="
+"\"notice_action\">परियोजना के</span>भाषा अनुवाद में<a href=\"%(team_url)s\">"
+"%(team_name)sशामिल होने के लिए</a> of the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> वापस ले "
+
+#: templates/notification/project_team_left/notice.html:2
+#, python-format
+msgid ""
+"<span class=\"notice_subject\">User</span> has <span class=\"notice_action"
+"\">left</span> the <a href=\"%(team_url)s\">%(team_name)s language "
+"translation</a> of the <a href=\"%(project_url)s\">%(project_name)s</a> "
+"project"
+msgstr ""
+"<span class=\"notice_subject\">उपयोगकर्ता </span><a href=\"%(project_url)s\">"
+"%(project_name)s</a> परियोजना के <a href=\"%(team_url)s\">%(team_name)s भाषा "
+"अनुवाद को </a><span class=\"notice_action\"> को छोड़ दिया</span>"
+
+#: templates/notification/project_team_request_denied/notice.html:2
+#, python-format
+msgid ""
+"The <span class=\"notice_subject\">request</span> to create a "
+"%(language_name)s language translation for the <a href=\"%(project_url)s\">"
+"%(project_name)s</a> project was <span class=\"notice_action\">denied</span>"
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a> परियोजना के   "
+"%(language_name)s भाषा के अनुवाद को बनाने <span class=\"notice_subject\">के "
+"अनुरोध को </span><span class=\"notice_action\">इंकार कर दिया </span>"
+
+#: templates/notification/project_team_requested/notice.html:2
+#, python-format
+msgid ""
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action"
+"\">requested</span> the creation of a %(language_name)s <span class="
+"\"notice_subject\">language translation</span> for the project <a href="
+"\"%(project_url)s\">%(project_name)s</a>"
+msgstr ""
+"<a href=\"%(project_url)s\">%(project_name)s</a> परियोजना के भाषा "
+"%(language_name)s <span class=\"notice_subject\">में अनुवाद के लिए रचना </span> "
+"<a href=\"%(sender_url)s\">%(sender)s</a> <span class=\"notice_action\"> की "
+"अनुरोध </span>"
+
+#: templates/notification/user_nudge/notice.html:2
+#, python-format
+msgid ""
+"The <span class=\"notice_subject\">user</span> <a href=\"%(performer_url)s\">"
+"%(performer)s</a> has <span class=\"notice_subject\">nudged</span> you"
+msgstr ""
+"The <span class=\"notice_subject\">user</span> <a href=\"%(performer_url)s\">"
+"%(performer)s</a> has <span class=\"notice_subject\">nudged</span> you"
+
+#: templates/projects/project_confirm_delete.html:4
+#, python-format
+msgid "Delete %(project_name)s"
+msgstr "%(project_name)s को हटाएँ"
+
+#: templates/projects/project_confirm_delete.html:6
+#, python-format
+msgid "Delete <em>%(project_name)s</em>"
+msgstr "हटाएँ <em>%(project_name)s</em>"
+
+#: templates/projects/project_confirm_delete.html:8
+msgid "Delete"
+msgstr "हटाना"
+
+#: templates/projects/project_confirm_delete.html:11
+#, python-format
+msgid "Say goodbye to <em>%(project_name)s</em>?"
+msgstr "<em>%(project_name)s</em> को अलविदा कहो?"
+
+#: templates/projects/project_confirm_delete.html:17
+#, python-format
+msgid ""
+"Are you sure you want to permanently delete the registered project "
+"'%(project_name)s'?"
+msgstr ""
+"क्या आप सुनिश्चित हैं कि आप स्थायी रूप से पंजीकृत परियोजना '%(project_name)s 'को हटाना "
+"चाहते हैं?"
+
+#: templates/projects/project_confirm_delete.html:21
+#: templates/teams/team_confirm_delete.html:17
+msgid "Yes, I'm sure!"
+msgstr "हाँ, मुझे यकीन है!"
+
+#: templates/projects/project_delete.html:11
+#: templates/projects/project_delete.html:14
+#: templates/projects/project_settings.html:54
+msgid "Delete project"
+msgstr "प्रोजेक्ट हटाएँ"
+
+#: templates/projects/project_detail.html:36
+#: templates/projects/project_myprojects_snippet.html:63
+#: templates/projects/release_detail.html:63
+#: templates/resources/resource_detail.html:101
+msgid "Details"
+msgstr "विवरण"
+
+#: templates/projects/project_detail.html:52
+#: templates/projects/release_detail.html:75
+msgid "Homepage:"
+msgstr "होमपेज:"
+
+#: templates/projects/project_detail.html:53
+#, python-format
+msgid "Homepage for %(project_name)s"
+msgstr " होमपेज के लिए %(project_name)s"
+
+#: templates/projects/project_detail.html:58
+#: templates/projects/project_list.html:80
+msgid "Tags:"
+msgstr "टैग:"
+
+#: templates/projects/project_detail.html:65
+msgid "Bug tracker:"
+msgstr "बग tracker:"
+
+#: templates/projects/project_detail.html:66
+#, python-format
+msgid "Bug tracker for %(project_name)s"
+msgstr "बग tracker के लिए %(project_name)s"
+
+#: templates/projects/project_detail.html:71
+msgid "Documentation:"
+msgstr "प्रलेखन:"
+
+#: templates/projects/project_detail.html:72
+msgid "Documentation of the translation procedure of this project"
+msgstr "इस परियोजना का अनुवाद प्रक्रिया का दस्तावेजीकरण"
+
+#: templates/projects/project_detail.html:72
+msgid "Translation help pages"
+msgstr "अनुवाद सहायता पृष्ठ"
+
+#: templates/projects/project_detail.html:79
+msgid "Maintainer:"
+msgid_plural "Maintainers:"
+msgstr[0] "मेंटेनर:"
+msgstr[1] "मेंटेनर्स :"
+
+#: templates/projects/project_detail.html:105
+msgid "Projects have requested to outsource access"
+msgstr "परियोजनाओं जो आउटसोर्स एक्सेस करने का अनुरोध किया है"
+
+#: templates/projects/project_detail.html:119
+#: templates/resources/resource_detail.html:234
+#: templates/teams/team_detail.html:236
+msgid "History"
+msgstr "इतिहास"
+
+#: templates/projects/project_detail.html:127
+msgid "Timeline feed for this project"
+msgstr "इस परियोजना के लिए समयरेखा फ़ीड "
+
+#: templates/projects/project_detail.html:134
+msgid "No history recorded yet."
+msgstr "अभी तक कोई इतिहास नहीं दर्ज कीया गया।"
+
+#: templates/projects/project_detail_languages.html:20
+msgid "Hub language teams"
+msgstr "हब भाषा टीमों"
+
+#: templates/projects/project_detail_languages.html:27
+msgid "Request language"
+msgstr " भाषा के लिए अनुरोध"
+
+#: templates/projects/project_detail_languages.html:31
+msgid "Create language"
+msgstr "भाषा बनाएँ"
+
+#: templates/projects/project_detail_languages.html:47
+msgid "Request team"
+msgstr "अनुरोध टीम"
+
+#: templates/projects/project_detail_languages.html:61
+msgid "Requested by"
+msgstr "के द्वारा अनुरोधित"
+
+#: templates/projects/project_detail_languages.html:65
+#: templates/projects/project_hub_join_requests.html:14
+#: templates/teams/team_members.html:74
+msgid "Deny"
+msgstr "इंकार"
+
+#: templates/projects/project_detail_languages.html:68
+#: templates/projects/project_hub_join_requests.html:17
+#: templates/teams/team_members.html:70
+msgid "Approve"
+msgstr "स्वीकृत"
+
+#: templates/projects/project_detail_languages.html:100
+#: templates/resources/resource_detail.html:193
+msgid "(source language)"
+msgstr "(source language)"
+
+#: templates/projects/project_detail_languages.html:111
+#, python-format
+msgid ""
+"\n"
+"                        (%(counter)s join request)\n"
+"                    "
+msgid_plural ""
+"\n"
+"                        (%(counter)s join requests)\n"
+"                    "
+msgstr[0] ""
+"\n"
+"                        (%(counter)s में जुड़ने के लिए अनुरोध)\n"
+"                    "
+msgstr[1] ""
+"\n"
+"                        (%(counter)s में जुड़ने के लिए अनुरोध)\n"
+"                    "
+
+#: templates/projects/project_detail_languages.html:123
+msgid "(no team yet)"
+msgstr "(अभी तक कोई टीम नहीं )"
+
+#: templates/projects/project_detail_languages.html:134
+#: templates/projects/project_resources.html:159
+#: templates/projects/release_detail.html:172
+#: templates/teams/team_detail.html:194
+msgid "Last update"
+msgstr "अंतिम अद्यतन"
+
+#: templates/projects/project_detail_languages.html:141
+msgid "No translation team has been created yet. Why don't you start one?"
+msgstr "कोई अनुवाद टीम अभी तक नहीं बनाई गई है। आप एक क्यों नहीं शुरू करते?"
+
+#: templates/projects/project_form.html:11
+#: templates/projects/project_form.html:19
+msgid "Add a project"
+msgstr "एक प्रोजेक्ट जोड़ें"
+
+#: templates/projects/project_form.html:22
+#: templates/projects/project_form.html:31
+#, python-format
+msgid "Edit %(project_name)s"
+msgstr "एडिट %(project_name)s"
+
+#: templates/projects/project_form.html:29
+#: templates/projects/project_myprojects.html:23
+#: templates/projects/project_settings.html:10
+msgid "New project"
+msgstr "नया प्रोजेक्ट"
+
+#: templates/projects/project_form.html:37
+#: templates/projects/project_settings.html:22
+msgid "Create a new project on Transifex"
+msgstr "Transifex पर एक नई परियोजना बनाएँ"
+
+#: templates/projects/project_form.html:39
+msgid "Manage your project"
+msgstr "अपनी परियोजना का प्रबंधन करें"
+
+#: templates/projects/project_form.html:52
+msgid "Add the details of your project"
+msgstr "अपने प्रोजेक्ट के विवरण जोड़ें"
+
+#: templates/projects/project_form.html:54
+msgid "Edit the details of your project"
+msgstr "अपने परियोजना के विवरण को एडिट करें"
+
+#: templates/projects/project_form.html:77
+msgid "View advanced fields"
+msgstr "उन्नत फ़ील्ड देखें"
+
+#: templates/projects/project_form.html:91
+msgid "Save project"
+msgstr "प्रोजेक्ट सेभ करें"
+
+#: templates/projects/project_form_access_control.html:11
+#: templates/projects/project_form_access_control.html:13
+#: templates/projects/project_form_permissions.html:8
+#: templates/projects/project_settings.html:56
+msgid "Access control"
+msgstr "अभिगम नियंत्रण"
+
+#: templates/projects/project_form_access_control.html:100
+msgid "Access control settings"
+msgstr "अभिगम नियंत्रण सेटिंग्स"
+
+#: templates/projects/project_form_access_control.html:105
+#, python-format
+msgid ""
+"This project has an outsource request pending to the '%(project_name)s' hub, "
+"thus it can not change its access control settings while the request is open."
+msgstr ""
+"इस परियोजना ' %(project_name)s ' में केंद्र के लिए एक आउटसोर्स अनुरोध लंबित है, इस "
+"प्रकार यह अपने अभिगम नियंत्रण सेटिंग्स में  परिवर्तन नहीं कर सकते हैं जबतक अनुरोध खुला है."
+
+#: templates/projects/project_form_access_control.html:109
+#: templates/teams/team_members.html:80
+msgid "Withdraw"
+msgstr "वापस लेने"
+
+#: templates/projects/project_form_access_control.html:145
+msgid "Give project writer rights"
+msgstr "परियोजना के लेखक को अधिकार दे"
+
+#: templates/projects/project_form_access_control.html:150
+#: templates/resources/resource_form.html:85 templates/teams/team_form.html:99
+msgid "Save"
+msgstr "संरक्षित करें"
+
+#: templates/projects/project_form_permissions.html:17
+msgid "Grant access"
+msgstr "पहुँच प्रदान करें"
+
+#: templates/projects/project_form_permissions.html:29
+msgid ""
+"Give write access to a translator to send translations to your project "
+"independent of a translation team."
+msgstr ""
+"एक अनुवादक टीम से स्वतंत्र अनुवादक को अपने प्रोजेक्ट में लिखित अनुवाद भेजने की अनुमति दें।"
+
+#: templates/projects/project_form_permissions.html:46
+msgid "Pending requests:"
+msgstr "लंबित अनुरोध:"
+
+#: templates/projects/project_form_permissions.html:70
+#: templates/txpermissions/base_permission_form.html:18
+msgid "Users with access to submit files:"
+msgstr "यूजर्स जिनके पास फाइल जमा करने की अनुमति है :"
+
+#: templates/projects/project_hub_projects.html:11
+msgid "Child projects"
+msgstr "बाल परियोजनाओं"
+
+#: templates/projects/project_hub_projects.html:15
+msgid "List of the hub's child projects"
+msgstr "केंद्र के बाल परियोजनाओं की सूची"
+
+#: templates/projects/project_hub_projects.html:23
+msgid "Hub projects"
+msgstr "केंद्र की परियोजनाएं"
+
+#: templates/projects/project_hub_projects.html:43
+msgid "No project is outsourcing access to this project hub."
+msgstr "कोई परियोजना इस परियोजना केंद्र का उपयोग करके आउटसोर्सिंग कर सकता है."
+
+#: templates/projects/project_hub_projects_toogler.html:4
+msgid "Disassociate it"
+msgstr "इसे अलग करने के लिए"
+
+#: templates/projects/project_latests.html:6
+msgid "Latest projects"
+msgstr "नवीनतम परियोजनाएँ"
+
+#: templates/projects/project_list.html:9
+msgid "Project list"
+msgstr "प्रोजेक्ट सूची"
+
+#: templates/projects/project_list.html:22
+msgid "Projects on Transifex"
+msgstr "Transifex पर प्रोजेक्ट्स"
+
+#: templates/projects/project_list.html:30
+msgid "Projects feed"
+msgstr "प्रोजेक्ट्स फ़ीड"
+
+#: templates/projects/project_list.html:31 templates/userena/public.html:18
+msgid "Subscribe to this feed"
+msgstr "सदस्यता लें इस फ़ीड के लिए"
+
+#: templates/projects/project_list.html:43
+msgid "Add new project"
+msgstr "नई परियोजना जोड़ें"
+
+#: templates/projects/project_list.html:43
+msgid "Create new project"
+msgstr "नई परियोजना बनाएँ"
+
+#: templates/projects/project_list.html:58
+msgid "No available data."
+msgstr "कोई उपलब्ध डेटा नही है।"
+
+#: templates/projects/project_list.html:71
+#: templates/projects/release_detail.html:96
+msgid "Resources:"
+msgstr "संसाधन:"
+
+#: templates/projects/project_list.html:73
+#, python-format
+msgid "Go to resource \"%(resource)s\""
+msgstr "%(resource)s\" संसाधन के लिए जाएँ"
+
+#: templates/projects/project_list.html:76
+msgid "No resources in this project."
+msgstr "इस प्रोजेक्ट में संसाधनों नहीं है।"
+
+#: templates/projects/project_list.html:89
+msgid "Bummer. No projects could be found."
+msgstr "Bummer। प्रोजेक्ट्स नहीं खोजा जा सकता है."
+
+#: templates/projects/project_list.html:92
+#, python-format
+msgid "Why don't you <a href=\"%(project_create)s\">add one</a>?"
+msgstr "तुम एक<a href=\"%(project_create)s\">क्यों नहीं जोड़ते</a>?"
+
+#: templates/projects/project_list.html:102
+#: templates/projects/project_myprojects.html:39
+#, python-format
+msgid ""
+"Couldn't find your project? Go ahead and <a href=\"%(project_create)s\">add "
+"it</a>!"
+msgstr ""
+"आपका प्रोजेक्ट नहीं मिल सकता है? आगे बढ़ें और <a href=\"%(project_create)s\">इसे जोड़े</"
+"a> !"
+
+#: templates/projects/project_menu.html:11
+#, python-format
+msgid ""
+" %(project_name)s localization project on Transifex, a modern translation "
+"workflow and crowdsourcing platform."
+msgstr ""
+" Transifex पर %(project_name)s स्थानीयकरण परियोजना , एक आधुनिक अनुवाद कार्यप्रवाह "
+"और crowdsourcing मंच."
+
+#: templates/projects/project_menu.html:13
+#, python-format
+msgid ""
+" localization, %(project_name)s localization, localization platform, "
+"%(project_name)stranslation, %(project_name)s crowdsourcing "
+msgstr ""
+" स्थानीयकरण, %(project_name)s स्थानीयकरण, स्थानीयकरण मंच, %(project_name)s "
+"अनुवाद, %(project_name)s crowdsourcing "
+
+#: templates/projects/project_menu.html:59
+#, python-format
+msgid " Go to %(hub_project)s hub"
+msgstr "%(hub_project)s हब के लिए जाएँ"
+
+#: templates/projects/project_menu.html:59
+msgid "Child project"
+msgstr "छोटे परियोजना"
+
+#: templates/projects/project_menu.html:64 templates/teams/team_menu.html:54
+msgid "Hub"
+msgstr "केंद्र"
+
+#: templates/projects/project_menu.html:79
+msgid "Project overview"
+msgstr "परियोजना का निरीक्षण"
+
+#: templates/projects/project_menu.html:83
+#, python-format
+msgid " Hub project <span class=\"tab-stat\">%(counter)s</span> "
+msgid_plural "Child projects <span class=\"tab-stat\">%(counter)s</span> "
+msgstr[0] "केंद्र परियोजना<span class=\"tab-stat\">%(counter)s</span> "
+msgstr[1] "केंद्र परियोजनाएं<span class=\"tab-stat\">%(counter)s</span> "
+
+#: templates/projects/project_menu.html:91
+msgid "Manage"
+msgstr "प्रबंधित करें"
+
+#: templates/projects/project_myprojects.html:14
+msgid "My projects on Transifex"
+msgstr "Transifex पर मेरी परियोजनाएँ"
+
+#: templates/projects/project_myprojects.html:27
+msgid "All projects"
+msgstr "सभी परियोजनाऐ"
+
+#: templates/projects/project_myprojects_snippet.html:14
+msgid "YOUR PROJECTS"
+msgstr "अपकी परियोजनाऐ"
+
+#: templates/projects/project_myprojects_snippet.html:17
+#, python-format
+msgid "Maintaining %(num_of_projects)s project"
+msgid_plural "Maintaining %(num_of_projects)s projects"
+msgstr[0] "%(num_of_projects)s प्रोजेक्ट मेन्टेन कर रहें हैं"
+msgstr[1] "%(num_of_projects)s प्रोजेक्टें मेन्टेन कर रहें हैं"
+
+#: templates/projects/project_myprojects_snippet.html:28
+msgid "This is a \\"
+msgstr "ये है \\"
+
+#: templates/projects/project_myprojects_snippet.html:36
+#: templates/projects/project_myprojects_snippet.html:100
+#: templates/projects/project_settings.html:15
+msgid "Edit"
+msgstr "संपादित करें"
+
+#: templates/projects/project_myprojects_snippet.html:46
+msgid "Maintaining no projects yet"
+msgstr "अभी तक कोई परियोजनाओं को संभाल नहीं रहें"
+
+#: templates/projects/project_myprojects_snippet.html:53
+#, python-format
+msgid "Actively translating <cite>%(num_of_locks)s</cite> resource"
+msgid_plural "Actively translating <cite>%(num_of_locks)s</cite> resources"
+msgstr[0] "सक्रिय रुप से <cite>%(num_of_locks)s</cite> रिसोर्स अनुवाद कर रहें हैं"
+msgstr[1] "सक्रिय रुप से <cite>%(num_of_locks)s</cite> रिसोर्सें अनुवाद कर रहें हैं"
+
+#: templates/projects/project_myprojects_snippet.html:76
+msgid "Currently not translating something"
+msgstr "वर्तमान में कोई का अनुवाद नहीं कर रहे है।"
+
+#: templates/projects/project_myprojects_snippet.html:84
+msgid "YOUR TRANSLATION TEAMS"
+msgstr "आपकी अनुवाद टीमें"
+
+#: templates/projects/project_myprojects_snippet.html:89
+#, python-format
+msgid "Coordinating %(num_of_teams)s team"
+msgid_plural "Coordinating %(num_of_teams)s teams"
+msgstr[0] " %(num_of_teams)s  टीमो का समन्वय"
+msgstr[1] " %(num_of_teams)s  टीमो का समन्वय"
+
+#: templates/projects/project_myprojects_snippet.html:107
+msgid "Coordinating no teams "
+msgstr "कोई टीमो का समन्वय नही कर रहे है"
+
+#: templates/projects/project_myprojects_snippet.html:113
+#, python-format
+msgid "Member of %(num_of_teams)s team"
+msgid_plural "Member of %(num_of_teams)s teams"
+msgstr[0] "%(num_of_teams)s टीम के सदस्य "
+msgstr[1] "%(num_of_teams)s टीमों के सदस्य"
+
+#: templates/projects/project_myprojects_snippet.html:121
+#: templates/teams/team_members.html:112 templates/teams/team_members.html:150
+msgid "Leave"
+msgstr "छुट्टी"
+
+#: templates/projects/project_myprojects_snippet.html:127
+msgid "Not participating in any team so far"
+msgstr "अब तक किसी भी टीम में भाग लेने वाले नहीं है"
+
+#: templates/projects/project_myprojects_snippet.html:133
+msgid "YOUR WATCHES"
+msgstr "आपके द्वारा देखें जाने वाली चीजें"
+
+#: templates/projects/project_myprojects_snippet.html:137
+#, python-format
+msgid "Watching %(num_of_projects)s project"
+msgid_plural "Watching %(num_of_projects)s projects"
+msgstr[0] "%(num_of_projects)s परियोजना को देख रहें हैं"
+msgstr[1] "%(num_of_projects)s परियोजनाओँ को देख रहें हैं"
+
+#: templates/projects/project_myprojects_snippet.html:148
+msgid "Not watching any project"
+msgstr "किसी भी परियोजना देख नहीं रहें हैं"
+
+#: templates/projects/project_myprojects_snippet.html:154
+#, python-format
+msgid "Watching %(num_of_resources)s resource translation"
+msgid_plural "Watching %(num_of_resources)s resource translations"
+msgstr[0] "%(num_of_resources)s की अनुवाद को देख रहें हैं"
+msgstr[1] "%(num_of_resources)s संसाधन की अनुवादों को देख रहें हैं"
+
+#: templates/projects/project_myprojects_snippet.html:168
+msgid "Not watching any resource translation"
+msgstr "किसी भी संसाधन की अनुवाद को देख नहीं रहें हैं"
+
+#: templates/projects/project_resources.html:19
+msgid "Detailed list of the project's resources"
+msgstr "परियोजना की संसाधनो की विस्तृत सूची"
+
+#: templates/projects/project_resources.html:27
+msgid "Project resources"
+msgstr "परियोजना के संसाधन"
+
+#: templates/projects/project_resources.html:29
+msgid "Add new resource"
+msgstr "नए संसाधन जोड़ें"
+
+#: templates/projects/project_resources.html:153
+#: templates/projects/release_language_detail.html:159
+msgid "Uncategorized"
+msgstr "अवर्गीकृत"
+
+#: templates/projects/project_resources.html:156
+#, python-format
+msgid ""
+"<span class=\"wordcount\">%(words)s</span> words <span style=\"color:#888;\">"
+"(%(strings)s strings)</span>"
+msgstr ""
+"<span class=\"wordcount\">%(words)s</span> शब्दों <span style=\"color:#888;\">"
+"(%(strings)s strings)</span>"
+
+#: templates/projects/project_resources.html:166
+#: templates/projects/release_detail.html:177
+#: templates/resources/resource_detail.html:213
+#: templates/resources/resource_list_more.html:27
+msgid "no translations yet"
+msgstr " अभी तक अनुवाद नहीं"
+
+#: templates/projects/project_resources.html:196
+#: templates/teams/team_detail.html:223
+msgid "No resources are registered for this project yet."
+msgstr " इस प्रोजेक्ट के लिए कोई संसाधन अभी तक पंजीकृत नहीं हैं।"
+
+#: templates/projects/project_settings.html:24
+msgid "Modify your project"
+msgstr "अपनी परियोजना को संशोधित करें"
+
+#: templates/projects/project_settings.html:52
+msgid "Edit project"
+msgstr "परियोजना संपादित करें"
+
+#: templates/projects/release_detail.html:36
+msgid "Statistics feed for this release"
+msgstr "इस रिलीज के लिए आँकड़ों के फ़ीड"
+
+#: templates/projects/release_detail.html:67
+msgid "Edit release details"
+msgstr "जारी विवरण संपादित करें"
+
+#: templates/projects/release_detail.html:67
+msgid "Edit release"
+msgstr "रिलीज को संपादित करें"
+
+#: templates/projects/release_detail.html:80
+msgid "Release date:"
+msgstr "रिलीज़ दिनांक:"
+
+#: templates/projects/release_detail.html:85
+msgid "String freeze:"
+msgstr "स्ट्रिंग फ्रीज:"
+
+#: templates/projects/release_detail.html:90
+msgid "Devel freeze:"
+msgstr "गतिविधि फ्रीज:"
+
+#: templates/projects/release_detail.html:98
+#: templates/projects/release_detail.html:114
+msgid "Click here to show or hide the resource list"
+msgstr "यहाँ क्लिक करें संसाधन सूची दिखाने या छुपाने के"
+
+#: templates/projects/release_detail.html:99
+#, python-format
+msgid "This release has %(resources_number)s resources."
+msgstr "%(resources_number)s रिलीज के संसाधन है।"
+
+#: templates/projects/release_detail.html:112
+msgid "Priv. resources:"
+msgstr "निजी संसाधनों:"
+
+#: templates/projects/release_detail.html:115
+#, python-format
+msgid "%(resources_number)s private resources you have access to"
+msgstr "%(resources_number)s निजी संसाधनों आपके पास पहुचने के लिए "
+
+#: templates/projects/release_detail.html:140
+msgid "Release languages"
+msgstr "जारी की गई भाषाएँ"
+
+#: templates/projects/release_detail.html:162
+msgid "source language"
+msgstr "स्रोत भाषा"
+
+#: templates/projects/release_form.html:15
+#: templates/projects/release_form.html:21
+msgid "Add a release"
+msgstr "एक रिलीज जोड़ें"
+
+#: templates/projects/release_form.html:16
+#, python-format
+msgid "Edit %(release_name)s"
+msgstr "एडिट %(release_name)s"
+
+#: templates/projects/release_form.html:24
+#, python-format
+msgid "Editing release '<a href=\"%(release_url)s\">%(release_name)s</a>'"
+msgstr "रिलीज संपादन '<a href=\"%(release_url)s\">%(release_name)s</a>'"
+
+#: templates/projects/release_form.html:40
+msgid "Save release"
+msgstr "सेभ रिलीज "
+
+#: templates/projects/release_form.html:47
+msgid "Delete release from Transifex"
+msgstr "रिलीज को Transifex से हटाएँ"
+
+#: templates/projects/release_form.html:49
+msgid "Delete release..."
+msgstr "रिलीज को हटाएँ..."
+
+#: templates/projects/release_form.html:55
+#, python-format
+msgid "Say goodbye to <em>%(release_name)s</em>?"
+msgstr "<em>%(release_name)s</em> को अलविदा कहो?"
+
+#: templates/projects/release_form.html:57
+#, python-format
+msgid ""
+"Are you sure you want to permanently delete the release '%(release_name)s' "
+"which works on %(project_name)s?"
+msgstr ""
+"क्या आप सुनिश्चित हैं कि आप स्थायी रूप से रिलीज '%(release_name)s' को हटाना चाहते हैं "
+"जो %(project_name)s पर काम करते हैं?"
+
+#: templates/projects/release_form.html:60
+#: templates/resources/resource_form.html:110
+#: templates/resources/resource_translations_confirm_delete.html:30
+msgid "Yes, I am sure!"
+msgstr "हाँ, मैं सुनिश्चित हूँ!"
+
+#: templates/projects/release_language_detail.html:100
+#, python-format
+msgid "Release '%(release_name)s"
+msgstr "रिलीज '%(release_name)s'"
+
+#: templates/projects/release_language_detail.html:103
+msgid "Statistics feed for this language and release"
+msgstr "इस भाषा और रिलीज़ के लिए स्टेटीसटिक फ़ीड "
+
+#: templates/projects/release_language_detail.html:129
+msgid "Resource under this Release"
+msgid_plural "Resources under this Release"
+msgstr[0] "इस रिलीज के तहत संसाधन"
+msgstr[1] "इस रिलीज के तहत संसाधन"
+
+#: templates/projects/release_language_detail.html:148
+#: templates/projects/release_language_detail.html:217
+#: templates/resources/resource_detail.html:197
+#: templates/teams/team_detail.html:179
+msgid "Locked"
+msgstr "अवरोधित"
+
+#: templates/projects/release_language_detail.html:151
+#: templates/projects/release_language_detail.html:220
+#: templates/teams/team_detail.html:182
+msgid "Not accepting translations at the moment"
+msgstr "फिलहाल अनुवादों को स्वीकार नहीं कर रहें हैं"
+
+#: templates/projects/release_language_detail.html:174
+#: templates/projects/release_language_detail.html:236
+#: templates/teams/team_detail.html:199
+msgid "no activity yet"
+msgstr "अभी तक गतिविधि कोई नहीं"
+
+#: templates/projects/release_language_detail.html:199
+msgid "Private resources you have access to"
+msgstr "निजी संसाधनों आपके पास पहुचने के लिए "
+
+#: templates/projects/release_language_detail.html:267
+#: templates/projects/release_language_detail.html:275
+msgid "click for resource details"
+msgstr "संसाधन विवरण के लिए क्लिक करें"
+
+#: templates/projects/release_list.html:11
+#: templates/projects/release_list.html:39
+msgid "Project releases"
+msgstr "परियोजना विज्ञप्ति"
+
+#: templates/projects/release_list.html:13
+msgid "Add"
+msgstr "जोड़ना"
+
+#: templates/projects/release_list.html:13
+msgid "Add new release "
+msgstr "नई रिलीज जोड़ें "
+
+#: templates/projects/release_list.html:47
+#, python-format
+msgid ""
+"No releases are registered for this project yet. Why don't you <a href="
+"\"%(release_create)s\">add one</a>?"
+msgstr ""
+"कोई रिलिज्स इस प्रोजेक्ट के लिए अभी तक पंजीकृत नहीं हैं। आप एक<a href="
+"\"%(release_create)s\"> क्यों नहीं जोड़ते</a>?"
+
+#: templates/resources/resource_actions.html:27
+#: templates/resources/resource_detail.html:30
+msgid "Please select a target language first."
+msgstr "पहले एक लक्ष्य भाषा का चयन करें।"
+
+#: templates/resources/resource_actions.html:38
+msgid "Trying to lock resource..."
+msgstr "संसाधन बंद करने की कोशिश की जा रही है ..."
+
+#: templates/resources/resource_actions.html:87
+#, python-format
+msgid " Total:&nbsp;%(total_entities)s strings, %(wordcount)s words"
+msgstr " कुल:%(total_entities)s स्ट्रिंग्स,%(wordcount)s शब्द"
+
+#: templates/resources/resource_actions.html:88
+#, python-format
+msgid " Translated:&nbsp;%(trans_count)s strings, %(trans_wordcount)s words "
+msgstr " अनुवाद:&nbsp;%(trans_count)sस्ट्रिंग्स,%(trans_wordcount)sशब्दो "
+
+#: templates/resources/resource_actions.html:89
+#, python-format
+msgid " Remaining:&nbsp;%(trans_count)s strings (%(trans_wordcount)s words) "
+msgstr "बाकी:&nbsp;%(trans_count)s स्ट्रिंग्स (%(trans_wordcount)s शब्द)"
+
+#: templates/resources/resource_actions.html:90
+#, python-format
+msgid " Reviewed:&nbsp;%(reviewed_count)s strings "
+msgstr ""
+
+#: templates/resources/resource_actions.html:105
+msgid ""
+"<span title=\"The source language cannot be translated\">Source language</"
+"span>"
+msgstr ""
+"<span title=\"The source language cannot be translated\">स्रोत भाषा</span>"
+
+#: templates/resources/resource_actions.html:112
+#, python-format
+msgid ""
+"Warning: This resource is currently locked by '%(lock_owner)s'. He might be "
+"working on it right now."
+msgstr ""
+"चेतावनी: इस संसाधन वर्तमान में ' %(lock_owner)s ' द्वारा अवरोधित किया गया है। वह इस "
+"पर अभी काम कर सकता है।"
+
+#: templates/resources/resource_actions.html:112
+#: templates/resources/resource_actions.html:114
+#: templates/resources/resource_actions.html:118
+#: templates/resources/resource_actions.html:123
+#: templates/resources/resource_actions.html:126
+msgid "Translate now"
+msgstr "अनुवाद करे"
+
+#: templates/resources/resource_actions.html:123
+msgid "This resource is currently not accepting translations"
+msgstr "वर्तमान में इस संसाधन  अनुवादों को स्वीकार नहीं कर रहा है।"
+
+#: templates/resources/resource_actions.html:126
+#, python-format
+msgid ""
+"To translate you need to be logged in and a member of the %(lang_name)s team"
+msgstr ""
+"अनुवाद करने के लिए आप  लॉग इन होना चाहिए और  %(lang_name)s टीम के एक सदस्य होना "
+"चाहिए।"
+
+#: templates/resources/resource_actions.html:135
+#: templates/resources/stats_bar_simple.html:4
+msgid "Translated: "
+msgstr "ट्रांसलेटेड: "
+
+#: templates/resources/resource_actions.html:135
+msgid "Remaining: "
+msgstr "शेष: "
+
+#: templates/resources/resource_actions.html:135
+#: templates/resources/stats_bar_simple.html:4
+msgid "Reviewed: "
+msgstr ""
+
+#: templates/resources/resource_actions.html:150
+msgid "View strings online"
+msgstr "स्ट्रिंग्स को ऑनलाइन देखें"
+
+#: templates/resources/resource_actions.html:158
+msgid "Visit language team"
+msgstr "भाषा टीम देखें"
+
+#: templates/resources/resource_actions.html:164
+#: templates/resources/resource_actions.html:184
+#: templates/resources/resource_actions.html:191
+msgid "Clone to new language"
+msgstr "नई भाषा के लिए क्लोन"
+
+#: templates/resources/resource_actions.html:166
+msgid ""
+"Copy all the translations from this language to a new (chosen) language in "
+"the specific resource. This will copy the pluralized translations too, if "
+"and only if the two languages have exactly the same plural rules"
+msgstr ""
+"इस भाषा के से सभी विशिष्ट संसाधन में एक नई भाषा (चुने) के लिए अनुवाद की प्रतिलिपि बनाएँ."
+"यह बहुवचन अनुवाद के भी प्रतिलिपि कर देगा,यदि और केवल यदि दो भाषाओं के बिल्कुल एक ही "
+"बहुलवादी नियमों होते है"
+
+#: templates/resources/resource_actions.html:186
+#: templates/resources/resource_actions.html:193
+msgid ""
+"Copy all the translations from this language to a new (chosen) language in "
+"the specific resource. This will copy the pluralized translations too, if "
+"and only if the two languages have exactly the same plural rules."
+msgstr ""
+"इस भाषा के सभी अनुवादों को विशिष्ट संसाधन की एक नई भाषा में कॉपी करें।यह बहुवचन अनुवाद "
+"को भी कॉपी करते हैं सिर्फ और सिर्फ तभी जब दो भाषाओं के\n"
+"बिलकुल एक ही बहुवचन नियम हों।"
+
+#: templates/resources/resource_actions.html:201
+#: templates/resources/resource_actions.html:203
+msgid "Download for use"
+msgstr "उपयोग के लिए डाउनलोड करें"
+
+#: templates/resources/resource_actions.html:203
+msgid "You must login to be able to download the translations."
+msgstr "आपको अनुवादों को डाउनलोड करने में सक्षम होने के लिए लॉगइन करना होगा।"
+
+#: templates/resources/resource_actions.html:206
+msgid ""
+"Add only translated strings into the file. Untranslated strings are NOT "
+"filled with source strings."
+msgstr ""
+"फ़ाइल में केवल अनुवादित स्ट्रिंग जोड़ें.बिना अनुवादित स्ट्रिंग्स को स्रोत स्ट्रिंग्स के साथ नहीं "
+"भरा जाता है."
+
+#: templates/resources/resource_actions.html:213
+#: templates/resources/resource_actions.html:217
+msgid "Download original pot file"
+msgstr "प्रारम्भिक पॉट फ़ाइल डाउनलोड करें"
+
+#: templates/resources/resource_actions.html:216
+msgid "You must login to be able to download the pot file."
+msgstr "पॉट फ़ाइल डाउनलोड करने में सक्षम होने के लिए लॉगिन।करे।"
+
+#: templates/resources/resource_actions.html:221
+msgid "PO file template."
+msgstr "PO फ़ाइल सांचा।"
+
+#: templates/resources/resource_actions.html:231
+msgid "You must login to be able to download the file."
+msgstr "आपको इस फाइल को डाऊनलोड करने के लिए अवश्य ही लॉगइन करना होगा।"
+
+#: templates/resources/resource_actions.html:233
+msgid "Download only reviewed translations"
+msgstr "केवल समीक्षा की गई अनुवाद डाउनलोड करे"
+
+#: templates/resources/resource_actions.html:236
+msgid ""
+"Add only reviewed translations into the file. Untranslated strings are not "
+"filled at all."
+msgstr ""
+"फ़ाइल में केवल समीक्षित अनुवादों को जोड़ें.सभी में बिना अनुवादित स्ट्रिंग्स को नहीं भरा है."
+
+#: templates/resources/resource_actions.html:245
+msgid "Resource cannot be locked"
+msgstr "संसाधन बंद नहीं किया जा सकता"
+
+#: templates/resources/resource_actions.html:245
+#: templates/resources/resource_actions.html:249
+msgid "Download for translation"
+msgstr "अनुवाद के लिए डाउनलोड करें"
+
+#: templates/resources/resource_actions.html:249
+msgid "You must login to use this action"
+msgstr "आपको इस कार्यवाई का उपयोग करने के लिए लॉगइन करना होगा"
+
+#: templates/resources/resource_actions.html:252
+msgid ""
+"Lock the file under your ownership and download it locally to edit it, in "
+"one action. Untranslated strings are filled by source strings."
+msgstr ""
+"अपने स्वामित्व के अंतर्गत फ़ाइल को लॉक करें तथा एक कार्रवाई में , इसे स्थानीय रूप से  संपादित "
+"करने के लिए डाउनलोड करें.बिना अनुवादित स्ट्रिंग्स को स्रोत स्ट्रिंग्स के साथ भरा जाता है."
+
+#: templates/resources/resource_actions.html:268
+msgid "Get pseudo translations"
+msgstr "छद्म अनुवाद पाए"
+
+#: templates/resources/resource_actions.html:286
+msgid "This resource currently is not accepting translations."
+msgstr "वर्तमान में यह संसाधन किन्हीं अनुवादों को स्वीकार नहीं कर सकता।"
+
+#: templates/resources/resource_actions.html:297
+msgid "Translation last updated "
+msgstr "अनुवाद अंतिम  अपडेटेड "
+
+#: templates/resources/resource_actions.html:305
+msgid "No translation yet"
+msgstr "अभी तक कोई अनुवाद नहीं"
+
+#: templates/resources/resource_detail.html:40
+msgid "Sorry but there was an error: "
+msgstr "माफ़ किजिए, लेकिन एक त्रुटी थी :"
+
+#: templates/resources/resource_detail.html:103
+msgid "Edit resource"
+msgstr "संसाधन संपादित करें"
+
+#: templates/resources/resource_detail.html:110
+msgid "Total strings:"
+msgstr "कुल स्ट्रिंग्स:"
+
+#: templates/resources/resource_detail.html:113
+msgid "words"
+msgstr "शब्द"
+
+#: templates/resources/resource_detail.html:116
+msgid "Status:"
+msgstr "स्थिति:"
+
+#: templates/resources/resource_detail.html:119
+msgid "Accepting translations"
+msgstr "अनुवादो को स्वीकार"
+
+#: templates/resources/resource_detail.html:121
+msgid "No translations accepted"
+msgstr "अनुवाद स्वीकार नही किया गया"
+
+#: templates/resources/resource_detail.html:129
+msgid "Priority level:"
+msgstr "प्राथमिकता स्तर:"
+
+#: templates/resources/resource_detail.html:146
+msgid "Release:"
+msgid_plural "Releases:"
+msgstr[0] "रिलिज:"
+msgstr[1] "रिलिज्स:"
+
+#: templates/resources/resource_detail.html:163
+#, python-format
+msgid "Available languages (%(num_of_langs)s)"
+msgstr "उपलब्ध भाषाओं (%(num_of_langs)s)"
+
+#: templates/resources/resource_detail.html:165
+msgid ""
+"If you cannot see your language, click the button below to translate( You "
+"must belong to a language team of this project, to be able to translate! )"
+msgstr ""
+"यदि आपको आपकी भाषा नहीं देख सकते है, अनुवाद करने के लिए नीचे दिए बटन पर क्लिक करें "
+"(आपको अनुवाद करने में सक्षम होने के लिए इस परियोजना के एक भाषा के टीम मे होना चाहिए!)"
+
+#: templates/resources/resource_detail.html:165
+msgid "Add new translation"
+msgstr "नई अनुवाद जोड़ें"
+
+#: templates/resources/resource_detail.html:240
+msgid "No actions recorded yet :)"
+msgstr "अभी तक कोई कार्रवाई दर्ज नहीं:)"
+
+#: templates/resources/resource_form.html:26
+#, python-format
+msgid "Edit %(resource_name)s"
+msgstr "संपादित करें %(resource_name)s"
+
+#: templates/resources/resource_form.html:40
+msgid "Edit the details of the translation resource"
+msgstr "अनुवाद संसाधन का विवरण संपादित करें"
+
+#: templates/resources/resource_form.html:69
+msgid ""
+"\n"
+"\t<div class=\"i16 infomsg\">\n"
+"\t\t<p>To enable automatic \"fetching\" of your source language strings by\n"
+"\t\tTransifex, enter a URL to your source file (e.g. POT file). Refer to\n"
+"\t\t<a href=\"http://help.transifex.com/user-guide/projects.html#projects-"
+"and-resources\">the documentation</a>\n"
+"\t\tfor more information.</p>\n"
+"\n"
+"\t\t<p><strong>Warning</strong>: Transifex will overwrite the existing "
+"source strings\n"
+"\t\tand translations with the ones found in the linked file. This may lead\n"
+"\t\tto <b>loss of translations</b>, so make sure the URL links to the\n"
+"\t\tcorrect file before submitting the form.\n"
+"\t\t</p>\n"
+"\t\t</blink>\n"
+"\t</div>\n"
+"\t"
+msgstr ""
+
+#: templates/resources/resource_form.html:93
+msgid "Delete resource from Transifex"
+msgstr "संसाधन Transifex से हटाएँ"
+
+#: templates/resources/resource_form.html:96
+msgid "By deleting the resource your translations will be lost:"
+msgstr "संसाधन के हटाने से आपके अनुवाद का खो जायेगे:"
+
+#: templates/resources/resource_form.html:99
+msgid "Delete resource"
+msgstr "संसाधन को हटाएँ"
+
+#: templates/resources/resource_form.html:105
+#, python-format
+msgid "Say goodbye to <em>%(resource_name)s</em>?"
+msgstr "<em>%(resource_name)s</em> को अलविदा कहो?"
+
+#: templates/resources/resource_form.html:107
+#, python-format
+msgid ""
+"Are you sure you want to permanently delete the translation resource "
+"'%(resource_name)s'?"
+msgstr ""
+
+#: templates/resources/resource_list_more.html:16
+msgid "edit"
+msgstr "एडिट"
+
+#: templates/resources/resource_list_more.html:17
+msgid "del"
+msgstr "डेल"
+
+#: templates/resources/resource_translations_confirm_delete.html:6
+#, python-format
+msgid ""
+"\n"
+"  Delete translations for %(language_name)s of %(resource_name)s resource.\n"
+msgstr ""
+"\n"
+"  %(resource_name)s संसाधन के लिये %(language_name)sअनुवाद को \n"
+"हटाएँ।\n"
+
+#: templates/resources/resource_translations_confirm_delete.html:14
+#, python-format
+msgid ""
+"\n"
+"Delete <em>%(language_name)s</em>\n"
+msgstr ""
+"\n"
+"<em>%(language_name)s</em> हटाएँ\n"
+
+#: templates/resources/resource_translations_confirm_delete.html:20
+#, python-format
+msgid "Say goodbye to all translations for <em>%(language_name)s</em>?"
+msgstr "<em>%(language_name)s</em> के सभी अनुवाद को अलविदा कहना है?"
+
+#: templates/resources/resource_translations_confirm_delete.html:25
+#, python-format
+msgid ""
+"\n"
+"  Are you sure you want to permanently delete the translations for "
+"'%(language_name)s' of '%(resource_name)s'?\n"
+msgstr ""
+"\n"
+"  क्या आप स्थायी रूप से '%(resource_name)s' के '%(language_name)s'\n"
+"  अनुवाद को हटाना चाहते हैं?\n"
+"\n"
+
+#: templates/resources/stats_bar_simple.html:4
+msgid "Untranslated: "
+msgstr "अनट्रांसलेटेड: "
+
+#: templates/resources/upload_create_resource_form.html:22
+msgid "Uploading resource"
+msgstr " संसाधन अपलोड कर रहे है"
+
+#: templates/resources/upload_create_resource_form.html:46
+msgid ""
+"\n"
+"\t\t\t\tCreate a resource by selecting a source language and uploading a "
+"source translation file from your workstation, such as an English POT file.\n"
+"\t\t\t\tTransifex will analyze the file, extract the strings from inside it, "
+"and create your resource based on these.\n"
+"\t\t\t\t"
+msgstr ""
+"\n"
+"\t\t\t\tस्रोत भाषा का चयन करके संसाधन बनाएँ और अपने कार्य केंद्र से स्रोत अनुवाद फ़ाइल "
+"अपलोड करे जैसे अंग्रेजी पॉट फ़ाइल.\n"
+"\t\t\t\tTransifex फ़ाइल का विश्लेषण,इसके भीतर से स्ट्रिंग्स निकालने, और इन पर आधारित "
+"अपने संसाधन को बनाता है.\n"
+"\t\t\t\t"
+
+#: templates/resources/upload_create_resource_form.html:51
+msgid ""
+"If your project have several files, it might be convenient to use the <a "
+"href=\"http://help.transifex.com/features/client/index.html#user-client\" "
+"target=\"_blank\">Transifex Client</a> for mass operations."
+msgstr ""
+
+#: templates/resources/upload_create_resource_form.html:53
+msgid ""
+"For extensive information on the supported file formats, visit the "
+"corresponding <a href=\"http://help.transifex.com/features/formats.html#user-"
+"formats\" target=\"_blank\">Transifex Help page</a>."
+msgstr ""
+
+#: templates/resources/upload_create_resource_form.html:91
+msgid "Create Resource"
+msgstr "संसाधन बनाएँ"
+
+#: templates/resources/upload_resource_translation_button.html:16
+#: templates/resources/upload_resource_translation_button.html:33
+msgid "Upload file"
+msgstr "फ़ाइल अपलोड करें"
+
+#: templates/resources/upload_resource_translation_button.html:18
+msgid "&nbsp;or&nbsp;"
+msgstr "&nbsp;या&nbsp;"
+
+#: templates/resources/upload_resource_translation_button.html:20
+msgid "Translate online"
+msgstr "ऑनलाइन अनुवाद करें"
+
+#: templates/simpleauth/base_profile.html:10
+msgid "Profile settings"
+msgstr "प्रोफ़ाइल सेटिंग्स"
+
+#: templates/simpleauth/logout.html:9
+msgid "<p>You have been logged out."
+msgstr "<p> आप को लोग आउट कर दिया गया है।"
+
+#: templates/simpleauth/profile_public.html:9 templates/userena/public.html:27
+#, python-format
+msgid "Public profile of %(user)s"
+msgstr "%(user)s की सार्वजनिक प्रोफ़ाइल"
+
+#: templates/simpleauth/profile_public.html:15 txcommon/admin.py:20
+#: txcommon/admin.py:27
+msgid "Username"
+msgstr "युजरनेम"
+
+#: templates/simpleauth/settings.html:4
+msgid "Your profile"
+msgstr "आपका प्रोफाइल"
+
+#: templates/simpleauth/settings.html:9
+#, python-format
+msgid "Your profile, %(user)s"
+msgstr "आपका प्रोफ़ाइल %(user)s"
+
+#: templates/simpleauth/settings.html:15
+msgid ""
+"Any settings associated with your account are presented and may be modified "
+"here."
+msgstr ""
+"आपके अकाउंट से सम्बंधित कोई भी सेटिंग्स यहाँ प्रस्तुत हैं और यहाँ मोडिफायड किया जा सकता है।"
+
+#: templates/simpleauth/settings.html:23
+msgid "Change notifications"
+msgstr "सूचनाएं बदलें"
+
+#: templates/simpleauth/settings.html:24
+msgid "Change notifications associated to your account"
+msgstr "आपके अकाउंट से जुडी सूचनाओं को बदलें "
+
+#: templates/simpleauth/signin.html:10
+msgid "<p>Please sign in with your email or screen name.<br />"
+msgstr "<p> अपने ईमेल या स्क्रीन नाम के साथ साइन इन करें।<br />"
+
+#: templates/teams/team_confirm_delete.html:9
+#, python-format
+msgid "Say goodbye to <em>%(lang_name)s</em> team?"
+msgstr "<em>%(lang_name)s</em>टीम को अलविदा कहे?"
+
+#: templates/teams/team_confirm_delete.html:14
+#, python-format
+msgid ""
+"Are you sure you want to permanently delete the '%(lang_name)s' team which "
+"works on %(project_name)s?"
+msgstr ""
+"क्या आप सुनिश्चित है कि आप स्थायी रूप से '%(lang_name)s' टीम जो %(project_name)s "
+"प्रोजेक्ट पर काम करते है को हटाना चाहते हैं?"
+
+#: templates/teams/team_detail.html:76
+msgid "Overall Progress"
+msgstr "समस्त प्रगति"
+
+#: templates/teams/team_detail.html:79
+msgid "Join team"
+msgstr "टीम से जुड़े "
+
+#: templates/teams/team_detail.html:90 templates/teams/team_detail.html:97
+msgid "Join language translation"
+msgstr "भाषा अनुवाद में शामिल हो"
+
+#: templates/teams/team_detail.html:117
+msgid "Mainlist:"
+msgstr "Mainlist:"
+
+#: templates/teams/team_detail.html:122
+msgid "Coordinator:"
+msgid_plural "Coordinators:"
+msgstr[0] "कोओरडीनेटर:"
+msgstr[1] "कोओरडीनेटर्स:"
+
+#: templates/teams/team_detail.html:134
+msgid ""
+"Since this project is \"Free for all\" anyone can contribute. You don't have "
+"to be a member!"
+msgstr ""
+"चूंकि यह परियोजना \"सभी के लिए नि: शुल्क है\" इसमें कोई भी योगदान दे सकते हैं  आपको एक "
+"सदस्य होने का जरुरत नहीं है"
+
+#: templates/teams/team_detail.html:142
+msgid "Language resources"
+msgstr "भाषा के संसाधन"
+
+#: templates/teams/team_detail.html:156
+msgid "Show resources from:"
+msgstr "से संसाधनों को दिखाएँ:"
+
+#: templates/teams/team_detail.html:174
+msgid "click for translation"
+msgstr "अनुवाद के लिए क्लिक करें"
+
+#: templates/teams/team_form.html:10 templates/teams/team_form.html.py:36
+msgid "Create team"
+msgstr "टीम बनाएँ"
+
+#: templates/teams/team_form.html:38
+#, python-format
+msgid ""
+"Edit %(language_name)s <sup class=\"entry_metalink\">%(language_code)s</sup> "
+"team"
+msgstr ""
+
+#: templates/teams/team_form.html:70
+msgid "Edit language-team"
+msgstr ""
+
+#: templates/teams/team_form.html:92
+msgid ""
+"Please note that notification will not be sent when coordinators or members "
+"are added or removed on this page."
+msgstr ""
+"कृपया ध्यान दें कि जब इस पृष्ठ पर कोओरडीनेटर्स या सदस्यों को जोडा या हटाया जाएगा तो "
+"अधिसूचना नहीं भेजी जाएगी।"
+
+#: templates/teams/team_form.html:95
+msgid ""
+"The current language has no teams. You can delete the whole language by "
+"deleting all the translations of all resources."
+msgstr ""
+
+#: templates/teams/team_form.html:108
+msgid "Delete language-team"
+msgstr ""
+
+#: templates/teams/team_form.html:111
+msgid "Do you wish to delete the team?"
+msgstr ""
+
+#: templates/teams/team_form.html:112
+msgid ""
+"After deleting the team of this language its translations will remain. <br/"
+">The language will be deleted only after deleting the translations of all "
+"resources."
+msgstr ""
+
+#: templates/teams/team_form.html:113
+msgid "Delete language"
+msgstr "भाषा को हटाये"
+
+#: templates/teams/team_members.html:52
+msgid "Waiting for approval"
+msgstr "अनुमोदन के लिए प्रतीक्षारत"
+
+#: templates/teams/team_members.html:95
+msgid "Translators"
+msgstr "अनुवादक"
+
+#: templates/teams/team_members.html:121
+#, python-format
+msgid ""
+" Translators can help you speed up the localization process. <a href="
+"\"%(url_connect)s\" title=\"Explore our community\" >Connect with them&nbsp;"
+"&raquo;</a> "
+msgstr ""
+" अनुवादक आपको स्थानीयकरण प्रक्रिया में तेजी लाने में मदद कर सकते हैं . <a href="
+"\"%(url_connect)s\" title=\"अपने समुदाय का अन्वेषण करें\" >उनलोगों के साथ जोड़े &nbsp;"
+"&raquo;</a> "
+
+#: templates/teams/team_members.html:158
+msgid ""
+"Reviewers improve the quality of your translations. How about adding some?"
+msgstr "समीक्षक अपने अनुवाद की गुणवत्ता को बेहतर बनाये.कुछ के विषय में कैसे जोड़े?"
+
+#: templates/teams/team_menu.html:26
+#, python-format
+msgid ""
+"%(language_name)s <sup class=\"entry_metalink\">%(language_code)s</sup></a>"
+msgstr ""
+"%(language_name)s <sup class=\"entry_metalink\">%(language_code)s</sup></a>"
+
+#: templates/teams/team_menu.html:49
+msgid "Outsourcing"
+msgstr "आउटसोर्सिंग"
+
+#: templates/teams/team_menu.html:72
+msgid "Overview"
+msgstr "अवलोकन"
+
+#: templates/teams/team_menu.html:78
+msgid "Edit language team"
+msgstr ""
+
+#: templates/teams/team_off.html:12
+msgid "This project does not maintain its own translation teams"
+msgstr "यह परियोजना अपने आप की अनुवाद टीमें बनाकर नही रखती है"
+
+#: templates/teams/team_off.html:17
+#, python-format
+msgid ""
+"This project does not maintain its own teams, but has chosen to re-use the "
+"teams of project '<a href=%(outsource_url)s>%(outsource_project)s</a>'. In "
+"order to send translations here you'll need to join a team of "
+"'%(outsource_project)s'."
+msgstr ""
+"यह प्रोजेक्ट अपनी टीमों को मेनटेन नहीं करती, लेकिन प्रोजेक्ट '<a href=%(outsource_url)s>"
+"%(outsource_project)s</a>'के टीमों का पुनः उपयोग के लिए  चयन करती है।अनुवाद भेजने के "
+"लिए यहाँ आपको '%(outsource_project)s'  एक टीम में शामिल होने की आवश्यकता होगी।"
+
+#: templates/teams/team_off.html:19
+msgid ""
+"This project allows translation submission from <em>anyone</em>, and thus no "
+"translation teams exist."
+msgstr ""
+"इस प्रोजेक्ट को <em>anyone</em>को भी अनुवाद करने की अनुमति देता है, और इस प्रकार कोई "
+"अनुवाद टीमे एक्सिस्ट नहीं करती है।"
+
+#: templates/txpermissions/base_permission_form.html:8
+msgid "Give access to a translator to send translations to your project"
+msgstr "एक अनुवादक को अपने प्रोजेक्ट में अनुवाद भेजने के लिए  अनुमति दें"
+
+#: templates/txpermissions/permission_delete_form.html:5
+msgid "Revoke permission"
+msgstr "अनुमति निरस्त"
+
+#: templates/txpermissions/permission_form.html:13
+msgid "Grant permission"
+msgstr "अनुदान अनुमति"
+
+#: templates/txpermissions/permission_form.html:15
+msgid "Request permission"
+msgstr "अनुरोध अनुमति"
+
+#: templates/txpermissions/permission_request_approve_form.html:5
+msgid "Approve request"
+msgstr "अनुरोध स्वीकृत"
+
+#: templates/txpermissions/permission_request_delete_form.html:6
+msgid "Withdraw request"
+msgstr "अनुरोध वापस लें"
+
+#: templates/txpermissions/permission_request_delete_form.html:8
+msgid "Deny request"
+msgstr "अनुरोध इंकार"
+
+#: templates/userena/activate_fail.html:4
+msgid "Account activation failed."
+msgstr "खाता सक्रियण विफल।"
+
+#: templates/userena/activate_fail.html:5
+msgid "Your account could not be activated.."
+msgstr "आपका खाता सक्रिय नहीं किया जा सकता..."
+
+#: templates/userena/activate_fail.html:8
+msgid ""
+"Your account could not be activated. This could be because your activation "
+"link has aged."
+msgstr ""
+"आपका खाता सक्रिय नहीं किया जा सका। यह हो सकता है क्योंकि आपके सक्रियकरण लिंक वर्ष की "
+"आयु है।"
+
+#: templates/userena/activate_fail.html:9
+msgid ""
+"Please try signing up again or contact us if you think something went wrong."
+msgstr ""
+"कृपया पुन: साइन अप करने का प्रयास करें या हमसे संपर्क करें यदि आपको लगता है कि कुछ गलत हो "
+"गया है।"
+
+#: templates/userena/base_userena.html:33
+#: templates/userena/profile_form.html:22
+msgid "Edit profile"
+msgstr "प्रोफ़ाइल संपादित करें"
+
+#: templates/userena/base_userena.html:34 templates/userena/email_form.html:13
+#: templates/userena/userena_menu.html:16
+msgid "Change email"
+msgstr "ई-मेल बदलें"
+
+#: templates/userena/base_userena.html:35
+#: templates/userena/password_form.html:4
+#: templates/userena/password_form.html:15
+#: templates/userena/userena_menu.html:15
+msgid "Change password"
+msgstr "पासवर्ड बदलें"
+
+#: templates/userena/base_userena.html:40
+msgid "Social login"
+msgstr "सामाजिक लॉगिन"
+
+#: templates/userena/disabled.html:6
+msgid "Disabled account"
+msgstr "अक्षम खाते"
+
+#: templates/userena/disabled.html:9
+msgid "Account disabled"
+msgstr "खाता निष्क्रिय"
+
+#: templates/userena/disabled.html:12
+msgid "It seems your account has been disabled."
+msgstr "ऐसा लगता है अपने खाते को निष्क्रिय कर दिया गया है।"
+
+#: templates/userena/disabled.html:13
+msgid ""
+"It is likely that you have created an account but haven't activated it yet. "
+"Please check your e-mail inbox."
+msgstr ""
+"आपका एक खाता बना दिया गया है, लेकिन यह अभी तक सक्रिय नहीं होने कि  संभावना है। कृपया "
+"अपना ई-मेल इनबॉक्स की जाँच करें।"
+
+#: templates/userena/disabled.html:14
+msgid ""
+"If you feel that injustice has been done to you, feel free to contact the "
+"administrators to find out why."
+msgstr ""
+"यदि आपको लगता है कि आपके साथ अन्याय किया गया है, प्रशासक को संपर्क करने मे स्वतंत्र महसूस "
+"करे।"
+
+#: templates/userena/email_change_complete.html:4
+msgid "Email verification"
+msgstr "ईमेल सत्यापन"
+
+#: templates/userena/email_change_complete.html:5
+msgid "Confirm your new email"
+msgstr "अपने नये ईमेल की पुष्टि करें"
+
+#: templates/userena/email_change_complete.html:8
+#, python-format
+msgid "You have received an email at %(email)s."
+msgstr "आपको %(email)s पर एक ईमेल मिला है।"
+
+#: templates/userena/email_change_complete.html:9
+#, python-format
+msgid ""
+"To associate this email address with your account (%(username)s) click on "
+"the link provided in this email."
+msgstr ""
+"आपके खाते के साथ इस ईमेल पते का संबद्ध करने के लिए  (%(username)s) इस ई - मेल में उपलब्ध "
+"कराई लिंक पर क्लिक करें."
+
+#: templates/userena/email_confirm_complete.html:4
+msgid "Email changed!"
+msgstr "ईमेल बदल गया हैं!"
+
+#: templates/userena/email_confirm_complete.html:6
+msgid "New email"
+msgstr "नई ई-मेल"
+
+#: templates/userena/email_confirm_complete.html:8
+msgid "Your new email address is saved."
+msgstr "आपका नया ईमेल पता सहेजा गया है."
+
+#: templates/userena/email_confirm_fail.html:4
+msgid "Email verification failed."
+msgstr "ईमेल सत्यापन विफल हुआ।"
+
+#: templates/userena/email_confirm_fail.html:5
+msgid "Your email could not be verified.."
+msgstr "आपकी ईमेल की जाँच नहीं हो सकी.."
+
+#: templates/userena/email_confirm_fail.html:8
+msgid "Your email could not be verified..."
+msgstr "आपकी ईमेल की जाँच नहीं हो सकी..."
+
+#: templates/userena/email_confirm_fail.html:9
+msgid "You could try changing it again in your account settings."
+msgstr "आप इसे फिर से अपने खाते की सेटिंग्स में बदलने की कोशिश कर सकते हैं।"
+
+#: templates/userena/email_form.html:5
+msgid "Change your email address"
+msgstr "अपना ईमेल पता परिवर्तित करें"
+
+#: templates/userena/password_complete.html:4
+msgid "Password changed"
+msgstr "पासवर्ड बदल गया है"
+
+#: templates/userena/password_complete.html:5
+msgid "Your password has been changed"
+msgstr "आपका पासवर्ड परिवर्तित कर दिया गया है"
+
+#: templates/userena/password_complete.html:8
+msgid "From now on you can use your new password to signin"
+msgstr "अब से आप साइन इन करने के लिए अपने नए पासवर्ड का उपयोग कर सकते हैं"
+
+#: templates/userena/password_form.html:6
+msgid "Change your password"
+msgstr "अपना पासवर्ड बदलें"
+
+#: templates/userena/password_reset_complete.html:6
+#: templates/userena/password_reset_complete.html:10
+msgid "Password reset"
+msgstr "पासवर्ड रीसेट"
+
+#: templates/userena/password_reset_complete.html:17
+#, python-format
+msgid ""
+"Your password has been reset. You can now <a href=\"%(login_url)s\">sign in</"
+"a> with your new password."
+msgstr ""
+"आपके कूटशब्द को पुनर्स्थापित किया गया है.आप अपने नए कूटशब्द के साथ <a href="
+"\"%(login_url)s\">साइन इन</a> कर सकते है."
+
+#: templates/userena/password_reset_confirm_form.html:6
+#: templates/userena/password_reset_confirm_form.html:10
+#: templates/userena/password_reset_confirm_form.html:20
+#: templates/userena/password_reset_done.html:6
+#: templates/userena/password_reset_done.html:10
+#: templates/userena/password_reset_form.html:6
+#: templates/userena/password_reset_form.html:10
+msgid "Reset password"
+msgstr "पासवर्ड रीसेट करें"
+
+#: templates/userena/password_reset_done.html:15
+msgid ""
+"An e-mail has been sent to your account explaining how to reset your "
+"password."
+msgstr "आपके खाते में एक ई -मेल भेज दिया गया है कि अपने कूटशब्द को कैसे पुनर्स्थापित करे."
+
+#: templates/userena/password_reset_form.html:26
+msgid "Submit"
+msgstr "सबमिट करें"
+
+#: templates/userena/profile_detail.html:11
+msgid "Your mugshot"
+msgstr "आपका mugshot"
+
+#: templates/userena/profile_detail.html:16
+msgid "Email"
+msgstr "ईमेल"
+
+#: templates/userena/profile_detail.html:19
+msgid "Age"
+msgstr "आयु"
+
+#: templates/userena/profile_detail.html:22
+msgid "Website"
+msgstr "वेबसाइट"
+
+#: templates/userena/profile_detail.html:25 templates/userena/public.html:79
+#: txcommon/models.py:50
+msgid "Location"
+msgstr "स्थान"
+
+#: templates/userena/profile_detail.html:28
+msgid "About me"
+msgstr "मेरे बारे में"
+
+#: templates/userena/profile_form.html:6
+msgid "Account setup"
+msgstr "खाता सेटअप"
+
+#: templates/userena/profile_form.html:38
+msgid "Save changes"
+msgstr "परिवर्तन सहेजें"
+
+#: templates/userena/profile_list.html:4
+msgid "Profiles"
+msgstr "प्रोफाइलें"
+
+#: templates/userena/profile_list.html:21
+msgid "previous"
+msgstr "पिछला"
+
+#: templates/userena/profile_list.html:25
+#, python-format
+msgid ""
+"\n"
+"      Page %(page)s of %(num_pages)s\n"
+"      "
+msgstr ""
+"\n"
+"      %(num_pages)s मे से पृष्ठ %(page)s \n"
+"      "
+
+#: templates/userena/profile_list.html:31
+msgid "next"
+msgstr "अगले"
+
+#: templates/userena/profile_social_settings.html:4
+#: templates/userena/profile_social_settings.html:6
+msgid "Social login settings"
+msgstr "सामाजिक लॉगिन सेटिंग्स"
+
+#: templates/userena/profile_social_settings.html:27
+msgid ""
+"Link your Transifex account to any of the providers below and log in without "
+"a username or password."
+msgstr ""
+"नीचे दिए गए प्रदाताओं में से किसी को अपने Transifex अकाउंट से लिंक करें और एक उपयोगकर्ता "
+"नाम या पासवर्ड के बिना प्रवेश करें।"
+
+#: templates/userena/profile_social_settings.html:39
+#: templates/userena/profile_social_settings.html:48
+msgid "Associated"
+msgstr "एसोसिएटेड"
+
+#: templates/userena/profile_social_settings.html:61
+#: templates/userena/profile_social_settings.html:69
+msgid "Associate"
+msgstr "एसोसिएट"
+
+#: templates/userena/public.html:17
+msgid "User feed"
+msgstr "उपयोगकर्ता का फ़ीड"
+
+#: templates/userena/public.html:61
+msgid "Blog/Site"
+msgstr "ब्लॉग / साइट"
+
+#: templates/userena/public.html:67 txcommon/models.py:39
+#: txcommon/migrations/0002_release_06_07.py:23
+#: txcommon/migrations/0004_new_userena_profile.py:84
+msgid "Twitter"
+msgstr "Twitter"
+
+#: templates/userena/public.html:73 txcommon/models.py:38
+#: txcommon/migrations/0002_release_06_07.py:30
+#: txcommon/migrations/0004_new_userena_profile.py:90
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: templates/userena/public.html:92
+msgid "Maintainer of the following project"
+msgid_plural "Maintainer of the following projects"
+msgstr[0] "परियोजना के अनुरक्षक"
+msgstr[1] "परियोजनाओ के अनुरक्षक"
+
+#: templates/userena/public.html:98
+#, python-format
+msgid "<a class=\"name\" href=\"%(project_url)s\">%(project_name)s</a>"
+msgstr "<a class=\"name\" href=\"%(project_url)s\">%(project_name)s</a>"
+
+#: templates/userena/public.html:112
+msgid "Coordinator of the following team"
+msgid_plural "Coordinator of the following teams"
+msgstr[0] "निम्नलिखित टीम के समन्वयक"
+msgstr[1] "निम्नलिखित टीमों के समन्वयक"
+
+#: templates/userena/public.html:119 templates/userena/public.html.py:140
+#, python-format
+msgid ""
+"<a class=\"name\" href=\"%(team_url)s\">%(team_name)s</a> team of the <a "
+"class=\"name\" href=\"%(project_url)s\">%(project_name)s</a> project"
+msgstr ""
+"<a class=\"name\" href=\"%(team_url)s\">%(team_name)s</a> team of the <a "
+"class=\"name\" href=\"%(project_url)s\">%(project_name)s</a> project"
+
+#: templates/userena/public.html:133
+msgid "Member of the following team"
+msgid_plural "Member of the following teams"
+msgstr[0] "निम्नलिखित टीम के सदस्य"
+msgstr[1] "निम्नलिखित टीमों के सदस्य"
+
+#: templates/userena/signin_form.html:14
+msgid "Forgot your password?"
+msgstr "अपना पासवर्ड भूल गए?"
+
+#: templates/userena/signin_form.html:60
+msgid "You can also login using:"
+msgstr "आप इनका भी उपयोग करके लॉगिन कर सकते हैं :"
+
+#: templates/userena/signin_form.html:65
+msgid "Login using Twitter"
+msgstr "Twitter का उपयोग कर लॉगिन करे"
+
+#: templates/userena/signin_form.html:68
+msgid "Login using Linkedin"
+msgstr "Linkedin का उपयोग करके लॉगिन"
+
+#: templates/userena/signin_form.html:71
+msgid "Login using Google"
+msgstr "Google का उपयोग कर लॉगिन करे"
+
+#: templates/userena/signin_form.html:74
+msgid "Login using Facebook"
+msgstr "Facebook का उपयोग कर लॉगिन करे"
+
+#: templates/userena/signin_form.html:80
+msgid "Not yet a member?"
+msgstr "अभी तक एक सदस्य नहीं हैं?"
+
+#: templates/userena/signin_form.html:80
+msgid "Register now!"
+msgstr "अभी पंजीकरण करें!"
+
+#: templates/userena/signout.html:6 templates/userena/signout.html.py:9
+msgid "Signed out"
+msgstr "साइन आउट किया"
+
+#: templates/userena/signout.html:12
+msgid "You have been signed out. Till we meet again."
+msgstr "आपको साइन आउट कर दिया गया। जब तक हम फिर मिलते हैं।"
+
+#: templates/userena/signup_complete.html:4
+msgid "Signup almost done!"
+msgstr "साइनअप लगभग हो गया!"
+
+#: templates/userena/signup_complete.html:6
+msgid "Signup"
+msgstr "साइनअप"
+
+#: templates/userena/signup_complete.html:9
+msgid "Thank you for signing up with us!"
+msgstr "हमारे साथ साइन अप करने के लिए आपको धन्यवाद!"
+
+#: templates/userena/signup_complete.html:12
+msgid ""
+"You have been sent an e-mail with an activation link to the supplied email."
+msgstr "आपको आपूर्ति ईमेल के लिए ईमेल के साथ सक्रियकरण लिंक भेजा गया है."
+
+#: templates/userena/signup_complete.html:13
+#, python-format
+msgid ""
+"We will store your signup information for %(userena_activation_days)s days "
+"on our server. "
+msgstr ""
+"हम आपके साईन अप जानकारी को %(userena_activation_days)s दिनों के लिए हमारे सर्वर "
+"पर रखेंगे। "
+
+#: templates/userena/signup_complete.html:15
+msgid "You can now use the supplied credentials to signin."
+msgstr "आप अब साइन इन करने के लिए प्रदान किए गए क्रेडेंशियल्स का उपयोग कर सकते हैं।"
+
+#: templates/userena/signup_form.html:43
+msgid "Billing information"
+msgstr "बिल सम्बंधी जानकारी"
+
+#: templates/userena/signup_form.html:50
+msgid "Get started with transifex and optimize your localization workflow"
+msgstr "Transifex के साथ आरंभ करें और अपने स्थानीयकरण कार्य प्रगति को अनुकूल बनाये  "
+
+#: templates/userena/signup_form.html:56
+msgid "Credentials"
+msgstr "परिचय पत्र"
+
+#: templates/userena/signup_form.html:88
+msgid "Sign up"
+msgstr "साइन अप करें"
+
+#: templates/userena/userena_menu.html:13
+msgid "View profile"
+msgstr "प्रोफ़ाइल देखें"
+
+#: templates/userena/userena_menu.html:14
+msgid "Edit details"
+msgstr "विवरण संपादित करें"
+
+#: txcommon/admin.py:10
+msgid ""
+"Required. 30 characters or fewer. Unicode alphanumeric characters only "
+"(letters, digits and underscores)."
+msgstr ""
+"आवश्यक है. 30 वर्ण या कम. यूनिकोड केवल अल्फ़ान्यूमेरिक वर्ण (पत्र, अंक, और अंडरस्कोर)."
+
+#: txcommon/admin.py:13
+msgid "This value must contain only unicode letters, numbers and underscores."
+msgstr "यह मान केवल यूनिकोड अक्षर, संख्या और रेखांकित शामिल होना चाहिए."
+
+#: txcommon/feeds.py:28
+#, python-format
+msgid "Recent activities by %(user)s"
+msgstr "%(user)s के द्वारा हाल की गतिविधियां"
+
+#: txcommon/feeds.py:31
+#, python-format
+msgid "Recent activities by user %s."
+msgstr "उपयोगकर्ता %s द्वारा हाल ही में गतिविधियों।"
+
+#: txcommon/feeds.py:57
+msgid "None"
+msgstr "कुछ नहीं"
+
+#: txcommon/models.py:30
+msgid "user"
+msgstr "उपयोगकर्ता"
+
+#: txcommon/models.py:35
+msgid "Interested in"
+msgstr "आप जिसमें रुचि रखते हैं"
+
+#: txcommon/models.py:36
+msgid "Tags you may be interested in."
+msgstr "वह टैग जिनमे आप की रुचि हो सकती है।"
+
+#: txcommon/models.py:37 txcommon/migrations/0002_release_06_07.py:27
+#: txcommon/migrations/0004_new_userena_profile.py:93
+msgid "Blog"
+msgstr "ब्लॉग"
+
+#: txcommon/models.py:40 txcommon/migrations/0002_release_06_07.py:19
+#: txcommon/migrations/0004_new_userena_profile.py:81
+msgid "About yourself"
+msgstr "अपने बारे में"
+
+#: txcommon/models.py:42
+msgid "Short description of yourself (140 chars)."
+msgstr "खुद का लघु वर्णन (140 वर्ण)।"
+
+#: txcommon/models.py:43 txcommon/migrations/0002_release_06_07.py:18
+#: txcommon/migrations/0004_new_userena_profile.py:78
+msgid "Looking for work?"
+msgstr "काम के लिए देख रहे हैं?"
+
+#: txcommon/notifications.py:12
+msgid "New project created"
+msgstr "नई परियोजना बनाई गई"
+
+#: txcommon/notifications.py:13
+msgid "when a new project is created"
+msgstr "जब एक नई परियोजना बनाया जाता है"
+
+#: txcommon/notifications.py:19
+msgid "Project modified"
+msgstr "परियोजना को संशोधित किया"
+
+#: txcommon/notifications.py:20
+msgid "when a project is changed"
+msgstr "जब एक प्रोजेक्ट बदला है"
+
+#: txcommon/notifications.py:26
+msgid "Project deleted"
+msgstr "परियोजना के नष्ट कर दिया"
+
+#: txcommon/notifications.py:27
+msgid "when a project is deleted"
+msgstr "जब एक प्रोजेक्ट को नष्ट कर दिया है"
+
+#: txcommon/notifications.py:33
+msgid "Requested submit access to project"
+msgstr "परियोजना के लिए सबमिट करने की पहुँच का अनुरोध किया"
+
+#: txcommon/notifications.py:34
+msgid "when a user request access to submit files to a project"
+msgstr "जब एक प्रोजेक्ट के लिए फ़ाइलें सबमिट करने के लिए एक यूजर के एक्सेस अनुरोध  करता है"
+
+#: txcommon/notifications.py:41
+msgid "Denied submit access to project"
+msgstr "परियोजना के लिए सबमिट करने की पहुँच को इनकार कर दिया"
+
+#: txcommon/notifications.py:42
+msgid "when a maintainer denies a user access to submit files to a project"
+msgstr "जब एक अनुरक्षक एक यूजर को एक प्रोजेक्ट के लिए फ़ाइलें सबमिट करने से इनकार करता हैं"
+
+#: txcommon/notifications.py:49
+msgid "Withdrew request for submit access to project"
+msgstr "परियोजना के लिए सबमिट करने की पहुँच के लिए अनुरोध को वापस ले लिया"
+
+#: txcommon/notifications.py:50
+msgid ""
+"when a user withdraws the request for access to submit files to a project"
+msgstr "जब एक प्रोजेक्ट के लिए फ़ाइलें सबमिट करने से एक यूजर के एक्सेस अनुरोध हटा लेता है।"
+
+#: txcommon/notifications.py:57
+msgid "Granted submit access to project"
+msgstr "परियोजना के लिए सबमिट करने की पहुँच दी गई"
+
+#: txcommon/notifications.py:58
+msgid "when a maintainer grants a user access to submit files to a project"
+msgstr "जब एक अनुरक्षक एक यूजर एक प्रोजेक्ट के लिए फ़ाइलें सबमिट का अनुरोध मान लेता है"
+
+#: txcommon/notifications.py:65
+msgid "Revoked submit access to project"
+msgstr "परियोजना के लिए सबमिट करने की पहुँच को निरस्त कर दिया गया"
+
+#: txcommon/notifications.py:66
+msgid ""
+"when a maintainer revokes the access of an user to submit files to a project"
+msgstr "जब एक अनुरक्षक एक यूजर एक प्रोजेक्ट के लिए फ़ाइलें सबमिट का अनुरोध रद्द कर देता है"
+
+#: txcommon/notifications.py:75
+msgid "Requested to join a project hub"
+msgstr "एक परियोजना हब में शामिल होने का अनुरोध किया"
+
+#: txcommon/notifications.py:76
+msgid "when a project requests to join a project hub"
+msgstr "जब एक परियोजना एक परियोजना हब में शामिल होने के लिए अनुरोध करता है"
+
+#: txcommon/notifications.py:83
+msgid "Approved to join project hub"
+msgstr "परियोजना हब में शामिल होने के लिए मंजूरी दे दी"
+
+#: txcommon/notifications.py:84
+msgid "when a project is approved to join a project hub"
+msgstr "जब एक परियोजना एक परियोजना हब में शामिल होने के लिए मंजूरी दे दी है"
+
+#: txcommon/notifications.py:91
+msgid "Denied to join project hub"
+msgstr "परियोजना हब में शामिल होने से इनकार कर दिया"
+
+#: txcommon/notifications.py:92
+msgid "when a project is denied to join a project  hub"
+msgstr "जब एक परियोजना ने परियोजना     केंद्र में शामिल होने से इनकार कर दिया है"
+
+#: txcommon/notifications.py:99
+msgid "Withdrew request to join project hub"
+msgstr "परियोजना हब में शामिल होने का अनुरोध वापस ले लिया"
+
+#: txcommon/notifications.py:100
+msgid "when a project decides not to join a project hub"
+msgstr "जब एक परियोजना एक परियोजना हब में शामिल नहीं होने का फैसला करता है"
+
+#: txcommon/notifications.py:107
+msgid "Project left project hub"
+msgstr "परियोजना ने परियोजना हब को छोड़ दिया"
+
+#: txcommon/notifications.py:108
+msgid "when a project leaves a project hub"
+msgstr "जब एक परियोजना एक परियोजना केंद्र छोड़ता है"
+
+#: txcommon/notifications.py:118
+msgid "Release added to project"
+msgstr "प्रोजेक्ट में रिलीज जोड़ी"
+
+#: txcommon/notifications.py:119
+msgid "when a release is added to a project"
+msgstr "जब एक प्रोजेक्ट में एक रिलीज जोड़ा दिया जाता है"
+
+#: txcommon/notifications.py:125
+msgid "Release modified"
+msgstr "रिलीज को संशोधित किया"
+
+#: txcommon/notifications.py:126
+msgid "when a release of a project is modified"
+msgstr "जब एक परियोजना की एक रिलीज संशोधित किया गया है"
+
+#: txcommon/notifications.py:131
+msgid "Release deleted"
+msgstr "रिलीज हटाया गया"
+
+#: txcommon/notifications.py:132
+msgid "when a release of a project is deleted"
+msgstr "जब एक प्रोजेक्ट से एक रिलीज हटा दिया जाता है"
+
+#: txcommon/notifications.py:137
+msgid "Release about to enter the string freeze period"
+msgstr "रिलीज स्ट्रिंग फ्रीज की अवधि में प्रवेश करने वाला है"
+
+#: txcommon/notifications.py:138
+msgid "when a release of a project is about to enter the String Freeze period"
+msgstr "जब एक परियोजना की एक रिलीज स्ट्रिंग फ्रीज की अवधि मे प्रवेश करने वाला है"
+
+#: txcommon/notifications.py:144
+msgid "Release is in string freeze period"
+msgstr "रिलीज स्ट्रिंग फ्रीज की अवधि में है"
+
+#: txcommon/notifications.py:145
+msgid "when a release of a project is on enter the String Freeze period"
+msgstr "जब एक परियोजना की एक रिलीज स्ट्रिंग फ्रीज की अवधि मे प्रवेश करता है"
+
+#: txcommon/notifications.py:151
+msgid "Release about to hit the translation deadline"
+msgstr "रिलीज अनुवाद की समय सीमा को हिट करने वाला है"
+
+#: txcommon/notifications.py:152
+msgid ""
+"when a release of a project is about to hit the Translation Deadline date"
+msgstr ""
+"जब एक परियोजना की एक रिलीज अनुवाद की समय सीमा की दिनांक को पार करने वाला है"
+
+#: txcommon/notifications.py:158
+msgid "Release has hit the translation deadline"
+msgstr "रिलीज ने अनुवाद की समय सीमा को हिट किया"
+
+#: txcommon/notifications.py:159
+msgid "when a release of a project hits the Translation Deadline date"
+msgstr "जब एक परियोजना की एक रिलीज अनुवाद की समय सीमा को हिट करता है"
+
+#: txcommon/notifications.py:165
+msgid "Release string freeze breakage"
+msgstr "रिलीज़ की स्ट्रिंग फ्रीज का टूटना"
+
+#: txcommon/notifications.py:166
+msgid "when a release of a project has a string freeze breakage"
+msgstr "जब एक परियोजना की एक रिलीज की स्ट्रिंग फ्रीज टूट जाता है"
+
+#: txcommon/notifications.py:176
+msgid "New team created"
+msgstr "नई टीम बनाई गई"
+
+#: txcommon/notifications.py:177
+msgid "when a new translation team is added to a project"
+msgstr "जब एक नया अनुवाद टीम एक प्रोजेक्ट के लिए जोड़ा जाता है"
+
+#: txcommon/notifications.py:184
+msgid "Team modified"
+msgstr "टीम को संशोधित किया गया"
+
+#: txcommon/notifications.py:185
+msgid "when a translation team of a project is modified"
+msgstr "जब एक परियोजना की एक अनुवाद की टीम को संशोधित किया गया"
+
+#: txcommon/notifications.py:192
+msgid "Team removed"
+msgstr "टीम को हटाया गया"
+
+#: txcommon/notifications.py:193
+msgid "when a translation team of a project is removed"
+msgstr "जब एक परियोजना की एक अनुवाद की टीम को हटाया गया"
+
+#: txcommon/notifications.py:200
+msgid "Requested team creation"
+msgstr "टीम के निर्माण के लिए अनुरोध किया"
+
+#: txcommon/notifications.py:201
+msgid "when the creation of a translation team is requested for a project"
+msgstr "जब एक परियोजना के लिए एक अनुवाद की टीम के निर्माण का अनुरोध किया गया"
+
+#: txcommon/notifications.py:208
+msgid "Denied request for team creation"
+msgstr "टीम के निर्माण के लिए अनुरोध का खंडन किया"
+
+#: txcommon/notifications.py:209
+msgid ""
+"when the creation of a translation team for a project is denied by a "
+"maintainer"
+msgstr ""
+"जब किसी प्रोजेक्ट के लिए एक अनुवाद की टीम का निर्माण एक अनुरक्षक द्वारा खंडन किया गया"
+
+#: txcommon/notifications.py:216
+msgid "Requested to join translation team"
+msgstr "अनुवाद की टीम में शामिल होने का अनुरोध किया"
+
+#: txcommon/notifications.py:217
+msgid "when a user requests to join a project translation team"
+msgstr ""
+"जब एक यूजर अनुरोधों एक परियोजना अनुवाद टीम में शामिल होने के लिए अनुरोध  करता है।"
+
+#: txcommon/notifications.py:224
+msgid "Approved to join translation team"
+msgstr "अनुवाद की टीम में शामिल होने के लिए मंजूरी दे दी"
+
+#: txcommon/notifications.py:225
+msgid "when a user is approved as a member of a project translation team"
+msgstr "जब एक उपयोगकर्ता एक परियोजना अनुवाद टीम के एक सदस्य के रूप में मंजूरी दे दी है"
+
+#: txcommon/notifications.py:232
+msgid "Denied to join translation team"
+msgstr "अनुवाद की टीम में शामिल होने से इनकार"
+
+#: txcommon/notifications.py:233
+msgid "when a user is denied as a member of a project translation team"
+msgstr "जब एक उपयोगकर्ता एक परियोजना अनुवाद टीम के एक सदस्य के रूप में इनकार कर दिया है"
+
+#: txcommon/notifications.py:240
+msgid "Withdrew request to join team"
+msgstr "टीम में शामिल करने के लिए अनुरोध को वापस ले लिया"
+
+#: txcommon/notifications.py:241
+msgid "when a user decides not to join a project translation team"
+msgstr "जब एक उपयोगकर्ता के लिए एक परियोजना अनुवाद टीम में शामिल होने का फैसला"
+
+#: txcommon/notifications.py:248
+msgid "User left translation team"
+msgstr "उपयोगकर्ता ने अनुवाद की टीम को छोड़ दिया"
+
+#: txcommon/notifications.py:249
+msgid "when a user leaves a project translation team"
+msgstr "जब एक उपयोगकर्ता एक परियोजना अनुवाद टीम को छोड"
+
+#: txcommon/notifications.py:259
+msgid "Weekly project report for maintainers"
+msgstr "साप्ताहिक देखरेख के लिए परियोजना रिपोर्ट"
+
+#: txcommon/notifications.py:260
+msgid "when you receive the weekly report of projects that you maintain."
+msgstr "जब आप परियोजनाओं है कि आप को बनाए रखने की साप्ताहिक रिपोर्ट प्राप्त करते हैं."
+
+#: txcommon/notifications.py:267
+msgid "User nudge"
+msgstr "उपयोगकर्ता को हलका धक्का दो"
+
+#: txcommon/notifications.py:268
+msgid "when a user nudges you"
+msgstr "जब एक उपयोगकर्ता आप nudges"
+
+#: txcommon/notifications.py:277
+msgid "Resource created"
+msgstr "संसाधन बनाया गया"
+
+#: txcommon/notifications.py:278
+msgid "when a new resource is added to a project"
+msgstr "जब एक नए संसाधन एक परियोजना के लिए जोड़ा जाता है"
+
+#: txcommon/notifications.py:284
+msgid "Resource modified"
+msgstr "संसाधन संशोधित किया गया"
+
+#: txcommon/notifications.py:285
+msgid "when a resource of a project is changed"
+msgstr "जब एक परियोजना के एक संसाधन बदल गया है"
+
+#: txcommon/notifications.py:291
+msgid "Resource deleted"
+msgstr "संसाधन को हटाया गया"
+
+#: txcommon/notifications.py:292
+msgid "when a resource of a project is deleted"
+msgstr "जब एक परियोजना के एक संसाधन नष्ट कर दिया है"
+
+#: txcommon/notifications.py:298
+msgid "Resource translated"
+msgstr "संसाधन को अनुवादित किया गया "
+
+#: txcommon/notifications.py:299
+msgid "when a translation is sent to a project resource"
+msgstr "जब एक अनुवाद एक परियोजना संसाधन के लिए भेजा है"
+
+#: txcommon/notifications.py:306
+msgid "Resource translation updated"
+msgstr "संसाधन की अनुवाद को अद्यतन किया गया"
+
+#: txcommon/notifications.py:307
+msgid "when a resource translation you are watching changes"
+msgstr "जब एक संसाधन के अनुवाद आप परिवर्तन देख रहे हैं"
+
+#: txcommon/notifications.py:314
+msgid "Resource translation fully reviewed"
+msgstr "संसाधन अनुवाद पूरी तरह से समीक्षित  "
+
+#: txcommon/notifications.py:315
+msgid ""
+"when a resource translation of one of your projects becomes fully reviewed"
+msgstr "जब आपके परियोजनाओं में से एक संसाधन के अनुवाद की पूरी तरह से समीक्षा हो जाता है.  "
+
+#: txcommon/db/models.py:84
+msgid "Enter 0 or more comma-separated integers in parentheses."
+msgstr "कोष्ठकों में 0 या अधिक अल्पविराम से अलग पूर्णांक दर्ज करें."
+
+#: txcommon/db/models.py:86
+msgid "You must enter at least a pair of parentheses containing nothing."
+msgstr "आप कम से कम कुछ भी नहीं युक्त कोष्ठक की एक जोड़ी दर्ज करना होगा."
+
+#: txcommon/migrations/0002_release_06_07.py:20
+#: txcommon/migrations/0004_new_userena_profile.py:60
+msgid "Surname"
+msgstr "उपनाम"
+
+#: txcommon/migrations/0002_release_06_07.py:21
+#: txcommon/migrations/0004_new_userena_profile.py:63
+msgid "First name"
+msgstr "नाम"
+
+#: txcommon/migrations/0002_release_06_07.py:24
+msgid "Native Language"
+msgstr "देशी भाषा"
+
+#: txcommon/templatetags/txcommontags.py:80
+msgid "Home"
+msgstr "घर"
+
+#: txpermissions/views.py:94
+msgid "You added a permission."
+msgstr "तुम एक अनुमति गयी."
+
+#: txpermissions/views.py:96
+msgid "You added a permission request."
+msgstr "आप अनुमति के लिए अनुरोध जोड़ा।"
+
+#: txpermissions/views.py:133
+msgid "You approved the permission request."
+msgstr "आप अनुमति के लिए अनुरोध को मंजूर कर दिए।"
+
+#: txpermissions/views.py:151
+msgid "You removed the permission."
+msgstr "तुम अनुमति हटा दिया।"
+
+#: txpermissions/views.py:153
+msgid "You removed the permission request."
+msgstr "आप अनुमति के लिए अनुरोध हटा दिया।"
+
+#~ msgid "Slug for the mapping. Usually the same as the old component slug."
+#~ msgstr "मानचित्रण के लिए काउंटर.आमतौर पर पुराने घटक काउंटर के रूप में ही है."
+
+#~ msgid "Mapping in JSON format."
+#~ msgstr "JSON प्रारूप में मानचित्रण।"
+
+#~ msgid "Project to which the JSON mapping belongs."
+#~ msgstr "JSONमानचित्रण जिस परियोजना से संबंध रखता है।"
+
+#~ msgid "JSONMap"
+#~ msgstr "JSONमानचित्र"
+
+#~ msgid "JSONMaps"
+#~ msgstr "JSONमानचित्रों "
+
+#~ msgid "Search translations"
+#~ msgstr "खोजें अनुवाद"
+
+#~ msgid "%(source_language)s &rarr; %(translation_language)s"
+#~ msgstr "%(source_language)s &rarr; %(translation_language)s"
+
+#~ msgid "Location:"
+#~ msgstr "स्थान:"
+
+#~ msgid "Tough luck! No translations obtained."
+#~ msgstr "कठिन भाग्य! कोई अनुवाद प्राप्त|"
+
+#~ msgid "Search for a string:"
+#~ msgstr "एक स्ट्रिंग के लिए खोजें:"
+
+#~ msgid "From:"
+#~ msgstr "से:"
+
+#~ msgid "To:"
+#~ msgstr "करने के लिए:"
+
+#~ msgid ""
+#~ "Search in Transifex memory for existing translations (uses a new tab/"
+#~ "window)"
+#~ msgstr ""
+#~ "खोज Transifex मौजूदा अनुवाद के लिए स्मृति में (एक नया tab /window का उपयोग करता "
+#~ "है)"

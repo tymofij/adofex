@@ -1,0 +1,96 @@
+{% extends "projects/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load addons %}
+{% load txcommontags %}
+{% load permissions %}
+{% load txpermissions %}
+
+{% block title %}{{ project.name }} localization | Transifex {% endblock %}
+
+{% block page_description %}{% blocktrans with project.name as project_name %} {{project_name}} localization project on Transifex, a modern translation workflow and crowdsourcing platform.{% endblocktrans %}{% endblock %}
+
+{% block page_keywords %}{% blocktrans with project.name as project_name %} localization, {{ project_name }} localization, localization platform, {{ project_name }}translation, {{ project_name }} crowdsourcing {% endblocktrans %}{% endblock %}
+
+{% block extra_head %}
+  {% if project %}
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url project_feed param=project.slug %}" />
+  {% endif %}
+{% endblock %}
+
+{% block extrajs %}
+  <script type="text/javascript" src="{% static "js/tablesorted.js" %}"></script>
+{% endblock %}
+
+{% block content_title %}
+{% with project.description as short_desc %}
+{% include "projects/logo.html" %}
+<div class="lastchild-emf">
+<h2 class="pagetitle{% if short_desc %} with_description{% endif %}">
+{% block project_header %}
+<span><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></span>
+{% endblock %}
+</h2>
+</div>
+
+{% block current_description %}
+{% if short_desc %}
+<div class="description">
+	<p>{{ project.description }}</p>
+</div>
+{% endif %}
+{% endblock %}
+
+{% endwith %}
+{% endblock %}
+
+{% block content_header_sec %}
+  {% url project_detail project.outsource.slug as url_hub_project %}
+	{% if project.anyone_submit %}
+  <span id="private_project_banner" class="project-sign" style="background:url({% static "images/icons/ffa-project.png" %})center top no-repeat;">
+	<p>{% trans "Free for all"%}</p>
+	</span>
+	{% endif %}
+	{% if project.outsource %}
+  <span id="private_project_banner" class="project-sign"
+	style="background:url({% static "images/icons/outsource-project.png" %})center top no-repeat;"><a title="{% blocktrans with project.outsource.name as hub_project %} Go to {{hub_project}} hub{% endblocktrans %}" href="{{ url_hub_project }}" style="display:block;"><p>{% trans "Child project" %} </p></a>
+	</span>
+	{% endif %}
+	{% if project.is_hub %}
+  <span id="private_project_banner" class="project-sign" style="background:url({% static "images/icons/hub-project.png" %})center top no-repeat;">
+	<p>{% trans "Hub"%}</p>
+	</span>
+	{% endif %}
+	{% if project.private %}
+	<span id="private_project_banner" class="project-sign" style="background:url({% static "images/icons/private-project.png" %})center top no-repeat;">
+	<p>{% trans "Private"%}</p>
+	</span>
+	{% endif %}
+{% endblock %}
+
+{% block header_menu %}
+{% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+	{% if project %}
+	<div class="tab-wrapper grid_12">
+		<ul  class="tabs clearfix">
+		  <li class="{% if project_overview %}selected{% endif %}"><a href="{% url project_detail project_slug=project.slug %}">{% trans "Project overview" %}</a></li>
+    		{% if project.is_hub and is_maintainer %}
+    	  <li class="{% if hub_projects_page %}selected{% endif %}">
+    		  <a href="{% url project_hub_projects project.slug %}">
+        {% blocktrans count project.outsourcing.count as counter %} Hub project <span class="tab-stat">{{ counter }}</span> {% plural %}Child projects <span class="tab-stat">{{ counter }}</span> {% endblocktrans %}
+          </a>
+        </li>
+        {% endif %}
+		  <li class="{% if project_resources %}selected{% endif %}"><a href="{% url project_resources project.slug %}">{% trans "Resources" %} <span class="tab-stat">{{ project.resources.count }}</span></a></li>
+		  {% hook "project.html" menu %}
+		  {% if perms.projects.change_project or is_maintainer %}
+		  {% url project_edit project_slug=project.slug as url_project_edit%}{% url project_delete project_slug=project.slug as url_project_delete %}{% url project_access_control_edit project_slug=project.slug as url_project_access_control_edit %}{% url project_timeline project_slug=project.slug as url_project_timeline %}{% url project_add_permission project_slug=project.slug as url_project_permission%}
+		  <li class="{% if project_manage or request.path == url_project_edit or request.path == url_project_delete or request.path == url_project_access_control_edit or request.path == url_project_timeline or request.path == url_project_permission%}selected{% endif %}"><a href="{% url project_edit project_slug=project.slug %}">{% trans "Manage" %}</a></li>
+		  {% endif %}
+		</ul>
+	</div>
+	{% endif %}
+{% endblock %}
+
+{% block content_main %}{% endblock %}
+{% block content_footer %}{% endblock %}

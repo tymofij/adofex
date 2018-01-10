@@ -1,0 +1,997 @@
+{% extends "projects/project_detail_childs.html" %}
+{% load staticfiles %}
+{% load humanize %}
+{% load i18n %}
+{% load permissions %}
+{% load txcommontags %}
+{% load addons %}
+
+{% block breadcrumb %}
+{% homelink %} »
+<a href="{% url project_list_recent %}">{% trans "Projects" %}</a>
+ » <a href="{% url project_detail project.slug %}">{{project}}</a>
+{% if resource %} » <a href="{% url resource_detail project.slug resource.slug %}">{{resource}}</a>{% endif %}
+» {% blocktrans with target_language.name as lang %}Translate to {{ lang }}{% endblocktrans %}
+{% endblock %}
+
+{% get_permission "project_perm.maintain" for request.user and resource.project as "is_maintainer" %}
+
+{% block extra_head %}
+{% get_permission "project_perm.proofread" for request.user and resource.project,target_language as "is_reviewer" %}
+
+  <link media="screen" href="{% static "lotte/css/webtrans.css" %}" type="text/css" rel="stylesheet" />
+  <link media="screen" href="{% static "lotte/css/dataTable.css" %}" type="text/css" rel="stylesheet" />
+  <link media="screen" href="{% static "lotte/css/ui.tabs.lotte.css" %}" type="text/css" rel="stylesheet"/>
+  <link media="screen" href="{% static "lotte/css/jquery.whitespaceHighlight.css" %}" type="text/css" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static "lotte/css/spellchecker.css" %}" />
+  <!--[if IE]>
+    <link media="screen" href="{% static "lotte/css/ie.lotte.css" %}" type="text/css" rel="stylesheet"/>
+  <![endif]-->
+  <script type="text/javascript" src="{% static "lotte/js/jquery.dataTables.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "lotte/js/jquery.dataTables.fnSetFilteringDaley.js" %}"></script>
+  <script type="text/javascript" src="{% static "lotte/js/jquery.dataTables.customFullNumbersPagination.js" %}"></script>
+  <script type="text/javascript" src="{% static "lotte/js/jquery.dotimeout.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "lotte/js/shortcut.js" %}"></script>
+  <script type="text/javascript" src="{% static "lotte/js/tx.lotte2.js" %}"></script>
+  <script type="text/javascript" src="{% static "lotte/js/footpanel.js" %}"></script>
+  <script type="text/javascript" src="{% static "lotte/js/jquery.hoverIntent.js" %}"></script>
+  <script type="text/javascript" src="{% static "lotte/js/jquery.whitespaceHighlight.js" %}"></script>
+  <script type="text/javascript" src="{% static "lotte/js/jquery.textarea-expander.js" %}"></script>
+  <script type="text/javascript" src="{% static "lotte/js/jquery.jeditable.mini.js" %}"></script>
+  <script type="text/javascript" src="{% static "lotte/js/jquery.spellchecker.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/tx.jquery.bidi.js" %}"></script>
+<script type="text/javascript">
+
+    /* Global variables */
+    var autotranslate_url = '{% url autotranslate_proxy project.slug %}';
+    var supportedlangs_url = '{% url supported_langs project.slug %}';
+    {% if auto_translate %}
+        var autotranslate_type = "{{ auto_translate.service_type }}";
+    {% else %}
+        var autotranslate_type = "";
+    {% endif %}
+    /* The instance of the StringSet class which has references to all the objects of the table */
+    var stringset = null;
+    /* Flags used for the auto-suggest function */
+    var is_supported_source_lang = null;
+    var is_supported_lang = null;
+    /* DataTable instance var */
+    var oTable;
+    /* vars for string calcs */
+    var translated;
+    var untranslated;
+    var reviewed;
+    var translated_strings = {{ translated_strings }};
+    var untranslated_strings = {{ untranslated_strings }};
+    var reviewed_strings = {{ reviewed_strings }};
+    var total_strings = translated_strings + untranslated_strings;
+    /* obj for holding default values of edited text areas. works like a hastable/dict */
+    var current_defaults = {};
+    /* var to keep filter state */
+    {% if untranslated_strings %}
+        var filter_var = "untranslated,";
+    {% else %}
+        var filter_var = null;
+    {% endif %}
+    var user_filters_values = null;
+    var resource_filters_values = null;
+    var more_languages_values = null;
+    /* url for details requests */
+    /* FIXME: Find a more clever way to do this resolving. */
+    var tab_details_urlp_tmpl = "{% url tab_details_snippet 1111111111 target_language.code %}";
+    var tab_suggestions_urlp_tmpl = "{% url tab_suggestions_snippet 1111111111 target_language.code %}";
+    /* Global vars holding the source and target language codes */
+    var source_lang = '{{ resource.source_language.code }}';
+    var target_lang = '{{ target_language.code }}';
+    var saveError_response = false;
+    var spellcheck_langs = [{% for item in spellcheck_supported_langs %}"{{ item }}"{% if not forloop.last %}, {% endif %}{% endfor %}];
+    if ($.inArray("{{target_language.code}}", spellcheck_langs) >= 0) {
+    	var spellcheck_url = '{% url spellcheckurl project.slug resource.slug target_language.code %}';
+    	var enable_spellcheck = true;
+    } else {
+    	var enable_spellcheck = false;
+    }
+    // Used to manage extra tabs
+    var toolbars = [];
+    toolbars[0] = ['lotte', lotte_tabs];
+
+    function onWindowCloseOrLoad(e) {
+        if (!$("#toggle_autosave").is(":checked") && lotteStatus.updated){
+            e = e || window.event;
+            var message = "Do you really want to leave Lotte? Data you have entered may not be saved.";
+            // For IE and Firefox prior to version 4
+            if (e) {
+                e.returnValue = message;
+            }
+
+            // For Safari
+            return message;
+        }
+    }
+
+    $(window).bind('beforeunload', onWindowCloseOrLoad);
+
+    $(window).bind('unload', function() {
+        if ($("#toggle_autosave").is(":checked")){
+            $('#save_and_exit').click();
+        }
+    });
+
+    function unique(arr){
+        /* Drop duplicated entries from an array (list) */
+        var retval = new Array();
+        for(var i = 0; i < arr.length ; i++) {
+            // `if a[i] not in retval`
+            if(retval.indexOf(arr[i]) == -1) {
+                retval.push(arr[i]);
+            }
+        }
+        return retval;
+    }
+
+    function saveError(){
+        /*
+        Global function used by the custom jquery.dataTables pagination plugin
+        for checking for errors when saving entries before changing page.
+        */
+        if (stringset.translated_modified || stringset.untranslated_modified ) {
+            stringset.error = false;
+            stringset.push();
+            if (stringset.error) {
+                var r = confirm('{% trans "There is at least one entry with error that was not saved. Do you want to continue anyway?"|escapejs %}');
+                if (! r)
+                    return true;
+            }
+        }
+        return false;
+    }
+
+
+    function aroundPagination(oSettings, fnCallback){
+        /*
+        Global function used by the custom jquery.dataTables pagination plugin
+        for placing the page on the top of the table when changing page.
+        */
+        $("div.dataTables_wrapper").hide();
+
+        fnCallback(oSettings);
+
+        //$("html, body").animate({ scrollTop: $("div#content").offset().top}, 500);
+        $("div.dataTables_wrapper").show('slow');
+    }
+
+
+    /* document ready. do stuff */
+    $(document).ready(function(){
+
+        oTable = $('#stringset_table').dataTable({
+            "oLanguage": {
+                "sProcessing":   '{% trans "Processing..."|escapejs %}',
+                "sLengthMenu":   '{% trans "Show _MENU_ entries"|escapejs %}',
+                "sZeroRecords":  '{% trans "No matching records found"|escapejs %}',
+                "sInfo":         '{% trans "Showing _START_ to _END_ of _TOTAL_ entries"|escapejs %}',
+                "sInfoEmpty":    '{% trans "Nothing to show"|escapejs %}',
+// XXX "(excluding _EXCLUDED_ entries)"
+                "sInfoFiltered": '{% trans "(filtered from _MAX_ total entries)"|escapejs %}',
+                "sInfoPostFix":  "",
+                "sSearch":       '{% trans " "|escapejs %}',
+                "sUrl":          "",
+                "oPaginate": {
+                        "sFirst":    '{% trans "First"|escapejs %}',
+                        "sPrevious": '{% trans "Previous"|escapejs %}',
+                        "sNext":     '{% trans "Next"|escapejs %}',
+                        "sLast":     '{% trans "Last"|escapejs %}'
+                }
+            },
+            "bJQueryUI": false,
+            "sPaginationType": "customFullNumbers",
+            "aaSorting": [[ 0, "asc" ]],
+            "bServerSide": true,
+            "bProcessing": true,
+            "iDisplayLength": 50,
+            {% if resource %}
+                "sAjaxSource": "{%  url stringset_handling project.slug resource.slug target_language.code %}",
+            {% else %}
+                "sAjaxSource": "{%  url stringset_handling project.slug target_language.code %}",
+            {% endif %}
+            "sDom": '<"top"fi><"clear">rt<"bottom"pl><"clear">',
+            "bAutoWidth": false,
+            "aoColumns" : [
+                // Holds the Translation id (hidden)
+                { "bVisible":false },
+                // Holds the SourceEntity string
+                { "bVisible":false, "bSortable": false, },
+                // Holds the source Translation string/s mapped to the plural rules
+                // It may also hold the similar language translations.
+                { "sClass": "msg", "asSorting": [ "desc", "asc" ],  "sWidth": "350px",
+                  "fnRender": function(oObj){
+                    // Escape recursively all the strings in the array
+                    var clean_array = array_escape({"key":oObj.aData[1], "source_dict":oObj.aData[2]});
+                    var source_divs = '';
+                    var plurals_counter = 0;
+                    var plural_types = ['zero', 'one', 'two', 'few', 'many', 'other']
+                    // Provide the necessary html fragment for each plural rule
+                    for(rule in plural_types){
+                        if(plural_types[rule] in clean_array["source_dict"]["source_strings"]){
+                            if(plural_types[rule]=='other'){
+                              source_divs += '<div class="source_string" id="sourcestring_'+ oObj.iDataRow +'">';
+                              if(plurals_counter>0)
+                                source_divs += '<span class="plural_title">'+plural_types[rule]+': </span>'
+                              source_divs += html_escape(clean_array["source_dict"]["source_strings"][plural_types[rule]]) + '</div>'
+                            }else
+                              source_divs += '<p class="source_string_plural" rule="'+plural_types[rule]+'"><span class="plural_title">'+plural_types[rule]+': </span>' + html_escape(clean_array["source_dict"]["source_strings"][plural_types[rule]]) + '</p>'
+                            plurals_counter++;
+                        }
+                    }
+
+                    // If we have pluralized translation row, indicate this with a label.
+                    var plural_indicator = '';
+                    if(plurals_counter>1)
+                        plural_indicator = '<div class="plural_indicator">Pluralized Translations</div>';
+
+                    // Concatenate the similar language translations with the
+                    // html fragment which holds the source strings.
+                    for(lang in clean_array["source_dict"]["similar_lang_strings"]){
+                      lang_strings = "";
+                      for(rule in clean_array["source_dict"]["similar_lang_strings"][lang]){
+                        if(rule=='other')
+                          lang_strings += '<p>' + html_escape(clean_array["source_dict"]["similar_lang_strings"][lang][rule]) + '</p>'
+                        else
+                          lang_strings += '<p><span class="plural_title">'+rule+': </span>' + html_escape(clean_array["source_dict"]["similar_lang_strings"][lang][rule]) + '</p>'
+                      }
+                      if(!lang_strings==""){
+                        source_divs += '<h3 class="similar_lang_title">In '+lang+':</h3>';
+                        source_divs += lang_strings;
+                      }
+                    }
+
+                    // Provide the amount (number) of suggestions and a
+                    // bold flag to be used in case we have empty translation
+                    // textareas.
+                    var suggestions_num = '';
+                    if(oObj.aData[4] > 0)
+                        suggestions_num = ' ('+oObj.aData[4]+')';
+                    var bold_flag = false;
+                    if(suggestions_num!='' && oObj.aData[3]['other']=='')
+                        bold_flag = true;
+
+                    // Concatenate the plural indicator, the (hidden) key,
+                    // the source strings and the row tabs.
+                    tabs = '<div class="source_string_wrapper">'
+                           + plural_indicator
+                           + ' <div class="source_entity nodisplay" id="sourceentity_'+ oObj.iDataRow +'" ><span title="{% trans "Key" %}">'+ clean_array["key"] +'</span></div>'
+                           + source_divs
+                           + ' <div class="row_tabs">'
+                           + '  <ul>'
+                           + '    <li>'
+                           + '     <a class="tabs_trigger show_details" href="#">{% trans "details" %}</a>'
+                           + '    </li>'
+                           + '    <li>'
+                           + '     <a class="tabs_trigger show_suggestions" href="#">'+(bold_flag?'<strong>':'')+'{% trans "suggestions" %}'+suggestions_num+(bold_flag?'</strong>':'')+'</a>'
+                           + '    </li>';
+                           
+                    // Must contain something like: tabs += '<li><a>foo</a></li>'
+                    {% hook "tab_lotte.html" tab %}
+
+                    tabs += '  </ul>'
+                           + ' </div>'
+                           + '</div>';
+                    return tabs
+                  }
+                },
+                // Holds the target Translation string/s mapped to the plural rules
+                { "sClass": "trans", "bSortable": false,  "sWidth": "350px",
+                  "fnRender": function(oObj){
+                      // Escape recursively all the strings in the array
+                      var clean_array = array_escape({"translations":oObj.aData[3]});
+                      var textareas = '';
+                      var plural_types = ['zero', 'one', 'two', 'few', 'many', 'other'];
+                      var plurals_counter = 0;
+                      // Provide the necessary html fragment for each plural rule
+                      for(rule in plural_types){
+                          if(plural_types[rule] in clean_array["translations"]){
+                              translation_text = html_escape(clean_array["translations"][plural_types[rule]]);
+                              if (translation_text[0] == '\n')
+                                  translation_text = '\n' + translation_text;
+                              else if (translation_text.substr(0, 2) == '\r\n')
+                                  translation_text = '\r\n' + translation_text;
+                              if(plural_types[rule]=='other'){
+                                  textareas += '<div class="translation_wrapper{% if RTL %} rtl_wrapper{% endif %}"><span class="rule nodisplay" rule="'+plural_types[rule]+'">'+plural_types[rule]+'</span><textarea class="translation {% if RTL %}rtl {% endif %}default_translation" id="translation_' + oObj.iDataRow + '">' + translation_text + '</textarea>';
+                                if(plurals_counter>0)
+                                    textareas += '<span class="plural_label tag" title="Translation plural form for '+plural_types[rule]+' items (equation: {{ target_language.rule_other}})">'+plural_types[rule]+'</span>';
+                                textareas += '</div>';
+                              }else{
+                                textareas += '<div class="translation_wrapper{% if RTL %} rtl_wrapper{% endif %}"><span class="rule nodisplay" rule="'+plural_types[rule]+'">'+plural_types[rule]+'</span><textarea class="translation {% if RTL %}rtl {% endif %}">' + translation_text + '</textarea>';
+                                if(plural_types[rule]=='zero'){
+                                    textareas += '<span class="plural_label tag" title="Translation plural form for '+plural_types[rule]+' items (equation: {{ target_language.rule_zero }})">'+plural_types[rule]+'</span>';
+                                }else if(plural_types[rule]=='one'){
+                                    textareas += '<span class="plural_label tag" title="Translation plural form for '+plural_types[rule]+' item (equation: {{ target_language.rule_one }})">'+plural_types[rule]+'</span>';
+                                }else if(plural_types[rule]=='two'){
+                                    textareas += '<span class="plural_label tag" title="Translation plural form for '+plural_types[rule]+' items (equation: {{ target_language.rule_two }})">'+plural_types[rule]+'</span>';
+                                }else if(plural_types[rule]=='few'){
+                                    textareas += '<span class="plural_label tag" title="Translation plural form for '+plural_types[rule]+' items (equation: {{ target_language.rule_few }})">'+plural_types[rule]+'</span>';
+                                }else if(plural_types[rule]=='many'){
+                                    textareas += '<span class="plural_label tag" title="Translation plural form for '+plural_types[rule]+' items (equation: {{ target_language.rule_many }})">'+plural_types[rule]+'</span>';
+                                }
+                                textareas += '</div>';
+                              }
+                              plurals_counter++;
+                          }
+                      }
+
+                      // Concatenate translation textareas with action buttons
+                      textareas += '<div class="error_notes"></div>'
+                      + '<div class="lotte-actions">'
+                      {% if auto_translate %}
+                           textareas += '  <p id="auto_translate_wrapper"><a class="i16 buttonized action suggest">{% trans "auto translate" %}</a></p>'
+                      {% endif %}
+                      textareas += '  <p id="copy_source_wrapper"><a class="i16 buttonized  copy_source">{% trans "copy source" %}</a></p>'
+                      + '</div>';
+                      return textareas;
+                    }
+                },
+                // Holds the amount of Suggestions provided for this source string/s
+                { "bVisible":false, "bSortable": false, },
+                // Holds an HTML snippet for save, undo buttons and hidden context
+                { "sClass": "notes", "bSortable": false, "bVisible":true, "sWidth": "40px",},
+                {% if is_reviewer %}
+                { "sClass": "notes", "bSortable": false, "bVisible":true, "sWidth": "40px",},
+                {% endif %}
+            ],
+            "fnServerData": function (sSource, aoData, fnCallback) {
+
+              /*
+               * Here we issue the AJAX request to get the table data and
+               * then we create the StringSet object which holds all the
+               * Translation objects in memory.
+              */
+
+              // Show the loading indicator
+              $("div#notification-container div").html('{% trans "Loading strings..."|escapejs %}');
+              $("div#notification-container").fadeIn("slow");
+
+              // Add filtering parameters to the POST data dictionary
+              if (filter_var) {
+                aoData.push( { "name" : "filters", "value": filter_var});
+              }
+              if (user_filters_values){
+                aoData.push( { "name" : "user_filters", "value": user_filters_values});
+              }
+              if (resource_filters_values){
+                aoData.push( { "name" : "resource_filters", "value": resource_filters_values});
+              }
+              if (more_languages_values){
+                aoData.push( { "name" : "more_languages", "value": more_languages_values});
+              }
+
+              // Issue the actual AJAX request to fetch the data to be rendered.
+              $.ajax ( {
+                  "dataType": 'json',
+                  "type": "POST",
+                  "url": sSource,
+                  "data": aoData,
+                  "complete": function(xmlhttpreq, status) {
+
+                    /*
+                     * When we have the data, create the Stringset instance and
+                     * trigger the fnDrawCallback to render one by one the rows!
+                    */
+
+                    var parsed_data = JSON.parse(xmlhttpreq.responseText);
+                    var push_url = '{% url push_translation project.slug target_language.code %}';
+
+                    // Fill the statistics variable
+                    if ( stringset ) {
+                        // Modified strings should be saved or dropped on page change.
+                        translated = stringset.translated; // - stringset.translated_modified;
+                        untranslated = stringset.untranslated; // - stringset.untranslated_modified;
+                        reviewed = stringset.reviewed;
+                    } else {
+                        translated = translated_strings;
+                        untranslated = untranslated_strings;
+                        reviewed = reviewed_strings;
+                    }
+
+                    // Create StringSet instance
+                    stringset = new StringSet(parsed_data, push_url, '{{resource.source_language}}', '{{target_language.code}}');
+                    stringset.translated = translated;
+                    stringset.untranslated = untranslated;
+                    stringset.reviewed = reviewed;
+
+                    // Draw the table
+                    fnCallback(parsed_data);
+
+                    // Hide the loading indicator
+                    setTimeout('$("div#notification-container").fadeOut();',1000);
+
+                    }
+                  });
+
+             },
+            "fnDrawCallback": function() {
+
+                // Put the table object as an class attribute in StringSet.
+                stringset.bindToTable("stringset_table");
+
+                // Draw the colors for textareas and hide/show save buttons
+                stringset.updateColors_Buttons();
+
+                // Enable the onkeyup mark as modified and show save button
+                stringset.bindKeyupTextArea();
+
+                // Enable the onfocus "make current in StringSet"
+                stringset.bindFocusTextArea();
+
+                if ($("#toggle_autosave").is(":checked")){
+                    // Enable the save button push upstream.
+                    stringset.bindBlurTextArea();
+                } else {
+                    stringset.unbindBlurTextArea();
+                }
+                var push_url = '{% url push_translation project.slug target_language.code %}';
+
+                if ($("#toggle_verbose").is(":checked")){
+                    // Enable the save button push upstream.
+                    $('.source_entity').show();
+                } else {
+                    $('.source_entity').hide();
+                }
+
+                // Statistics and filtering by flag table
+                stringset.bindStatsAndFilter("stats_table");
+                stringset.updateStats(); /* Update statistics */
+
+                // Bind toolbar
+                stringset.toolbar();
+
+                stringset.current_box = null;
+
+                // Highlight source strings.
+                $('.source_string, .source_string_plural').whitespaceHighlight();
+
+                // Auto expanding textareas.
+                $("textarea.translation").each(function(index) {
+                    var $row = $(this).parents('tr');
+                    var $srcDiv = $row.find('.source_string').first();
+                    var srcHeight = $srcDiv.height();
+                    var textareaHeight = $(this).height();
+                    if (textareaHeight < srcHeight)
+                        $(this).TextAreaExpander(srcHeight);
+                });
+                {% if RTL %}
+                    $('textarea.translation').bidi();
+                {% endif %}
+	    }
+        }).fnSetFilteringDelay(500);
+
+        {% if is_reviewer %}
+
+        {% if resource %}
+        var proofread_url = '{% url proofread project.slug resource.slug target_language.code %}';
+        {% else %}
+        var proofread_url = '{% url proofread project.slug target_language.code %}';
+        {% endif %}
+
+        $('.review-check').live('change', function(){
+            var sid = $(this).attr('id').split('_')[2];
+            var req, up;
+
+            if ($(this).attr('checked')) {
+                req = {'true': [sid]};
+                up = true;
+            } else {
+                req = {'false': [sid]};
+                up = false;
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: proofread_url,
+                data: JSON.stringify(req),
+                success: function() {
+                  if (up) {
+                    stringset.reviewed += 1;
+                  } else {
+                    stringset.reviewed -= 1;
+                  }
+                  stringset.updateStats();
+                }
+            });
+        });
+
+        $('#review-all').live('change', function() {
+          var checked = $(this).attr('checked');
+          var ids_checked = [];
+          var ids_unchecked = [];
+          $('.review-check').each(function() {
+            if (!$(this).attr('disabled')) {
+              if (checked) {
+                $(this).prop('checked', true);
+                ids_checked.push($(this).attr('id').split('_')[2]);
+              } else {
+                $(this).prop('checked', false);
+                ids_unchecked.push($(this).attr('id').split('_')[2]);
+              }
+            }
+          })
+
+          var data = {
+            'true': ids_checked,
+            'false': ids_unchecked
+          };
+          $.post(proofread_url, JSON.stringify(data));
+        });
+        {% endif %}
+
+		function addShortcuts() {
+			// next page
+			shortcut.add('Alt+l', function(evt) {
+				if (stringset.current_box) {
+					stringset.current_box.blur();
+				}
+				oTable.fnPageChange('next');
+			}, {'type':'keydown',});
+
+			// previous page
+			shortcut.add('Alt+j', function(evt) {
+				if (stringset.current_box) {
+					stringset.current_box.blur();
+				}
+				oTable.fnPageChange('previous')
+			}, {'type':'keydown',});
+
+			// row up
+			shortcut.add('Alt+i', function(evt) {
+				if (!stringset.current_box) {
+					$("#stringset_table").find('tr:not(.metatr):last-child').find('textarea.default_translation').focus();
+				} else {
+					stringset.current_box.blur();
+					stringset.current_box.parents('.trans').parent().prevAll(':not(.metatr):first').find('textarea.default_translation').focus();
+				}
+			}, {'type':'keydown',});
+
+			// row down
+			shortcut.add('Alt+k', function(evt) {
+				if (!stringset.current_box ) {
+					$("#stringset_table").find('tr:not(.metatr):nth-child(1)').find('textarea.default_translation').focus();
+				} else {
+					stringset.current_box.blur();
+					stringset.current_box.parents('.trans').parent().nextAll(':not(.metatr):first').find('textarea.default_translation').focus();
+				}
+			}, {'type':'keydown',});
+
+			// copy source
+			shortcut.add('Alt+g', function(evt) {
+				if (!stringset.current_box) {
+					return false;
+				}
+				stringset.current_box.parents('.trans').find(".copy_source").click();
+			});
+
+			// auto translate
+			shortcut.add('Alt+t', function(evt) {
+				if (!stringset.current_box) {
+					return false;
+				}
+				stringset.current_box.parents('.trans').find(".suggest").click();
+			});
+		}
+		addShortcuts();
+
+		function removeShortcuts() {
+			shortcut.remove('Alt+l');
+			shortcut.remove('Alt+j');
+			shortcut.remove('Alt+i');
+			shortcut.remove('Alt+k');
+			shortcut.remove('Alt+g');
+			shortcut.remove('Alt+t');
+		}
+
+        $("#toggle_shortcuts").click( function() {
+            if ($(this).is(":checked")){
+				addShortcuts();
+			} else {
+				removeShortcuts();
+			}
+		});
+        $("#toggle_autosuggestions").click( function() {
+            if ($(this).is(":checked")){
+				window.autosuggestions = true;
+			} else {
+				window.autosuggestions = false;
+			}
+		});
+
+        /* SETTINGS togglers */
+        $("#toggle_verbose").click( function() {
+            if ($(this).is(":checked")){
+                $('.source_entity').show();
+            } else {
+                $('.source_entity').hide();
+            }
+        });
+
+        /* Toggle autosave of textarea value */
+        $("#toggle_autosave").click( function() {
+            if ($(this).is(":checked")){
+                stringset.unbindSaveButton();
+                stringset.bindBlurTextArea();
+                stringset.push();
+                alert('{% trans "Translation text will be saved automatically."|escapejs %}');
+            } else {
+                stringset.unbindBlurTextArea();
+                stringset.bindSaveButton();
+                alert('{% trans "Translation text will no longer be saved automatically."|escapejs %}');
+            }
+        });
+
+        /* Save at once all the changed translation values */
+        $("#save_all_2").click(function(){ stringset.push(); });
+
+        {% get_permission "project_perm.maintain" for request.user and resource.project as "is_maintainer" %}
+        {% if is_maintainer or request.user.is_superuser%}
+        /* Delete at once all the translations in this page */
+        $("#delete_all_2").click(function(){ delete_these(); });
+        function delete_these(){
+            var to_delete = [];
+            for (j=0; j<this_stringset.strings.length; j++) {
+                if(this_stringset.strings[j].isTranslated())
+                to_delete.push( $("span#sourceid_"+j).text() );
+            }
+            if(to_delete.length == 0){
+                alert('{% trans "There are no translations (to delete) on this page!"|escapejs %}');
+            }else if(confirm("{% trans 'This will delete all translations on this page. Are you sure you want to proceed?' %}")){
+                {% if resource %}
+                var delete_url = '{% url delete_translation project.slug resource.slug target_language.code %}';
+                {% else %}
+                var delete_url = '{% url delete_translation project.slug target_language.code %}';
+                {% endif %}
+
+                $.ajax({
+                    url: delete_url,
+                    data: JSON.stringify({to_delete: to_delete}),
+                    dataType : "text", // "json" is strict and we get 500
+                    type: "POST",
+                    contentType: "application/json",
+                    success: function(){
+                        stringset.translated -= to_delete.length;
+                        stringset.untranslated += to_delete.length;
+                        oTable.fnDraw();
+                    }
+                });
+            }
+        }
+        {% endif %}
+
+        /* Save all the updated translation and exit Lotte */
+        $("#save_and_exit").click(function(){
+            $(window).unbind('unload');
+            {% if resource_slug %}
+                {% url exit_lotte resource.project.slug resource_slug target_language.code as url_exit_lotte %}
+            {% else%}
+                {% url exit_lotte resource.project.slug target_language.code as url_exit_lotte %}
+            {% endif %}
+
+            //Save & exit
+            stringset.push(
+                false,
+                null,
+                function(updated){
+                    $.ajax({
+                        url: "{{ url_exit_lotte }}",
+                        data: JSON.stringify({updated:updated}),
+                        dataType : "json",
+                        type: "POST",
+                        contentType: "application/json",
+                        success: function(data, textStatus) {
+                            if (textStatus=='success'){
+                                window.location = data['redirect'];
+                            }
+                        }
+                    });
+                });
+        });
+
+
+        /* Wrapper ... to be DRY */
+        function traverse_filters(){
+            filter_var = "";
+            $(".filters").each( function() {
+                if ($(this).attr('checked')) {
+                    filter_var += $(this).attr('id')+',';
+                }
+            });
+            user_filters_values = "";
+            // Parse one by one to reuse the older applied filters
+            $(".user_filters").each( function() {
+                if ($(this).attr('checked')) {
+                    user_filters_values += $(this).attr('id')+',';
+                }
+            });
+            resource_filters_values = "";
+            // Parse one by one to reuse the older applied filters
+            $(".resource_filters").each( function() {
+                if ($(this).attr('checked')) {
+                    resource_filters_values += $(this).attr('id')+',';
+                }
+            });
+            more_languages_values = "";
+            // Parse one by one to reuse the older applied filters
+            $(".more_languages").each( function() {
+                if ($(this).attr('checked')) {
+                    more_languages_values += $(this).attr('id')+',';
+                }
+            });
+            oTable.fnDraw();
+        }
+
+        /* Bind checkbox change event  for translated/untranslated */
+        // Just a extra check for IE8 (this will be fixed with jQuery 1.4)
+        $(".filters").bind($.browser.msie ? 'propertychange': 'change',
+            function(e) {
+            if (e.type == "change" || (e.type == "propertychange" &&
+                                       window.event.propertyName == "checked")) {
+                traverse_filters();
+            }
+        });
+
+        /* Bind checkbox change event for user filters*/
+        // Just a extra check for IE8 (this will be fixed with jQuery 1.4)
+        $(".user_filters").bind($.browser.msie ? 'propertychange': 'change',
+            function(e) {
+            if (e.type == "change" || (e.type == "propertychange" &&
+                                       window.event.propertyName == "checked")) {
+                traverse_filters();
+            }
+        });
+
+        /* Bind checkbox change event for resource filters*/
+        // Just a extra check for IE8 (this will be fixed with jQuery 1.4)
+        $(".resource_filters").bind($.browser.msie ? 'propertychange': 'change',
+            function(e) {
+            if (e.type == "change" || (e.type == "propertychange" &&
+                                       window.event.propertyName == "checked")) {
+                traverse_filters();
+            }
+        });
+
+        /* Bind checkbox change event for more languages*/
+        // Just a extra check for IE8 (this will be fixed with jQuery 1.4)
+        $(".more_languages").bind($.browser.msie ? 'propertychange': 'change',
+            function(e) {
+            if (e.type == "change" || (e.type == "propertychange" &&
+                                       window.event.propertyName == "checked")) {
+                traverse_filters();
+            }
+        });
+
+        /* Bind menu filters for more languages */
+        $('#filtermenu0 .filtermenu-trigger').toggle(function(){
+            $('#more_languages_menu').show();
+        }, function(){
+            $('#more_languages_menu').hide();
+        });
+
+        /* Bind menu filters for users */
+        $('#filtermenu1 .filtermenu-trigger').toggle(function(){
+            $('#filtermenu_users').show();
+        }, function(){
+            $('#filtermenu_users').hide();
+        });
+
+        {% ifnotequal resources|length 1 %}
+        /* Bind menu filters for resources */
+        $('#filtermenu2 .filtermenu-trigger').toggle(function(){
+            $('#filtermenu_resources').show();
+        }, function(){
+            $('#filtermenu_resources').hide();
+        });
+        {% endifnotequal %}
+
+        $("#settingspanel a:first").click(function() {
+            if($(this).next(".subpanel").is(':visible')){ //If subpanel is already active...
+                $(this).next(".subpanel").hide(); //Hide active subpanel
+                $("#footpanel li a").removeClass('active'); //Remove active class on the subpanel trigger
+            }
+            else { //if subpanel is not active...
+                $(".subpanel").hide(); //Hide all subpanels
+                $(this).next(".subpanel").toggle(); //Toggle the subpanel to make active
+                $("#footpanel li a").removeClass('active'); //Remove active class on all subpanel trigger
+                $(this).toggleClass('active'); //Toggle the active class on the subpanel trigger
+            }
+            return false; //Prevent browser jump to link anchor
+        });
+
+        //Click event outside of subpanel
+        $(document).click(function() { //Click anywhere and...
+            $(".subpanel").hide(); //hide subpanel
+            $("#footpanel li a").removeClass('active'); //remove active class on subpanel trigger
+        });
+        $('.subpanel ul').click(function(e) {
+            e.stopPropagation(); //Prevents the subpanel ul from closing on click
+        });
+
+        // Enable tooltips with tipsy
+        $(".tipsy_enable").tipsy({'html':true, 'gravity':'s'});
+        $('#review-all').tipsy({'gravity':'s'});
+
+        $(".lotte-header-link").each(function(){
+            $(this).appendTo("#stringset_table_wrapper .top").show();
+        });
+        
+        $("a.shortcuts.fancy").facebox({});
+    });
+
+</script>
+
+{% hook "tab_lotte.html" function %}
+
+{% endblock %}
+
+{% block title %}
+{{ block.super }} |
+{{resource}}
+{% endblock %}
+
+{% block content_title %}
+
+<h2 class="pagetitle header_idle {% if short_desc %} with_description{% endif %}"><a class="smooth-transition" href="{{ project.get_absolute_url }}">{{ project.name }}</a></h2><h2 class="pagetitle">&nbsp;/&nbsp;</h2><h2 class="header_idle pagetitle with_description"><a class="smooth-transition" href="{{ resource.get_absolute_url }}">{{ resource.name }}</a></h2><h2 class="pagetitle">&nbsp;/&nbsp;{{ target_language }}</h2>
+
+{% endblock %}
+
+{% block body_class %}project_list{% endblock %}
+
+{% block content_header_sec %}
+  <div class="lotte-header-link"><a href="#shortcutsdiv" class="i16 nude-button shortcuts fancy tipsy_enable" title="Lotte keyboard shortcuts">{% trans "Shortcuts" %}</a></div>
+
+  {% hook "lotte_header_link.html" %}
+    
+    <div style="display:none;">
+    	<div id="shortcutsdiv" class="facebox-content">
+    		<h4>{% trans "Keyboard shortcuts" %}</h4>
+    		<div><div class="shortcut-label">Alt-l</div> <div class="shortcut-action">{% trans "Moves to the next translations page." %}</div></div>
+    		<div><div class="shortcut-label">Alt-j</div> <div class="shortcut-action">{% trans "Moves to the previous translations page." %}</div></div>
+    		<div><div class="shortcut-label">Alt-i</div> <div class="shortcut-action">{% trans "Moves focus one row upwards." %}</div></div>
+    		<div><div class="shortcut-label">Alt-k</div> <div class="shortcut-action">{% trans "Moves focus one row downwards." %}</div></div>
+    		<div><div class="shortcut-label">Alt-g</div> <div class="shortcut-action">{% trans "Fill in the translation textarea with the content of the source string. (Copy the source string as it is, to the translation area.)" %}</div></div>
+    	</div>
+    </div>
+    
+{% endblock %}
+
+
+{% block content_main %}
+
+{% get_permission "project_perm.maintain" for request.user and resource.project as "is_maintainer" %}
+{% get_permission "project_perm.proofread" for request.user and resource.project,target_language as "is_reviewer" %}
+
+<div class="floatright filtermenu-wrapper">
+
+  <div id="filtermenu0" class="filtermenu tipsy_enable" title="{% trans "Show translations in<br /> the selected languages" %}">
+    <a class="filtermenu-trigger buttonized" href="#">
+    <span class="filtermenu-icon"> </span>
+    <span class="filtermenu-title">{% trans "More languages" %}</span>
+    </a>
+  </div>
+  {% include "more_languages.html" %}
+
+  <div id="filtermenu1" class="filtermenu tipsy_enable" title="{% trans "Show only the translations<br /> by the selected users" %}">
+    <a class="filtermenu-trigger buttonized" href="#">
+    <span class="filtermenu-icon"> </span>
+    <span class="filtermenu-title">{% trans "Filter by users" %}</span>
+    </a>
+  </div>
+  {% include "filters_menu_users.html" %}
+
+  {% ifnotequal resources|length 1 %}
+  <div id="filtermenu2" class="filtermenu tipsy_enable" title="{% trans "Show only the strings from<br /> the selected resources." %}">
+    <a class="filtermenu-trigger buttonized" href="#">
+    <span class="filtermenu-icon"> </span>
+    <span class="filtermenu-title">{% trans "Filter by resources" %}</span>
+    </a>
+  </div>
+  {% include "filters_menu_resources.html" %}
+  {% endifnotequal %}
+
+</div>
+
+<table class="definition stats_totals" id="stats_table">
+  <input id="filter_entries" type="hidden" name="filter_entries"/>
+
+  {% with untranslated_strings|add:translated_strings as total_strings %}
+  <tr>
+    <th class="translated">{% trans "Translated" %}</th>
+    <td id="total_translated">{{ translated_strings|intcomma }}</td>
+    <td id="total_translated_perc">?</td>
+    <td>
+      <input id="translated" class="filters" type="checkbox" {% if not untranslated_strings %}checked="checked"{% endif %} name="only_translated"/>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="untranslated">{% trans "Remaining" %}</th>
+    <td id="total_untranslated">{{ untranslated_strings|intcomma }}</td>
+    <td id="total_untranslated_perc">?</td>
+    <td>
+      <input id="untranslated" class="filters" type="checkbox" checked="checked" name="only_untranslated"/>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="fuzzy">{% trans "Reviewed" %}</th>
+    <td id="total_reviewed">{{ reviewed_strings|intcomma }}</td>
+    <td id="total_reviewed_perc">?</td>
+    <td>
+      <input id="reviewed" class="filters" type="checkbox" name="only_reviewed"/>
+    </td>
+  </tr>
+
+  <tr class="last">
+    <th>{% trans "Total" %}</th>
+      <td id="total_sum">{{ total_strings|intcomma }}</td>
+  </tr>
+  {% endwith %}
+</table>
+
+
+
+<table id='stringset_table'>
+    <thead>
+        <tr>
+        <th></th>
+        <th></th>
+        <th>{% trans "Source string" %}</th>
+        <th>{% trans "Translation" %}</th>
+        <th></th>
+        <th>&nbsp;</th>
+        {% if is_reviewer %}
+        <th>
+          <input title="{% trans "Mark all strings as reviewed." %}" id="review-all" type="checkbox" name="review-all"/>
+        </th>
+        {% endif %}
+        </tr>
+    </thead>
+</table>
+
+<div id="footer_lotte">
+    <a id="save_all_2" class="i16 save_all buttonized">{% trans 'Save all' %}</a>
+
+    {% if is_maintainer or request.user.is_superuser %}
+    &nbsp;&nbsp;<a id="delete_all_2" class="i16 delete buttonized">{% trans 'Delete translations' %}</a>
+    {% endif %}
+    &nbsp;&nbsp;<a id="save_and_exit" class="i16 save buttonized">{% trans 'Save and Exit' %}</a>
+</div>
+
+<div id="footpanel">
+    <ul id="mainpanel">
+        <li id="settingspanel">
+            <a href="#" class="settings">{% trans "General settings" %}</a>
+            <div class="subpanel">
+                <ul>
+                    <li class="verbose">
+                        <input id="toggle_verbose" type="checkbox" />
+                        <span>{% trans "Verbose editing" %}</span>
+                    </li>
+                    <li class="auto_save">
+                        <input id="toggle_autosave" type="checkbox" checked="checked"/>
+                        <span>{% trans "Auto save" %}</span>
+                    </li>
+                    <li class="shortcuts">
+                        <input id="toggle_shortcuts" type="checkbox" checked="checked"/>
+                        <span>{% trans "Enable shortcuts" %}</span>
+                    </li>
+                    <li class="auto_open_suggestions">
+                        <input id="toggle_autosuggestions" type="checkbox" />
+                        <span>{% trans "Enable suggestions auto-open" %}</span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+
+{% endblock %}
+
+{% block livesupport %}{% endblock %}
+
+{% block content_footer %}{% endblock %}

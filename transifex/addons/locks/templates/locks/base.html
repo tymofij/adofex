@@ -1,0 +1,8 @@
+{% load compress %}
+{% load staticfiles %}
+
+{% block headcss %}
+{% compress css %}
+<link media="screen" href="{% static "locks/css/icons.css" %}" type="text/css" rel="stylesheet" />
+{% endcompress %}
+{% endblock %}

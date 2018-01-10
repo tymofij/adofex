@@ -1,0 +1,27 @@
+{% load staticfiles %}
+{% load i18n %}
+{% if extra_helptext %}
+{% if icon %}
+<a class="inline" href="#{{ code_name }}" title="Help page">
+    <img src="{% static "images/icons/help.png" %}" class="noborder">
+</a>
+{% else %}
+(<a class="inline" href="#{{ code_name }}" title="Help">{% trans "...more" %}</a>)
+{% endif %}
+<div class="nodisplay">
+    <div class="extra_help_wrapper" id="{{ code_name }}">
+      <div>
+        <p> {{ extra_helptext }} </p>
+      </div>
+    </div>
+</div>
+{% endif %}
+
+<script type="text/javascript">
+    $(document).ready(
+        function (){
+            /* FancyBox Using custom settings */
+            $("a.inline").facebox();
+        }
+    );
+</script>

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load txcommontags %}
+{% load permissions %}
+{% load txpermissions %}
+
+{% block title %}
+    {{ block.super }} | Edit {{ resource}}
+{% endblock %}
+
+{% block extrajs %}
+{{ block.super }}
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.tx-form .required, .tx-form .field-helptext').each(function(){
+  	$(this).appendTo($(this).siblings('label'));
+  });
+  $('a[rel*=facebox]').facebox()
+});
+</script>
+{% endblock %}
+
+{% block content_title %}
+  <h2 class="pagetitle">
+  {% if resource %}
+    {% blocktrans with resource.name as resource_name %}Edit {{ resource_name }}{% endblocktrans %}
+  {% endif %}
+  </h2>
+{% endblock %}
+
+{% block extracss %}
+{{ block.super }}
+<style type="text/css">
+.txf-checkbox{min-height:30px !important;}
+</style>
+{% endblock %}
+
+{% block content_main %}
+<div class="separate-header clearfix">
+	<h3  class="sh-label">{% trans "Edit the details of the translation resource" %}</h3>
+</div>
+
+<div class="tx-form">
+  <form action='' method='post' enctype="multipart/form-data">{% csrf_token %}
+      {{ resource_form.non_field_errors }}
+    <fieldset>
+      {% for field in resource_form %}
+      <div class="tx-form-field clearfix">
+      {{ field.label_tag }}{% if field.field.required %}<span class="required">*</span>{% endif %}
+	          {% if field.field.help_text %}<span class="field-helptext tipsy_enable" title="{{ field.help_text }}">?</span>{% endif %}
+      {{ field }}
+      {{ field.errors }}
+      </div>
+      {% endfor %}
+    </fieldset>
+
+     {{ url_form.non_field_errors }}
+    <fieldset>
+      {% for field in url_form %}
+      <div class="tx-form-field clearfix">
+      {{ field.label_tag }}{% if field.field.required %}<span class="required">*</span>{% endif %}
+	          {% if field.field.help_text %}<span class="field-helptext tipsy_enable" title="{{ field.help_text }}">?</span>{% endif %}
+      {{ field }}
+      {{ field.errors }}
+      </div>
+      {% endfor %}
+    </fieldset>
+	<br />
+	{% blocktrans %}
+	<div class="i16 infomsg">
+		<p>To enable automatic "fetching" of your source language strings by
+		Transifex, enter a URL to your source file (e.g. POT file). Refer to
+		<a href="http://help.transifex.com/user-guide/projects.html#projects-and-resources">the documentation</a>
+		for more information.</p>
+
+		<p><strong>Warning</strong>: Transifex will overwrite the existing source strings
+		and translations with the ones found in the linked file. This may lead
+		to <b>loss of translations</b>, so make sure the URL links to the
+		correct file before submitting the form.
+		</p>
+		</blink>
+	</div>
+	{% endblocktrans %}
+	<br />
+    <input type="submit" class="i16 submit buttonized" value="{% trans 'Save' %}" />
+  </form>
+</div>
+
+ {% get_permission "project_perm.maintain" for request.user and resource.project as "is_maintainer" %}
+    {% if perms.projects.delete_resource or is_maintainer or request.user.is_superuser %}
+
+		<div class="separate-header clearfix">
+			<h3  class="sh-label">{% trans "Delete resource from Transifex" %}</h3>
+		</div>
+
+    <p style="margin-bottom:1em;">{% trans "By deleting the resource your translations will be lost:" %}</p>
+
+    <div>
+      <a class="i16 delete buttonized buttonized_warning" rel="facebox" href="#js-delete-resource-confirm">{% trans "Delete resource" %}</a>
+    </div>
+    {% endif %}
+
+    <div id="js-delete-resource-confirm" style="display:none">
+      <div class='facebox-content'>
+        <h4>{% blocktrans with resource.name as resource_name %}Say goodbye to <em>{{ resource_name }}</em>?{% endblocktrans %}</h4>
+        <div class="warning">
+          <p>{% blocktrans with resource.name as resource_name %}Are you sure you want to permanently delete the translation resource '{{ resource_name }}'?{% endblocktrans %}</p></p>
+        </div>
+        <form action="{% url resource_delete project_slug=resource.project.slug resource_slug=resource.slug %}" method="post">{% csrf_token %}
+          <input type="submit" class="i16 submit buttonized" value='{% trans "Yes, I am sure!" %}' />
+        </form>
+      </div>
+    </div>
+{% endblock %}
+

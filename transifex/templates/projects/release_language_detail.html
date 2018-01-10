@@ -1,0 +1,288 @@
+{% extends "projects/project_menu.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load statistics_resources %}
+{% load priority_images %}
+
+{% block extra_head %}
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url release_language_feed release.project.slug release.slug language.code %}" />
+  <script type="text/javascript" src="{% static "js/houdini.js" %}"></script>
+  <link media="screen" href="{% static "css/houdini.css" %}" type="text/css" rel="stylesheet" />
+
+  <script type="text/javascript">
+    $(function(){
+        // Enable tooltip
+        $(".tipsy_enable").tipsy({'html':true, 'gravity':'s'});
+
+        // Stats table sorter
+        var tablesorter_resource = $(".tablesorter");
+        tablesorter_resource.tablesorter({
+            sortList: [[2,1],[1,0]],
+            widgets: ['zebra'],
+            headers: {
+                2: { sorter: 'percent' },
+                3: { sorter: 'number' },
+                4: { sorter: 'number' }
+            },
+            textExtraction: function(node) {
+                switch (node.cellIndex){
+                    // Category column
+                    case 0:
+                        var category = $(node).html();
+                        if(category == "None")
+                            return "zzzzzzzzzzzz";
+                        else
+                            return category;
+                    // Stats column
+                    case 2:
+                        return $(".stats_string_resource", node).text();
+                    // Last update column
+                    case 3:
+                        return $("span", node).attr('unixdate');
+                    // Priority column
+                    case 4:
+                        return $(".priority_sort", node).text()
+                    default: return node.innerHTML;
+                }
+            }
+        });
+        var category_is_clicked = false; // holds whether the last click on a table header was on the 'category' header or not
+        var tablesorter_resource_header = $('th', tablesorter_resource); // selects all headers of the table
+        tablesorter_resource_header.click(function() {
+            // set 'category_is_clicked' depending on what was clicked
+            if($(this).attr('id') == 'category_header') {
+                category_is_clicked = true;
+            } else {
+                category_is_clicked = false;
+            }
+        });
+        tablesorter_resource.bind("sortEnd", function(event) {
+            // this is called after the sorting is done
+            if(category_is_clicked) {
+                // if 'category' was clicked
+                var odd = false; // holds whether the current line is to be "painted" as odd or event
+                var last_category = "";
+                $('tr', $(this)).each(function(index, element) {
+                    // iterate over all table lines
+                    var current_category = $('.category_td_class', $(element)).html(); // get new category name
+                    if(current_category != last_category) { // if it is a different category than the last one
+                        last_category = current_category;
+                        odd = ! odd; // toggle the odd value
+                    }
+                    var jq_element = $(element);
+                    jq_element.removeClass(); // remove all classes from the current line
+                    // and add the correct class in order to "paint" appropriately
+                    if(odd) {
+                        jq_element.addClass('odd');
+                    } else {
+                        jq_element.addClass('even');
+                    }
+                });
+            }
+        })
+
+        $(".stat-row").click(function() {
+          var project_slug = $(this).data('project');
+          var resource_slug = $(this).data('resource');
+          var actions_url_tmpl = '{% url resource_actions 11111 22222 language.code %}';
+          var actions_url = actions_url_tmpl.replace('11111', project_slug).replace('22222', resource_slug);
+          $.facebox({ ajax: actions_url })
+        });
+    });
+  </script>
+
+{% endblock %}
+
+{% block body_class %}{{ block.super }} release_detail{% endblock %}
+
+{% block title %}{{ block.super }} | {{ release.name }} | {{ language.name }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{% url release_detail release.project.slug release.slug %}">{% blocktrans with release.name as release_name %}Release '{{ release_name }}{% endblocktrans %}'</a> &raquo; {{ language.name }}{% endblock %}
+
+{% block content_sec %}
+  <a class="i16 feed" href="{% url release_language_feed release.project.slug release.slug language.code %}" title="{% trans "Statistics feed for this language and release" %}">{% trans "Subscribe to feed" %}</a>
+{% endblock %}
+
+{% block header_menu %}{% endblock %}
+{% block project_header %}
+{{block.super}}
+<span>&nbsp;/&nbsp;</span>
+<span><a href="{{ release.get_absolute_url }}">Release '{{ release.name }}'</a></span>
+<span>&nbsp;/&nbsp;</span>
+<span>{{ language.name }}</span>
+{% endblock%}
+
+
+{% if release.description %}
+{% block current_description %}
+<p class="description belowheader">{{ release.description }}</p>
+{% endblock %}
+{% endif %}
+
+
+{% block content_main %}
+
+<div class="list" style="clear:both">
+{% if stats %}
+
+  <div class="separate-header notopmargin clearfix">
+  	<h3  class="sh-label">{% blocktrans count resources|length as counter %}Resource under this Release{% plural %}Resources under this Release{% endblocktrans %}</h3>
+	</div>
+
+  <table class="stats-table tablesorter rltemplate1">
+  <thead>
+  <tr>
+    <th class="onlyarrow tableobject"></th>
+    <th class="onlyarrow category_td_class"></th>
+    <th class="onlyarrow tablecompletion"></th>
+    <th class="onlyarrow tablelastupd"></th>
+    <th class="onlyarrow priority_level"></th>
+   </tr>
+  </thead>
+  <tbody>
+  {% for stat in stats %}
+    <tr class="stat-row" data-project="{{ stat.resource.project.slug }}" data-resource="{{ stat.resource.slug }}">
+      <td class="tableobject tipsy_enable" title="{{ stat.resource.project.name }} &rarr; {{ stat.resource.name }}">
+        <span class="linkstyle">{{ stat.resource.project.name }} &rarr; {{ stat.resource.name }}</span>
+        {% if stat.lock.valid %}
+            <img class="tipsy_enable bullet" src="{% static "images/icons/bullet_lock.png" %}" title="{% trans "Locked" %}"/>
+        {% else %}
+          {% if not stat.resource.accept_translations %}
+          <img class="tipsy_enable bullet" src="{% static "images/icons/bullet_red.png" %}" title="{% trans 'Not accepting translations at the moment' %}"/>
+          {% endif %}
+        {% endif %}
+      </td>
+      <td class="category_td_class">
+      {% if stat.resource.category %}
+        {{ stat.resource.category }}
+      {% else %}
+        {% trans "Uncategorized" %}
+      {% endif %}
+      </td>
+      <td class="tablecompletion">
+        {% with 200 as barwidth %}
+            {% stats_bar_simple stat barwidth %}
+        {% endwith %}
+      </td>
+      <td class="tablelastupd">
+        {% with stat.last_update as last_update %}
+        <span class="i16 table-update" unixdate="{{ last_update|date:'U' }}">
+          {% with stat.last_committer as last_committer %}
+          {% if last_update %}
+              {{ last_update|timesince }}
+          {% else %}
+              {% trans "no activity yet" %}
+          {% endif %}
+          {% endwith %}
+        </span>
+        {% endwith %}
+      </td>
+      <td class="priority_level">
+        <span style="border:0">
+        {% with stat.resource.priority.level as priority_level %}
+        {% with stat.resource.priority.display_level as display_level %}
+        {% with priority_level|priority_image_path as priority_image %}
+            <span class="priority_sort" style="display:none">{{ priority_level }}</span>
+            <img class="res_tipsy_enable" src="{% static priority_image %}" style="border:0" title="{{ display_level }}"/>
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        </span>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+ {% endif %}
+ {% if private_stats %}
+  <div class="separate-header clearfix">
+  	<h3  class="sh-label">{% blocktrans %}Private resources you have access to{% endblocktrans %}</h3>
+	</div>
+
+  <table class="stats-table tablesorter rltemplate">
+  <thead>
+  <tr>
+    <th class="onlyarrow tableobject"></th>
+    <th class="onlyarrow tablecompletion"></th>
+    <th class="onlyarrow tablelastupd"></th>
+    <th class="onlyarrow priority_level"></th>
+   </tr>
+  </thead>
+  <tbody>
+  {% for stat in private_stats %}
+    <tr class="stat-row" data-project="{{ stat.resource.project.slug }}" data-resource="{{ stat.resource.slug }}">
+        <td class="tableobject tipsy_enable" title="{{ stat.resource.project.name }} &rarr; {{ stat.resource.name }}" >
+        <span class="linkstyle tipsy_enable" >{{ stat.resource.project.name }} &rarr; {{ stat.resource.name }}</span>
+        {% if stat.lock.valid %}
+            <img class="tipsy_enable bullet" src="{% static "images/icons/bullet_lock.png" %}" title="{% trans "Locked" %}"/>
+        {% else %}
+          {% if not stat.resource.accept_translations %}
+          <img class="tipsy_enable bullet" src="{% static "images/icons/bullet_red.png" %}" title="{% trans 'Not accepting translations at the moment' %}"/>
+          {% endif %}
+        {% endif %}
+        </td>
+        <td class="tablecompletion">
+        {% with 200 as barwidth %}
+            {% stats_bar_simple stat barwidth %}
+        {% endwith %}
+        </td>
+        <td class="tablelastupd">
+        {% with stat.last_update as last_update %}
+        <span class="i16 table-update" unixdate="{{ last_update|date:'U' }}">
+          {% with stat.last_committer as last_committer %}
+          {% if last_update %}
+              {{ last_update|timesince }}
+          {% else %}
+              {% trans "no activity yet" %}
+          {% endif %}
+          {% endwith %}
+        </span>
+        {% endwith %}
+        </td>
+        <td class="priority_level" style="text-align:center">
+        <span>
+        {% with stat.resource.priority.level as priority_level %}
+        {% with stat.resource.priority.display_level as display_level %}
+        {% with priority_level|priority_image_path as priority_image %}
+            <span class="priority_sort" style="display:none">{{ priority_level }}</span>
+            <img class="tipsy_enable" src="{% static priority_image %}" style="border:0" title="{{ display_level }}"/>
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        </span>
+        </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+ {% endif %}
+
+
+ {% if empty_rlstats or empty_private_rlstats %}
+  <br />
+   The following resources don't have any translations in {{ language.name }} and also don't have a team associated with this language:</span>
+  <table class="stats-table tablesorter rltemplate" style="clear:both;margin-top:0.5em;width:100%">
+  <tbody>
+  {% for resource in empty_rlstats %}
+    <tr title="{% trans 'click for resource details' %}">
+        <td style="padding-left:1em;">
+          <span>{{ forloop.counter }}) <a href="{% url resource_detail resource.project.slug resource.slug %}">{{ resource.project.name}} &rarr; {{ resource.name }}</a></span>
+        </td>
+	</tr>
+  {% endfor %}
+  {% if empty_private_rlstats %}
+   {% for resource in empty_private_rlstats %}
+    <tr title="{% trans 'click for resource details' %}">
+      <td>
+       <span>{{ forloop.counter }}) <a href="{% url resource_detail resource.project.slug resource.slug %}">{{ resource.project.name}} &rarr; {{ resource.name }}</a> (private)</span>
+      </td>
+    </tr>
+   {% endfor %}
+  {% endif %}
+  </tbody>
+  </table>
+ {% endif %}
+
+</div>
+
+{% endblock %}

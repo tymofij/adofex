@@ -1,0 +1,248 @@
+{% extends "projects/project_detail_childs.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load permissions %}
+{% load txcommontags %}
+
+{% block breadcrumb %}
+{% homelink %} »
+<a href="{% url project_list_recent %}">{% trans "Projects" %}</a>
+ » <a href="{% url project_detail project.slug %}">{{project}}</a>
+{% if resource %} » <a href="{% url resource_detail project.slug resource.slug %}">{{resource}}</a>{% endif %}
+» {% blocktrans with target_language.name as lang %}Translate to {{ lang }}{% endblocktrans %}
+{% endblock %}
+
+
+{% block extra_head %}
+{% get_permission "project_perm.proofread" for request.user and resource.project,target_language as "is_reviewer" %}
+
+  <link media="screen" href="{% static "lotte/css/webtrans.css" %}" type="text/css" rel="stylesheet" />
+  <link media="screen" href="{% static "lotte/css/dataTable.css" %}" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="{% static "lotte/js/jquery.dataTables.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "lotte/js/jquery.dataTables.fnSetFilteringDaley.js" %}"></script>
+
+<script type="text/javascript">
+
+    /* Global variables */
+    var stringset = null;
+    var oTable;
+    /* vars for string calcs */
+    var translated_strings = {{ translated_strings }}
+    var untranslated_strings = {{ untranslated_strings }}
+    var total_strings = translated_strings + untranslated_strings;
+
+    /* var to keep filter state */
+    var filter_var = null;
+
+    /* document ready. do stuff */
+    $(document).ready(function(){
+
+        oTable = $('#stringset_table').dataTable({
+            "oLanguage": {
+                "sProcessing":   '{% trans "Processing..."|escapejs %}',
+                "sLengthMenu":   '{% trans "Show _MENU_ entries"|escapejs %}',
+                "sZeroRecords":  '{% trans "No matching records found"|escapejs %}',
+                "sInfo":         '{% trans "Showing _START_ to _END_ of _TOTAL_ entries"|escapejs %}',
+                "sInfoEmpty":    '{% trans "Nothing to show"|escapejs %}',
+                "sInfoFiltered": '{% trans "(filtered from _MAX_ total entries)"|escapejs %}',
+                "sInfoPostFix":  "",
+                "sSearch":       '{% trans "Search:"|escapejs %}',
+                "sUrl":          "",
+                "oPaginate": {
+                        "sFirst":    '{% trans "First"|escapejs %}',
+                        "sPrevious": '{% trans "Previous"|escapejs %}',
+                        "sNext":     '{% trans "Next"|escapejs %}',
+                        "sLast":     '{% trans "Last"|escapejs %}'
+                }
+            },
+            "bJQueryUI": false,
+            "sPaginationType": "full_numbers",
+            "aaSorting": [[ 0, "asc" ]],
+            "bServerSide": true,
+            "bProcessing": true,
+            "iDisplayLength": 50,
+            "sAjaxSource": "{%  url stringset_handling project.slug resource.slug target_language.code %}",
+            "sDom": '<"top"fi><"clear">rt<"bottom"pl><"clear">',
+            "bAutoWidth": true,
+            "aoColumns" : [
+                { "bVisible":false },
+                { "bVisible":false, "bSortable": false, },
+                { "sClass": "msg", "asSorting": [ "desc", "asc" ],  "sWidth": "350px",
+                  "fnRender": function(oObj){
+                    {# PATCH: include key in output #}
+                    var clean_array = array_escape({"key":oObj.aData[1], "source_dict":oObj.aData[2]});
+                    var source_divs = '<span class="source_entity">'+clean_array["key"]+'</span>';
+                    var plural_types = ['zero', 'one', 'two', 'few', 'many', 'other'];
+                    var plurals_counter = 0;
+                    for(rule in plural_types){
+                        if(plural_types[rule] in clean_array["source_dict"]["source_strings"]){
+                            if(plural_types[rule]=='other'){
+                              source_divs += '<div class="source_string" id="sourcestring_'+ oObj.iDataRow +'" title="Source string">';
+                              if(plurals_counter>0)
+                                  source_divs += '<span class="plural_title">'+plural_types[rule]+':</span>&nbsp;';
+                              source_divs += html_escape(clean_array["source_dict"]["source_strings"][plural_types[rule]]) + '</div>';
+                            }else{
+                              source_divs += '<p title="Source string"><span class="plural_title">'+plural_types[rule]+':</span>&nbsp;' + html_escape(clean_array["source_dict"]["source_strings"][plural_types[rule]]) + '</p>';
+                            }
+                            plurals_counter++;
+                        }
+                    }
+                    return source_divs;
+
+                   }
+                },
+                { "sClass": "trans", "bSortable": false,  "sWidth": "350px",
+                  "fnRender": function(oObj){
+                    var clean_array = array_escape({"translations":oObj.aData[3]});
+                    var translation_containers = '';
+                    var plural_types = ['zero', 'one', 'two', 'few', 'many', 'other'];
+                    var plurals_counter = 0;
+                    for(rule in plural_types){
+                        if(plural_types[rule] in clean_array["translations"]){
+                            if(plural_types[rule]=='other'){
+                              translation_containers += '<span class="rule nodisplay">'+plural_types[rule]+'</span><div class="translation default_translation" id="translation_' + oObj.iDataRow + '" title="Translation">';
+                              if(plurals_counter>0)
+                                  translation_containers += '<span class="plural_title"">'+plural_types[rule]+':</span>&nbsp;';
+                              translation_containers += html_escape(clean_array["translations"][plural_types[rule]]) + '</div>';
+                            }else{
+                              translation_containers += '<span class="rule nodisplay">'+plural_types[rule]+'</span><p class="translation" title="Translation"><span class="plural_title">'+plural_types[rule]+':</span>&nbsp;' + html_escape(clean_array["translations"][plural_types[rule]]) + '</p>'
+                            }
+                            plurals_counter++;
+                        }
+                    }
+
+                    return translation_containers;
+                  }
+                },
+                { "bVisible":false, "bSortable": false, },
+                { "sClass": "notes", "bSortable": false, "bVisible":false, "sWidth": "40px",},
+                {% if is_reviewer %}
+                { "sClass": "notes", "bSortable": false, "bVisible":false, "sWidth": "40px",},
+                {% endif %}
+            ],
+            "fnServerData": function (sSource, aoData, fnCallback) {
+
+              $("div#notification-container div").html('{% trans "Loading strings..."|escapejs %}');
+              $("div#notification-container").fadeIn("slow");
+              if ( filter_var) {
+                aoData.push( { "name" : "filters", "value": filter_var});
+              }
+
+              $.ajax ( {
+                  "dataType": 'json',
+                  "type": "POST",
+                  "url": sSource,
+                  "data": aoData,
+                  "complete": function(xmlhttpreq, status) {
+
+                    var parsed_data = JSON.parse(xmlhttpreq.responseText);
+
+                    // Draw the table
+                    fnCallback(parsed_data);
+
+                    setTimeout('$("div#notification-container").fadeOut();',1000);
+                    }
+                  });
+
+             },
+            "fnDrawCallback": function() {
+                $('#total_translated_perc').html((translated_strings*100.0/total_strings).toFixed(2) + "%");
+                $('#total_untranslated_perc').html((untranslated_strings*100.0/total_strings).toFixed(2) + "%");
+            }
+        }).fnSetFilteringDelay(500);
+
+        $(".filters").change(function() {
+            filter_var = "";
+            $(".filters").each( function() {
+                if ($(this).attr('checked')) {
+                    filter_var += $(this).attr('id')+',';
+                }
+            });
+            oTable.fnDraw();
+        });
+
+    });
+
+
+
+</script>
+
+
+{% endblock %}
+
+{% block title %}
+{{ block.super }} |
+{{resource}}
+{% endblock %}
+
+{% block body_class %}project_list{% endblock %}
+
+{% block content_main %}
+{% get_permission "project_perm.proofread" for request.user and resource.project,target_language as "is_reviewer" %}
+
+  <table class="definition stats_totals" id="stats_table">
+  <input id="filter_entries" type="hidden" name="filter_entries"/>
+  {% with untranslated_strings|add:translated_strings as total_strings %}
+  <tr>
+    <th class="translated">{% trans "Translated" %}</th>
+
+      <td id="total_translated">{{ translated_strings }}</td>
+      <td id="total_translated_perc">?</td>
+      <td><input id="translated" class="filters"type="checkbox"  checked="checked"  name="only_translated"/></td>
+  </tr>
+
+  <tr>
+    <th class="untranslated">{% trans "Remaining" %}</th>
+      <td id="total_untranslated">{{ untranslated_strings }} </td>
+      <td id="total_untranslated_perc">?</td>
+
+      <td><input id="untranslated" class="filters" type="checkbox" checked="checked" name="only_untranslated"/></td>
+  </tr>
+
+  <tr>
+    <th class="fuzzy">{% trans "Reviewed" %}</th>
+    <td id="total_reviewed">0</td>
+    <td id="total_reviewed_perc">0.00%</td>
+    <td>
+      <input id="reviewed" class="filters" type="checkbox" name="only_reviewed"/>
+    </td>
+  </tr>
+
+  <tr class="last">
+    <th>{% trans "Total" %}</th>
+      <td id="total_sum">{{ total_strings }}</td>
+  </tr>
+  {% endwith %}
+  </table>
+
+
+
+<table id='stringset_table' width="100%">
+    <thead>
+        <tr>
+        <th></th>
+        <th></th>
+        <th>{% trans "Source string" %}</th>
+        <th>{% trans "Translation" %}</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        {% if is_reviewer %}
+        <th></th>
+        {% endif %}
+        </tr>
+    </thead>
+</table>
+
+<style> {# PATCH: denser layout #}
+.dataTables_wrapper table tbody td.msg { padding-top: 0; }
+.source_string, .source_string_plural { padding-bottom: 0.6em; }
+div.translation {
+    padding-top: 0;
+    padding-bottom: 0.6em;
+}
+</style>
+
+{% endblock %}
+
+{% block content_footer %}
+{% endblock %}

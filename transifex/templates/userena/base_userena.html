@@ -1,0 +1,48 @@
+{% extends "userena/mount_userena.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load addons %}
+{% load txcommontags %}
+
+
+{% settings ENABLE_NOTICES %}
+{% block basecss %}
+{{ block.super }}
+  <link media="screen" href="{% static "css/userspace.css" %}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block extrajs %}
+    <script type="text/javascript">
+			$(document).ready(function(){
+				$(".side-menu").css('height',$(".psettings-content").height());
+				$(".tx-form input[type='checkbox']").parents(".tx-form-field").addClass("txf-checkbox");
+			});
+		</script>
+{% endblock %}
+
+{% block content_main %}
+
+{% url socialauth_begin 'twitter' as social_twitter_url %}
+{% if social_twitter_url %}
+	<div class="side-menu grid_3 alpha left-side">
+		{% comment %}Dirty hack. Will use django-guardian in the future.{% endcomment %}
+		<ul>
+			<li class="head">Account</li>
+			{% url userena_profile_detail user.username as url_user_profile %}
+			<li class="inner-item {% if site_section.0 == 'accounts' and not site_section.2 %}active{% endif %}"><a href="{{ url_user_profile }}">{% trans "Edit profile" %}</a></li>
+		  <li class="inner-item {% if site_section.0 == 'accounts' and site_section.2 == 'email' %}active{% endif %}"><a href="{% url userena_email_change user.username %}">{% trans "Change email" %}</a></li>
+          <li class="inner-item {% if site_section.0 == 'accounts' and site_section.2 == 'password' %}active{% endif %}"><a href="{% url userena_password_change user.username %}">{% trans "Change password" %}</a></li>
+          {% if ENABLE_NOTICES %}
+          <li class="inner-item {% if site_section.0 == 'notices' %}active{% endif %}"><a href="{% url notification_notices %}">{% trans "Notification settings" %}</a></li>
+          {% endif %}
+		  {% url profile_social_settings user.username as url_profile_social_settings %}
+			<li class="inner-item {% if site_section.0 == 'accounts' and site_section.2 == 'social' %}active{% endif %}"><a href="{{ url_profile_social_settings }}">{% trans "Social login" %}</a></li>
+      
+	  </ul>
+	</div>
+
+{% endif %}
+
+<div class="grid_9 omega psettings-content">{% block userena_header %}{% endblock %}{% block userena_content%}{% endblock %}</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+a {
+  color: #0d4c8c;
+  text-decoration: none;
+  border-bottom: 1px dotted #aaa;
+}
+
+a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #aaa;
+}
+
+
+/*  HEADER  */
+#header { background:#094A8A; color:#eee; overflow:hidden; }
+#branding h1 { padding:0 10px; font-size:18px; margin:8px 0; font-weight:normal; color:#ECF1F6; }
+#branding h2 { padding:0 10px; font-size:14px; margin:-8px 0 8px 0; font-weight:normal; color:#a9550e; }
+#user-tools { position:absolute; top:0; right:0; padding:1.2em 10px; font-size:11px; text-align:right; }

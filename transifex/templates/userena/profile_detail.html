@@ -1,0 +1,59 @@
+{% extends 'userena/userena_menu.html' %}
+{% load i18n %}
+
+
+{% block userena_content %}
+{{ super.block }}
+
+<div class="white-box">
+
+  <div id="details">
+    <img src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
+    {% if profile.user.get_full_name %}
+    <p><strong>{% trans "Name" %}</strong><br /> {{ profile.user.get_full_name }}</p>
+    {% endif %}
+    {% if profile.user.email %}
+    <p><strong>{% trans "Email" %}</strong><br />{{ profile.user.email }}</p>
+    {% endif %}
+    {% if profile.age %}
+    <p><strong>{% trans "Age" %}</strong><br /> {{ profile.age }}</p>
+    {% endif %}
+    {% if profile.website %}
+    <p><strong>{% trans "Website" %}</strong><br /> <a href="{{ profile.website }}">{{ profile.website }}</a></p>
+    {% endif %}
+    {% if profile.location %}
+    <p><strong>{% trans "Location" %}</strong><br />{{ profile.location }}</p>
+    {% endif %}
+    {% if profile.about_me %}
+    <p><strong>{% trans "About me" %}</strong><br />{{ profile.about_me }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<div>
+{% url socialauth_begin 'twitter' as social_twitter_url %}
+{% if social_twitter_url %}
+    {% if social_auth.associated %}
+    <h3>Associated social accounts</h3>
+    <ul>
+        {% for account in social_auth.associated %}
+        <li>
+            <span class="disconnect">
+            <a href={% url socialauth_disconnect_individual account.provider account.id %}>{{ account.provider|title }} (ID {{ account.id }})</a>
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <h3>Associate new social account</h3>
+    <ul>
+    {% for name in social_auth.not_associated %}
+        <li><a rel="nofollow" href="{% url socialauth_associate_begin name %}">{{ name|title }}</a></li>
+    {% endfor %}
+    </ul>
+    </div>
+{% endif %}
+
+{% endblock %}
+

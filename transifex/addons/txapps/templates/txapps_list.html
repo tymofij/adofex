@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content_main%}
+
+<ul>
+{% for app in txapps_list %}
+  <li>
+    {% if app.slug in apps_for_p %}
+    <input id="{{ app.slug }}" class="txapp" type="checkbox" checked="checked"/> {{ app.name }}
+    {% else %}
+    <input id="{{ app.slug }}" class="txapp" type="checkbox" /> {{ app.name }}
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
+
+{% block custom_js_footer %}
+<script type="text/javascript">
+$(".txapp").change(function(e) {
+    app_slug = this.id
+    if (this.checked) {
+        url_tpl = '{% url enable_app_for_project project_slug 11111111 %}'
+    } else {
+        url_tpl = '{% url disable_app_for_project project_slug 11111111 %}'
+    }
+    url = url_tpl.replace('11111111', app_slug)
+
+    $.post(url, function(data) {
+         if (data)
+             alert(data)
+    })
+
+})
+</script>
+{% endblock %}

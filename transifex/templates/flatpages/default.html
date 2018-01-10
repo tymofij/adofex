@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load markup %}
+{% load i18n %}
+
+{% block title %}{% trans "Transifex" %} | {{ flatpage.title }}{% endblock %}
+
+{% block extrajs %}<script type="text/javascript" src="{% static "js/toc/generated_toc.js" %}"></script>{% endblock %}
+
+{% block body_class %}flat{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; {{ flatpage.title }}{% endblock %}
+
+{% block content_title %}<h2 class="pagetitle">{{ flatpage.title }}</h2>{% endblock %}
+
+{% block content_main %}
+
+  {{ flatpage.content|markdown }}
+
+{% endblock %}

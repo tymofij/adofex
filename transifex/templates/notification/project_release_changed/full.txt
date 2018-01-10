@@ -1,0 +1,5 @@
+{% load i18n %}{% url release_detail project.slug release.slug as release_url %}{% with project.name as project_name %}{% with release.name as release_name %}
+{% blocktrans %}The release '{{ release_name }}' of '{{ project_name }}' project has been modified.{% endblocktrans %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{release_url}} in order to see this new release.{% endblocktrans %}
+{% endwith %}{% endwith %}

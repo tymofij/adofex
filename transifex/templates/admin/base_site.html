@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load txcommontags %}
+
+{% block title %}{{ title }} | {% trans 'Transifex' %}{% endblock %}
+
+{% block extrahead %}<link media="screen" href="{% static "css/admin.css" %}" type="text/css" rel="stylesheet" />{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Transifex administration' %} - v{% txversion_full %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+

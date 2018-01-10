@@ -1,0 +1,4 @@
+{% load i18n %}{% url project_detail project_slug=project.slug as project_url %}
+{% blocktrans %}You have been granted to have access to submit translations to the project {{ project }} by {{ user_action }}.{% endblocktrans %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{project_url}} in order to see the project page.{% endblocktrans %}

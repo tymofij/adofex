@@ -1,0 +1,7 @@
+{% load i18n %}
+
+<ul>
+  <li>{% trans "Translated:" %} {{ obj.translated }} ({{ obj.translated_perc }}%)</li>
+  <li>{% trans "Untranslated:" %} {{ obj.untranslated }}</li>
+  <li>{% trans "Total:" %} {{ obj.total }}</li>
+</ul>

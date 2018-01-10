@@ -1,0 +1,105 @@
+{% extends "projects/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load txcommontags %}
+{% load pagination_tags %}
+
+{% block body_class %}{{ block.super }} project_list{% endblock %}
+
+{% block title %}{{ block.super }} | {% trans "Project list" %}{% endblock %}
+
+{% block extra_head %}
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{% url project_latest_feed %}" />
+{% endblock %}
+
+{% block breadcrumb %}{% homelink %} &raquo; {% trans "Projects" %}{% endblock %}
+
+{% block content_title %}
+<h2 class="pagetitle">
+  {% if tag %}
+  Showing projects tagged with: {{ tag.name }}
+  {% else %}
+  {% trans "Projects on Transifex" %}
+  {% endif %}
+  {% render_metacount project_list _("projects") %}
+</h2>
+{% endblock %}
+
+{% block content_header_sec %}
+<p>
+  <a class="simlink rss_feed" href="{% url project_latest_feed %}" title="{% trans "Projects feed" %}">
+    <span>{% trans "Subscribe to this feed" %}</span>&nbsp;<img border="0" src="{% static "images/icons/feed.png" %}" />
+  </a>
+</p>
+{% endblock %}
+
+{% block content_main %}
+
+{% if tag%}
+
+<div class="separate-header clearfix">
+  <h3  class="sh-label">Projects with tag: {{ tag.name }}</h3>
+  {% if request.user.is_authenticated and perms.projects.add_project %}
+  <div class="separate-buttons"><a class="i16 add nude-button" href="{% url project_create %}" title="{% trans 'Add new project' %}">{% trans "Create new project" %}</a></div>
+  {% endif %}
+
+  {% url myprojects as myprojects_url %}
+  {% if myprojects_url %}
+  <p>
+    <a href="{{ myprojects_url }}" title="{% trans "My projects" %}">{% trans "My projects" %}</a>
+  </p>
+  {% endif %}
+</div>
+{% endif %}
+
+{% autopaginate project_list 20 %}
+<div class="project_list obj_biglist">
+  {% if invalid_page %}
+  <p class="i16 infomsg">{% trans "No available data." %}</p>
+  {% else %}
+  <div class="pagination top">{% paginate %}</div>
+  {% for project in project_list %}
+  <div class="browse-entry">
+    <div class="cp-content-row clearfix">
+      <h4 class="name">
+        <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
+      </h4>
+    </div>
+    <p class="description">{{ project.description }}</p>
+    <p>
+      {% with project.resources.all|slice:"0:4" as resources %}
+      <span class="i16 resource compact">{% trans "Resources:" %}
+        {% for resource in resources %}
+        <a class="resource" title='{% blocktrans with resource=resource.name %}Go to resource "{{ resource }}"{% endblocktrans %}' href="{{ resource.get_absolute_url }}">{{ resource.name }}</a>
+        {% if not forloop.last %},{% endif %}
+        {% empty %}
+	{% trans "No resources in this project." %}
+        {% endfor %}
+      </span>
+      {% endwith %}
+      {% if project.tags %}| <span class="i16 tag compact">{% trans "Tags:" %} {% for tag in project.tagsobj.all|slice:"0:6" %}<a class="tag" href="{% url project_tag_list tag=tag %}">{{ tag }}</a> {% endfor %}</span>{% endif %}
+    </p>
+
+  </div>
+  {% endfor %}
+  <div class="pagination bottom">{% paginate %}</div>
+  {% endif %}
+</div>
+{% if not tag and not project_list %}
+<p>{% trans "Bummer. No projects could be found." %}</p>
+{% if request.user.is_authenticated and perms.projects.add_project %}
+{% url project_create as project_create %}
+<p>{% blocktrans %}Why don't you <a href="{{ project_create }}">add one</a>?{% endblocktrans %}</p>
+{% endif %}
+{% endif %}
+
+{% endblock %}
+
+{% block content_footer %}
+{% if request.user.is_authenticated and perms.projects.add_project %}
+{% url project_create as project_create %}
+<div id="content_footer_center">
+  <p><span class="i16 tip">{% blocktrans %}Couldn't find your project? Go ahead and <a href="{{ project_create }}">add it</a>!{% endblocktrans %}</span></p>
+</div>
+{% endif %}
+{% endblock %}

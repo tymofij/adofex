@@ -1,0 +1,11 @@
+{% extends "simpleauth/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }} | {% trans "Profile" %}{% endblock %}
+
+{% url user_account_settings as user_profile %}
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{{ user_profile }}">{% trans "Profile" %}</a>{% endblock %}
+
+{% block content_title %}
+  <h2 class="pagetitle">{% trans "Profile settings" %}</h2>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% load i18n %}{% url release_detail project.slug release.slug as release_url %}{% with project.name as project_name %}{% with release.name as release_name %}
+{% blocktrans %}Just a reminder that the translation deadline of '{{ release_name }}' release of the '{{ project_name }}' project is approaching.{% endblocktrans %}
+{% blocktrans %}It ends on: {% endblocktrans %}{{release.develfreeze_date|date:"D M j, G:i"}}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{release_url}} in order to see the release page.{% endblocktrans %}
+{% endwith %}{% endwith %}

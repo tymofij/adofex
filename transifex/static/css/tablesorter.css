@@ -1,0 +1,171 @@
+/*Default class is stat-table*/
+.stats-table{clear:both;margin-top:0.5em;width:100%;}
+.stats-table td,.stats-table th{display: block;float: left;overflow: hidden;white-space: nowrap;position: relative;height:32px;line-height: 32px;padding:0;background-color: transparent;}
+.stats-table td{border-bottom: 1px solid #E3EAEE;}
+.stats-table th{border-bottom:1px solid #D8DFE2;font-size: 1.077em;}
+.stats-table th.onlyarrow{height: 12px;line-height: 12px;}
+.stats-table td span.i16{height: 32px;}
+.stats-table td img{padding-top: 8px;}
+table td.tablelastupd span{border: none;padding-left: 20px;}
+table td.tableobject a{font-weight: bold;}
+table td.tableobject{}
+.stats-table td:not(.priority_level)::before,.fadecontent::before{
+position: absolute;
+right: 20px;
+top: 0;
+bottom: 0;
+display: block;
+width: 32px;
+background: white;
+background: -webkit-gradient(linear,0% 50%,100% 50%,color-stop(0%,rgba(255, 255, 255, 0)),color-stop(100%,white));
+background: -webkit-linear-gradient(left,rgba(255, 255, 255, 0),white);
+background: -moz-linear-gradient(left,rgba(255, 255, 255, 0),white);
+background: -o-linear-gradient(left,rgba(255, 255, 255, 0),white);
+background: -ms-linear-gradient(left,rgba(255, 255, 255, 0),white);
+background: linear-gradient(left,rgba(255, 255, 255, 0),white);
+content: "";
+}
+.stats-table td:not(.priority_level)::after,.fadecontent::after{
+position: absolute;
+right: 0;
+top: 0;
+bottom: 0;
+display: block;
+width: 20px;
+background: white;
+content: "";
+}
+table.stats-table thead tr th.onlyarrow.header{height: 12px;text-align: center;background-position: center center;border-bottom-width: 1px; padding: 0;margin: 0;line-height: 12px;border-top:1px solid transparent;}
+table.stats-table thead tr th.onlyarrow.header:hover{background-color:#F5F8FA;}
+table.stats-table thead tr th.onlyarrow.header.headerSortDown, table.stats-table thead tr th.onlyarrow.header.headerSortUp{border-top: 1px solid #D8DFE2;background-color:#F5F8FA;}
+
+/*Custom widths*/
+
+table td.priority_level{width:50px;}
+table th.priority_level{width:46px;}
+
+table td.tablelastupd{width:150px;padding-right: 20px;}
+table th.tablelastupd{width:166px;}
+table td.tablecompletion{width: 290px;}
+table td.tablecompletion>div{margin-top: 10px;}
+table th.tablecompletion{width: 286px;}
+
+table td.category_td_class{width: 160px;padding-right: 20px;}
+table th.category_td_class{width: 176px;}
+
+/*for resources table*/
+table.resources td.res-size{width: 160px;padding-right: 20px;}
+table.resources th.res-size{width: 176px;}
+table.resources td.tableobject{padding-left:5px;padding-right: 20px;width:340px;}
+table.resources th.tableobject{width: 361px;}
+/*for resources detail*/
+table.resdetail td.tableobject{padding-left:5px;padding-right: 20px;width:465px;}
+table.resdetail th.tableobject{width: 486px;}
+/*for team list*/
+table.teamlist td.membercount{width:240px;padding-right: 20px;}
+table.teamlist th.membercount{width:256px;}
+table.teamlist td.tableobject{padding-left:5px;padding-right: 20px;width:475px;}
+table.teamlist th.tableobject{width: 496px;}
+/*for language detail*/
+table.langdetail td.tableobject{padding-left:5px;padding-right: 20px;width:425px;}
+table.langdetail th.tableobject{width: 446px;}
+/*for release detail*/
+table.reldetail td.tableobject{padding-left:5px;padding-right: 20px;width:475px;}
+table.reldetail th.tableobject{width: 496px;}
+/*for release language detail*/
+table.rltemplate td.tableobject{padding-left:5px;padding-right: 20px;width:415px;}
+table.rltemplate th.tableobject{width: 436px;}
+table.rltemplate td.category_td_class{width: 170px;padding-right: 20px;}
+table.rltemplate th.category_td_class{width: 186px;}
+/*for release language detail1*/
+table.rltemplate1 td.tableobject{padding-left:5px;padding-right: 20px;width:315px;}
+table.rltemplate1 th.tableobject{width: 336px;}
+table.rltemplate1 td.category_td_class{width: 100px;padding-right: 20px;}
+table.rltemplate1 th.category_td_class{width: 116px;}
+table.rltemplate1 td.priority_level{width:40px;}
+table.rltemplate1 th.priority_level{width:36px;}
+
+/* Tablesorter overrinding styles */
+
+table.tablesorter thead tr .header {
+  background-repeat: no-repeat;
+  background-position: center right;
+  cursor: pointer;
+  border-left: 2px solid #FFF;
+  border-right: 2px solid #FFF;
+}
+
+table.tablesorter thead tr .headerSortUp {
+  background-image: url('../images/icons/tablesorter/asc.gif');
+}
+table.tablesorter thead tr .headerSortDown {
+  background-image: url('../images/icons/tablesorter/desc.gif');
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+  background-color: transparent;/*currently not differing from the header color*/
+}
+
+table.tablesorter_resource tbody tr:hover, table.tablesorter_resource tbody tr.odd:hover{
+  cursor:pointer;
+}
+
+table.tablesorter_resource tbody tr.nocursor:hover, table.tablesorter_resource tbody tr.odd.nocursor:hover{
+  cursor:default;
+}
+
+table.tablesorter_resource thead tr .headerSortUp,
+table.tablesorter_resource_list thead tr .headerSortUp {
+  background-image: url('../images/icons/tablesorter/asc.gif');
+}
+
+table.tablesorter_resource thead tr .headerSortDown,
+table.tablesorter_resource_list thead tr .headerSortDown {
+  background-image: url('../images/icons/tablesorter/desc.gif');
+}
+
+table.tablesorter_resource thead tr .headerSortDown, table.tablesorter_resource thead tr .headerSortUp,
+table.tablesorter_resource_list thead tr .headerSortDown, table.tablesorter_resource_list thead tr .headerSortUp {
+  background-color: #F5F8FA;
+}
+
+table.tablesorter_resource th,
+table.tablesorter_resource_list th { 
+  background-color: transparent;
+  font-size: 1.077em;
+  border-bottom: 1px solid #d8dfe2;
+  border-top: none;
+}
+
+
+/* Pager support for client-side pagination. */
+
+div.pager {
+  font-size: 95%;
+  color: #0D4C8C;
+}
+
+div.pager span.page-number {
+  margin: 3px;
+  padding: 0px 2px;
+  cursor: pointer;
+  border-bottom:1px dotted #AAAAAA;
+}
+
+div.pager span.page-number:hover {
+  border-bottom:1px solid #AAAAAA;
+  text-decoration:none;
+}
+
+div.pager span.page-number.active {
+ color:#B65D0E;
+}
+
+/* Infinite scroll */
+#infscr-loading{
+  padding-top: 3px;
+  text-align:center;
+}
+.jscrollwrapper:focus{outline:none;}
+
+
+

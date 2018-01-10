@@ -1,0 +1,142 @@
+/**
+  Icons
+*/
+
+/* Generic */
+
+.i16,
+.i24,
+.i48 {background-repeat: no-repeat;background-position: 0px center;}
+.i16 {padding-left: 24px;background-image: url('../images/icons/no-icon.png');}
+
+.i16.buttonized{background-position: 5px center;}
+
+input.i16{border:none;}
+.buttonized:hover input.i16{color:#3d658d;}
+.i16, .microform input[type="submit"] {padding-left: 23px;}
+span.i16{display: inline-block;height: 16px;}
+.submit {}
+
+/*Specific styling for particular icons*/
+.i16.imessage_success{background-image:url('../images/icons/tick.png');}
+.i16.imessage_warning{background-image:url('../images/icons/warning.png');}
+.i16.imessage_error{background-image:url('../images/icons/exclamation.png');}
+/* Various icons */
+.i16.action { background-image: url('../images/icons/action.png'); }
+.i16.actionlog { background-image: url('../images/icons/time.png'); }
+.i16.accept_translation { background-image: url('../images/icons/door.png'); }
+.i16.add { background-image:url('../images/icons/add.png'); }
+.i16.added { background-image:url('../images/icons/add.png'); }
+.i16.all_announcements { background-image:url('../images/icons/all_announcements.png'); }
+.i16.approved {background-image:url('../images/icons/team_join.png');}
+.i16.blog {background-image:url('../images/icons/blog.png');}
+.i16.bug { background-image: url('../images/icons/bug.png'); }
+.i16.bullet_green { background-image: url('../images/icons/bullet_green.png'); }
+.i16.bullet_lock { background-image: url('../images/icons/bullet_lock.png'); }
+.i16.changed{ background-image:url('../images/icons/settings.png'); }
+.i16.clock { background-image: url('../images/icons/time.png'); }
+.i16.clone { background-image: url('../images/icons/fork.png'); }
+.i16.comment { background-image: url('../images/icons/comment.png'); }
+.i16.coordinators { background-image: url('../images/icons/coordinators.png'); }
+.i16.copy_source { background-image: url('../images/icons/to_file.png'); }
+.i16.deleted { background-image: url('../images/icons/cross.png'); }
+.i16.delete { background-image: url('../images/icons/cross.png'); }
+.i16.downsource { background-image: url('../images/icons/down-source.png'); }
+.i16.edit { background-image: url('../images/icons/pencil.png'); }
+.i16.email { background-image: url('../images/icons/email.png'); }
+.i16.errormsg { margin-left:10px;background-image: url('../images/icons/exclamation.png'); }
+.i16.error,
+.i16.notice { background-image: url('../images/icons/warning.png'); }
+.i16.feed { background-image: url('../images/icons/feed.png'); }
+.i16.file_search { background-image: url('../images/icons/file_search.png'); }
+.i16.file { background-image: url('../images/icons/file.png'); }
+.i16.infomsg {background-position-y: 1px;background-image: url('../images/icons/info.png'); }
+.i16.invoice { background-image: url('../images/icons/page_white_text.png'); }
+.i16.help { background-image: url('../images/icons/help.png');}
+.i16.get_file { background-image: url('../images/icons/download_file.png'); }
+.i16.get_reviewed_file { background-image: url('../images/icons/download_reviewed_file.png'); }
+.i16.green-arrow {background-image: url('../images/icons/green-arrow.png');}
+.i16.granted {background-image: url('../images/icons/granted.png');}
+.i16.homepage { background-image: url('../images/icons/home.png'); }
+.i16.invite { background-image: url('../images/icons/invite.png'); }
+.i16.key { background-image: url('../images/icons/key.png'); }
+.i16.languages, .i16.language {background-image:url('../images/icons/language.png');}
+.i16.language-gray {background-image:url('../images/icons/language-gray.png');}
+.i16.language-add{background-image:url('../images/icons/language-add.png');}
+.i16.left {background-image:url('../images/icons/team_left.png');}
+.i16.license { background-image: url('../images/icons/license.png'); }
+.i16.linkedin { background-image: url('../images/icons/linkedin.png');}
+.i16.location { background-image: url('../images/icons/location.png'); }
+.i16.lock { background-image: url('../images/icons/lock.png'); }
+.i16.logout { background-image: url('../images/icons/logout.png'); }
+.i16.maintainer { background-image:url('../images/icons/maintainer.png'); }
+.i16.omega { background-image: url('../images/icons/omega.png'); }
+.i16.orange-arrow {background-image: url('../images/icons/orange-arrow.png');}
+.i16.override_undo { background-image: url('../images/icons/undo.png'); }
+.i16.payment { background-image: url('../images/icons/money.png'); }
+.i16.person_details { background-image: url('../images/icons/bid.png'); }
+.i16.profile { background-image: url('../images/icons/bid.png'); }
+.i16.project {background-image: url('../images/icons/project.png'); }
+.i16.recommend { background-image: url('../images/icons/recommend.png'); }
+.i16.reset { background-image: url('../images/icons/breset.png'); }
+.i16.resource { background-image: url('../images/icons/blego.png'); }
+.i16.submit { background-image:url('../images/icons/tick.png'); }
+.i16.user { background-image: url('../images/icons/user.png')}
+.i16.users { background-image: url('../images/icons/users.png')}
+.i16.requested {background-image: url('../images/icons/requested.png')}
+.i16.release { background-image: url('../images/icons/calendar.png'); }
+.i16.ruby { background-image: url('../images/icons/flag.png'); }
+.i16.screenshots {background-image: url('../images/icons/screenshots.png'); }
+.i16.settings { background-image:url('../images/icons/settings.png'); }
+.i16.settings-sm { background-image:url('../images/icons/pencil-sm.png'); }
+li.selected .i16.settings-sm,li:hover .i16.settings-sm{background-position: 13px -15px !important;}
+.i16.shortcuts {background-image: url('../images/icons/shortcuts.png'); }
+.i16.stringnum {background-image:url('../images/icons/wordcount.png'); }
+.i16.stop { background-image: url('../images/icons/delete.png'); }
+.i16.tag { background-image: url('../images/icons/tag.png'); }
+.i16.team { background-image: url('../images/icons/team.png'); }
+.i16.tmx-file {background-image: url('../images/icons/tmx-download.png');}
+.i16.save { background-image: url('../images/icons/save.png'); }
+.i16.save_all { background-image: url('../images/icons/save_all.png'); }
+.i16.search_translations {background-image: url('../images/icons/search.png'); }
+.i16.send_file { background-image: url('../images/icons/upload_file.png'); }
+.i16.stats { background-image: url('../images/icons/stats.png'); }
+.i16.url_update { background-image: url('../images/icons/blink.png'); }
+.i16.table-edit{background-image: url('../images/icons/table-edit.png');}
+.i16.table-update{background-image: url('../images/icons/table-update.png');}
+.i16.team_join{ background-image: url('../images/icons/user-add.png'); }
+.i16.team_request { background-image: url('../images/icons/team-request.png'); }
+.i16.tick { background-image: url('../images/icons/tick.png'); }
+.i16.tick_disabled { background-image: url('../images/icons/tick-disabled.png'); }
+.i16.tip {background-image: url('../images/icons/lamp.png'); }
+.i16.translated {background-image: url('../images/icons/translated.png'); }
+.i16.twitter { background-image: url('../images/icons/twitter.png'); }
+.i16.undo { background-image: url('../images/icons/undo.png'); }
+.i16.view_online {background-image: url('../images/icons/list.png'); }
+.i16.waiting { background-image: url('../images/icons/progress.gif'); }
+.i16.watch_add { background:transparent url('../images/icons/view.png') 0px 0px no-repeat; }
+.i16.watch_remove { background:transparent url('../images/icons/no-view.png') 0px 0px no-repeat; }
+.i16.withdrawn { background-image: url('../images/icons/withdrawn.png');}
+.i16.word { background-image: url('../images/icons/word.png'); }
+.i16.words-gray { background-image: url('../images/icons/words-gray.png'); }
+
+/*Actions-----------------------------------------------------------------------------------------------------------*/
+
+.i16.disassociate {background-image: url('../images/icons/hub-left.png');}
+.i16.project_team_requested{background-image: url('../images/icons/language-add.png');}
+.i16.project_team_added { background-image: url('../images/icons/language-add.png'); }
+.i16.project_team_join_requested { background-image: url('../images/icons/user-add.png'); }
+.i16.project_team_join_approved {background-image: url('../images/icons/user-approved.png'); }
+.i16.project_team_changed { background-image:url('../images/icons/settings.png'); }
+.i16.project_team_join_withdrawn { background-image: url('../images/icons/user-add.png'); }
+.i16.project_announcement_added { background-image: url('../images/icons/announcement.png'); }
+.i16.project_changed { background-image:url('../images/icons/settings.png'); }
+.i16.project_resource_deleted { background-image:url('../images/icons/resource-del.png'); }
+.i16.project_submit_access_granted { background-image:url('../images/icons/granted.png'); }
+.i16.project_resource_translated {background-image: url('../images/icons/translated.png'); }
+.i16.project_resource_changed {background-image:url('../images/icons/settings.png');}
+.i16.project_hub_join_requested{background-image:url('../images/icons/hub-add.png');}
+.i16.project_hub_left {background-image:url('../images/icons/hub-left.png');}
+.i16.project_hub_join_approved {background-image:url('../images/icons/hub-approved.png');}
+.i16.project_hub_join_withdrawn {background-image:url('../images/icons/hub-left.png');}
+.i16.project_added{background-image:url('../images/icons/project-add.png');}

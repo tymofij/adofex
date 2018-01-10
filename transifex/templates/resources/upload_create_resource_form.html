@@ -1,0 +1,98 @@
+{% load i18n %}
+{% load txcommontags %}
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+		$(".tipsy_enable").tipsy({'html':true, 'gravity':'s'});
+		$("span.required").each(function(){
+			$(this).parents('.tx-form-field').find('label').append($(this));
+			});
+    $("#create_new_resource").toggle(function(){
+        $("#create_new_resource_form").slideDown(function(){$(".tx-form select").chosen();});
+    }, function(){
+        $("#create_new_resource_form").slideUp();
+    });
+
+    {% if resource %}
+    location.replace('{% url resource_detail project_slug=project.slug resource_slug=resource.slug %}');
+    {% endif %}
+
+    $("#create-resource-submit").submit(function(){
+      $("div#notification-container div").html("{% trans "Uploading resource" %}");
+			$("div#notification-container").fadeIn("fast");
+    });
+});
+</script>
+
+<div id="create_new_resource_form" class="generic_form {% if not display_form %}no-display{% endif %}" >
+
+
+
+
+
+ <form  id="create-resource-submit" action='' method='post' enctype="multipart/form-data" class="tx-form houdini">
+
+
+  {% csrf_token %}
+
+    {% comment %}
+    Overridden form_as_table_rows in order to better customize it.
+    {% endcomment %}
+
+    {% if create_resource_form %}
+
+				<span class="grid_6 infobox">{% blocktrans %}
+				Create a resource by selecting a source language and uploading a source translation file from your workstation, such as an English POT file.
+				Transifex will analyze the file, extract the strings from inside it, and create your resource based on these.
+				{% endblocktrans %}
+				<br /><br />
+				{% blocktrans %}If your project have several files, it might be convenient to use the <a href="http://help.transifex.com/features/client/index.html#user-client" target="_blank">Transifex Client</a> for mass operations.{% endblocktrans %}
+				<br /><br />
+				{% blocktrans %}For extensive information on the supported file formats, visit the corresponding <a href="http://help.transifex.com/features/formats.html#user-formats" target="_blank">Transifex Help page</a>.{% endblocktrans %}
+				</span>
+
+        {% if create_resource_form.non_field_errors %}
+         <ul class="fielderrors">{{ create_resource_form.non_field_errors }}</ul>
+        {% endif %}
+         <fieldset class="clearfix">
+        {% for field in create_resource_form %}
+            {% if field.is_hidden %}
+                {{ field }}
+                {% if field.errors %}
+                   <p class="fieldp">{{ field }}</p>
+                   <p class="fielderrors">{% for error in field.errors %}{{ error }}{% endfor %}</p>
+                {% endif %}
+            {% else %}
+
+						<div class="tx-form-field clearfix">
+						{{ field.errors }}
+						{{ field.label_tag }} {% if field.field.required %}<span class="required">*</span>{% endif %}
+						{{ field }}
+						</div>
+
+            {% comment %}
+            <tr{% if id %} id="sub_{{ id }}{{ forloop.counter}}" style="display:none"{% endif %}>
+            <th>{{ field.label }}: {% if field.field.required %}<span class="required">*</span>{% endif %}</th>
+            <td>
+                <p class="fieldp">{{ field }}</p>
+                {% if field.errors %}<p class="fielderrors">{% for error in field.errors %}{{ error }}{% endfor %}</p>{% endif %}
+            </td>
+            </tr>
+            {% endcomment %}
+
+            {% endif %}
+        {% endfor %}
+				</fieldset>
+    {% endif %}
+
+  <p class="submit clearfix" style="text-align:center;"><input type="submit" class="i16 submit buttonized" name="create_resource" value="{% trans "Create Resource" %}" /></p>
+
+
+
+
+ </form>
+
+</div>
+
+

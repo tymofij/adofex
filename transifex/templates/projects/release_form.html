@@ -1,0 +1,66 @@
+{% extends "projects/base.html" %}
+{% load i18n %}
+{% load txcommontags %}
+
+{% block extrajs %}
+{{ block.super }}
+<script type="text/javascript">
+$(document).ready(function(){
+  $('a[rel*=facebox]').facebox()
+});
+</script>
+{% endblock %}
+
+{% block title %}
+  {% if not release %}{{ block.super }} | {% trans "Add a release" %}
+  {% else %}{{ block.super }} | {% blocktrans with release.name as release_name %}Edit {{ release_name}}{% endblocktrans %}{% endif %}
+{% endblock %}
+
+{% block content_title %}
+  {% if not release %}
+    <h2 class="pagetitle">{% trans "Add a release" %}</h2>
+  {% else %}
+    <h2 class="pagetitle">
+      {% blocktrans with release.name as release_name and release.get_absolute_url as release_url %}Editing release '<a href="{{ release_url }}">{{ release_name }}</a>'{% endblocktrans %}
+    </h2>
+  {% endif %}
+{% endblock %}
+
+{% block content_main %}
+  <div class="release_create generic_form">
+  {% if form_message %}
+    <p class="message i16 bell">{{ form_message }}</p>
+  {% endif %}
+  <form action='' method='post'>{% csrf_token %}
+  <table>
+  <tbody>
+    {% form_as_table_rows form %}
+  </tbody>
+  </table>
+  <p class="submit"><input type="submit" class="i16 submit buttonized" value="{% trans "Save release" %}" /></p>
+  </form>
+  </div>
+
+{% if release %}  
+	{% if perms.projects.delete_release or is_maintainer %}
+	
+	<h3>{% trans "Delete release from Transifex" %}</h3>
+	<div>
+	  <a class="i16 delete buttonized buttonized_warning" rel="facebox" href="#js-delete-release-confirm">{% trans "Delete release..." %}</a>
+	</div>
+	{% endif %}
+
+  <div id="js-delete-release-confirm" style="display:none">
+    <div class='facebox-content'>
+      <h4>{% blocktrans with release.name as release_name %}Say goodbye to <em>{{ release_name }}</em>?{% endblocktrans %}</h4>
+      <div class="warning">
+        <p>{% blocktrans with release.project.name as project_name and release.name as release_name %}Are you sure you want to permanently delete the release '{{ release_name }}' which works on {{ project_name }}?{% endblocktrans %}</p>
+      </div>
+      <form action="{% url release_delete release.project.slug release.slug %}" method="post">{% csrf_token %}
+        <input type="submit" class="i16 submit buttonized" value='{% trans "Yes, I am sure!" %}' />
+      </form>
+    </div>
+  </div>
+{% endif %}
+
+{% endblock %}

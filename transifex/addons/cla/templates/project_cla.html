@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load txcommontags %}
+
+{% block body_class %}{{ block.super }} project_cla{% endblock %}
+
+{% block title %}{{ block.super }} | {{ project.name }} | {% trans "CLA" %}{% endblock %}
+
+{% block extrajs %}
+  {{ block.super }}
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("a#cla_facebox").facebox();
+    });
+  </script>
+{% endblock %}
+
+{% block content_title %}
+{% with project.description as short_desc %}
+  <div class="lastchild-emf">
+    <h2 class="pagetitle{% if short_desc %} with_description{% endif %}">
+      {% block project_header %}
+      <span><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></span>
+      {% endblock %}
+    </h2>
+</div>
+
+{% block current_description %}
+  {% if short_desc %}
+  <div class="description">
+	  <p>{{ project.description }}</p>
+  </div>
+  {% endif %}
+{% endblock %}
+{% endwith %}
+{% endblock %}
+
+{% block content_main %}
+<div class="obj_bigdetails ui-tabs-panel">
+    <h2 class="name">
+    {% blocktrans with project.name as project_name %}{{ project_name }} CLA{% endblocktrans %}
+    </h2>
+
+    <div class='cla_assignment'>
+    {% if signed_cla %}
+        {% blocktrans with project.cla.get_absolute_url as cla_url %}You have signed the current <a id="cla_facebox" href="{{ cla_url }}">contributor license agreement</a>.{% endblocktrans %}
+    {% else %}
+        <div id="cla_checkbox" class="generic_form">
+            <form action='' method='post' enctype="multipart/form-data">{% csrf_token %}
+            <table>
+            <tbody>
+            <tr>
+
+            <td>
+            {{ form.cla_sign }}
+            {% blocktrans with project.cla.get_absolute_url as cla_url %}I have read and agree with this project's <a id="cla_facebox" href="{{ cla_url }}">contributor license agreement</a>.{% endblocktrans %}
+            {% if form.cla_sign.errors %}
+            <p class="fielderrors">
+                {% for error in form.cla_sign.errors %}
+                    {{ error }}
+                {% endfor %}
+            </p>
+            {% endif %}
+            </td>
+            </tr>
+            </tbody>
+            </table>
+            <input type="submit" class="i16 submit buttonized" value="{% trans "Sign it" %}" />
+            </form>
+        </div>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}

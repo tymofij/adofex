@@ -1,0 +1,45 @@
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-08 10:12+0300\n"
+"PO-Revision-Date: 2010-09-20 08:32+0000\n"
+"Last-Translator: fim <fim@example.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5\n"
+
+#: actionlog/templates/object_action_list.html:7 txpermissions/forms.py:18
+msgid "User"
+msgstr "المستخدم"
+
+#: actionlog/templates/object_action_list.html:8
+msgid "Action"
+msgstr "عمل"
+
+#: actionlog/templates/object_action_list.html:9
+msgid "Actions"
+msgstr "عمل"
+
+#: actionlog/templates/object_action_list.html:10
+msgid "Location"
+msgstr "المكان"
+
+#: actionlog/templates/object_action_list.html:11
+msgid "Locations"
+msgstr "المواقع"
+
+#: foo/templates/bar.html:180
+msgid "{0} result"
+msgid_plural "{0} results"
+msgstr[0] "لا نتائج"
+msgstr[1] "نتيجة واحدة"
+msgstr[2] "نتيجتين"
+msgstr[3] "{0} نتائج"
+msgstr[4] "{0} نتيجة"
+msgstr[5] "{0} نتيجة"

@@ -1,0 +1,5 @@
+{% load i18n %}{% url project_detail team_request.project.slug as project_url %}{% with team_request.language.name as team_name %}{% with team_request.project.name as project_name %}
+{% blocktrans %}The creation of a translation team '{{ team_name }}' was requested for the project '{{ project_name }}'.{% endblocktrans %}
+
+{% blocktrans %}Please visit Transifex at http://{{ current_site }}{{ project_url }} in order to manage the teams of the project.{% endblocktrans %}
+{% endwith %}{% endwith %}

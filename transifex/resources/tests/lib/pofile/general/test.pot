@@ -1,0 +1,328 @@
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-08 10:12+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: actionlog/templates/object_action_list.html:7 txpermissions/forms.py:18
+msgid "User"
+msgstr ""
+
+#: actionlog/templates/object_action_list.html:8
+msgid "Action"
+msgstr ""
+
+#: foo/templates/bar.html:180
+msgid "{0} result"
+msgid_plural "{0} results"
+msgstr[0] ""
+msgstr[1] ""
+
+# Check the backslashes and related characters
+
+msgid "\n"
+msgstr ""
+
+msgid "\t"
+msgstr ""
+
+msgid "\\"
+msgstr ""
+
+msgid "\\n"
+msgstr ""
+
+msgid "\\t"
+msgstr ""
+
+msgid "\\\\"
+msgstr ""
+
+# Check line wrapping
+
+msgid "This is a large sentence with no meaning at all.\n This is another"
+" sentence again with no meaning\n."
+msgstr ""
+
+# Check weird unicode characters
+
+msgid "¥"
+msgstr ""
+
+msgid "¦"
+msgstr ""
+
+msgid "§"
+msgstr ""
+
+msgid "¨"
+msgstr ""
+
+msgid "©"
+msgstr ""
+
+msgid "ª"
+msgstr ""
+
+msgid "«"
+msgstr ""
+
+msgid "¬"
+msgstr ""
+
+msgid "­"
+msgstr ""
+
+msgid "®"
+msgstr ""
+
+msgid "¯"
+msgstr ""
+
+msgid "°"
+msgstr ""
+
+msgid "±"
+msgstr ""
+
+msgid "²"
+msgstr ""
+
+msgid "³"
+msgstr ""
+
+msgid "´"
+msgstr ""
+
+msgid "µ"
+msgstr ""
+
+msgid "¶"
+msgstr ""
+
+msgid "·"
+msgstr ""
+
+msgid "¸"
+msgstr ""
+
+msgid "¹"
+msgstr ""
+
+msgid "º"
+msgstr ""
+
+msgid "»"
+msgstr ""
+
+msgid "¼"
+msgstr ""
+
+msgid "½"
+msgstr ""
+
+msgid "¾"
+msgstr ""
+
+msgid "¿"
+msgstr ""
+
+msgid "À"
+msgstr ""
+
+msgid "Á"
+msgstr ""
+
+msgid "Â"
+msgstr ""
+
+msgid "Ã"
+msgstr ""
+
+msgid "Ä"
+msgstr ""
+
+msgid "Å"
+msgstr ""
+
+msgid "Æ"
+msgstr ""
+
+msgid "Ç"
+msgstr ""
+
+msgid "È"
+msgstr ""
+
+msgid "É"
+msgstr ""
+
+msgid "Ê"
+msgstr ""
+
+msgid "Ë"
+msgstr ""
+
+msgid "Ì"
+msgstr ""
+
+msgid "Í"
+msgstr ""
+
+msgid "Î"
+msgstr ""
+
+msgid "Ï"
+msgstr ""
+
+msgid "Ð"
+msgstr ""
+
+msgid "Ñ"
+msgstr ""
+
+msgid "Ò"
+msgstr ""
+
+msgid "Ó"
+msgstr ""
+
+msgid "Ô"
+msgstr ""
+
+msgid "Õ"
+msgstr ""
+
+msgid "Ö"
+msgstr ""
+
+msgid "×"
+msgstr ""
+
+msgid "Ø"
+msgstr ""
+
+msgid "Ù"
+msgstr ""
+
+msgid "Ú"
+msgstr ""
+
+msgid "Û"
+msgstr ""
+
+msgid "Ü"
+msgstr ""
+
+msgid "Ý"
+msgstr ""
+
+msgid "Þ"
+msgstr ""
+
+msgid "ß"
+msgstr ""
+
+msgid "à"
+msgstr ""
+
+msgid "á"
+msgstr ""
+
+msgid "â"
+msgstr ""
+
+msgid "ã"
+msgstr ""
+
+msgid "ä"
+msgstr ""
+
+msgid "å"
+msgstr ""
+
+msgid "æ"
+msgstr ""
+
+msgid "ç"
+msgstr ""
+
+msgid "è"
+msgstr ""
+
+msgid "é"
+msgstr ""
+
+msgid "ê"
+msgstr ""
+
+msgid "ë"
+msgstr ""
+
+msgid "ì"
+msgstr ""
+
+msgid "í"
+msgstr ""
+
+msgid "î"
+msgstr ""
+
+msgid "ï"
+msgstr ""
+
+msgid "ð"
+msgstr ""
+
+msgid "ñ"
+msgstr ""
+
+msgid "ò"
+msgstr ""
+
+msgid "ó"
+msgstr ""
+
+msgid "ô"
+msgstr ""
+
+msgid "õ"
+msgstr ""
+
+msgid "ö"
+msgstr ""
+
+msgid "÷"
+msgstr ""
+
+msgid "ø"
+msgstr ""
+
+msgid "ù"
+msgstr ""
+
+msgid "ú"
+msgstr ""
+
+msgid "û"
+msgstr ""
+
+msgid "ü"
+msgstr ""
+
+msgid "ý"
+msgstr ""
+
+msgid "þ"
+msgstr ""
+
+msgid "ÿ"
+msgstr ""

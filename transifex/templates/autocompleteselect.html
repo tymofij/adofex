@@ -1,0 +1,28 @@
+{% load i18n %}
+<input type="text" name="{{name}}_text" id="{{html_id}}_text" value="{{current_name}}" {{ extra_attrs }} />
+<input type="hidden" name="{{name}}" id="{{html_id}}" value="{{current_id}}" />
+<script type="text/javascript">
+jQuery(document).ready(function($){
+    function formatItem_{{html_id|cut:"-"}}(row) {
+        return row[2];
+    }
+    function formatResult_{{html_id|cut:"-"}}(row) {
+        return row[1];
+    }
+    $("#{{html_id}}_text").autocomplete('{{lookup_url}}', {
+        width: 320,
+        formatItem: formatItem_{{html_id|cut:"-"}},
+        formatResult: formatResult_{{html_id|cut:"-"}},
+        dataType: "text"
+    });
+    $("#{{html_id}}_text").result(function(event, data, formatted) {
+        $("#{{html_id}}").val(data[0]);
+        $("#{{html_id}}_text").val(data[1]);
+    });
+    $("#{{html_id}}_text").blur(function() {
+        if(! $("#{{html_id}}_text").val() ){
+            $("#{{html_id}}").val('');
+        }
+    });
+});
+</script>

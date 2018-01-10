@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load txcommontags %}
+{% get_latest_projects 5 %}
+{% if latest_projects %}
+<div id="top_projects">
+<h3>{% trans "Latest projects"%}</h3>
+<ul class="simple ">
+  {% for project in latest_projects %}
+    <li class="i16 project"><strong><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></strong>{% if project.description %} - <span class="description">{{ project.description }}</span>{% endif %}</li>
+  {% endfor %}
+</ul>
+</div>
+{% endif %}

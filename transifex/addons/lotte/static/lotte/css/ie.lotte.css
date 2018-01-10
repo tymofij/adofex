@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+/* Overridden or added stuff for IE */
+
+div.source_string_wrapper {
+  min-height: 86px; /* This doesn't fix plural rows!!! */
+}

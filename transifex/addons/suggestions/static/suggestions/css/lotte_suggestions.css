@@ -1,0 +1,145 @@
+.suggestions {
+  margin:0;
+  padding: 1em 0;
+  width: 100%;
+  font-size: 1.05em;
+}
+
+.suggestions .title_line {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  width:100%;
+  padding-top: 2px;
+  clear: both;
+  text-transform: uppercase;
+}
+
+.suggestions .title {
+  padding-left: 0.5em;
+  color: #8f8f8f;
+}
+
+.suggestions_help {
+  float: right;
+  text-indent: -999px;
+  border: 0px;
+}
+
+.user_suggestions {
+  padding: 1em;
+  height: 100%;
+}
+
+.suggestion_line, .suggestion_create {
+  padding: 1em;
+  clear: both;
+  min-height: 70px;
+}
+
+.suggestion_line {
+  border-bottom: 1px solid #ccc;
+}
+
+.last_line {
+  border-bottom: 0;
+}
+
+.suggestion_text, .suggestion_textarea, .suggestion_user, .suggestion_button {
+  float: left;
+}
+
+.suggestion_text, .suggestion_textarea {
+  width:620px;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  margin-right: 2em;
+  font-size: 12px;
+}
+
+.suggestion_textarea {
+  text-align: center;
+}
+
+.suggestion_textarea textarea {
+  border: 2px solid #8f8f8f;
+  width:100%;
+  resize:vertical;
+}
+
+.suggestion_user {
+  text-align: left;
+  width: 60px;
+  height: 100%;
+}
+
+.suggestion_create .suggestion_user {
+  padding-top: 1em;
+}
+
+.suggestion_user span {
+  display:block;
+  font-size: 0.75em;
+}
+
+.suggestion_button {
+  padding-top: 5em;
+  width: 150px;
+  text-align: center;
+  height: 100%;
+}
+
+.suggestion_score {
+  width: 50px;
+  text-align: center;
+  height: 100%;
+  float: right;
+  position: relative;
+}
+
+.vote_up {
+  position: absolute;
+  top:4px;
+  left:20%;
+}
+
+.score_value {
+  color: #818185;
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  top: 20px;
+  width: 100%;
+  border: 0 !important;
+}
+
+.vote_down {
+  position: absolute;
+  top:50px;
+  left:20%;
+}
+
+
+a.vote_up_trigger img, a.vote_down_trigger img {
+  border: 0;
+}
+
+.suggestion_select_button, .suggestion_select_current {
+
+  width: 100px;
+  text-align: center;
+  height: 100%;
+  float: right;
+  line-height: 70px;
+}
+
+.suggestion_select_button {
+  visibility: hidden;
+  margin-right: 50px;
+}
+
+.suggestion_select_current {
+  margin-right: 25px;
+  margin-top: 15px;
+}

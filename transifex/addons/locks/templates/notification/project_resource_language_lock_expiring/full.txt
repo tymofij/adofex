@@ -1,0 +1,7 @@
+
+You have locked the translation resource '{{ resource }}' in '{{ language }}' on Transifex,
+and this lock is about to automatically expire.
+
+If you'd like to continue working on that, please follow the link below and extend your lock.
+
+http://{{current_site}}{% url resource_detail project.slug resource.slug %}

@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load txcommontags %}
+{% url userena_signin as signin_url %}
+{% if not signin_url %}
+    {% url login as signin_url %}
+{% endif %}  
+<form name="fauth" action="{{ signin_url }}?next={{next}}" method="post">{% csrf_token %}
+<div class="generic_form" id="login_index login-block">
+<fieldset>
+  <legend>{% trans "Sign in" %}</legend>
+  {% if form_message %}
+    <p class="message i16 bell">{{ form_message }}</p>
+  {% endif %}
+  <table>
+    <tbody>
+{% for field in form %}
+          
+		<div>
+      {{ field.label_tag }}
+      {{ field }}
+      {{ field.errors }}
+     </div>   
+        {% endfor %}
+    </tbody>
+  </table>
+  <div class="submit-row"><input type="submit" class="i16 tick buttonized" name="blogin" value="{% trans "Sign in" %}"></div>
+</fieldset>
+</div>
+</form>

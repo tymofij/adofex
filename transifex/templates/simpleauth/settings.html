@@ -1,0 +1,28 @@
+{% extends "simpleauth/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }} | {% trans "Your profile" %}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; {% trans "Profile" %}{% endblock %}
+
+{% with user_username|capfirst as user %}
+{% block content_title %}
+  <h2 class="pagetitle">{% blocktrans %}Your profile, {{ user }}{% endblocktrans %}</h2>
+{% endblock %}
+{% endwith %}
+
+{% block content_main %}
+<div id="settings-intro">
+    <p>{% trans "Any settings associated with your account are presented and may be modified here." %}
+</div>
+
+<div id="settings-options">
+	{% if msg %}<p class="error">{{ msg }}</p>{% endif %}
+	<dl>
+        {% url notification.views.notices as notices_url %}
+        {% if notices_url %}
+        <dt>» <a href="{{notices_url}}">{% trans "Change notifications" %}</a></dt>
+        <dd>{% trans "Change notifications associated to your account" %}</dd>
+        {% endif %}
+	</dl>
+</div>
+{% endblock %}

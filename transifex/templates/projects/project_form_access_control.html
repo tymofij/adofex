@@ -1,0 +1,162 @@
+{% extends "projects/project_settings.html" %}
+{% load i18n %}
+{% load truncate %}
+{% load pagination_tags %}
+{% load txcommontags %}
+{% load permissions %}
+{% load txpermissions %}
+{% load fieldsets %}
+{% load addons %}
+
+{% block title %}{{ block.super }} | {{ project.name }} | {% trans "Access control" %}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> &raquo; {% trans "Access control" %}{% endblock %}
+
+{% block extrajs %}
+{{ block.super }}
+
+<script type="text/javascript">
+	function toggle_access_control(){
+	    var project_type = $("input[name='project_type']:checked").val();
+	    if (project_type != 'outsourced'){
+	        $("input[name='access_control']").attr('disabled', false);
+	        $("select[name='outsource']").attr('disabled', 'disabled');
+	        $("#selectoutsource").hide();
+	    }else{
+	        $("input[name='access_control']").attr('disabled', 'disabled');
+	        $("select[name='outsource']").attr('disabled', false);
+	        $("#selectoutsource").show();
+	    }
+	
+	    // CLA related events
+	    var access_control = $("input[name='access_control']:checked").val();
+	    
+	    if(access_control != 'limited_access' || project_type == 'outsourced') {
+	        $("#cla_section").hide();
+	    } else {
+	        $("#cla_section").show();
+	    }
+	
+	}
+	
+	$(document).ready(function(){
+	
+	    {# If project has a hub request open, do not execute form toggler #}
+	    {% if not project.hub_request %}
+	    
+	        $("form[name=hub] input[type=radio]").change(function(){
+	            toggle_access_control();
+	        });
+	
+	        toggle_access_control();
+	
+	    {% else %}
+	
+	        $("form[name=hub]").submit(function(){
+	            // On submit disable its submit button
+	            $("input[type=submit]", this).attr('disabled', 'disabled');
+	        });
+	        $("form[name=hub] input[type=submit]").attr('disabled', 'disabled');
+	        $("form[name=hub] input[type=submit]").addClass('tick_disabled');
+	
+	
+	    {% endif %}
+	    
+	    if($("#id_cla_enable:checked").val() != null) {
+	        $("#cla_textarea").show();
+	    }
+	
+	    $("input[name='cla_enable']").change(function() {
+	        $("#cla_textarea").toggle("fast");
+	    });
+	
+	    }
+	);
+</script>
+
+{% endblock %}
+
+{% block extracss %}
+<style>
+#cla_textarea label{float:left;}
+.tx-form-field ul{margin-left:0px;}
+.tx-form-field ul li label{margin:0.5em 0;}	
+#id_cla_license_text{width:650px;}
+.tx-form-field h5 {margin:1em 0;}
+.tx-form .tx-form-field {margin:2em 0;}
+</style>
+{% endblock %}
+
+{% block project_settings_content %}
+
+<div id="project-form-container" class="obj_bigdetails">
+
+{% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+
+<div class="tx-form">
+
+{% if is_maintainer %}
+
+<h3>{% trans "Access control settings" %}</h3>
+
+  	{% if project.hub_request %}
+      <div class="importantmsg clearfix" style="margin:0px;">
+  	    <p class="i16 infomsg">
+  	    {% blocktrans with project.hub_request.project_hub as project_name %}This project has an outsource request pending to the '{{ project_name }}' hub, thus it can not change its access control settings while the request is open.{% endblocktrans %}
+  	    </p>
+  	    
+  	    <form class="microform" method="post" action="{% url project_hub_join_withdraw project.slug %}">{% csrf_token %}
+  	        <input class="i16 disassociate buttonized" type="submit" style="float:right;margin-top:5px;"  value="{% trans "Withdraw" %}"/>
+  	    </form>
+  
+      </div>   
+  	{% endif%}
+
+    {% hook "access_control_form_notices.html" %} 
+    <form name="hub" action='' method='post'>{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.path }}"/> 
+        {% if form.non_field_errors %}
+            <ul class="fielderrors">{{ form.non_field_errors }}</ul>
+        {% endif %}
+        <div class="tx-form-field">
+            <h5>{{ form.project_type.label }}: {% if form.project_type.field.required %}<span class="required">*</span>{% endif %}</h5>
+            {{ form.project_type }}
+            {% if form.project_type.errors %}<p class="fielderrors">{% for error in form.project_type.errors %}{{ error }}{% endfor %}</p>{% endif %}
+            <p class="helptext">{{ form.project_type.help_text|safe }}</p>
+				</div>
+
+        <div id="selectoutsource" class="tx-form-field no-display">
+            {{ form.outsource.label }}: {% if form.outsource.field.required %}<span class="required">*</span>{% endif %}
+            {{ form.outsource }}
+            {% if form.outsource.errors %}<p class="fielderrors">{% for error in form.outsource.errors %}{{ error }}{% endfor %}</p>{% endif %}
+            <p class="helptext">{{ form.outsource.help_text|safe }}</p>
+				</div>
+				
+        <div class="tx-form-field">
+            <h5>{{ form.access_control.label }}: {% if form.access_control.field.required %}<span class="required">*</span>{% endif %}</h5>
+            {{ form.access_control }}
+            {% if form.access_control.errors %}<p class="fielderrors">{% for error in form.access_control.errors %}{{ error }}{% endfor %}</p>{% endif %}
+            <p class="helptext">{{ form.access_control.help_text|safe }}</p>
+				</div>
+            {% hook "access_control_additional.html" %}
+
+{% if not project.anyone_submit and not project.outsource %}
+   <div class="access-control-extra">
+        <a class="i16 granted" href="{% url project_add_permission project.slug %}">{% trans "Give project writer rights" %}</a>
+   </div>
+{% endif %}
+
+        <p class="submit">
+            <input type="submit" class="i16 submit buttonized" name="hub" value="{% trans "Save" %}" />
+        </p>
+    </form>  
+
+
+
+{% endif %}
+
+
+</div>
+</div>
+{% endblock %}
+

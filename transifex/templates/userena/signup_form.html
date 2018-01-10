@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% load addons %}
+
+{% block title %}{% trans "Register" %}{% endblock %}
+
+{% block basecss %}
+{{ block.super }}
+  <link type="text/css" href="{% static "css/password_indicator.css" %}" rel="stylesheet" />
+  <link media="screen" href="{% static "css/userspace.css" %}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block basejs %}
+{{ block.super }}
+  <script type="text/javascript" src="{% static "js/password_strength_plugin.js" %}"></script>
+  <script type="text/javascript">
+		$(document).ready(function(){
+		  $(".tipsy_enable").tipsy({'html':true, 'gravity':'s'});
+			$('.tx-form span.required, .tx-form .field-helptext').each(function(){
+				$(this).appendTo($(this).siblings('label'));
+			});
+		});
+		
+    $(function() {
+    
+        $("input#id_username").focus();
+        $("input[type='text'], input[type='password']").addClass("text");
+
+        /* Password Strength Indicator */
+        $("#id_password1").passStrength({
+            shortPass: "top_shortPass",//optional
+            badPass: "top_badPass",//optional
+            goodPass: "top_goodPass",//optional
+            strongPass: "top_strongPass",//optional
+            baseStyle: "top_testresult",//optional
+            userid: "#id_username",//required override
+            messageloc: 1//before == 0 or after == 1
+        });
+        $("#recaptcha_container").appendTo();
+
+        var separateElement = $("#id_billing_name").parents(".tx-form-field").prev(); 
+        $('<div class="separate-header clearfix" style="width:556px;float:left;"><div class="sh-label">{% trans "Billing information"%}</div></div>').insertAfter(separateElement); 
+    });
+</script>
+{% endblock %}
+
+{% block content_title%}
+<h2 class="pagetitle with_description">{% trans "Register" %}</h2>
+<div class="description">{% trans "Get started with transifex and optimize your localization workflow" %}</div>
+{% endblock %}
+
+{% block content_main %}
+
+<div class="grid_7 alpha">
+<div class="separate-header clearfix" style="width:556px;"><div class="sh-label">{% trans "Credentials"%}</div></div>
+
+<form id="signup-form" class="tx-form dual" action="" method="post" style="width:700px;">
+  {% csrf_token %}
+  <fieldset>
+    <div id="signup-form-global-errors">
+        {{ form.non_field_errors }}
+    </div>
+    <div class="clearfix">
+    {% for field in form %}
+
+    {% comment %} Displaying checkboxes differently {% endcomment %}
+    {% if field.name == 'tos' %}
+    <p class="checkbox">
+    <label for="id_{{ field.name }}">{{ field }} {{ field.label }}</label>
+    </p>
+    {% else %}
+    <div class="tx-form-field">
+    {{ field.label_tag }}{% if field.field.required %}<span class="required">*</span>{% endif %}
+    {% if field.field.help_text %}<span class="field-helptext tipsy_enable" title="{{ field.help_text }}">?</span>{% endif %} 
+    {{ field }}
+    <div id="signup-form-{{ field.name }}-errors">
+        {{ field.errors }}
+    </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    </div>
+    {% hook "additional_signup_form_fields.html" %}
+  </fieldset>
+
+  <input type="submit" class="i16 tick buttonized" value="{% trans "Sign up"%}" />
+</form>
+</div>
+
+<div class="grid_5 omega">
+<img src="{% static "images/register-screenshot.jpg" %}"/>
+</div>
+
+
+{% endblock %}

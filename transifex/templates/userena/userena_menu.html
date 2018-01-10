@@ -1,0 +1,23 @@
+{% extends 'userena/base_userena.html' %}
+{% load i18n %}
+
+
+
+{% block content_main %}
+
+<div class="grid_8 omega" style="float:right;">
+{% comment %}Dirty hack. Will use django-guardian in the future.{% endcomment %}
+	{% if user.username == profile.user.username %}
+	<ul id="box-nav">
+	  <li><a href="{% url userena_profile_detail user.username %}">{% trans "View profile" %} &raquo;</a></li>
+	  <li><a href="{% url userena_profile_edit user.username %}">{% trans "Edit details" %} &raquo;</a></li>
+	  <li><a href="{% url userena_password_change user.username %}">{% trans "Change password" %} &raquo;</a></li>
+	  <li><a href="{% url userena_email_change user.username %}">{% trans "Change email" %} &raquo;</a></li>
+	</ul>
+{% endif %}
+</div>
+
+{% block userena_content %}
+{% endblock %}
+
+{% endblock %}

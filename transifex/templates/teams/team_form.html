@@ -1,0 +1,122 @@
+{% extends parent_template %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load txcommontags %}
+{% load permissions %}
+{% load txpermissions %}
+
+{% block title %}{{ block.super }} | {{ project.name }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> &raquo; {% trans "Create team" %}{% endblock %}
+
+{% block extra_head %}
+<script type="text/javascript">
+$(document).ready(function(){
+    var $language_select = $("select#id_language");
+    $language_select.addClass("chzn-select");
+    $language_select.chosen();
+
+  $('.tx-form .required, .tx-form .field-helptext').each(function(){
+  	$(this).appendTo($(this).siblings('label'));
+  });
+});
+</script>
+{% endblock %}
+
+{% block content_title %}
+{% with project.description as short_desc %}
+{% include "projects/logo.html" %}
+<div class="lastchild-emf">
+<h2 class="pagetitle with_description">
+{% block project_header %}
+
+<span><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></span>
+<span>&nbsp;/&nbsp;</span>
+<span>
+{% if team_create %}
+{% blocktrans %}Create team{% endblocktrans %}</span>
+{% else %}
+{% blocktrans with language.name as language_name and language.code as language_code %}Edit {{ language_name }} <sup class="entry_metalink">{{ language_code }}</sup> team{% endblocktrans %}</span>
+{% endif %}
+{% endblock%}
+</h2>
+</div>
+
+{% block current_description %}
+{% if short_desc %}
+<div class="description">
+	<p>{{ project.description }}</p>
+</div>
+{% endif %}
+{% endblock %}
+{% endwith %}
+{% endblock %}
+
+{% block team_menu %}
+{% endblock %}
+
+
+
+{% block content_main %}
+{% get_permission "project_perm.submit_translations" for request.user and project as "can_submit_translations" %}
+{% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+
+{% if language %}
+{% get_permission "project_perm.coordinate_team" for request.user and project,language as "is_coordinator" %}
+{% endif %}
+
+<div>
+  {% if not team_create %}
+  <div class="separate-header notopmargin clearfix" style="margin-top:0;">
+    <h3  class="sh-label">{% trans "Edit language-team" %}</h3>
+  </div>
+  {% endif %}
+
+  {% if perms.projects.add_team or is_coordinator or is_maintainer %}
+  <form class="tx-form" id="add_update_team" method="post" enctype="multipart/form-data" action="" class="microform submit_form">{% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}"/>
+    {{ project_team_form.non_field_errors }}
+    {% for hidden in project_team_form.hidden_fields %}
+      {{ hidden }}
+    {% endfor %}
+    <fieldset>
+      {% for field in project_team_form.visible_fields %}
+        <div class="tx-form-field clearfix">
+        {{ field.label_tag }}{% if field.field.required %}<span class="required">*</span>{% endif %}
+	          {% if field.field.help_text %}<span class="field-helptext tipsy_enable" title="{{ field.help_text }}">?</span>{% endif %}
+        {{ field }}
+        {{ field.errors }}
+        </div>
+      {% endfor %}
+    </fieldset>
+
+    <p class="i16 infomsg">{% blocktrans %}Please note that notification will not be sent when coordinators or members are added or removed on this page.{% endblocktrans %}</p>
+
+    {% if not team %}
+    <p class="i16 infomsg">{% blocktrans %}The current language has no teams. You can delete the whole language by deleting all the translations of all resources.{% endblocktrans %}</p>
+    {% endif %}
+
+    <p class="submit">
+    	<input name="save_team" class="i16 submit buttonized" type="submit" value="{% trans "Save" %}"/>
+    </p>
+  </form>
+  {% endif %}
+
+  {% if team %}
+  {% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+  {% if perms.teams.delete_team or is_maintainer %}
+  <div class="separate-header clearfix">
+    <h3  class="sh-label">{% trans "Delete language-team" %}</h3>
+  </div>
+
+  <p style="margin-bottom:1em;">{% trans "Do you wish to delete the team?" %}</p>
+  <p class="i16 infomsg">{% blocktrans %}After deleting the team of this language its translations will remain. <br/>The language will be deleted only after deleting the translations of all resources.{% endblocktrans %}</p>
+  <p style="margin-top:2em;"><a class="i16 delete buttonized" href="{% url team_delete project.slug language.code %}">{% trans "Delete language" %}</a>
+  </p>
+
+
+  {% endif %}
+  {% endif %}
+</div>
+
+{% endblock %}

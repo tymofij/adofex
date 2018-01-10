@@ -1,0 +1,1 @@
+{% load i18n %}{% blocktrans with release.name as release_name %}{{ notice }}: {{ release_name }}{% endblocktrans %}

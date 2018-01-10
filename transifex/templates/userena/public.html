@@ -1,0 +1,152 @@
+{% extends "userena/base_userena.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load txcommontags %}
+{% load pagination_tags %}
+
+{% block title %}{{ profile.user }}'s public profile{% endblock %}
+{% block robots %}noindex,nofollow{% endblock %}
+{% block extrajs %}{% endblock %}
+
+{% block extra_head %}
+<link rel="alternate" type="application/rss+xml" title="User activity | Activity by {{ profile.user }}" href= "{% url user_feed profile.user %}" />
+{% endblock %}
+
+{% block content_sec %}
+  <p>
+    <a class="simlink rss_feed" href="{% url user_feed profile.user %}" title="{% trans "User feed" %}">
+      <span>{% trans "Subscribe to this feed" %}</span>&nbsp;<img border="0" src="{% static "images/icons/feed.png" %}" />
+    </a>
+  </p>
+{% endblock %}
+
+
+{% block breadcrumb %}{% homelink %} &raquo; {% trans "Profile" %} &raquo; {{ profile.user }}{% endblock %}
+
+{% block content_title %}
+<h2 class="pagetitle">{% blocktrans with profile.user as user %}Public profile of {{ user }}{% endblocktrans %}</h2>
+{% endblock %}
+
+{% block content_main  %}
+    <div class="vcard public_profile">
+        <div class="avatar">
+            <img class="border top" alt="{{ profile.user }}" src="{{ profile.get_mugshot_url }}" />
+            {% if profile.about %}
+                <span>{{ profile.about }}</span>
+            {% endif %}
+        </div>
+        <div class="details separate">
+
+            <table class="definition">
+                {% if profile.user.get_full_name %}
+                <tr>
+                    <th class="i16 person_details">{% trans "Name" %}:</th>
+                    <td>{{ profile.user.get_full_name }}</td>
+                </tr>
+                {% endif %}
+                {% with profile.languages.all as all_languages %}
+                {% if all_languages %}
+                  <tr>
+                    <th class="i16 language">{% trans "Languages" %}:</th>
+                    <td>
+                      {% for language in all_languages %}
+                          {{ language.name }}{% if not forloop.last %}, {% endif %}
+                      {% endfor %}
+                    </td>
+                  </tr>
+                {% endif %}
+                {% endwith %}
+                {% if profile.blog %}
+                <tr>
+                    <th class="i16 homepage">{% trans "Blog/Site" %}:</th>
+                    <td><a target="_black" href="{{ profile.blog }}">{{ profile.blog }}</a></td>
+                </tr>
+                {% endif %}
+                {% if profile.twitter %}
+                <tr>
+                    <th class="i16 twitter">{% trans "Twitter" %}:</th>
+                    <td><a target="_black" href="{{ profile.twitter }}">{{ profile.twitter }}</a></td>
+                </tr>
+                {% endif %}
+                {% if profile.linked_in %}
+                <tr>
+                    <th class="i16 linkedin">{% trans "LinkedIn" %}:</th>
+                    <td><a target="_black" href="{{ profile.linked_in }}">{{ profile.linked_in }}</a></td>
+                </tr>
+                {% endif %}
+                {% if profile.location %}
+                <tr>
+                    <th class="i16 location">{% trans "Location" %}:</th>
+                    <td>{{ profile.location }}</td>
+                </tr>
+                {% endif %}
+            </table>
+        </div>
+
+        {% with profile.user as user %}
+
+        {% with profile.user.projects_maintaining.public as projects %}
+        {% if projects %}
+        <div class="list">
+        <h4>
+        {% blocktrans count projects|length as counter %}Maintainer of the following project{% plural %}Maintainer of the following projects{% endblocktrans %}
+        </h4>
+        <ul>
+        {% for project in projects|dictsort:"project.name" %}
+            <li class="i16 team">
+                {% url project_detail project.slug as project_url %}
+                {% blocktrans with project.name as project_name %}<a class="name" href="{{ project_url }}">{{ project_name }}</a>{% endblocktrans %}
+            </li>
+        {% endfor %}
+        </ul>
+        </div>
+        {% endif %}
+        {% endwith %}
+
+
+        {% with profile.user.team_coordinators.public as teams %}
+        {% if teams %}
+        {% autopaginate teams 20 %}
+        <div class="list">
+        <h4>
+        {% blocktrans count teams|length as counter %}Coordinator of the following team{% plural %}Coordinator of the following teams{% endblocktrans %}
+        </h4>
+        <ul>
+        {% for team in teams|dictsort:"language.name" %}
+            <li class="i16 team">
+                {% url team_detail team.project.slug team.language.code as team_url %}
+                {% url project_detail team.project.slug as project_url %}
+                {% blocktrans with team.language.name as team_name and team.project.name as project_name %}<a class="name" href="{{ team_url }}">{{ team_name }}</a> team of the <a class="name" href="{{ project_url }}">{{ project_name }}</a> project{% endblocktrans %}
+            </li>
+        {% endfor %}
+        </ul>
+        <div class="pagination bottom">{% paginate %}</div>
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        {% with profile.user.team_members.public as teams %}
+        {% if teams %}
+        {% autopaginate teams 20 %}
+        <div class="list">
+        <h4>
+        {% blocktrans count teams|length as counter %}Member of the following team{% plural %}Member of the following teams{% endblocktrans %}
+        </h4>
+        <ul>
+        {% for team in teams|dictsort:"language.name" %}
+            <li class="i16 team">
+                {% url team_detail team.project.slug team.language.code as team_url %}
+                {% url project_detail team.project.slug as project_url %}
+                {% blocktrans with team.language.name as team_name and team.project.name as project_name %}<a class="name" href="{{ team_url }}">{{ team_name }}</a> team of the <a class="name" href="{{ project_url }}">{{ project_name }}</a> project{% endblocktrans %}
+            </li>
+        {% endfor %}
+        </ul>
+        <div class="pagination bottom">{% paginate %}</div>
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        {% endwith %}
+
+    </div>
+{% endblock %}

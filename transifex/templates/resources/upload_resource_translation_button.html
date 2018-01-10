@@ -1,0 +1,77 @@
+{% load i18n %}
+{% load txcommontags %}
+
+{% if create %}
+<div id="upload_resource_translation_button" class="clearfix tx-form">
+  <form action='' method='POST' enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="left">
+      {{ resource_translation_form.target_language.label }}:
+      <span class="fieldp" id="target_language_span">
+        {{ resource_translation_form.target_language }}
+      </span>
+    </div>
+    <div class="left" style="width:300px;margin:0.4em 2em 0.4em 4em;">
+      <span id="upload_button_create" class="i16 send_file buttonized">
+        {% trans "Upload file" %}
+      </span>
+      <span>{% trans "&nbsp;or&nbsp;" %}</span>
+      <span id="start_new_translation" class="i16 buttonized action">
+        {% trans "Translate online" %}
+      </span>
+    </div>
+  </form>
+</div>
+
+{% else %}
+
+<div id="update_translation_form" class="generic_form">
+  <form id="update_translation_form_element" action='' method='POST' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ update_translation_form.target_language }}
+    <span id="upload_button_update" class="i16 send_file linkstyle">
+      <strong>{% trans "Upload file" %}</strong>
+    </span>
+  </form>
+</div>
+{% endif %}
+<script type="text/javascript">
+
+jQuery(document).ready(function($){
+
+    /* Bind ajax upload button */
+    {% if language.code %}
+    new AjaxUpload("upload_button_update", {
+    {% else %}
+    new AjaxUpload("upload_button_create", {
+    {% endif %}
+        {% if language.code %}
+        action: "{% url update_translation project.slug resource.slug language.code %}",
+        {% else %}
+        action: "{% url add_translation project.slug resource.slug %}",
+        {% endif %}
+        responseType: "json",
+        onSubmit : function(file, extension) {
+            {% if not language.code %}
+            this.setData({
+                'language_code': $("#target_language_span > select").val()
+            });
+            {% endif %}
+            $("div#notification-container div").html(sprintf("Uploading '%s'", file));
+            $("div#notification-container").fadeIn("fast");
+            this.disable();
+        },
+        onComplete : function(file, response) {
+            if(typeof(response['status']) !== 'undefined' && response['status'] != 200) {
+                if (typeof(response['msg']) !== 'undefined')
+                    alert(response['msg']);
+            }
+            $("div#notification-container").fadeOut("fast");
+            this.enable();
+            location.reload(true);
+        }
+    });
+});
+
+</script>
+

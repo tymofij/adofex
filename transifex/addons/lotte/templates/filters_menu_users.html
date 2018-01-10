@@ -1,0 +1,23 @@
+{% load i18n %}
+{% load truncate %}
+
+<div id="filtermenu_users" class="filtermenu_wrapper">
+
+{% if contributors %}
+  <div class="filters_list">
+    <ul>
+    {% for user in contributors %}
+      <li><input class="user_filters" type="checkbox" title="{{ user.username }}" id="{{ user.id }}" /> {{ user.username|truncate_chars_middle:"20" }} </li>
+    {% endfor %}
+    </ul>
+  </div>
+{% else %}
+  <div class="filters_list">
+    <p>{% trans "No active contributor!" %}</p>
+  </div>
+{% endif %}
+
+</div>
+
+
+

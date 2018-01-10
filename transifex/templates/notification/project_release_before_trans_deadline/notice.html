@@ -1,0 +1,3 @@
+{% load i18n %}{% url project_detail project.slug as project_url %}{% url release_detail project.slug release.slug as release_url %}{% with project.name as project_name %}{% with release.name as release_name %}
+{% blocktrans %}Notification about the approaching of the <a href="{{ release_url }}">{{ release_name }}</a> translation deadline of the <a href="{{ project_url }}">{{ project_name }}</a> project has been sent{% endblocktrans %}
+{% endwith %}{% endwith %}

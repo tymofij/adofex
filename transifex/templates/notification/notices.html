@@ -1,0 +1,127 @@
+{% extends 'userena/base_userena.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load txcommontags %}
+
+{% block title %}{{ block.super }} | {% trans "Notifications" %}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; {% trans "Notifications" %}{% endblock %}
+{% block content_title %}<h2 class="pagetitle">{% trans "Notifications" %}</h2>{% endblock %}
+
+{% block extra_head %}
+    <link rel="alternate" type="application/atom+xml" title="Notices feed" href="{% url notification_feed_for_user %}" />
+    <script type="text/javascript" src="{% static "js/tablesorted.js" %}"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("div.notice_settings").hide()
+            $("#notice_settings").click( function(){
+                if ( $("div.notice_settings").is(':hidden') ) {
+                    $("div.notice_settings").hide("slide");
+                }
+                $("div.notice_settings").toggle("medium");
+            })
+        });
+    </script>
+
+{% endblock %}
+
+{% block content_main %}
+
+    {% autopaginate notices %}
+
+    <h2>{% trans "Received notifications" %}</h2>
+
+    <div class="notification">
+    <div class="separate">
+    {% if notices %}
+
+        {% regroup notices by added.date as notices %}
+        <table class="tablesorter notification">
+        <thead>
+            <tr>
+            <th><span class="i16 text">{% trans "Description" %}</span></th>
+            <th><span class="i16 clock">{% trans "Time" %}</span></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for date in notices %}
+            <tr>
+            <td colspan=2 class="notice_date">
+            <h3>{{ date.grouper }}</h3>
+            </td>
+            </tr>
+            {% for notice in date.list %}
+                {% if notice.is_unseen %}
+                <tr>
+                <td class="unseen">{{ notice.message|safe }}</td>
+                <td class="unseen">{{ notice.added|timesince }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                <td>{{ notice.message|safe }}</td>
+                <td>{{ notice.added|timesince }}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        </tbody>
+        </table>
+
+        <p class="clearfix">
+        	<a class="i16 read nude-button right" href="{% url notification_mark_all_seen %}">{% trans "Mark all unseen notices seen" %}</a>
+        </p>
+        
+        {% paginate %}
+
+    {% else %}
+        <p>{% trans "No notices." %}</p>
+    {% endif %}
+    </div>
+
+    <p><span id="notice_settings" class="i16 edit submit_button buttonized" title="{% trans "Change your notification settings" %}">{% trans "Notification settings" %}</span></p>
+    <div class="notice_settings">
+       <h3>{% trans "Change your notification settings" %}</h3>
+        {% with user.email as user_email %}
+        {% if user_email %}
+            <p>{% blocktrans %}You can receive notifications whenever an event occurs in Transifex. Check the notifications available for you in the list below and choose which events you would like to be notified by email.{% endblocktrans %}</p>
+            <p>{% trans "Primary email" %}: <strong>{{ user_email }}</strong>
+            {% url email_validation as email_validation_url %}
+            {% if email_validation_url %}
+            <br />({% trans "change under" %} <a href="{{ email_validation_url }}">{% trans "Account" %}</a>)
+            {% endif %}
+        {% else %}
+            <p><span class="warning">{% trans "Note" %}</span>:
+              {% trans "You do not have a verified email address to which notices can be sent. You can add one by going to" %} <a href="{% url email_validation %}">{% trans "Account" %}</a>.
+            </p>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="">{% csrf_token %}
+            <table class="tablesorter notice_settings">
+                <tr>
+                    <th>{% trans "Notification Type" %}</th>
+                    {% for header in notice_settings.column_headers %}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+                {% for row in notice_settings.rows|notice_type_user_filter %}
+                    <tr>
+                        <td>{% trans row.notice_type.display %}
+                            <span class="notice_type_description">{% trans row.notice_type.description %}</span>
+                        </td>
+                        {% for cell in row.cells %}
+                            <td>
+                                <input type="checkbox" name="{{ cell.0 }}" {% if cell.1 %}checked="yes"{% endif %}/>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+            <p class="submit">
+                <input type="submit" class="i16 submit" value="{% trans "Change" %}" />
+            </p>
+        </form>
+    </div>
+    </div>
+
+{% endblock %}

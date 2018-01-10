@@ -1,0 +1,1 @@
+{% load i18n %}{% blocktrans with hub_request.project.name as project_name %}{{ notice }}: {{ project_name }}{% endblocktrans %}

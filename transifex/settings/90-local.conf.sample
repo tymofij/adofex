@@ -1,0 +1,58 @@
+
+# Override various bits and pieces for this particular host. Used extensively
+# for development.
+#
+# The default settings here are for DEVELOPMENT PURPOSES.
+#
+# Copy this file to ``90-local.conf`` to play around. This file will be ignored
+# by Mercurial.
+#
+# Some of the default settings require extra dependencies, such as
+# the excellent tools werkzeug, django-extensions and django-debug-toolbar.
+
+DEBUG = True
+SERVE_MEDIA = True
+ENABLE_NOTICES = True
+REQUIRE_EMAIL_CONFIRMATION = True
+NOTIFICATION_QUEUE_ALL = False
+INTERNAL_IPS = ('127.0.0.1',)
+SCRATCH_DIR = os.path.join(PROJECT_PATH, 'scratchdir')
+# Also override all other settings which are affected by SCRATCH_DIR:
+MSGMERGE_DIR = os.path.join(SCRATCH_DIR, 'msgmerge_files')
+STORAGE_DIR = os.path.join(SCRATCH_DIR, 'storage_files')
+
+# Email sending
+EMAIL_HOST = 'localhost'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+EMAIL_PORT = 5870
+# To run your own devel SMTP daemon:
+# ``python -m smtpd -n -c DebuggingServer localhost:5870``
+
+
+# Django-extensions:
+INSTALLED_APPS += ['django_extensions',]
+
+# Django-debug-toolbar:
+INSTALLED_APPS += ['debug_toolbar',]
+MIDDLEWARE_CLASSES += ['debug_toolbar.middleware.DebugToolbarMiddleware',]
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+    'HIDE_DJANGO_SQL': True,
+}
+
+# Propagate exceptions upwards (surpress Django's normal exception handling)
+# of view functions. Use for testing & debugging AJAX, never on a live site.
+DEBUG_PROPAGATE_EXCEPTIONS = False
+
+# Do not run migrations for tests in devel for faster initial test setup.
+SOUTH_TESTS_MIGRATE = False
+
+# To be able to use txcommon.tests.utils.response_in_browser with CSS/JS.
+# More info: http://miniblog.glezos.com/post/3388080372/tests-browser
+# $ python manage.py build_static
+# MEDIA_ROOT = os.path.join(PROJECT_PATH, 'site_media/static/')
+# MEDIA_URL = '/site_media/static/'
+# STATIC_URL = 'http://localhost:8000' + MEDIA_URL
+

@@ -1,0 +1,53 @@
+{% load i18n %}
+{% load permissions %}
+{% load locks_tags %}
+{% load txcommontags %}
+{% url resource_file_unlock pofile.object.project.slug pofile.object.slug pofile.filename as url_unlock %}
+{% url resource_file_lock pofile.object.project.slug pofile.object.slug pofile.filename as url_lock %}
+{% with pofile.locks.get.owner as owner %}
+{% with forloop.counter as pofile_id %}
+{% get_permission "project_perm.maintain" for request.user and pofile.object.project as "is_maintainer" %}
+{% if is_locked %}
+    {% if is_unlockable %}
+        <form action="{{ url_unlock }}" method="POST" class="microform">{% csrf_token %}
+            <input id="po-lock-toggle-{{pofile_id}}" class="i16 lock_open nodecoration_icon image_submit_type" value="" type="image">
+        </form>
+    {% else %}
+        <span id="po-lock-toggle-{{pofile_id}}" class="i16 lock nodecoration_icon"></span>
+    {% endif %}
+    {% tooltip "po-lock-toggle" pofile_id %}
+        {% blocktrans %}User '{{ owner }}' locked this file.{% endblocktrans %}<br />
+        {% if is_unlockable %}
+            <span class="bold">{% blocktrans %}Click file to unlock.{% endblocktrans %}</span><br />
+        {% endif %}
+        <span class="i16 actionlog">{% blocktrans %}Time left:{% endblocktrans %}</span> {{lock.expires|timeuntil}}.
+    {% endtooltip %}
+
+    {% if is_owner %}
+        <form action="{{ url_lock }}" method="POST" class="microform">{% csrf_token %}
+            <input id="po-lock-extend-{{pofile_id}}" class="i16 lock_add nodecoration_icon image_submit_type" value="" type="image">
+        </form>
+        {% tooltip "po-lock-extend" pofile_id %}
+            {% blocktrans count locks_lifetime as hours %}Extend lock by {{hours}} hour.{% plural %}Extend lock by {{hours}} hours.{% endblocktrans %}
+        {% endtooltip %}
+    {% endif %}
+
+{% else %}
+    {% if perms.translations.add_pofilelock or is_lockable %}
+        <form action="{{ url_lock }}" method="POST" class="microform">{% csrf_token %}
+            <input id="po-lock-toggle-{{pofile_id}}" class="i16 lock_none nodecoration_icon image_submit_type" value="" type="image">
+        </form>
+        {% tooltip "po-lock-toggle" pofile_id %}
+            {% blocktrans %}Lock and download this file to notify others that you're working with it.{% endblocktrans %}
+        {% endtooltip %}
+    {% else %}
+        <span id="po-lock-toggle-{{pofile_id}}" class="i16 lock_none nodecoration_icon"></span>
+        {% tooltip "po-lock-toggle" pofile_id %}
+            {% blocktrans %}This file isn't locked. Most likely no one is working on it right now.{% endblocktrans %}
+        {% endtooltip %}
+    {% endif %}
+{% endif %}
+
+
+{% endwith %}
+{% endwith %}

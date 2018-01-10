@@ -1,0 +1,155 @@
+{% load i18n %}
+{% load txcommontags %}
+{% load permissions %}
+{% load txpermissions %}
+{% load statistics_resources %}
+{% load addons %}
+{% load project_tags %}
+{% load team_tags %}
+{% load resources_common_tags %}
+
+{% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+
+<div class="obj_bigdetails">
+
+<div class="project_create">
+
+  <div class="separate-header clearfix">
+  	<h3 class="sh-label notopmargin">
+  	{% if project.is_hub %}
+    	{% trans "Hub language teams" %}
+  	{% else %}
+    	{% trans "Languages" %}
+  	{% endif %}
+    </h3>
+		<div class="separate-buttons">
+		  {% if request.user.is_authenticated and not is_maintainer and not project.outsource %}
+      <a class="i16 language-add" id="request-team-button" href="javascript:;">{% trans "Request language" %}</a>
+      {% endif %}
+      {% if not project.anyone_submit and not project.outsource %}
+        {% if is_maintainer %}
+		    <a class="i16 nude-button add" href="{% url team_create project.slug %}">{% trans "Create language" %}</a>
+        {% endif %}
+      {% endif %}
+		</div>
+	</div>
+
+  {% if team_request_form %}
+  {% if request.user.is_authenticated and not is_maintainer %}
+  <form id="request-team-form" method="post" enctype="multipart/form-data" action="{% url team_request project.slug %}" class="add-permission submit_form tx-form">{% csrf_token %}
+    <table>
+      <tbody>{% form_as_table_rows team_request_form %}</tbody>
+    </table>
+
+    {% hook "team_request_join_additional.html" %}
+
+    <p class="submit">
+      <input name="team_request" class="i16 submit buttonized" type="submit" value="{% trans "Request team" %}"/>
+    </p>
+
+  </form>
+  {% endif %}
+  {% endif %}
+
+  {% if team_requests and request.user.is_authenticated %}
+  <div class="datalist" style="margin-bottom:0.8em;">
+    <ul class="nomargin">
+    {% for team_request in team_requests %}
+      <li class="clearfix requested-row">
+        <div class="tt-details">
+          <span class="tipsy_enable" title="language code: {{ team_request.language.code }}">{{ team_request.language.name }}</span>
+          <span class="ttd-extra">({% trans "Requested by" %}: <a href="{% url profile_public team_request.user.username %}">{{ team_request.user.username }}</a>)</span>
+      	</div>
+        {% if is_maintainer %}
+        <form class="microform" method="post" action="{% url team_request_deny team_request.project.slug team_request.language.code %}">{% csrf_token %}
+          <input name="team_request_deny" class="i16 delete blist buttonized" type="submit" value="{% trans "Deny" %}"/>
+        </form>
+        <form class="microform" method="post" action="{% url team_request_approve team_request.project.slug team_request.language.code %}">{% csrf_token %}
+          <input name="team_request_approve" class="i16 submit blist buttonized" type="submit" value="{% trans "Approve" %}"/>
+        </form>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if language_stats %}
+  {% with request.user.get_profile.language_codes as user_lang_codes %}
+  <table class="stats-table tablesorter teamlist">
+    <thead>
+     <tr>
+      <th class="onlyarrow tableobject"></th>
+      <th class="onlyarrow tablecompletion"></th>
+      <th class="onlyarrow tablelastupd"></th>
+     </tr>
+    {% for stat in language_stats|sort_source_langs_first:source_language_codes %}
+    {% if stat.first_translation %}
+      </thead>
+      <tbody>
+    {% endif %}
+	<tr
+        {% if not stat.object.code in available_teams_codes %}
+            class="nomembers{% if stat.object.code in source_language_codes  %} sourcelang{%endif%}"
+        {% endif %}
+    >
+    <td class="tableobject"
+        {% if stat.object.code in user_lang_codes %}
+            style="background: lemonchiffon"
+        {% endif %}
+    >
+
+    {% if not project.outsource %}
+      <a href="{% url team_detail project.slug stat.object.code %}"  class="tipsy_enable" title="language code: {{ stat.object.code }}" >{{ stat.object.name }}</a>
+    {% else %}
+      <a href="{% url team_detail project.outsource.slug stat.object.code %}?project={{ project.id }}"  class="tipsy_enable" title="language code: {{ stat.object.code }}" >{{ stat.object.name }}</a>
+    {% endif %}
+
+    {% if stat.object.code in source_language_codes  %}
+      <span style="color:#aaa;">{% trans "(source language)"%}</span>
+    {% else %}
+      {% if not project.anyone_submit %}
+        {% if stat.object.code in available_teams_codes %}
+          {% with stat.object.code as lang_code %}
+            {% with teams|getitem:lang_code as team_counts %}
+              {% get_permission "project_perm.coordinate_team" for request.user and project,stat.object as "is_coordinator" %}
+              {% if team_counts.0 %}
+              {% if is_maintainer or is_coordinator %}
+                <a href="{% if project.outsource %} {% url team_members project.outsource.slug lang_code %} {% else %}{% url team_members project.slug lang_code %}{% endif %}" style="color:#999;">
+                  <span>
+                    {% blocktrans count counter=team_counts.0 %}
+                        ({{ counter }} join request)
+                    {% plural %}
+                        ({{ counter }} join requests)
+                    {% endblocktrans %}
+                  </span>
+                </a>
+              {% endif %}
+              {% endif %}
+            {% endwith %}
+          {% endwith %}
+        {% else %}
+        <span style="color:#aaa;">{% trans "(no team yet)" %}</span>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+    </td>
+    <td class="tablecompletion">
+      {% with 180 as barwidth %}
+          {% stats_bar_simple stat barwidth %}
+      {% endwith %}
+    </td>
+    <td class="tablelastupd">
+      <span  class="i16 table-update tipsy_enable" title="{% trans 'Last update' %}" unixdate="{{ stat.last_update|date:'U' }}">{{ stat.last_update|date:"M d, h:ia" }}</span>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% endwith %}
+  {% else %}
+  <p class="i16 infomsg">{% trans "No translation team has been created yet. Why don't you start one?" %}</p>
+  {% endif %}
+
+</div>
+</div>

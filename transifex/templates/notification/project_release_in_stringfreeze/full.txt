@@ -1,0 +1,6 @@
+{% load i18n %}{% url release_detail project.slug release.slug as release_url %}{% with project.name as project_name %}{% with release.name as release_name %}
+{% blocktrans %}Just a reminder that '{{ release_name }}' release of the '{{ project_name }}' just entered the string freeze period.{% endblocktrans %}
+{% if release.develfreeze_date %}{% blocktrans with release.stringfreeze_date|date:"D M j, G:i" as stringfreeze and release.develfreeze_date|date:"D M j, G:i" as transdeadline %}It started on {{ stringfreeze }} and will finished on {{ transdeadline }}.{% endblocktrans %}{% else %}{% blocktrans with release.stringfreeze_date|date:"D M j, G:i" as stringfreeze %}It started on: {{ stringfreeze }}{% endblocktrans %}{% endif %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{release_url}} in order to see the release page.{% endblocktrans %}
+{% endwith %}{% endwith %}

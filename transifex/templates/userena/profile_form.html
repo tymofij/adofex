@@ -1,0 +1,63 @@
+{% extends 'userena/base_userena.html' %}
+{% load i18n %}
+{% load addons %}
+{% load fieldsets %}
+
+{% block title %}{% trans "Account setup" %}{% endblock %}
+
+{% block extrajs %}
+    {{ block.super }}
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+    	$(".tipsy_enable").tipsy({'html':true, 'gravity':'s'});
+			$('.tx-form .required, .tx-form .field-helptext').each(function(){
+				$(this).appendTo($(this).siblings('label'));
+			});
+		});
+    </script>
+
+{% endblock %}
+
+{% block userena_header %}<h3 class="userena-header">{% trans "Edit profile" %}</h3>{% endblock %}
+
+{% block userena_content %}
+
+  <form class="tx-form dual" action="" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+	  <fieldset>
+     {% get_fieldset first_name,last_name,location,languages,tags,blog,linked_in,twitter,about,looking_for_work as profile_fields from form %}
+      {% for field in profile_fields %}
+        <div id='{{field.html_name}}' class="tx-form-field">
+          {{ field.label_tag }}{% if field.field.required %}<span class="required">*</span>{% endif %}
+          {% if field.field.help_text %}<span class="field-helptext tipsy_enable" title="{{ field.help_text }}">?</span>{% endif %}
+          {{ field }}
+          {{ field.errors }}
+        </div>
+      {% endfor %}	  </fieldset>
+    <input type="submit" class="i16 tick buttonized" value="{% trans 'Save changes' %}" />
+  </form>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    var defaultBounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(-33.8902, 151.1759),
+        new google.maps.LatLng(-33.8474, 151.2631)
+    );
+
+    var input = document.getElementById('id_location');
+    var options = {
+        bounds: defaultBounds
+    };
+
+    autocomplete = new google.maps.places.Autocomplete(input, options);
+
+    $('#id_location').keypress(function(event) {
+        if(event.which == 13)
+            event.preventDefault();
+    });
+});
+</script>
+{% endblock %}
+

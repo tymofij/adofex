@@ -1,0 +1,20 @@
+{% load i18n %}
+{% load truncate %}
+
+<div id="filtermenu_resources" class="filtermenu_wrapper">
+
+{% if resources %}
+  <div class="filters_list">
+    <ul>
+    {% for resource in resources %}
+      <li><input class="resource_filters" type="checkbox" title="{{ resource.name }}" id="{{ resource.id }}" /> {{ resource.name|truncate_chars_middle:"20" }} </li>
+    {% endfor %}
+    </ul>
+  </div>
+{% else %}
+  <div class="filters_list">
+    <p>{% trans "No active contributor!" %}</p>
+  </div>
+{% endif %}
+
+</div>

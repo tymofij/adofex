@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load statistics_resources %}
+
+<div class="stats tipsy_enable" style='width:{{ width|add:"40" }}px;' title="{% trans "Translated: " %}{{ trans }}<br />{% trans "Untranslated: " %}{{ untrans }}{% if show_reviewed_stats %}<br />{% trans "Reviewed: " %}{{ reviewed }}{% endif %}">
+  <div class="stats_string_resource">
+    {{ trans_percent }}%
+  </div>
+
+  <div class="graph_resource" style="width: {{width}}px">
+    {% ifnotequal trans_percent 0 %}<div class="translated_comp" style="left: {{pos.trans.l}}px; width: {{pos.trans.w}}px;"></div>{% endifnotequal %}
+    {% ifnotequal untrans_percent 0 %}<div class="untranslated_comp" style="left: {{pos.untrans.l}}px; width: {{pos.untrans.w}}px;"></div>{% endifnotequal %}
+  </div>
+</div>

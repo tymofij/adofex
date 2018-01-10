@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load txcommontags %}
+{% if form %}
+<form method="post" enctype="multipart/form-data" action="{{ form_url }}" class="add-permission microform">{% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}"/>
+    <table>
+        <tbody>
+            {% form_as_table_rows form %}
+        </tbody>
+    </table>
+    <p class="submit">
+    {% if approved %}
+        <input class="i16 submit buttonized" type="submit" value="{% trans "Grant permission" %}"/>
+    {% else %}
+        <input class="i16 submit buttonized" type="submit" value="{% trans "Request permission" %}"/>
+    {% endif %}
+    </p>
+</form>
+{% endif %}

@@ -1,0 +1,7 @@
+{% load i18n %}
+<span id="association-{{outsourced_project.slug}}"
+      class="i16 buttonized blist disassociate"
+      title="{% trans 'Disassociate it' %}"
+      onClick="hub_associate_project_toggler(this, '{{ outsourced_project.slug }}', '{{ outsourced_project.url }}' )">
+      {% trans 'Disassociate' %}
+</span>

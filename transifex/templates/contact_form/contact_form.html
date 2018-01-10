@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load txcommontags %}
+
+{% block title %}{{ block.super }} | {% trans "Contact us" %}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; {% trans "Contact us" %}{% endblock %}
+{% block content_title %}<h2 class="pagetitle">{% trans "Let us know what you think!" %}</h2>{% endblock %}
+
+{% block content_main %}
+  <p>{% trans "We'd like to make this web service as useful as possible for our users. If you have any feedback to provide, please do so!" %}</p>
+
+  {% if form_message %}
+    <p class="message i16 bell">{{ form_message }}</p>
+  {% endif %}
+  <div class="project_create generic_form">
+  <form action='' method='post'>{% csrf_token %}
+  <table>
+  <tbody>
+    {% form_as_table_rows form %}
+  </tbody>
+  </table>
+  <p class="submit"><input type="submit" class="i16 submit buttonized"  value="{% trans "Send feedback" %}" /></p>
+  </form>
+  </div>
+{% endblock %}

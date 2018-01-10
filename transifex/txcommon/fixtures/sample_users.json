@@ -1,0 +1,50 @@
+[
+  {
+    "pk": 1,
+    "model": "auth.group",
+    "fields": {
+      "name": "registered",
+      "permissions": []
+    }
+  },
+  {
+    "pk": 1,
+    "model": "auth.user",
+    "fields": {
+      "username": "editor",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2009-12-10 18:39:36",
+      "groups": [
+        1
+      ],
+      "user_permissions": [],
+      "password": "sha1$d960d$f2d1b1d561d96a1693dc74355f0d8e086a8c6990",
+      "email": "editor@example.com",
+      "date_joined": "2009-12-10 18:39:21"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "auth.user",
+    "fields": {
+      "username": "guest",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": false,
+      "last_login": "2009-12-10 18:41:01",
+      "groups": [
+        1
+      ],
+      "user_permissions": [],
+      "password": "sha1$7222c$49b425c266264c809b398db3a742f3fb65763b8b",
+      "email": "guest@example.com",
+      "date_joined": "2009-12-10 18:41:01"
+    }
+  }
+]

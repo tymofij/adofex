@@ -1,0 +1,46 @@
+/* This css code also refers to elements in charts' templates */
+
+
+.code_snippet {
+  max-height: 20em;
+  overflow: auto;
+  font-family:monospace;
+  font-size:7pt;
+  border: 1px solid #888;
+  padding: 4px;
+  display: none;
+  background-color: #eee;
+  border:1px solid #ccc;
+  color:#444;
+  padding:0.2em;
+}
+
+table.widget {
+  width: 100%;
+}
+
+table.widget td {
+  width: 50%;
+}
+
+table.widget td.loading {
+  text-align: center;
+}
+
+table.widget td.code_details {
+  vertical-align:top;
+}
+
+table.widget iframe {
+  border: 0px;
+}
+
+table.widget #chart-interactive-iframe {
+  width: 100%;
+  height:300px;
+  overflow:hidden;
+}
+
+td.userbars img {
+  padding-bottom:4px;
+}

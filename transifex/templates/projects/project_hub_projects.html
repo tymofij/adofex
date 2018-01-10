@@ -1,0 +1,47 @@
+{% extends "projects/project_menu.html" %}
+{% load i18n %}
+{% load project_hub %}
+{% load txcommontags %}
+{% load permissions %}
+{% load cache %}
+
+
+{% block project_header %}
+{{block.super}}<span>&nbsp;/&nbsp;</span>
+<span><a href="{% url project_resources project.slug %}">{% blocktrans %}Child projects{% endblocktrans %}</a></span>
+{% endblock %}
+
+{% block current_description %}
+<p class="description">{% blocktrans %}List of the hub's child projects{% endblocktrans %}</p>
+{% endblock %}
+
+{% block content_main %}
+  {% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+
+  {% with project.outsourcing.all as outsourcing_projects %}
+  <div class="separate-header notopmargin clearfix">
+  	<h3  class="sh-label">{% blocktrans %}Hub projects{% endblocktrans %}</h3>
+	</div>
+  {% include "projects/project_hub_join_requests.html" %}
+  {% cache 604800 hub_projects project LANGUAGE_CODE%}
+  {% if outsourcing_projects %}
+    <div class="datalist">
+      <ul class="nomargin">
+      {% for p in outsourcing_projects %}
+          <li class="clearfix">
+          <span class="tt-details"><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></span>
+
+          <div style="float:right">
+              {% hub_associate_project_toogler project p %}
+          </div>
+
+          </li>
+      {% endfor %}
+      </ul>
+    </div>
+  {% else %}
+      <span class="i16 infomsg">{% trans "No project is outsourcing access to this project hub." %}</span>
+  {% endif %}
+  {% endcache %}
+  {% endwith %}
+{% endblock %}

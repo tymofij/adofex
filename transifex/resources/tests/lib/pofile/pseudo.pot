@@ -1,0 +1,30 @@
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-08 10:12+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: actionlog/templates/object_action_list.html:7 txpermissions/forms.py:18
+msgid "\nUser %(name)s <b>does not</b> have a <a href=\"/car\">car</a> and "
+"he is thinking on buying one at:\n\t %(store)s"
+msgstr ""
+
+#: foo/templates/bar.html:180
+msgid "\nUser %(name) <b>does not</b> have a <a href=\"/car\">car</a> and "
+"he is thinking on buying %i motorcycle at:\n\t %(store)s"
+msgid_plural "\nUser %(name)s <b>does not</b> have a <a href=\"/car\">car</a> and "
+"he is thinking on buying %i motorcycles at:\n\t %(store)s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: actionlog/templates/object_action_list.html:10
+msgid "Locations"
+msgstr ""

@@ -1,0 +1,18 @@
+{% extends "txapp_base.html" %}
+{% load i18n %}
+
+{% block txapp %}
+<h2>{% trans "Error contacting app." %}</h2>
+<p>
+  {% blocktrans %}There was an error, while contacting the app {{ app_name }}.{% endblocktrans %}
+</p>
+
+<p>
+  {% blocktrans %}App responded "{{ error_message }}"{% endblocktrans %}
+</p>
+
+<p>
+  {% trans "Please, <a href=mailto:admin@transifex.net>report</a> this incident." %}
+</p>
+{% endblock %}
+

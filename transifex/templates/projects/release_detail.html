@@ -1,0 +1,198 @@
+{% extends "projects/project_menu.html" %}
+{% load cache %}
+{% load markup %}
+{% load i18n %}
+{% load truncate %}
+{% load statistics_resources %}
+{% load permissions %}
+{% load txpermissions %}
+{% load resources_common_tags %}
+
+
+{% block extra_head %}
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url release_feed release.project.slug release.slug %}" />
+  <script type="text/javascript">
+    $(function(){
+        // Enable tooltip
+        $(".tipsy_enable").tipsy({'html':true, 'gravity':'s'});
+        // Toggle to resources list
+        $("#resource-list-toggler").click(function () {
+            $("#resource-list").slideToggle("slow");
+        });
+        $("#private-resource-list-toggler").click(function () {
+            $("#private-resource-list").slideToggle("slow");
+        });
+    });
+  </script>
+{% endblock %}
+
+{% block body_class %}{{ block.super }} release_detail{% endblock %}
+
+{% block title %}{{ block.super }} | Release '{{ release.name }}'{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; Release '{{ release.name }}'{% endblock %}
+
+{% block content_header_sec %}
+  <a class="i16 feed" href="{% url release_feed release.project.slug release.slug %}" title="{% trans "Statistics feed for this release" %}">{% trans "Subscribe to feed" %}</a>
+{% endblock %}
+
+{% block header_menu %}{% endblock %}
+
+{% block project_header %}
+{{block.super}}<span>&nbsp;/&nbsp;</span><span class="pagetitle with_description">Release '{{ release.name }}'</span>
+{% endblock%}
+
+
+{% if release.description %}
+{% block current_description %}
+<p class="description belowheader">{{ release.description }}</p>
+{% endblock %}
+{% endif %}
+
+
+{% block content_main %}
+  <div class="obj_bigdetails">
+ {% comment %} <h3 class="pagesubtitle">Release '{{ release.name }}'</h3>{% endcomment %}
+
+
+  <div class="details">
+
+
+  <div class="separate-header notopmargin clearfix">
+  	<h3  class="sh-label">{% blocktrans %}Details{% endblocktrans %}</h3>
+  	{% get_permission "project_perm.maintain" for request.user and release.project as "is_maintainer" %}
+  	{% if perms.projects.add_release or is_maintainer %}
+	    {% if release.slug != alldata_slug %}
+	  		<div class="separate-buttons"><a class="i16 nude-button edit" title="{% trans 'Edit release details' %}" href="{% url release_edit project_slug=release.project.slug release_slug=release.slug %}">{% trans "Edit release" %}</a></div>
+	    {% endif %}
+  	{% endif %}
+	</div>
+
+  <dl class="definition clearfix">
+    {% if release.slug != alldata_slug %}
+      <div class="{% if not release.homepage %} empty {% if not request.user.is_authenticated %}nodisplay{% endif %}{% endif %}">
+        <dt class="homepage i16">{% trans "Homepage:" %}</dt>
+        <dd><a href="{{ release.homepage }}">{{ release.homepage }}</a></dd>
+      </div>
+
+      <div class="{% if not release.release_date %} empty {% if not request.user.is_authenticated %}nodisplay{% endif %}{% endif %}">
+        <dt class="release_date i16">{% trans "Release date:" %}</dt>
+        <dd>{{ release.release_date|date:"D d M Y" }}</dd>
+      </div>
+
+      <div class="{% if not release.stringfreeze_date %} empty {% if not request.user.is_authenticated %}nodisplay{% endif %}{% endif %}">
+        <dt class="freeze i16 ">{% trans "String freeze:" %}</dt>
+        <dd>{{ release.stringfreeze_date|date:"D d M Y" }}</dd>
+      </div>
+
+      <div class="{% if not release.develfreeze_date %} empty {% if not request.user.is_authenticated %}nodisplay{% endif %}{% endif %}" >
+        <dt class="freeze i16 ">{% trans "Devel freeze:" %}</dt>
+        <dd>{{ release.develfreeze_date|date:"D d M Y" }}</dd>
+      </div>
+    {% endif %}
+    {% with resources|length as resources_number %}
+    {% if resources %}
+      <dt class="resource i16">{% trans "Resources:" %}</dt>
+      <dd class="clearfix">
+        <span id="resource-list-toggler" class="buttonized_simple" title="{% trans "Click here to show or hide the resource list" %}">
+        {% blocktrans %}This release has {{ resources_number }} resources.{% endblocktrans %}
+        </span>
+        <ul id="resource-list" class="simple links clearfix" style="display:none;">
+          {% for r in resources %}
+            <li><a title="{{ r }}" href="{{ r.get_absolute_url }}">{{ r }}</a></li>
+          {% endfor %}
+        </ul>
+      </dd>
+    {% endif %}
+    {% endwith %}
+
+    {% with private_resources|length as resources_number %}
+    {% if private_resources %}
+      <dt class="resource i16">{% trans "Priv. resources:" %}</dt>
+      <dd>
+        <span id="private-resource-list-toggler" class="buttonized_simple" title="{% trans "Click here to show or hide the resource list" %}">
+        {% blocktrans %}{{ resources_number }} private resources you have access to{% endblocktrans %}
+        </span>
+        <ul id="private-resource-list" class="simple links" style="display:none;">
+          {% for r in private_resources %}
+            <li><a title="{% firstof r.description|escape r.name|escape %}" href="{{ r.get_absolute_url }}">{{ r }}</a></li>
+          {% endfor %}
+        </ul>
+      </dd>
+    {% endif %}
+    {% endwith %}
+  </dl>
+
+  {% with release.long_description_html as long_desc %}
+  {% if long_desc %}
+  <div class="long_description">
+    {{ long_desc|truncatewords:"100"|safe }}
+  </div>
+  {% endif %}
+  {% endwith %}
+
+</div>
+
+<div id="projects" class="projects">
+
+  <div class="separate-header clearfix">
+  	<h3  class="sh-label">{% trans "Release languages" %}</h3>
+	</div>
+
+<div class="list clear">
+
+<table class="stats-table tablesorter reldetail" >
+  <thead>
+  <tr>
+    <th class="onlyarrow tableobject"></th>
+    <th class="onlyarrow tablecompletion"></th>
+    <th class="onlyarrow tablelastupd"></th>
+   </tr>
+  {% for stat in statslist|sort_source_langs_first:source_languages %}
+  {% if stat.first_translation %}
+  </thead>
+  <tbody>
+    {% endif %}
+    <tr id="stat_row_{{forloop.counter}}" class="nocursor">
+      {% cache 604799 release_details release.id stat.object.id LANGUAGE_CODE%}
+        <td class="tableobject">
+          <a href="{% url release_language_detail release.project.slug release.slug stat.object.code %}" class="tipsy_enable" title="language code: {{stat.object.code}}">{{ stat.object.name }}</a>
+        {% if stat.object in source_languages %}
+           <span style="color: #aaa;">({% trans "source language" %})</span>
+        {% endif %}
+        </td>
+        <td class="tablecompletion">
+          {% with 200 as barwidth %}
+            {% stats_bar_simple stat barwidth %}
+          {% endwith %}
+        </td>
+        <td class="tablelastupd">
+        {% with stat.last_update as last_update %}
+        <span class="i16 table-update tipsy_enable" title="{% trans 'Last update' %}" unixdate="{{ last_update|date:'U' }}">
+          {% with stat.last_committer as last_committer %}
+          {% if last_update %}
+              {{ last_update|date:"M d, h:ia" }}
+          {% else %}
+              {% trans "no translations yet" %}
+          {% endif %}
+          {% endwith %}
+        </span>
+        {% endwith %}
+        </td>
+	  {% endcache %}
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+</div>
+
+</div>
+</div>
+{% endblock %}{# body_main #}
+
+{% block content_footer %}
+  {% get_permission "project_perm.maintain" for request.user and release.project as "is_maintainer" %}
+  <div id="content_footer_center">
+
+  </div>
+{% endblock %}

@@ -1,0 +1,145 @@
+[
+  {
+    "pk": 9,
+    "model": "projects.project",
+    "fields": {
+      "feed": "",
+      "description": "Avant Window Navigator (Awn) is a dock-like bar which sits at the bottom of the screen. (bzr)",
+      "created": "2008-10-09 00:00:00",
+      "long_description_html": "",
+      "tags": "",
+      "enabled": true,
+      "modified": "2009-03-09 20:17:18",
+      "slug": "awn",
+      "maintainers": [],
+      "hidden": false,
+      "homepage": "http://launchpad.net/awn",
+      "long_description": "",
+      "source_language": 98,
+      "name": "Avant Window Navigator"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "projects.project",
+    "fields": {
+      "feed": "",
+      "description": "Yet another testing module! (cvs)",
+      "created": "2008-10-16 00:00:00",
+      "long_description_html": "",
+      "tags": "",
+      "enabled": true,
+      "modified": "2009-03-09 20:16:57",
+      "slug": "switchdesk",
+      "maintainers": [],
+      "hidden": false,
+      "homepage": "",
+      "long_description": "",
+      "source_language": 98,
+      "name": "Switchdesk"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "projects.project",
+    "fields": {
+      "feed": "",
+      "description": "Tools for certain user account management tasks (hg)",
+      "created": "2009-02-13 18:46:14",
+      "long_description_html": "",
+      "tags": "",
+      "enabled": true,
+      "modified": "2009-03-09 20:16:32",
+      "slug": "usermode",
+      "maintainers": [
+        2
+      ],
+      "hidden": false,
+      "homepage": "",
+      "long_description": "",
+      "source_language": 98,
+      "name": "Usermode"
+    }
+  },
+  {
+    "pk": 20,
+    "model": "projects.project",
+    "fields": {
+      "feed": "",
+      "description": "Desktop Effects (git)",
+      "created": "2009-03-09 20:14:18",
+      "long_description_html": "",
+      "tags": "gui,graphics",
+      "enabled": true,
+      "modified": "2009-03-09 20:16:16",
+      "slug": "desktop-effects",
+      "maintainers": [],
+      "hidden": false,
+      "homepage": "",
+      "long_description": "",
+      "source_language": 98,
+      "name": "desktop-effects"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "projects.project",
+    "fields": {
+      "feed": "",
+      "description": "Desktop Input Method configuration tool (svn)",
+      "created": "2008-10-08 00:00:00",
+      "long_description_html": "<p>Desktop Input Method configuration tool\n</p>",
+      "tags": "",
+      "enabled": true,
+      "modified": "2009-03-09 20:15:53",
+      "slug": "im-chooser",
+      "maintainers": [],
+      "hidden": false,
+      "homepage": "https://fedorahosted.org/im-chooser",
+      "long_description": "Desktop Input Method configuration tool",
+      "source_language": 98,
+      "name": "im-chooser"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "projects.project",
+    "fields": {
+      "feed": "",
+      "description": "Test Project",
+      "created": "2008-10-08 00:00:00",
+      "long_description_html": "",
+      "tags": "",
+      "enabled": true,
+      "modified": "2009-03-09 20:15:53",
+      "slug": "project1",
+      "maintainers": [],
+      "hidden": false,
+      "homepage": "",
+      "long_description": "",
+      "source_language": 98,
+      "name": "Test Project"
+    }
+  },
+  {
+    "pk": 21,
+    "model": "projects.project",
+    "fields": {
+      "feed": "",
+      "description": "Test private Project",
+      "created": "2008-10-08 00:00:00",
+      "long_description_html": "",
+      "tags": "",
+      "enabled": true,
+      "modified": "2009-03-09 20:15:53",
+      "slug": "project2",
+      "maintainers": [],
+      "hidden": false,
+      "homepage": "",
+      "long_description": "",
+      "source_language": 98,
+      "name": "Test Private Project",
+      "private": true
+    }
+  }
+]

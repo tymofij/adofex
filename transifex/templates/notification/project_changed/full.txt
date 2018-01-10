@@ -1,0 +1,4 @@
+{% load i18n %}{% url project_detail project_slug=project.slug as project_url %}
+{% blocktrans %}The project called '{{project}}' was changed.{% endblocktrans %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{project_url}} in order to see the changes.{% endblocktrans %}

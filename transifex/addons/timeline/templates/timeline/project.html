@@ -1,0 +1,15 @@
+{% comment %}These are the blocks injected to view under /projects/p/PROJECT_SLUG/{% endcomment %}
+{% load i18n %}
+{% load tx_action_log %}
+
+{% block settings_menu %}
+{% if is_maintainer %}
+<li class="inner-item {% if project_timeline %}active{% endif %}">
+    <a href="{% url project_timeline project.slug %}">
+        {% trans "Timeline" %}
+    </a>
+</li>
+{% endif %}
+{% endblock %}
+
+

@@ -1,0 +1,6 @@
+{% load i18n %}{% url release_detail project.slug release.slug as release_url %}{% url resource_detail project.slug resource.slug as resource_url %}{% with project.name as project_name %}{% with release.name as release_name %}{% with resource.name as resource_name %}
+{% blocktrans %}A string freeze breakage just happened of '{{ release_name }}' release of the '{{ project_name }}' project.{% endblocktrans %}
+{% blocktrans %}The resource involved on it was '{{ resource_name }}' and you can access its Transifex page referring to http://{{current_site}}{{resource_url}}.{% endblocktrans %}
+
+{% blocktrans %}You can also visit http://{{current_site}}{{release_url}} in order to see the release page.{% endblocktrans %}
+{% endwith %}{% endwith %}{% endwith %}

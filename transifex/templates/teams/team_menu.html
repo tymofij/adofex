@@ -1,0 +1,86 @@
+{% extends "projects/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load addons %}
+{% load txcommontags %}
+{% load permissions %}
+{% load txpermissions %}
+
+
+{% block extra_head %}
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{% url project_feed param=project.slug %}" />
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript" src="{% static "js/tablesorted.js" %}"></script>
+{% endblock %}
+
+{% block content_title %}
+{% with project.description as short_desc %}
+{% include "projects/logo.html" %}
+<div class="lastchild-emf">
+<h2 class="pagetitle{% if short_desc %} with_description{% endif %}">
+{% block project_header %}
+<span><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></span>
+<span>&nbsp;/&nbsp;</span>
+<span><a href="{% url team_detail project.slug language.code %}">{% blocktrans with language.name as language_name and language.code as language_code %}{{ language_name }} <sup class="entry_metalink">{{ language_code }}</sup></a>{% endblocktrans %}</span>
+{% endblock %}
+</h2>
+</div>
+
+{% block current_description %}
+{% if short_desc %}
+<div class="description">
+	<p>{{ project.description }}</p>
+</div>
+{% endif %}
+{% endblock %}
+{% endwith %}
+{% endblock %}
+
+{% block content_header_sec %}
+	{% if project.anyone_submit %}
+  <span id="private_project_banner" class="project-sign" style="background:url({% static "images/icons/ffa-project.png" %})center top no-repeat;">
+	<p>{% trans "Free for all"%}</p>
+	</span>
+	{% endif %}
+	{% if project.outsource %}
+  <span id="private_project_banner" class="project-sign" style="background:url({% static "images/icons/outsource-project.png" %})center top no-repeat;">
+	<p>{% trans "Outsourcing"%}</p>
+	</span>
+	{% endif %}
+	{% if project.is_hub %}
+  <span id="private_project_banner" class="project-sign" style="background:url({% static "images/icons/hub-project.png" %})center top no-repeat;">
+	<p>{% trans "Hub"%}</p>
+	</span>
+	{% endif %}
+	{% if project.private %}
+	<span id="private_project_banner" class="project-sign" style="background:url({% static "images/icons/private-project.png" %})center top no-repeat;">
+	<p>{% trans "Private"%}</p>
+	</span>
+	{% endif %}
+{% endblock %}
+
+
+{% block header_menu %}
+{% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+{% get_permission "project_perm.coordinate_team" for request.user and project,language as "is_coordinator" %}
+{% if not project.anyone_submit %}
+<div id="teamcode-arrow"><div id="teamcode">{{ language.code }}</div><span></span></div>
+<div class="tab-wrapper grid_10">
+  <ul  class="tabs clearfix">
+    <li class="{% if project_team_page %}selected{% endif %}"><a href="{% url team_detail project.slug language.code %}">{% trans "Overview" %}</a></li>
+    {% if not project.anyone_submit %}
+    <li class="{% if project_team_members %}selected{% endif %}"><a href="{% url team_members project.slug language.code %}">{% trans "Members" %}</a></li>
+    {% endif %}
+    {% hook "team.html" menu %}
+    {% if is_maintainer or is_coordinator %}
+    <li class="{% if project_team_form %}selected{% endif %}"><a href="{% url team_update project.slug language.code %}">{% trans "Edit language team" %}</a></li>
+    {% endif %}
+  </ul>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block content_main %}{% endblock %}
+{% block content_footer %}{% endblock %}

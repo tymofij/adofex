@@ -1,0 +1,257 @@
+{% extends "projects/project_menu.html" %}
+{% load staticfiles %}
+{% load humanize %}
+{% load i18n %}
+{% load cache %}
+{% load statistics_resources %}
+{% load permissions %}
+{% load truncate %}
+{% load upload_manager_tags %}
+{% load priority_images %}
+
+{% block extra_head %}
+{% get_permission "project_perm.maintain" for request.user and resource.project as "is_maintainer" %}
+<script type="text/javascript">
+    $(document).ready(function(){
+      $(".tipsy_enable").tipsy({'html':true, 'gravity':'s'});
+
+      {% if request.user.is_authenticated %}
+      $("#new_translation1").click( function (){
+          $("#new_translation_box1").slideToggle();
+      });
+
+      $("#start_new_translation").click( function() {
+          var target_lang_code = $("#target_language_span > select").val();
+          var translate_url_tmpl = '{% url translate_resource resource.project.slug resource.slug 111111111 %}'
+
+          if ( target_lang_code != "" ) {
+              window.location = translate_url_tmpl.replace('111111111', target_lang_code);
+          } else {
+              alert('{% trans "Please select a target language first."|escapejs %}');
+          }
+      });
+      {% endif %}
+
+      {% if is_maintainer %}
+      var resource_priority_cycle_url = '{% url cycle_resource_priority resource.project.slug resource.slug %}';
+      $("a.resource_priority_trigger").click(function(){
+          $(this).load(resource_priority_cycle_url, function(response, status, xhr) {
+              if (status == "error") {
+                  var msg = '{% trans "Sorry but there was an error: " %}';
+                  alert(msg + xhr.status + " " + xhr.statusText);
+              }
+          });
+      });
+      {% endif %}
+
+      var $target_language_select = $('select#id_button-target_language');
+      $target_language_select.addClass('chzn-select');
+      $('span#selectbutton-target_language').remove();
+      $target_language_select.chosen();
+      /* FIXME: Search input box appears wider than the parent element.*/
+      $("div#id_button-target_language_chzn").find('input[type="text"]').width('210px');
+
+      $(".stat_row").click(function() {
+        var lang_code = $(this).data('language');
+        var actions_url_tmpl = '{% url resource_actions resource.project.slug resource.slug 1111111111 %}';
+        var actions_url = actions_url_tmpl.replace('1111111111', lang_code)
+        $.facebox({ ajax: actions_url })
+      });
+    });
+</script>
+{% endblock %}
+
+{% block title %}
+{{ block.super }} |
+{% trans "Projects" %} |
+{{project}}
+{{resource}}
+{% endblock %}
+
+{% block body_class %}project_list{% endblock %}
+
+{% block header_menu %}{% endblock %}
+
+{% block project_header %}
+{{block.super}}
+<span>&nbsp;/&nbsp;</span>
+<span><a href="{% url project_resources project.slug %}">{% trans "Resources" %}</a></span>
+<span>&nbsp;/&nbsp;</span>
+<span>{{ resource.name }}</span>
+{% endblock%}
+
+{% block content_main %}
+  {% get_permission "project_perm.maintain" for request.user and resource.project as "is_maintainer" %}
+
+  <div class="obj_bigdetails ui-tabs-panel">
+ {% comment %}
+  <!--{% if resource.project.private %}
+  <span id="private_project_banner" class="ui-corner-all">
+    {% trans "Private project"%}
+    <img style="vertical-align:top" src="{% static "images/icons/lock.png" %}" title="Private project">
+  </span>
+  {% endif %}-->
+ {% endcomment %}
+
+
+<div id="resource_details">
+
+  <div class="separate-header notopmargin clearfix" style="margin-top:0;">
+  	<h3  class="sh-label">{% blocktrans %}Details{% endblocktrans %}</h3>
+  	{% if perms.projects.edit_resource or is_maintainer or request.user.is_superuser %}
+  	<div class="separate-buttons"><a class="i16 edit nude-button" href="{% url resource_edit project_slug=resource.project.slug resource_slug=resource.slug %}">{% trans "Edit resource" %}</a></div>
+  	{% endif %}
+	</div>
+
+
+  <dl class="definition clearfix">
+
+      <dt class="i16 stringnum">{% trans "Total strings:" %}</dt>
+      <dd>
+        {{ resource.total_entities|intcomma }}
+        <span class="words big_number">({{ resource.wordcount|intcomma }} {% trans "words" %})</span>
+      </dd>
+
+      <dt class="i16 accept_translation">{% trans "Status:" %}</dt>
+      <dd>
+        {% if resource.accept_translations %}
+            {% trans "Accepting translations" %}
+        {% else %}
+            {% trans "No translations accepted" %}
+        {% endif %}
+      </dd>
+
+    {% if resource.priority %}
+    {% with resource.priority.level as priority_level %}
+    {% with resource.priority.display_level as display_level %}
+    {% with priority_level|priority_image_path as priority_image %}
+      <dt class="i16 ruby">{% trans "Priority level:" %}</dt>
+      <dd>
+        {% if is_maintainer %}
+            <a class="resource_priority_trigger" style="cursor:pointer">
+            <img src="{% static priority_image %}" class="noborder" title="{{ display_level }}"/>
+            </a>
+        {% else %}
+            <img class="res_tipsy_enable" src="{% static priority_image %}" class="noborder" title="{{ display_level }}"/>
+        {% endif %}
+      </dd>
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+    {% endif %}
+    {% with resource.releases.all as releases %}
+    {% if releases %}
+
+       <dt class="i16 release">{% blocktrans count releases|length as counter %}Release:{% plural %}Releases:{% endblocktrans %}</dt>
+       <dd class="compact">
+         <ul class="links">
+            {% for release in releases %}
+                <li><a class="release" href="{% url release_detail project_slug=release.project.slug release_slug=release.slug %}">{{ release.full_name }}</a></li>
+            {% endfor %}
+        </ul>
+       </dd>
+
+    {% endif %}
+    {% endwith %}
+  </dl>
+</div>
+
+{% get_permission "project_perm.submit_translations" for request.user and resource.project,1 as "can_submit_translation" %}
+{% get_permission "project_perm.maintain" for request.user and resource.project as "is_maintainer" %}
+<div class="separate-header  clearfix">
+	<h3  class="sh-label">{% blocktrans with resource.available_languages|length as num_of_langs %}Available languages ({{ num_of_langs }}){% endblocktrans %}</h3>
+	{% if can_submit_translation and resource.accept_translations or is_maintainer %}
+  <div class="separate-buttons"><a id="new_translation1" class="i16 nude-button add tipsy_enable linkstyle" title="{% blocktrans %}If you cannot see your language, click the button below to translate( You must belong to a language team of this project, to be able to translate! ){% endblocktrans %}">{% trans "Add new translation" %}</a></div>
+	{% endif %}
+</div>
+
+
+<div class="list clear">
+
+
+{% if can_submit_translation and resource.accept_translations or is_maintainer %}
+<div id="new_translation_box1" class="no-display">
+{% upload_resource_translation_button request resource '' 'button-global' 'True' %}
+</div>
+{% endif %}
+
+
+<table class="stats-table tablesorter resdetail">
+  <thead>
+  <tr>
+    <th class="onlyarrow tableobject"></th>
+    <th class="onlyarrow tablecompletion"></th>
+    <th class="onlyarrow tablelastupd"></th>
+   </tr>
+  {% for stat in statslist %}
+  <tr class="stat_row" data-language="{{ stat.language.code }}">
+      {% cache 604800 resource_details_lang resource.project.slug resource.slug stat.language.code LANGUAGE_CODE %}
+      <td class="tableobject">
+        <span class="linkstyle tipsy_enable" title="language code: {{ stat.language.code }}"><strong>{{ stat.language.name }}</strong></span>
+        {% ifequal resource.source_language stat.language %}
+           <span style="color: #aaa;">{% trans "(source language)" %}</span>
+        {% endifequal %}
+
+        {% if stat.lock.valid %}
+          <img class="tipsy_enable bullet" src="{% static "images/icons/bullet_lock.png" %}" title="{% trans "Locked" %}"/>
+        {% endif %}
+      </td>
+      <td class="tablecompletion">
+	      {% with 200 as barwidth %}
+	        {% stats_bar_simple stat barwidth %}
+	      {% endwith %}
+      </td>
+      {% endcache %}
+      <td class="tablelastupd">
+      {% with stat.last_update as last_update %}
+        <span class="i16 table-update" style="border:0" unixdate="{{ last_update|date:'U' }}">
+        {% with stat.last_committer as last_committer %}
+        {% if last_update %}
+            {{ last_update|date:"M d, h:ia" }}
+        {% else %}
+            {% trans "no translations yet" %}
+        {% endif %}
+        {% endwith %}
+      </span>
+      {% endwith %}
+      </td>
+  </tr>
+  {% ifequal resource.source_language stat.language %}
+  </thead>
+  <tbody>
+  {% endifequal %}
+{% endfor %}
+  </tbody>
+</table>
+
+
+</div>
+
+</div>
+
+<div class="separate-header clearfix">
+	<h3  class="sh-label">{% trans 'History' %}</h3>
+</div>
+
+{% load tx_action_log %}
+{% recent_resource_log resource as action_log %}
+{% if not action_log %}
+<p class="i16 infomsg">{% trans 'No actions recorded yet :)' %}</p>
+{% else %}
+<ul class="actionlist nomargin">
+{% for entry in action_log %}
+	<li class="i16 {{entry.action_type}}">
+	    <p>{{ entry.message|safe }}</p>
+        <span class="timestamp">{{ entry.action_time|timesince }} ago</span>
+	</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}
+
+{% block content_footer %}
+  <div id="content_footer_center">
+
+  </div>
+{% endblock %}

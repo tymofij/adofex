@@ -1,0 +1,154 @@
+{% extends "projects/project_menu.html" %}
+{% load i18n %}
+{% load markup %}
+{% load addons %}
+{% load txcommontags %}
+{% load watches_tags %}
+{% load permissions %}
+{% load upload_manager_tags %}
+{% load tx_action_log %}
+{% load project_hub %}
+{% load project_tags %}
+
+{% block body_class %}{{ block.super }} project_detail{% endblock %}
+
+{% block extra_head %}
+{{ block.super }}
+<script type="text/javascript">
+  $(function(){
+    $("form.submit_form").hide();
+    $('#request-team-button').click(function() {
+      $("#request-team-form").slideToggle();
+     });
+    $(".tipsy_enable").tipsy({'html':true, 'gravity':'s'});
+   })
+</script>
+{% endblock %}
+
+{% block content_main %}
+{% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+
+  <div class="obj_bigdetails">
+
+  <div class="details clearfix">
+
+  <div class="separate-header notopmargin clearfix" style="margin-top:0;">
+  	<h3  class="sh-label">{% blocktrans %}Details{% endblocktrans %}</h3>
+  	{% if request.user.is_authenticated %}
+	    {% url notification.views.notices as notices_url %}
+	    {% if notices_url %}
+	      <div class="separate-buttons">
+
+	      	{% hook "project.html" sep_but %}
+	      </div>
+	    {% endif %}
+		{% endif %}
+	</div>
+
+
+
+  <dl class="definition clearfix">
+    {% if project.homepage %}
+      <dt class="homepage i16">{% trans "Homepage:" %}</dt>
+      <dd class="fadecontent"><a title="{% blocktrans with project.name as project_name %}Homepage for {{ project_name }}{% endblocktrans %}" href="{{ project.homepage }}" target="_blank" >{{ project.homepage }}</a></dd>
+
+    {% endif %}
+
+    {% if project.tags %}
+      	<dt class="i16 tag">{% trans "Tags:" %}</dt>
+      	<dd class="compact fadecontent hideover">
+        {% for tag in project.tagsobj.all|slice:"0:6" %}<a class="tag" href="{% url project_tag_list tag=tag.url_name %}">{{ tag }}</a> {% endfor %}
+	      </dd>
+    {% endif %}
+
+    {% if project.bug_tracker %}
+      <dt class="bug i16">{% trans "Bug tracker:" %}</dt>
+      <dd class="hideover fadecontent"><a title="{% blocktrans with project.name as project_name %}Bug tracker for {{ project_name }}{% endblocktrans %}" href="{{ project.bug_tracker }}" target="_blank" >{{ project.bug_tracker }}</a></dd>
+    {% endif %}
+
+    {% with project.trans_instructions as instructions_url %}
+    {% if instructions_url %}
+      <dt class="file i16">{% trans "Documentation:" %}</dt>
+      <dd class="fadecontent"><a title="{% trans "Documentation of the translation procedure of this project" %}" href="{{ instructions_url }}" target="_blank">{% trans "Translation help pages" %}</a></dd>
+    {% endif %}
+    {% endwith %}
+
+    {% hook "additional_project_details.html" %}
+
+    {% if maintainers %}
+	      <dt class="i16 maintainer">{% blocktrans count maintainers|length as counter %}Maintainer:{% plural %}Maintainers:{% endblocktrans %}</dt>
+	      <dd>
+	        {% for m in maintainers %}
+	        <div class="maintainer-detail">
+	          <img class="border" width="16" height="16" src="{{ m.profile.get_mugshot_url }}" style="vertical-align:middle"/>
+	          <a href="{% url profile_public m.username %}">{{m.username}}</a>
+	        </div>
+	        {% endfor %}
+	      </dd>
+    {% endif %}
+
+</dl>
+
+  {% with project.long_description_html as long_desc %}
+  {% if long_desc %}
+  <div class="long_description">
+    {{ long_desc|truncatewords_html:"100"|safe }}
+  </div>
+  {% endif %}
+  {% endwith %}
+
+</div>
+
+{% with project.hub_requests.all as hub_requests %}
+{% if hub_requests and is_maintainer %}
+<p class="i16 infomsg">
+  {% trans "Projects have requested to outsource access" %} <a href="{% url project_hub_projects project.slug %}">View requests &raquo;</a>
+</p>
+{%endif%}
+{% endwith %}
+
+{% include "projects/project_detail_languages.html" %}
+
+{% include "projects/release_list.html" %}
+
+</div>
+
+<div id="project-history">
+
+	<div class="separate-header clearfix">
+  	<h3  class="sh-label notopmargin">{% trans 'History' %}</h3>
+		<div class="separate-buttons">
+		{% if request.user.is_authenticated %}
+			{% url notification.views.notices as notices_url %}
+			{% if notices_url %}
+				<a class="nude-button">{% watch_toggle project %}</a>
+			{% endif %}
+		{% endif %}
+		<a class="i16 feed nude-button" href="{% url timeline_feed project.slug %}" title="{% trans 'Timeline feed for this project' %}">{% trans "Subscribe to feed" %}</a>
+
+		</div>
+	</div>
+
+	{% recent_project_log project as action_log %}
+	{% if not action_log %}
+	<p class="i16 infomsg">{% trans 'No history recorded yet.' %}</p>
+	{% else %}
+	<ul class="actionlist nomargin">
+	{% for entry in action_log %}
+	<li class="i16 {{entry.action_type}}">
+	    <p>{{ entry.message|safe }}</p>
+        <span class="timestamp">{{ entry.action_time|timesince }} ago</span>
+	</li>
+	{% endfor %}
+	</ul>
+	{% hook "project.html" overview %}
+	{% endif %}
+</div>
+
+{% endblock %}
+
+{% block content_footer %}
+<div id="content_footer_center">
+</div>
+
+{% endblock %}

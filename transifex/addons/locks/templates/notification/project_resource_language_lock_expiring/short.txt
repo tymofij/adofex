@@ -1,0 +1,1 @@
+Your lock for {{ resource }} in {{ language }} is about to expire

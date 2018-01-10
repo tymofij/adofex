@@ -1,0 +1,37 @@
+{% extends "projects/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }} |
+{% url resource_detail resource.project.slug resource.slug %} |
+{% blocktrans with resource.name as resource_name and language.name as language_name %}
+  Delete translations for {{ language_name }} of {{ resource_name }} resource.
+{% endblocktrans %}
+{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo;
+<a href="{% url project_detail resource.project.slug %}">{{ resource.project.name }}</a> &raquo;
+<a href="{% url resource_detail resource.project.slug resource.slug %}">{{ resource.name }}</a> &raquo;
+{% blocktrans with resource.name as resource_name and language.name as language_name %}
+Delete <em>{{ language_name }}</em>
+{% endblocktrans %}
+{% endblock %}
+
+{% block content_title %}
+    <h2 class="pagetitle">{% blocktrans with resource.name as resource_name and language.name as language_name %}Say goodbye to all translations for <em>{{ language_name }}</em>?{% endblocktrans %}</h2>
+{% endblock %}
+
+{% block content_main %}
+
+<p>{% blocktrans with resource.name as resource_name and language.name as language_name %}
+  Are you sure you want to permanently delete the translations for '{{ language_name }}' of '{{ resource_name}}'?
+{% endblocktrans %}</p>
+
+  <form action="{% url resource_translations_delete resource.project.slug resource.slug language.code %}" method="post">{% csrf_token %}
+    <input type="submit" class="i16 submit buttonized" value="{% trans "Yes, I am sure!" %}" />
+  </form>
+
+{% endblock %}
+
+{% block content_footer %}
+
+{% endblock %}

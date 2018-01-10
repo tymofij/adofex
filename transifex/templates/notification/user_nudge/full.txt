@@ -1,0 +1,4 @@
+{% load i18n %}{% url profile_public performer as performer_url %}
+{% blocktrans %}The user '{{ performer }}' has nudged you.{% endblocktrans %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{ performer_url }} in order to see the {{performer}}'s profile page.{% endblocktrans %}

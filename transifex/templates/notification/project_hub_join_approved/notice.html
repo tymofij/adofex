@@ -1,0 +1,3 @@
+{% load i18n %}{% with hub_request.project.name as project_name %}{% url project_detail hub_request.project.slug as project_url %}{% with hub_request.project_hub.name as project_hub_name %}{% url project_detail hub_request.project_hub.slug as project_hub_url %}
+{% blocktrans %}The project <a href="{{ project_url }}">{{ project_name }}</a> had its <span class="notice_action">request</span> to join and outsource access to the <a href="{{ project_hub_url }}">{{ project_hub_name }} </a> project hub <span class="notice_action">approved</span>{% endblocktrans %}
+{% endwith %}{% endwith %}

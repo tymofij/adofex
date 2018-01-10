@@ -1,0 +1,31 @@
+[
+  {
+    "pk": 1,
+    "model": "cla.cla",
+    "fields": {
+      "project": 10,
+      "created_at": "2011-08-18 12:30:54",
+      "modified_at": "2011-08-18 12:30:54",
+      "license_text": "aa"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "cla.cla",
+    "fields": {
+      "project": 1,
+      "created_at": "2011-08-19 10:54:13",
+      "modified_at": "2011-08-19 10:54:13",
+      "license_text": "====================================\r\nContributor Agreement \r\n====================================\r\n\r\nThese terms apply to your contribution of materials to a product or project\r\nowned or managed by us ('project'), and set out the intellectual property\r\nrights you grant to us in the contributed materials. If this\r\ncontribution is on behalf of a company, the term 'you' will also mean the\r\ncompany you identify below. If you agree to be bound by these terms, fill in\r\nthe information requested below and provide your signature. \r\n\r\nRead this agreement carefully before signing. \r\n\r\n1. The term 'contribution' means any source code, object code, patch, tool,\r\n   sample, graphic, specification, manual, documentation, or any other material\r\n   posted or submitted by you to a project. \r\n\r\n2. With respect to any worldwide copyrights, or copyright applications and\r\n   registrations, in your contribution:\r\n   \r\n   - you hereby assign to us joint ownership, and to the extent that such\r\n     assignment is or becomes invalid, ineffective or unenforceable, you ...\r\n\r\nPlease fill in the following fields::\r\n\r\n    Your username(s):                     _______________________\r\n    Name(s) of Project(s) or website(s):  _______________________\r\n\r\nYour contact information (please print clearly)::\r\n\r\n  Your name:                            _______________________\r\n  Your company's name (if applicable): \t_______________________\r\n  Mailing address:                      _______________________\r\n  Telephone, Fax and Email:             _______________________\r\n                                        _______________________\r\n\r\n\r\n  Your signature:                       _______________________\r\n  Date:                                 _______________________\r\n\r\n"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "cla.clasignature",
+    "fields": {
+      "created_at": "2011-08-19 10:54:41",
+      "user": 1,
+      "cla": 2
+    }
+  }
+]

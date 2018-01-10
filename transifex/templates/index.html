@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load txcommontags %}
+
+{% block body_class %}index{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block extracss %}
+<style>
+div#content{padding-top:1em;}
+#header_menu{margin:0;}
+#intro .promo{
+	font-family: "Georgia", serif;
+	padding:1em 1em 0 1em;
+	background:transparent url({% static "images/icons/quote-open.png" %}) 0 0 no-repeat; font-size:130%;}
+#ip-bottom-quote {
+	display:block;
+	height:1em;
+	background:transparent url({% static "images/icons/quote-close.png" %}) 98% 0 no-repeat;}
+}
+</style>
+{% endblock%}
+
+{% block content_title %}
+  <h2 class="pagetitle">{% trans "Welcome to Transifex" %}</h2>
+{% endblock %}
+
+{% block content_main %}
+
+
+<div id="intro" class="grid_8">
+  <p class="promo">{% trans "Transifex is a service aimed at helping translators keep track of their favorite translation projects." %}</p>
+  <span id="ip-bottom-quote"></span>
+  <div class="searchform content_header_prim">
+    {% url project_list as project_list %}
+  </div>
+<div id="top_lists">{% include "projects/project_latests.html" %}
+
+{% blocktrans %}You could also browse through <a href="{{ project_list }}">all projects</a>.{% endblocktrans %}
+
+</div>
+</div>
+{% if not request.user.is_authenticated %}
+<div id="login_index" class="grid_3">
+  <div>
+  {% include "simpleauth/login_box.html" %}
+  </div>
+</div>
+{% endif %}
+<div id="clear"></div>
+{% endblock %}

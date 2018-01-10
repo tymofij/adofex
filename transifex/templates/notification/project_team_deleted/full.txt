@@ -1,0 +1,5 @@
+{% load i18n %}{% url team_list team.project.slug as team_url %}{% with team.language.name as team_name %}{% with team.project.name as project_name %}
+{% blocktrans %}The translation team called '{{ team_name }}' was deleted from the '{{ project_name }}' project.{% endblocktrans %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{team_url}} in order to see the teams list of the project.{% endblocktrans %}
+{% endwith %}{% endwith %}

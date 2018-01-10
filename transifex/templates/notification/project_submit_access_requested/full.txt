@@ -1,0 +1,4 @@
+{% load i18n %}{% url project_add_permission project_slug=project.slug as project_url %}
+{% blocktrans %}The user {{user_request}} has requested access to submit translations to the project {{ project }}.{% endblocktrans %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{project_url}} in order to manage the project access.{% endblocktrans %}

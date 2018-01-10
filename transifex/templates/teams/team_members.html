@@ -1,0 +1,172 @@
+{% extends "teams/team_menu.html" %}
+{% load i18n %}
+{% load cache %}
+{% load pagination_tags %}
+{% load txcommontags %}
+{% load permissions %}
+{% load txpermissions %}
+{% load addons %}
+{% load statistics_resources %}
+
+{% block title %}{{ block.super }} | {{ project.name }}{% endblock %}
+
+{% block project_header %}
+{{block.super}}<span>&nbsp;/&nbsp;</span>
+<span>{% blocktrans %}Members{% endblocktrans %}</span>
+{% endblock%}
+
+{% block content_main %}
+{% get_permission "project_perm.submit_translations" for request.user and team as "can_submit_translations" %}
+{% get_permission "project_perm.coordinate_team" for request.user and project,language as "is_coordinator" %}
+
+<div class="obj_bigdetails">
+
+<div class="datalist clearfix">
+	{% with team.coordinators.all as coordinators %}
+	{% if coordinators %}
+	  <div class="separate-header notopmargin clearfix">
+	  	<h3 class="sh-label">{% trans "Coordinators" %}</h3>
+	  </div>
+
+	  <ul class="nomargin">
+	    {% for c in coordinators|slice:"0:6" %}
+	    <li>
+	    	<div class="tt-details">
+	        <img class="border" width="16" height="16" src="{{ c.profile.get_mugshot_url }}" style="vertical-align:middle"/>            
+	          {% if c.first_name or c.last_name %}
+	            <span class="fullname">({{ c.first_name }} {{ c.last_name }})</span>
+	          {% endif %}
+	          <a href="{% url profile_public c.username %}">{{ c.username }}</a>
+	  		</div>
+	    </li>
+	    {% endfor %}
+	  </ul>
+	{% endif %}
+	{% endwith %}
+</div>
+
+{% if team_access_requests %}
+<div class="datalist clearfix">
+
+  <div class="separate-header clearfix">
+  	<h3  class="sh-label">{% trans "Waiting for approval" %}</h3>
+	</div>
+	
+  <ul class="nomargin">
+  {% for access_request in team_access_requests|dictsort:"user.username" %}
+    <li>
+      <div class="tt-details">
+        <img class="border" width="16" height="16" src="{{ access_request.user.profile.get_mugshot_url }}" style="vertical-align:middle"/>
+        {% with access_request.user as u %}
+    	  {% if u.first_name or u.last_name %}
+        	<span class="fullname">({{ u.first_name }} {{ u.last_name }})</span>
+        {% endif %}
+        <a href="{% url profile_public access_request.user.username %}">{{ u.username }}</a>
+        {% endwith %}
+      </div>
+
+      {% if is_coordinator %}
+      <form class="microform" method="post" action="{% url team_join_approve access_request.team.project.slug access_request.team.language.code access_request.user.username %}">{% csrf_token %}
+        <input name="team_join_approve" class="i16 submit buttonized blist" type="submit" value="{% trans "Approve" %}"/>
+      </form>
+
+      <form class="microform" method="post" action="{% url team_join_deny access_request.team.project.slug access_request.team.language.code access_request.user.username %}">{% csrf_token %}
+        <input name="team_join_deny" class="i16 delete buttonized blist" type="submit" value="{% trans "Deny" %}"/>
+      </form>
+      {% endif %}
+      
+      {% ifequal request.user.pk access_request.user.pk %}
+      <form class="microform" method="post" action="{% url team_join_withdraw access_request.team.project.slug access_request.team.language.code %}">{% csrf_token %}
+        <input name="team_join_withdraw" class="i16 delete buttonized blist" type="submit" value="{% trans "Withdraw" %}"/>
+      </form>
+      {% endifequal %}
+    </li>
+  {% endfor %}
+  </ul>
+
+</div>
+{% endif %}
+
+
+{% with team.members.all as members %}
+<div class="datalist">
+
+  <div class="separate-header clearfix">
+  	<h3 class="sh-label">{% trans "Translators" %}</h3>
+	</div>
+
+  {% if members %}
+  <ul class="nomargin">
+  {% for m in members|dictsort:"username" %}
+    <li>
+      <div class="tt-details">
+        <img class="border" width="16" height="16" src="{{ m.profile.get_mugshot_url }}" style="vertical-align:middle"/>
+    		{% if m.first_name or m.last_name %}
+    			<span class="fullname">({{ m.first_name }} {{ m.last_name }})</span>
+    		{% endif %}
+        <a href="{% url profile_public m.username %}">{{ m }}</a>
+      </div>
+
+      {% ifequal request.user.pk m.pk %}
+      <form class="microform" method="post" action="{% url team_leave project.slug language.code %}">{% csrf_token %}
+          <input name="team_leave" class="i16 buttonized blist user_delete" type="submit" value="{% trans "Leave" %}"/>
+      </form>
+      {% endifequal %}
+
+    </li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  {% url connect_people as url_connect %}  
+  <p class="i16 infomsg">{% blocktrans %} Translators can help you speed up the localization process. <a href="{{url_connect }}" title="Explore our community" >Connect with them&nbsp;&raquo;</a> {% endblocktrans %}</p>
+  {% endif %}
+  
+</div>
+
+{% endwith %}
+
+
+{% with team.reviewers.all as reviewers %}
+<div class="datalist">
+
+  <div class="separate-header clearfix">
+  	<h3  class="sh-label">{% trans "Reviewers" %}</h3>
+	</div>
+
+  {% if reviewers %}
+  <ul>
+  {% for r in reviewers|dictsort:"username" %}
+    <li>
+      <div class="tt-details">
+        <img class="border" width="16" height="16" src="{{ m.profile.get_mugshot_url }}" style="vertical-align:middle"/>
+    		{% if r.first_name or r.last_name %}
+    			<span class="fullname">({{ r.first_name }} {{ r.last_name }})</span>
+    		{% endif %}
+        <a href="{% url profile_public r.username %}">{{ r }}</a>
+      </div>
+
+      {% ifequal request.user.pk r.pk %}
+      <form class="microform" method="post" action="{% url team_leave project.slug language.code %}">{% csrf_token %}
+          <input name="team_leave" class="i16 buttonized blist user_delete" type="submit" value="{% trans "Leave" %}"/>
+      </form>
+      {% endifequal %}
+
+    </li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p class="i16 infomsg">{% trans "Reviewers improve the quality of your translations. How about adding some?" %}</p>
+  {% endif %}
+  
+</div>
+
+{% endwith %}
+
+
+</div>
+{% endblock %}
+
+
+{% block content_footer %}
+<div id="content_footer_center"></div>
+{% endblock %}

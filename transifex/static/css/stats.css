@@ -1,0 +1,279 @@
+/* Stats graphs style 1 */
+
+table.stats {
+  /*width: 100%;*/
+  font-size: 100%;
+}
+
+.stats th { 
+  text-align: left; 
+  background: gray;
+  color: white;
+  padding: 0.1em 0.5em;
+}
+
+.stats td { 
+  background: #f5f5f5; 
+  text-align: center;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-size: 100%;
+}
+
+.stats td.left { 
+  text-align: left;
+}
+
+
+div.graph {
+  height: 16px;
+  border: none; 
+  position: relative;
+  float: left;
+}
+
+div.stats_string{
+  float: left;
+  text-align: left;
+  padding-left: 0.3em;
+  padding-top: 0.2em;
+  /*position: absolute;*/
+  font-size: 75%;
+  font-weight: bold;
+}
+
+div.translated {
+  position: absolute; 
+  top: 0px;
+  height:100%; 
+  left: 0%; 
+  background: #72d774;
+  background: url('../images/icons/stats/green-bar.png') 0 50%;
+  background-repeat: repeat-x;
+}
+
+div.goodchange {
+  position: absolute; 
+  top: 0px;
+  height:100%; 
+  background: #55DD55;
+  background: url('../images/icons/stats/cyan-bar.png') 0 50%;
+  background-repeat: repeat-x;
+}
+
+div.fuzzy {
+  position: absolute; 
+  top: 0px;
+  height:100%; 
+  background: #c9ddff;
+  background: url('../images/icons/stats/purple-bar.png') 0 50%;
+  background-repeat: repeat-x;
+}
+
+div.untranslated {
+  position: absolute; 
+  height:100%; 
+  top: 0px;
+  background: #ffa5a5;
+  background: url('../images/icons/stats/red-bar.png') 0 50%;
+  background-repeat: repeat-x;
+}
+
+
+/* Stats graphs style 2 */
+
+table.stats_comp {
+  font-size: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+table.stats_comp_source {
+  margin: 0;
+}
+
+
+.stats_comp a {
+  border-bottom: none;
+}
+
+.stats_comp a:hover {
+  color: #041E37;
+}
+
+.stats_comp th { 
+  text-align: left; 
+  padding: 0.3em 0.3em;
+  font-size: 95%;
+  border-bottom: 3px solid #E3EAEE;
+  color: #444;;
+  background-color: #f5f5f5;
+}
+
+.stats_comp td {
+  text-align: center;
+  font-size: 100%;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1.8em;
+  border-bottom: 1px solid #E3EAEE;
+  height: 24px;
+}
+
+.stats_comp td.left { 
+  text-align: left;
+}
+
+.stats_comp td.name {
+  padding-left: 0.3em;
+  padding-right: 0.5em;
+  font-size: 90%;
+  color: #666666;
+}
+
+.stats_comp td.actions {
+  padding-left: 0.8em;
+}
+
+div.graph_comp {
+  position: relative;
+  z-index: 1;
+  height: 20px;
+  margin: 0px;
+  padding: 0px;
+  border-left: 1px solid #ddd;
+  margin-right: 1px; /* Due to the right border of div.untranslated_comp */
+}
+
+div.stats_string_comp{
+  position: absolute; 
+  z-index: 2;
+  text-align: left;
+  padding-left: 0.8em; 
+  font-size: 80%;
+  color: #69916a;
+  height: 22px;
+  line-height: 22px;
+}
+
+div.translated_comp {
+  position: absolute;
+  height:100%;
+  left: 0%; 
+  background: #80b66a;
+  background-repeat: repeat-x;
+    -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; 
+}
+
+ 
+div.fuzzy_comp {
+  position: absolute;
+  height:100%; 
+  background: #dae1ee;
+  background-repeat: repeat-x;
+  border-right: 1px solid #d0d6e1;
+}
+
+div.untranslated_comp {
+  position: absolute;
+  height:100%; 
+  display: inline;
+  background-repeat: repeat-x;
+}
+
+span.stat_message{
+  font-size: 90%;
+  color: gray;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+.nodecoration_icon, .nodecoration_icon:hover { /* These classes need cleanup */
+  text-decoration: none;
+  border: none !important;
+  padding-left: 16px !important;
+  margin-left: 5px;
+}
+
+input.nodecoration_icon,
+input.nodecoration_icon:hover { /* Not sure why this is needed. */
+  margin-left: 0;
+  padding-left: 16px !important;
+}
+
+/* Stats graphs style 3 (SL) */
+
+table.stat_table_font {
+  text-align:left;
+  color:#444;
+  font-size:0.923em;
+  font-weight:normal;
+}
+
+table.stat_table_font td{
+  height:30px;
+}
+
+div.graph_resource {
+  position: relative;
+  z-index: 1;
+  height: 12px;
+  margin: 0px;
+  padding: 0px;
+  margin-right: 1px; /* Due to the right border of div.untranslated_comp */
+  background-color: #eee;
+  -moz-box-shadow:    inset 1px 1px 5px #ddd;
+  -webkit-box-shadow: inset 1px 1px 5px #ddd;
+  box-shadow:         inset 1px 1px 5px #ddd;
+   -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; 
+}
+
+div.stats_string_resource{
+  float:right;
+  z-index: 2;
+  padding-left: 0.8em; 
+  font-size: 0.923em;
+  color: #69916a;
+  height: 12px;
+  line-height: 12px;
+}
+
+div.graph_resource_actions {
+  position: relative;
+  z-index: 1;
+  height: 26px;
+  margin: 0px;
+  padding: 0px;
+  background-color: #eee;
+  margin-right: 1px; /* Due to the right border of div.untranslated_comp */
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;  
+  -moz-box-shadow:    inset 1px 1px 5px #ccc;
+  -webkit-box-shadow: inset 1px 1px 5px #ccc;
+  box-shadow:         inset 1px 1px 5px #ccc;
+}
+
+div.stats_string_resource_actions{
+  float:right;
+  z-index: 2;
+  padding-left: 0.8em; 
+  font-size: 140%;
+  color: #69916a;
+  height: 22px;
+  line-height: 22px;
+	padding-top: 3px;
+}
+
+div.team-statbar{margin-bottom: 1em;}
+div.team-statbar .graph_resource{
+height: 18px;
+}
+
+div.team-statbar .stats_string_resource{
+font-size: 1.4em;line-height: 1em;margin-left: 1.2em;letter-spacing: -1px;
+}

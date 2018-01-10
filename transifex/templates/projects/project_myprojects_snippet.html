@@ -1,0 +1,180 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load humanize %}
+{% load tx_action_log %}
+{% load watches_tags %}
+{% load locks_tags %}
+{% load helptext_tags %}
+{% load truncate %}
+{% load project_tags %}
+{% load statistics_resources %}
+
+{% if user.is_authenticated %}
+{% with 480 as barwidth %}
+<div id="my_projects">
+        {% if maintain_projects %}
+        <h3>{% trans "YOUR PROJECTS" %}</h3>
+	        <div class="panel-area">
+
+        	<h4><p style="margin-right:12em;">{% blocktrans with maintain_projects|length|apnumber as num_of_projects count maintain_projects|length as counter %}Maintaining {{ num_of_projects }} project{% plural %}Maintaining {{ num_of_projects }} projects{% endblocktrans %}</p></h4>
+            <div id="dashboard_projects">
+          	<ul>
+            {% for mproject in maintain_projects %}
+                {% with mproject.slug as project_slug %}
+
+                <li id="{{ project_slug }}" class="{% ifequal mproject.owner user %}owner{% endifequal %} cpanel-entry">
+
+                <a href="{% url project_detail project_slug %}">{{ mproject }}</a>
+                {% if mproject.private %}
+                <img class="icon_private tipsy_enable lock" title='{% trans "This is a \"Private\" project. Private projects are accessible by specific users in Transifex." %}' src="{% static "images/icons/bullet_lock.png" %}" style="border:0;">
+                {% endif %}
+
+                    <span class="attributes" style="float:right;">
+                   {% comment %} {% ifequal mproject.owner user %}
+                    <img class="icon_owner tipsy_enable explain" title='{% trans "You are the \"Owner\" of the project." %}' src="{% static "images/icons/bkey.png" %}" style="border:0">
+                    {% endifequal %}{% endcomment %}
+                    <a href="{% url project_edit mproject.slug %}">{% trans "Edit" %}</a>
+                    </span>
+                    {% endwith %}
+
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+
+        <h4 class="empty-panel"><p>{% trans "Maintaining no projects yet" %}</p>
+        </h4>
+            <div >
+        {% endif %}
+        </div>
+
+        {% if locks %}
+        <h4><p>{% blocktrans with locks|length|apnumber as num_of_locks count locks|length as counter %}Actively translating <cite>{{ num_of_locks }}</cite> resource{% plural %}Actively translating <cite>{{ num_of_locks }}</cite> resources{% endblocktrans %}</p></h4>
+        	<div>
+            <ul>
+            {% for lock in locks %}
+
+                <li id="trans_{{ lock.rlstats.resource.id }}_{{ lock.rlstats.language.code }}" class="cpanel-entry">
+
+                    <a href="{% url project_detail lock.rlstats.resource.project.slug %}">{{ lock.rlstats.resource.project.name }}</a> /
+                    <a href="{% url resource_detail lock.rlstats.resource.project.slug lock.rlstats.resource.slug %}">
+                    {{ lock.rlstats.resource.name|truncate_chars:"30" }}</a> / {{ lock.rlstats.language.name|truncate_chars:"20" }}
+                    <a href="{% url resource_actions lock.rlstats.resource.project.slug lock.rlstats.resource.slug lock.rlstats.language.code %}" id="detail_{{ forloop.counter }}" style="float:right;margin-right:2px;">
+                         {% trans "Details" %}
+                    </a>
+                    {% stats_bar_simple lock.rlstats barwidth %}
+                  	<script type="text/javascript">
+								      jQuery(document).ready(function($) {
+								        $("#detail_{{forloop.counter}}").facebox({ ajax: '{% url resource_actions lock.rlstats.resource.project.slug lock.rlstats.resource.slug lock.rlstats.language.code %}'});
+											})
+								    </script>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+
+        <h4 class="empty-panel"><p>{% trans "Not translating any resource right now" %}</p></h4>
+        <div>
+
+        {% endif %}
+        </p>
+        </div>
+        </div>
+
+        <h3>{% trans "YOUR TRANSLATION TEAMS" %}</h3>
+
+        <div class="panel-area">
+
+        {% if coordinator_teams %}
+        <h4><p>{% blocktrans with coordinator_teams|length|apnumber as num_of_teams count coordinator_teams|length as counter %}Coordinating {{ num_of_teams }} team{% plural %}Coordinating {{ num_of_teams }} teams{% endblocktrans %}</p></h4>
+        <div>
+
+            <ul>
+            {% for team in coordinator_teams|dictsort:"language.name" %}
+                <li class="cpanel-entry">
+                <a href="{% url project_detail team.project.slug %}">{{ team.project.name }}</a> /
+                <a href="{% url team_detail team.project.slug team.language.code %}">{{ team.language.name }}</a>
+                <span style="float:right">
+                    <a href="{% url team_update team.project.slug team.language.code %}">
+                      {% trans "Edit" %}
+                    </a>
+                </span>
+                {% progress_for_project team.project team.language.code barwidth %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+        <h4 class="empty-panel"><p>{% blocktrans %}Coordinating no teams {% endblocktrans %}</p></h4>
+        <div>
+        {% endif %}
+        </div>
+
+        {% if member_teams %}
+        <h4><p>{% blocktrans with member_teams|length|apnumber as num_of_teams count member_teams|length as counter %}Member of {{ num_of_teams }} team{% plural %}Member of {{ num_of_teams }} teams{% endblocktrans %}</p></h4>
+        <div>
+            <ul>
+            {% for team in member_teams|dictsort:"language.name" %}
+                <li class="cpanel-entry">
+                <a href="{% url project_detail team.project.slug %}">{{ team.project.name }}</a> /
+                <a href="{% url team_detail team.project.slug team.language.code %}">{{ team.language.name }}</a>
+<!--                  <form style="float:right;diplay:inline" method="post" action="{% url team_leave team.project.slug team.language.code %}">{% csrf_token %}
+                    <input name="team_leave" class="leave_team" type="submit" value="{% trans 'Leave' %}" title="Leave team"/>
+                </form>
+ -->                {% progress_for_project team.project team.language.code barwidth %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+             <h4 class="empty-panel"><p>{% trans "Not participating in any team so far" %}</p></h4>
+        <div>
+        {% endif %}
+        </div>
+    </div>
+
+        <h3>{% trans "YOUR WATCHES" %}</h3>
+        <div class="panel-area">
+
+		        {% if watched_projects %}
+		         <h4><p>{% blocktrans with watched_projects|length|apnumber as num_of_projects count watched_projects|length as counter %}Watching {{ num_of_projects }} project{% plural %}Watching {{ num_of_projects }} projects{% endblocktrans %}</p></h4>
+            	 <div>
+		            <ul>
+		            {% for wproject in watched_projects %}
+		                <li class="cpanel-entry">
+		                <a href="{% url project_detail wproject.slug %}">{{ wproject }}</a>
+		                <span style="float:right">{% watch_toggle wproject %}</span>
+		                </li>
+		            {% endfor %}
+		            </ul>
+		        {% else %}
+		            <h4 class="empty-panel"><p>{% trans "Not watching any project" %}</p></h4>
+	        		<div>
+		        {% endif %}
+	        </div>
+
+	        {% if watched_resource_translations %}
+	        <h4><p>{% blocktrans with watched_resource_translations|length|apnumber as num_of_resources count watched_resource_translations|length as counter %}Watching {{ num_of_resources }} resource translation{% plural %}Watching {{ num_of_resources }} resource translations{% endblocktrans %}</p></h4>
+            <div>
+	            <ul>
+	            {% for wtr in watched_resource_translations %}
+	                <li class="cpanel-entry">
+	                <a href="{% url resource_detail wtr.resource.project.slug wtr.resource.slug  %}">
+	                {{ wtr.resource.name|truncate_chars:"30" }} </a> &raquo; {{ wtr.language.name|truncate_chars:"20" }}
+	                <span style="float:right">
+	                    {% watch_toggle wtr.resource wtr.language %}
+	                </span>
+	                </li>
+	            {% endfor %}
+	            </ul>
+	        {% else %}
+	            <h4 class="empty-panel"><p>{% trans "Not watching any resource translation" %}</p></h4>
+	        <div>
+	        {% endif %}
+	        </div>
+
+        </div>
+
+         </div>
+</div>
+{% endwith %}
+{% endif %}
+

@@ -1,0 +1,622 @@
+/*
+ *  File:         demo_table.css
+ *  CVS:          $Id$
+ *  Description:  CSS descriptions for DataTables demo pages
+ *  Author:       Allan Jardine
+ *  Created:      Tue May 12 06:47:22 BST 2009
+ *  Modified:     $Date$ by $Author$
+ *  Language:     CSS
+ *  Project:      DataTables
+ *
+ *  Copyright 2009 Allan Jardine. All Rights Reserved.
+ *
+ * ***************************************************************************
+ * DESCRIPTION
+ *
+ * The styles given here are suitable for the demos that are used with the standard DataTables
+ * distribution (see www.datatables.net). You will most likely wish to modify these styles to
+ * meet the layout requirements of your site.
+ *
+ * Common issues:
+ *   'full_numbers' pagination - I use an extra selector on the body tag to ensure that there is
+ *     no conflict between the two pagination types. If you want to use full_numbers pagination
+ *     ensure that you either have "example_alt_pagination" as a body class name, or better yet,
+ *     modify that selector.
+ *   Note that the path used for Images is relative. All images are by default located in
+ *     ../images/ - relative to this CSS file.
+ */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables features
+ */
+
+.dataTables_wrapper {
+	min-height: 302px;
+	height: 100%;
+	clear: both;
+	_height: 302px;
+	zoom: 1; /* Feeling sorry for IE */
+}
+
+.dataTables_processing {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 250px;
+	height: 30px;
+	margin-left: -125px;
+	margin-top: -15px;
+	padding: 14px 0 2px 0;
+/*	border: 1px solid #ddd; */
+	text-align: center;
+	color: #999;
+	font-size: 14px;
+	background-color: white;
+}
+
+.dataTables_length {
+	width: 40%;
+	float: left;
+}
+
+.dataTables_filter {
+	width: 24%;
+	float: right;
+	text-align: right;
+	font-size: 1.077em;
+}
+
+.dataTables_filter input{
+    font-size: inherit;
+    height: 20px;
+    vertical-align: middle;
+    padding-top: 4px;
+    background-image: url('../images/magnify.png');
+    background-position:5px center;
+    background-repeat:no-repeat;
+    padding-left: 24px;
+    border-radius:20px; 
+    -moz-border-radius:20px;
+    height: 16px;
+    box-shadow: inset 0px 1px 2px rgba(0,0,0,0.1);
+}
+
+.dataTables_info {
+	width: 30%;
+	float: left;
+	color: #666;
+	font-size: 1.077em;
+}
+
+
+.dataTables_paginate {
+	width: 44px;
+	* width: 50px;
+	float: right;
+	text-align: right;
+}
+
+/* Pagination nested */
+.paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next {
+	height: 19px;
+	width: 19px;
+	margin-left: 3px;
+	float: left;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables display
+ */
+table.display {
+	margin: 0 auto;
+	width: 100%;
+	clear: both;
+}
+
+table.display thead th {
+	padding: 3px 18px 3px 10px;
+	border-bottom: 1px solid black;
+	font-weight: bold;
+	cursor: pointer;
+	* cursor: hand;
+}
+
+table.display tfoot th {
+	padding: 3px 10px;
+	border-top: 1px solid black;
+	font-weight: bold;
+}
+
+table.display tr.heading2 td {
+	border-bottom: 1px solid #aaa;
+}
+
+table.display td {
+	padding: 3px 10px;
+}
+
+table.display td.center {
+	text-align: center;
+}
+
+table#stringset_table td.msg {
+  max-width: 250px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables sorting
+ */
+
+.sorting {
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+.sorting_asc_disabled {
+}
+
+.sorting_desc_disabled {
+}
+
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables row classes
+ */
+table.display tr.odd.gradeA {
+	background-color: #ddffdd;
+}
+
+table.display tr.even.gradeA {
+	background-color: #eeffee;
+}
+
+table.display tr.odd.gradeA {
+	background-color: #ddffdd;
+}
+
+table.display tr.even.gradeA {
+	background-color: #eeffee;
+}
+
+table.display tr.odd.gradeC {
+	background-color: #ddddff;
+}
+
+table.display tr.even.gradeC {
+	background-color: #eeeeff;
+}
+
+table.display tr.odd.gradeX {
+	background-color: #ffdddd;
+}
+
+table.display tr.even.gradeX {
+	background-color: #ffeeee;
+}
+
+table.display tr.odd.gradeU {
+	background-color: #ddd;
+}
+
+table.display tr.even.gradeU {
+	background-color: #eee;
+}
+
+
+.dataTables_wrapper table{
+  border-collapse: collapse;
+  height: 100%;
+}
+
+.dataTables_wrapper table tbody td{
+  padding-bottom: 0;
+  padding-top: 0;
+  min-height: 86px;
+  height: 100%;
+  overflow: visible; /* TODO: Discuss about this!*/
+}
+
+.dataTables_wrapper table tbody td.msg {
+  padding-top: 0.5em;
+/*    color: #3B5998;*/
+  color: #4F4F4F;
+  font-size: 12px;
+  padding-left: 1em;
+  overflow:hidden;
+  vertical-align:top;
+}
+
+.dataTables_wrapper table tbody tr.metatr td{
+  height: 100%;
+}
+
+.dataTables_wrapper table tbody td.trans{
+  position:relative;
+  padding-top:0.5em;
+}
+
+.dataTables_wrapper table tbody td textarea{
+  min-height: 70px;
+}
+
+
+/* unComment to put zebra style */
+/*
+tr.odd {
+	background-color: #F7F8F8;
+}
+
+tr.even {
+	background-color: white;
+}*/
+
+tr.metatr {
+    border-left: 1px solid #EEE;
+    border-right: 1px solid #EEE;
+}
+
+.dataTables_wrapper table tbody tr {
+  border-bottom: 3px solid #EEE;
+}
+
+thead tr th{
+    background-color:#F5F5F5;
+    border-bottom:3px solid #E3EAEE;
+    color:#444444;
+    line-height:1.8em;
+    text-align:left;
+    padding: 0.5em;
+}
+
+tbody td.notes{
+    text-align:center;
+    min-width:21px;
+    padding: 0;
+    margin: 0;
+    width:3%;
+
+}
+
+.dataTables_wrapper table tbody tr.odd:hover,
+.dataTables_wrapper table tbody tr.even:hover{
+  background-color: #f5faf5 !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Misc
+ */
+.top, .bottom {
+	padding:5px;
+/*	background-color: #F5F5F5;
+	border: 1px solid #CCCCCC; */
+}
+
+.top{padding-top: 20px;}
+.bottom{padding-bottom: 40px;}
+
+.top .dataTables_info {
+	float: left;
+	padding-top: 7px;
+}
+
+.clear {
+	clear: both;
+}
+
+.dataTables_empty {
+	text-align: center;
+}
+
+tfoot input {
+	margin: 0.5em 0;
+	width: 100%;
+	color: #444;
+}
+
+tfoot input.search_init {
+	color: #999;
+}
+
+td.group {
+	background-color: #d1cfd0;
+	border-bottom: 2px solid #A19B9E;
+	border-top: 2px solid #A19B9E;
+}
+
+td.details {
+	background-color: #d1cfd0;
+	border: 2px solid #A19B9E;
+}
+
+
+.example_alt_pagination div.dataTables_info {
+	width: 40%;
+}
+
+.paging_full_numbers {
+	width: 500px;
+	height: 30px;
+	line-height: 22px;
+}
+
+.paging_full_numbers span.paginate_button,
+ 	.paging_full_numbers span.paginate_active {
+	border: 1px solid #ccc;
+	border-radius: 1px;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	padding: 2px 5px;
+	margin: 0 3px;
+	cursor: pointer;
+	*cursor: hand;
+}
+
+.paging_full_numbers span.paginate_button {
+    box-shadow:1px 1px 3px #CCCCCC;
+    -moz-box-shadow:1px 1px 3px #CCCCCC;
+    -webkit-box-shadow:1px 1px 3px #CCCCCC;
+    background-color:#f1f1f1;
+    text-shadow: #fff 1px 1px 0px;
+}
+
+.paging_full_numbers span.paginate_button:hover {
+    background-color:#ddd;
+}
+
+.paging_full_numbers span.paginate_active {
+	background-color: #5a5a5a;
+	color: #fefefe;
+	font-weight: bold;
+	border-color: #444;
+}
+
+table.display tr.even.row_selected td {
+	background-color: #B0BED9;
+}
+
+table.display tr.odd.row_selected td {
+	background-color: #9FAFD1;
+}
+
+
+/*
+ * Sorting classes for columns
+ */
+/* For the standard odd/even */
+tr.odd td.sorting_1 {
+/*	background-color: #F7F8F8;*/
+}
+
+tr.odd td.sorting_2 {
+/*	background-color: #F7F8F8;*/
+}
+
+tr.odd td.sorting_3 {
+/*	background-color: #F7F8F8;*/
+}
+
+tr.even td.sorting_1 {
+/*	background-color: white;*/
+}
+
+tr.even td.sorting_2 {
+/*	background-color: white;*/
+}
+
+tr.even td.sorting_3 {
+/*	background-color: white;*/
+}
+
+
+/* For the Conditional-CSS grading rows */
+/*
+ 	Colour calculations (based off the main row colours)
+  Level 1:
+		dd > c4
+		ee > d5
+	Level 2:
+	  dd > d1
+	  ee > e2
+ */
+tr.odd.gradeA td.sorting_1 {
+	background-color: #c4ffc4;
+}
+
+tr.odd.gradeA td.sorting_2 {
+	background-color: #d1ffd1;
+}
+
+tr.odd.gradeA td.sorting_3 {
+	background-color: #d1ffd1;
+}
+
+tr.even.gradeA td.sorting_1 {
+	background-color: #d5ffd5;
+}
+
+tr.even.gradeA td.sorting_2 {
+	background-color: #e2ffe2;
+}
+
+tr.even.gradeA td.sorting_3 {
+	background-color: #e2ffe2;
+}
+
+tr.odd.gradeC td.sorting_1 {
+	background-color: #c4c4ff;
+}
+
+tr.odd.gradeC td.sorting_2 {
+	background-color: #d1d1ff;
+}
+
+tr.odd.gradeC td.sorting_3 {
+	background-color: #d1d1ff;
+}
+
+tr.even.gradeC td.sorting_1 {
+	background-color: #d5d5ff;
+}
+
+tr.even.gradeC td.sorting_2 {
+	background-color: #e2e2ff;
+}
+
+tr.even.gradeC td.sorting_3 {
+	background-color: #e2e2ff;
+}
+
+tr.odd.gradeX td.sorting_1 {
+	background-color: #ffc4c4;
+}
+
+tr.odd.gradeX td.sorting_2 {
+	background-color: #ffd1d1;
+}
+
+tr.odd.gradeX td.sorting_3 {
+	background-color: #ffd1d1;
+}
+
+tr.even.gradeX td.sorting_1 {
+	background-color: #ffd5d5;
+}
+
+tr.even.gradeX td.sorting_2 {
+	background-color: #ffe2e2;
+}
+
+tr.even.gradeX td.sorting_3 {
+	background-color: #ffe2e2;
+}
+
+tr.odd.gradeU td.sorting_1 {
+	background-color: #c4c4c4;
+}
+
+tr.odd.gradeU td.sorting_2 {
+	background-color: #d1d1d1;
+}
+
+tr.odd.gradeU td.sorting_3 {
+	background-color: #d1d1d1;
+}
+
+tr.even.gradeU td.sorting_1 {
+	background-color: #d5d5d5;
+}
+
+tr.even.gradeU td.sorting_2 {
+	background-color: #e2e2e2;
+}
+
+tr.even.gradeU td.sorting_3 {
+	background-color: #e2e2e2;
+}
+
+
+/*
+ * Row highlighting example
+ */
+.ex_highlight #example tbody tr.even:hover, #example tbody tr.even td.highlighted {
+	background-color: #ECFFB3;
+}
+
+.ex_highlight #example tbody tr.odd:hover, #example tbody tr.odd td.highlighted {
+	background-color: #E6FF99;
+}
+
+
+/*
+ * KeyTable
+ */
+table.KeyTable td {
+	border: 3px solid transparent;
+}
+
+table.KeyTable td.focus {
+	border: 3px solid #3366FF;
+}
+
+table.display tr.gradeA {
+	background-color: #eeffee;
+}
+
+table.display tr.gradeC {
+	background-color: #ddddff;
+}
+
+table.display tr.gradeX {
+	background-color: #ffdddd;
+}
+
+table.display tr.gradeU {
+	background-color: #ddd;
+}
+
+div.translation {
+	overflow: visible;
+	text-shadow: 1px 1px 0px white;
+	padding-bottom: 1.25em;
+	white-space: pre-wrap;
+}
+
+div.box {
+	height: 100px;
+	padding: 10px;
+	overflow: auto;
+	border: 1px solid #8080FF;
+	background-color: #E5E5FF;
+}
+
+#body {
+    padding:0.5em !important;
+}
+
+textarea.translated{
+  /*background-color: #E6FFEA;
+  border-left : 5px solid #E6FFEA;*/
+  border: 1px solid #eee;
+  border-left : 3px solid #add605;
+  background-image: url("../images/input_textarea_bg_trans.png");
+  background-repeat: repeat-x;
+}
+
+textarea.fuzzy{
+  /*background-color: #FFF5E2;
+  border-left: 5px solid #FFF5E2;*/
+  border: 1px solid #eee;
+  border-left: 3px solid #6499F3;
+  background-image: url("../images/input_textarea_bg_fuzzy.png");
+  background-repeat: repeat-x;
+}
+
+textarea.untranslated{
+  /*background-color: #FFEDED;
+  border-left: 5px solid #FFEDED;*/
+  border: 1px solid #eee;
+  border-left: 3px solid #d64a05;
+  background-image: url("../images/input_textarea_bg.png");
+  background-repeat: repeat-x;
+}
+
+.source_entity {
+  font-size: 0.85em;
+  color: #999999;
+  padding-bottom:16px;
+}
+
+.source_string, .source_string_plural {
+  overflow-x: hidden;
+  text-shadow: 1px 1px 0px #fff;
+  padding-bottom:1.25em;
+  white-space:pre-wrap;
+}
+
+.source_string:hover, .source_string_plural:hover {
+  overflow-x: auto;
+}

@@ -1,0 +1,20 @@
+<!-- These strings are used in the about:robots page.
+     This comment block should be ignored.
+ -->
+
+<!-- <!ENTITY robots.commented
+  "This entity is commented and should be ignored"> -->
+
+<!-- Nonsense line from the movie "The Day The Earth Stood Still". -->
+<!ENTITY robots.pagetitle
+  "Gort! Klaatu barada nikto!">
+<!-- Movie: Logan's Run... Box (cybog):
+     "Welcome Humans! I am ready for you." -->
+<!ENTITY robots.errorTitleText 'Welcome Humans!'>
+
+<!-- Movie: The Day The Earth Stood Still. Spoken by Klaatu. -->
+<!ENTITY robots.errorShortDescText "We have come to visit you in peace &amp; with goodwill!">
+
+<!ENTITY robots.optional "">
+
+<!ENTITY robots.specialChars "&lt; &amp; &gt; &#37; &#037; &quot;">

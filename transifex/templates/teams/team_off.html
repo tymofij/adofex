@@ -1,0 +1,24 @@
+{% extends parent_template %}
+{% load i18n %}
+
+{% block title %}{{ block.super }} | {{ project.name }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; {{ project.name }}{% endblock %}
+
+{% block content_main %}
+
+<div class="obj_bigdetails">
+
+<h2 class="name">{% trans "This project does not maintain its own translation teams" %}</h2>
+
+<div>
+{% url project_detail project.outsource.slug as outsource_url %}
+{% if outsource_url %}
+  {% blocktrans with project.outsource.name as outsource_project %}This project does not maintain its own teams, but has chosen to re-use the teams of project '<a href={{ outsource_url }}>{{ outsource_project }}</a>'. In order to send translations here you'll need to join a team of '{{ outsource_project }}'.{% endblocktrans %}
+{% else %}
+  {% blocktrans %}This project allows translation submission from <em>anyone</em>, and thus no translation teams exist.{% endblocktrans %}
+{% endif %}
+</div>
+
+</div>
+{% endblock %}

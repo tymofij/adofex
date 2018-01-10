@@ -1,4 +1,5 @@
 .hg
+src
 *.pyc
 .coverage
 *.swp

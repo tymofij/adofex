@@ -1,0 +1,8 @@
+{% load i18n %}
+{% block sep_but %}
+{% if project.private %}
+{% else %}
+<a class="i16 nude-button stats" href="{% url project_widgets project.slug %}">{% trans "Widgets" %}</a>
+{% endif %}
+{% endblock %}
+

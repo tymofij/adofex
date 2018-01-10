@@ -1,0 +1,2 @@
+{% load i18n %}{% url project_detail project_slug=project.slug as project_url %}{% url profile_public username=user_request.username as user_url %}
+{% blocktrans %}The user <a href="{{ user_url }}">{{user_request}}</a> had <span class="notice_subject">access to submit translations</span> to the project <a href="{{ project_url }}">{{ project }}</a> <span class="notice_action">granted</span>{% endblocktrans %}

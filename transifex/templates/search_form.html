@@ -1,0 +1,8 @@
+{% load i18n %}
+<div class="searchform {{ extra_searchform_classes }}">
+  <form action="{% url search %}" method="GET" class="search_projects">
+    
+    <input class="query withbgimage" type="text" placeholder="Search projects and people" name="q" size="50" value="{{ query|escape }}">
+    <input class="i16 submit buttonized" type="submit" value="{% trans "Search" %}">
+  </form>
+</div>

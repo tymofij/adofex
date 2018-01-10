@@ -1,0 +1,49 @@
+==========================
+ Datastores for Transifex
+==========================
+
+Redis
+=====
+
+Requirements
+------------
+
+Just install redis, preferrably version 2.4. In debian-based distros,
+you have to enable the backports repository and install with::
+
+  apt-get -t squeeze-backports install redis-server
+
+
+You also have to install (with pip/easy_install) the following two
+python packages:
+
+* redis
+* hiredis
+
+
+Usage
+-----
+
+There are two classes:
+
+* TxRedis
+* TxRedisMapper
+
+The first one just forwards every request to redis. The second one
+allows for automatic pickling of arguments and unpickling of
+results. This allows us to store normal python objects (actually,
+whatever the pickle module supports).
+
+Specifically, there is a list called ``set_methods`` that has a list
+of methods used by redis and which accept arguments that need to be
+encoded. TxRedisMapper expects to find such data in a keyword argument
+called ``data``. If there is one, the argument will be pickled and
+then stored in redis.
+
+There is also a list called ``get_methods``. This list has the names
+of the methods of redis for which the class will unpickle the returned
+value. In case the returned value is a list, its contents will be
+unpickled.
+
+A full list of the commands redis supports can be found at
+http://redis.io/commands.

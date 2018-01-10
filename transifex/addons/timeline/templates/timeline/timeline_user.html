@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load sorting_tags %}
+{% load txcommontags %}
+
+{% block extra_head %}
+<link href="{% static "timeline/css/timeline_base.css" %}" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{% static "js/tablesorted.js" %}"></script>
+{% endblock %}
+
+{% block title %}{{ block.super }} | {{ request.user }} | {% trans "Timeline" %}{% endblock %}
+
+{% block breadcrumb %}
+{{ block.super }} &raquo; <a href="{% url profile_overview %}">{% trans "Profile" %}</a> &raquo; {{ request.user.username }}
+{% endblock %}
+
+{% block content_main %}
+
+<div class="obj_bigdetails">
+<h2 class="name">
+ {% blocktrans with project.name as project_name %}{{ project_name }} Timeline{% endblocktrans %}
+</h2>
+
+{% include "timeline/timeline_base.html" %}
+
+</div>
+
+{% endblock %}
+
+{% block content_footer %}{% endblock %}

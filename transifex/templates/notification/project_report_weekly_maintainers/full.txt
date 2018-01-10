@@ -1,0 +1,12 @@
+{% load i18n %}{% load txcommontags %}{% url project_timeline project.slug as project_timeline_url %}{% with project.name as project_name %}
+{% blocktrans %}I am bringing you the weekly translation report for your project '{{ project_name }}'.{% endblocktrans %}
+{% for resource in project.resources.all %}
+{{ project.name }} » {{ resource.name }}
+
+{{ resource.get_rest_stats }}{% endfor %}
+{% blocktrans %}Activity report from past week (last 30 actions):{% endblocktrans %}
+
+{% for actionlog in actionlogs %}- {{ actionlog.message|strip_tags }} by {{actionlog.user}} on {{actionlog.action_time|date:"D M j, G:i"}}.
+{% endfor %}
+{% blocktrans %}For a full report, visit your project's timeline page at{% endblocktrans %} http://{{current_site}}{{ project_timeline_url }}
+{% endwith %}

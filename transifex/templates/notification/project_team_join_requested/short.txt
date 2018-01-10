@@ -1,0 +1,1 @@
+{% load i18n %}{% blocktrans with access_request.team.language.name as team_name %}{{ notice }}: {{team_name}}{% endblocktrans %}

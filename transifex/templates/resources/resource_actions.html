@@ -1,0 +1,311 @@
+{% load i18n %}
+{% load statistics_resources %}
+{% load truncate %}
+{% load permissions %}
+{% load team_tags %}
+{% load locks_tags %}
+{% load upload_manager_tags %}
+{% load watches_tags %}
+{% load txcommontags %}
+{% load addons %}
+{% load humanize%}
+
+<script type="text/javascript">
+  $(".tipsy_enable").tipsy({'html':true, 'gravity':'s'});	
+
+  $("a.language_chooser_trigger").click(function(){
+    $("div.language_chooser").slideToggle();
+   });
+
+  $("div.language_chooser a").click( function(){
+    var target_lang_code = $("div.language_chooser select").val();
+    if (target_lang_code != "") {
+        request_url = '{% url clone_translate resource.project.slug resource.slug target_language.code 111111111 %}';
+        request_url = request_url.replace('111111111', target_lang_code);
+        window.location = request_url;
+    } else {
+        alert('{% trans "Please select a target language first."|escapejs %}');
+    }
+   });
+
+  if(!$("#download_for_translation a").hasClass('disabled')){
+    $("#download_for_translation").click(function(){
+        $.ajax({
+            url : '{% url lock_and_download_for_translation resource.project.slug resource.slug target_language.code %}',
+            contentType : 'application/json',
+            type : 'POST',
+            beforeSend: function(){
+            $("div#notification-container div").html('{% trans "Trying to lock resource..."|escapejs %}');
+            $("div#notification-container").fadeIn("fast");
+            },
+            complete : function(xmlhttpreq, textStatus) {
+                if (textStatus=='success'){
+                    response = JSON.parse(xmlhttpreq.responseText);
+                    if(response['status']=='FAILED'){
+                        $("#download_for_translation").siblings("div.error_notes").text(response['message']);
+                        $("#download_for_translation").siblings("div.error_notes").show();
+                    }else{
+                        if(response['redirect']){
+                            window.location = response['redirect'];
+                        }
+                    }
+                    $("div#notification-container").fadeOut("fast");
+                }
+            }
+        });
+    });
+  }
+
+</script>
+
+{% hook "pro_files.html" script %}
+
+<style>
+.more_actions .tipsy_enable{font-weight:bold;float:right;color:#bbb;cursor:default;display:none;}
+.more_actions li:hover .tipsy_enable{display:block;}
+</style>
+
+{% get_permission "project_perm.maintain" for request.user and resource.project as "is_maintainer" %}
+<div class="actions_popup">
+	<h4>
+      {% trans "Resource" %}:
+      <a href="{% url project_detail project.slug %}" style="color:#444;">
+        {{ project.name|truncate_chars:"30" }}
+      </a>
+      &raquo;
+      <a href="{% url resource_detail project.slug resource.slug %}" style="color:#444;">
+        {{ resource.name|truncate_chars:"30" }}
+      </a>
+      &raquo;
+      <a href="{% url team_detail project.slug target_language.code %}" style="color:#444;">
+        {{ target_language.name|truncate_chars:"20" }}
+      </a>
+    </h4>
+  <div class="first_level title_wrapper" style="padding-top:0;border-top:none;">
+    
+    <div class="details_font">
+             {% blocktrans with stats.total|intcomma as total_entities and wordcount|intcomma as wordcount %} Total:&nbsp;{{ total_entities }} strings, {{ wordcount }} words{% endblocktrans %}<br/>
+             {% blocktrans with stats.translated|intcomma as trans_count and stats.translated_wordcount|intcomma as trans_wordcount %} Translated:&nbsp;{{ trans_count }} strings, {{ trans_wordcount }} words {% endblocktrans %}<br/>
+             {% blocktrans with stats.untranslated|intcomma as trans_count and stats.untranslated_wordcount|intcomma as trans_wordcount %} Remaining:&nbsp;{{ trans_count }} strings ({{ trans_wordcount }} words) {% endblocktrans %}<br/>
+             {% if show_reviewed_stats %}{% blocktrans with stats.reviewed|intcomma as reviewed_count %} Reviewed:&nbsp;{{ reviewed_count }} strings {% endblocktrans %}<br/>{% endif %}
+             {% hook 'matches_overview.html' %}  
+    </div>
+    <span class="translate_button_wrapper">
+    {% if team %}
+      {% comment %} This permission is provided only if team is available{% endcomment %}
+      {% get_permission "project_perm.submit_translations" for request.user and team as "can_submit_translation" %}
+    {% else %}
+      {% comment %} This permission is provided if team is not available and then only the maintainers can access lotte via "Translate now" {% endcomment %}
+      {% get_permission "project_perm.submit_translations" for request.user and project as "can_submit_translation" %}
+    {% endif %}
+
+      {% ifequal resource.source_language target_language %}
+        {% blocktrans %}<span title="The source language cannot be translated">Source language</span>{% endblocktrans %}
+      {% else %}
+        {% if can_submit_translation and resource.accept_translations or is_maintainer %}
+         {% url translate_resource project.slug resource.slug target_language.code as translate_resource %}
+         {% if stats.lock.valid %}
+          {% with stats.lock.owner as lock_owner %}
+           {% if lock_owner != request.user %}
+            <a class="i16 tick_disabled disabled buttonized tipsy_enable" id="translate_now" href="{{ translate_resource }}" title="{% blocktrans %}Warning: This resource is currently locked by '{{ lock_owner }}'. He might be working on it right now.{% endblocktrans %}" >{% trans "Translate now" %}</a>
+           {% else %}
+            <a class="i16 tick buttonized" id="translate_now" href="{{ translate_resource }}">{% trans "Translate now" %}</a>
+           {% endif %}
+          {% endwith %}
+         {% else %}
+          <a class="i16 tick buttonized" id="translate_now" href="{{ translate_resource }}">{% trans "Translate now" %}</a>
+         {% endif %}
+        {% else %}
+          {% if not resource.accept_translations %}
+            <a class="i16 tick_disabled disabled buttonized tipsy_enable" id="translate_now"
+            title="{% trans "This resource is currently not accepting translations" %}">{% trans "Translate now" %}</a>
+          {% else %}
+            <a class="i16 tick_disabled buttonized tipsy_enable" id="translate_now"
+            title="{% blocktrans with target_language.name as lang_name %}To translate you need to be logged in and a member of the {{ lang_name }} team{% endblocktrans %}">{% trans "Translate now" %}</a>
+          {% endif %}
+        {% endif %}
+    {% endifequal %}
+
+    </span>
+
+    <div class="stats_wrapper">
+      {% with 390 as barwidth %}
+      <div class="stats tipsy_enable" style='width:{{ barwidth|add:"60" }}px;' title="{% trans "Translated: " %}{{ stats.translated }}<br/>{% trans "Remaining: " %}{{ stats.untranslated }}{% if show_reviewed_stats %}<br/>{% trans "Reviewed: " %}{{ stats.reviewed }}{% endif %}">
+          <div class="stats_string_resource_actions">
+              {{ stats.translated|percentage:stats.total }}
+          </div>
+          {% stats_bar_actions stats barwidth %}
+      </div>
+      {% endwith %}
+
+    </div>
+    
+  </div>
+  <div class="first_level more_actions">
+        <ul class="right">
+          <li class="top">
+            <span id="view_strings" class="i16 view_online">
+            <a href="{% url view_strings resource.project.slug resource.slug target_language.code %}">{% trans "View strings online" %}</a>
+            </span>
+          </li>
+
+          <li>
+          	{% watch_toggle resource target_language %}
+          </li>
+          <li>
+            <span class="i16 team"><a {% if team %} href="{% url team_detail project.slug target_language.code %}"{% else %}class="disabled" title="There is no project team for this language."{% endif %}>{% trans "Visit language team" %}</a></span>
+          </li>
+          <li>
+            {% if request.user.is_authenticated and resource.accept_translations %}
+              {% if is_maintainer or user_teams %}
+              <span class="i16 clone">
+                <a class="language_chooser_trigger" href="javascript:;" >{% trans "Clone to new language" %}</a>
+              </span>
+              <span class="right tipsy_enable" title="{% trans 'Copy all the translations from this language to a new (chosen) language in the specific resource. This will copy the pluralized translations too, if and only if the two languages have exactly the same plural rules' %}" style="border:0">?</span>
+              <div class="language_chooser" style="display:none;margin:5px;">
+                <select style="margin-left:24px">
+                  <option value="" selected="selected">---------</option>
+                {% if is_maintainer or request.user.is_superuser %}
+                  {% for language in languages %}
+                    <option {% if language.id|in_list:disabled_languages_ids %}disabled="disabled"{% endif %} value="{{ language.code }}">{{ language.name }}</option>
+                  {% endfor %}
+                {% else %}
+                  {% for team in user_teams %}
+                    <option {% if team.language.id|in_list:disabled_languages_ids %}disabled="disabled"{% endif %} value="{{ team.language.code }}">{{ team.language.name }}</option>
+                  {% endfor %}
+                {% endif %}
+                </select>
+                <a class="i16 action buttonized">{% trans "Go" %}</a>
+              </div>
+              {% else %}
+                <span class="i16 clone">
+                  <a class="language_chooser_trigger disabled">{% trans "Clone to new language" %}</a>
+                </span>
+                <span class="tipsy_enable" title="{% trans "Copy all the translations from this language to a new (chosen) language in the specific resource. This will copy the pluralized translations too, if and only if the two languages have exactly the same plural rules." %}" style="border:0">?</span>
+              {% endif %}
+
+            {% else %}
+              <span class="i16 clone">
+                <a class="language_chooser_trigger disabled">{% trans "Clone to new language" %}</a>
+              </span>
+              <span class="tipsy_enable" title="{% trans "Copy all the translations from this language to a new (chosen) language in the specific resource. This will copy the pluralized translations too, if and only if the two languages have exactly the same plural rules." %}" style="border:0">?</span>
+            {% endif %}
+          </li>
+        </ul>
+        <ul>
+          <li class="top">
+            <span class="i16 get_file">
+            {% if request.user.is_authenticated %}
+                <a href="{% url download_for_use resource.project.slug resource.slug target_language.code %}">{% trans "Download for use" %}</a>
+            {% else %}
+                <a class="disabled" title="{% trans "You must login to be able to download the translations." %}">{% trans "Download for use" %}</a>
+            {% endif %}
+            </span>
+            <span class="tipsy_enable" title="{% trans "Add only translated strings into the file. Untranslated strings are NOT filled with source strings." %}" style="border:0">?</span>
+          </li>
+          {% ifequal resource.i18n_type "PO" %}
+          <li>
+            <span id="download_pot" class="i16 get_file">
+              {% if request.user.is_authenticated %}
+              <a href="{% url transifex.resources.views.get_pot_file project_slug=project.slug resource_slug=resource.slug %}">
+                {% trans "Download original pot file" %}
+              </a>
+              {% else %}
+              <a class="disabled" title="{% trans "You must login to be able to download the pot file." %}">
+                {% trans "Download original pot file" %}
+              </a>
+              {% endif %}
+            </span>
+            <span class="tipsy_enable" title="{% trans "PO file template." %}" style="border:0">?</span>
+          </li>
+          {% endifequal %}
+
+          {% ifnotequal resource.source_language target_language %}
+          <li>
+            <span class="i16 get_reviewed_file">
+              {% if request.user.is_authenticated %}
+              <a href="{% url download_reviewed_translation project.slug resource.slug target_language.code %}">
+              {% else %}
+              <a class="disabled" title="{% trans "You must login to be able to download the file." %}">
+              {% endif %}
+                {% trans "Download only reviewed translations" %}
+              </a>
+            </span>
+            <span class="tipsy_enable" title="{% trans "Add only reviewed translations into the file. Untranslated strings are not filled at all." %}" style="border:0">?</span>
+          </li>
+          {% endifnotequal %}         
+
+          {% ifnotequal resource.source_language target_language %}
+
+          <li>
+            {% if request.user.is_authenticated %}
+            <span id="download_for_translation" class="i16 lock">
+              <a {% if lock %}{% ifnotequal request.user lock.owner %}class="disabled" title="{% trans "Resource cannot be locked" %}" {% else %}href="#"{% endifnotequal %}{% else %}{% if can_submit_translation and resource.accept_translations %}href="#"{% else %}class="disabled"{% endif %}{% endif %}>{% trans "Download for translation" %}</a>
+            </span>
+            {% else %}
+            <span id="download_for_translation" class="i16 lock">
+              <a class="disabled" title="{% trans "You must login to use this action" %}">{% trans "Download for translation" %}</a>
+            </span>
+            {% endif %}
+            <span class="tipsy_enable" title="{% trans "Lock the file under your ownership and download it locally to edit it, in one action. Untranslated strings are filled by source strings." %}" style="border:0">?</span>
+            <div class="error_notes"></div>
+          </li>
+          <li>
+            {% if can_submit_translation and resource.accept_translations or is_maintainer %}
+                <div class="upload_action_wrapper">
+                {% upload_resource_translation_button request resource target_language %}
+                </div>
+            {% endif %}
+          </li>
+          {% hook "pro_files.html" links %}
+          {% endifnotequal %}
+
+          {% if resource.source_language == target_language and request.user.is_authenticated %}
+          <li>
+            <span class="i16 get_file ">
+                <a id="resource_pseudo_translation_actions" href="{% url apiv2_pseudo_content project.slug resource.slug %}?pseudo_type=MIXED&file=true" >{% trans "Get pseudo translations" %}</a>
+            </span>
+          </li>
+          {% endif %}
+
+          {% ifnotequal resource.source_language target_language %}
+            {% if perms.projects.delete_resource or is_maintainer or request.user.is_superuser %}
+            <li>
+                <a class="i16 delete buttonized_warning" href="{% url resource_translations_delete project.slug resource.slug target_language.code %}">{% trans "Delete translations" %}</a>
+            </li>
+            {% endif %}
+          {% endifnotequal %}
+        </ul>
+  </div>
+  <div class="first_level last_update">
+        <ul>
+          <li>
+            {% if not resource.accept_translations %}
+                <span class="i16 stop red">{% trans "This resource currently is not accepting translations." %}</span>
+            {% endif %}
+          </li>
+          {% ifnotequal resource.source_language target_language %}
+            {% lock_resource_action resource target_language %}
+          {% endifnotequal %}
+          <li>
+            <span class="i16 clock">
+              {% with stats.last_update as last_update %}
+              {% with stats.last_committer as last_committer %}
+              {% if last_update %}
+                {% blocktrans %}Translation last updated {% endblocktrans %}
+                {% if last_committer %}
+                  {% trans "by" %}
+                  <a href="{% url profile_public last_committer.username %}"><strong>{{ last_committer }}</strong></a> ({{ last_update|timesince }})
+                {% else %}
+                  {{ last_update|timesince }}
+                {% endif %}
+              {% else %}
+                {% trans "No translation yet" %}
+              {% endif %}
+              {% endwith %}
+              {% endwith %}
+            </span>
+          </li>
+        </ul>
+  </div>
+</div>

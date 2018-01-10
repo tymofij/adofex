@@ -1,0 +1,71 @@
+.ac_results {
+  text-align: left;
+  margin-top: -1px;
+  padding: 0px;
+  border: 1px solid #AAA;
+  background-color: white;
+  overflow: hidden;
+  z-index: 99999;
+}
+
+.ac_results ul {
+  width: 100%;
+  list-style-position: outside;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ac_results li {
+  margin: 0px;
+  padding: 2px 5px;
+  cursor: default;
+  display: block;
+  /*
+  if width will be 100% horizontal scrollbar will apear
+  when scroll mode will be used
+  */
+  /*width: 100%;*/
+  /*
+  it is very important, if line-height not setted or setted
+  in relative units scroll will be broken in firefox
+  */
+  line-height: 16px;
+  overflow: hidden;
+  border-bottom: 1px solid #E3EAEE;
+}
+
+.ac_loading {
+  background: white url('../images/icons/progress.gif') right center no-repeat;
+}
+
+.ac_odd {
+  background-color: #F7F8F8;
+}
+
+.ac_over {
+  background-color: #B0C9E1;
+  color: black;
+}
+
+  /* css code merged from django-ajax-selects */
+.iconic {
+background: white;
+color: #999;
+border: 1px solid #999;
+padding: 2px 5px 1px 5px;
+text-decoration: none;
+font-size: 11px;
+line-height: 1em;
+font-weight: bold;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;}
+
+.iconic:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #999;
+    cursor: pointer;
+}
+

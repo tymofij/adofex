@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }} | {% trans "Sign in" %}{% endblock %}
+{% block breadcrumb %}{{ block.super }} &raquo; {% trans "Sign in" %}{% endblock %}
+{% block content_title %}<h2 class="pagetitle">{% trans "Sign in" %}</h2>{% endblock %}
+
+{% block content_main %}
+{% blocktrans %}<p>You have been logged out.{% endblocktrans %}
+{% endblock %}

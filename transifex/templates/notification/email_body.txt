@@ -1,0 +1,8 @@
+{% load i18n %}{% blocktrans %}Hello {{ user }}, this is Transifex at http://{{current_site}}.{% endblocktrans %}
+{{ message }}
+{% blocktrans %}Always at your service.{% endblocktrans %}
+
+--
+Transifex -- Open Translation Platform
+
+{% blocktrans %}To change your notification settings, please visit your profile page at {{ notices_url }}.{% endblocktrans %}

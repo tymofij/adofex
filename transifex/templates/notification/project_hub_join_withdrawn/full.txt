@@ -1,0 +1,5 @@
+{% load i18n %}{% with hub_request.project.name as project_name %}{% with hub_request.project_hub.name as project_hub_name %}{% url project_detail hub_request.project_hub.slug as project_detail_url %}
+{% blocktrans %}The project '{{ project_name }}' had its request to join and outsource access to the '{{ project_hub_name }}' project hub withdrawn.{% endblocktrans %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{project_detail_url}} in order to see the project page.{% endblocktrans %}
+{% endwith %}{% endwith %}

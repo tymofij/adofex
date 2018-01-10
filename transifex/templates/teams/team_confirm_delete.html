@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }} | {{ team.project.name }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; {{ team.project.name }}{% endblock %}
+
+{% block content_title %}
+  <h2 class="pagetitle">{% blocktrans with team.language.name as lang_name %}Say goodbye to <em>{{ lang_name }}</em> team?{% endblocktrans %}</h2>
+{% endblock %}
+
+{% block content_main %}
+
+<p>{% blocktrans with team.project.name as project_name and team.language.name as lang_name %}Are you sure you want to permanently delete the '{{ lang_name }}' team which works on {{ project_name }}?{% endblocktrans %}</p>
+
+  <form action='' method='post'>{% csrf_token %}
+    <input name="team_delete" type="submit" class="i16 submit buttonized" value="{% trans "Yes, I'm sure!" %}" />
+  </form>
+
+{% endblock %}
+
+{% block content_footer %}
+
+{% endblock %}

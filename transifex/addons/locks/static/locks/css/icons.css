@@ -1,0 +1,16 @@
+
+li.lock {
+ background-position: 0% 0%;
+}
+
+li.lock ul {
+ padding-left: 5px;
+}
+
+.i16.lock { background-image: url('../images/icons/lock.png'); }
+.i16.lock_add { background-image: url('../images/icons/lock_add.png'); }
+.i16.lock_break { background-image: url('../images/icons/lock_break.png'); }
+.i16.lock_delete { background-image: url('../images/icons/lock_delete.png'); }
+.i16.lock_go { background-image: url('../images/icons/lock_go.png'); }
+.i16.lock_none { background-image: url('../images/icons/lock_none.png'); }
+.i16.lock_open { background-image: url('../images/icons/lock_open.png'); }

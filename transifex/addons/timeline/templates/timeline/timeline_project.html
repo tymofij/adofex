@@ -1,0 +1,36 @@
+{% extends "projects/project_settings.html" %}
+{% load staticfiles %}
+{% comment %}This is the view under /projects/p/PROJECT_SLUG/timeline{% endcomment %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load sorting_tags %}
+{% load txcommontags %}
+
+{% block basecss %}
+{{ block.super }}
+<link href="{% static "timeline/css/timeline_base.css" %}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body_class %}{{ block.super }} project_widgets{% endblock %}
+
+{% block title %}{{ block.super }} | {{ project.name }} | {% trans "Timeline" %}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; <a href="{{ project.get_absolute_url }}">{{ project.name }}</a> &raquo; {% trans "Timeline" %}{% endblock %}
+
+{% block project_header %}
+{% with project.description as short_desc %}
+{{block.super}}<span>&nbsp;/&nbsp;</span><span>&nbsp;{% trans "Timeline" %}</span>
+{% endwith %}
+{% endblock%}
+
+{% block project_settings_content %}
+
+<div class="obj_bigdetails">
+<h3>{% trans "Your personal timeline" %}</h3>
+<p>
+{% include "timeline/timeline_base.html" %}
+</p>
+</div>
+
+{% endblock %}
+

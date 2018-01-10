@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }} | {% trans "Page not found" %}{% endblock %}
+
+{% block content_title %}
+  <h2 class="pagetitle">{% trans "Page not found" %}</h2>
+{% endblock %}
+
+{% block content_main %}
+
+<div class="grid_12">
+<p>{% trans "Looks like you followed a bad link. If you think it's our fault, please <a href='http://code.transifex.com/transifex/issues/'>let us know</a>." %}</p>
+
+{% url transifex.home as home %}
+<p>{% blocktrans %}Here's a link to the <a href="{{ home }}">homepage</a>. You know, just in case.{% endblocktrans %}</p>
+</div>
+
+{% endblock %}

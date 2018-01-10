@@ -1,0 +1,5 @@
+{% load i18n %}{% url release_detail release.project.slug release.slug as release_url %}{% url project_detail release.project.slug as project_url %}{% with release.name as release_name %}{% with release.project.name as project_name %}
+{% blocktrans %}The release called '{{ release_name }}' has been deleted from the '{{ project_name }}' project.{% endblocktrans %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{project_url}} in order to see the project page.{% endblocktrans %}
+{% endwith %}{% endwith %}

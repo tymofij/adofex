@@ -1,0 +1,45 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load permissions %}
+{% load statistics_resources %}
+{% load priority_images %}
+
+{% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+{% for stat in statslist %}
+<tr>
+    <td>
+    <a class="tipsy_enable" href="{{ stat.resource.get_absolute_url }}" style="font-weight:bold" title="Total strings: {{ stat.entities_count }} <br>Available Languages: {{ stat.available_languages|length }}">
+      {{ stat.resource.name }}
+    </a>
+    <sup class="entry_metalink">
+        {% if is_maintainer or request.user.is_superuser %}
+            <a href="{% url resource_edit project.slug stat.resource.slug %}">{% trans "edit" %}</a>
+            , <a href="{% url resource_delete project.slug stat.resource.slug %}">{% trans "del" %}</a>
+        {% endif %}
+    </sup>
+    </td>
+    <td class="last_updated">
+    <span class="tipsy_enable" style="border:0" title="{% if stat.resource.last_committer %}Committed by {{ stat.resource.last_committer }}<br/>{% else %}No committers yet{% endif %}">
+    {% if stat.resource.last_update %}
+        <span class="origin_format" style="display:none">{{ stat.resource.last_update|date:"M d,Y h:i A" }}</span>
+        {{ stat.resource.last_update|timesince }}
+    {% else %}
+        {% trans "no translations yet" %}
+    {% endif %}
+    </span>
+    </td>
+    <td class="priority_level" style="width:100px;text-align:center">
+        {% with stat.resource.priority.level|priority_image_path as priority_image %}
+        {% if is_maintainer %}
+            <a id="priority_{{ stat.resource.slug }}" class="resource_priority_trigger" style="cursor:pointer">
+            <span class="priority_sort" style="display:none">{{ stat.resource.priority.level }}</span>
+            <img src="{% static priority_image %}" style="border:0" title="{{ stat.resource.priority.display_level }}"/>
+            </a>
+        {% else %}
+            <span class="priority_sort" style="display:none">{{ stat.resource.priority.level }}</span>
+            <img class="tipsy_enable" src="{% static priority_image %}" style="border:0" title="{{ stat.resource.priority.display_level }}"/>
+        {% endif %}
+        {% endwith %}
+    </td>
+</tr>
+{% endfor %}

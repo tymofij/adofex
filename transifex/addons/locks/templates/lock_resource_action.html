@@ -1,0 +1,118 @@
+{% load i18n %}
+{% load permissions %}
+{% load locks_tags %}
+{% load txcommontags %}
+
+{% url resource_language_lock resource.project.slug resource.slug language.code as url_lock %}
+{% url resource_language_unlock resource.project.slug resource.slug language.code as url_unlock %}
+{% url resource_language_extend resource.project.slug resource.slug language.code as url_extend %}
+
+{% with lock.owner as owner %}
+
+{% get_permission "project_perm.maintain" for request.user and resource.project as "is_maintainer" %}
+
+{% if is_locked %}
+    <li id="locked-{{ lock_html_id }}" class="top lock i16 lock_open image_submit_type">
+      {% if is_owner %}
+        {% blocktrans %}You locked this translation.{% endblocktrans %}
+      {% else %}
+        {% blocktrans %}User '{{ owner }}' locked this translation.{% endblocktrans %}
+      {% endif %}
+      {% blocktrans with lock.expires|timeuntil as lock_expires %}({{ lock_expires }} left){% endblocktrans %}
+
+      {% if is_unlockable %}(<span class="linkstyle unlock_action">{% trans "unlock" %}</span>){% endif %}
+
+    {% if is_owner %}
+        <ul>
+         <li id="locked-extend-{{ lock_html_id }}" class="i16 lock_add image_submit_type">
+          <span id="locked-extend-message-{{ lock_html_id }}" class="linkstyle tipsy_enable lock_extend_action" title="{% trans "Click to renew your lock for a fresh period of time." %}">
+            {% blocktrans count locks_lifetime as hours %}Extend lock by {{hours}} hour.{% plural %}Extend lock by {{hours}} hours.{% endblocktrans %}
+          </span>
+         </li>
+        </ul>
+    {% endif %}
+    </li>
+{% else %}
+    {% if can_lock %}
+        <li id="unlocked-lockable-{{ lock_html_id }}" class="top i16 lock_none image_submit_type">
+            <span class="linkstyle lock_action">{% trans "Lock this translation to notify others you're working with it." %}</span>
+        </li>
+    {% else %}
+        <li id="unlocked-nonlockable-{{ lock_html_id }}" class="i16 lock_none top">
+            {% blocktrans %}This translation isn't locked. Most likely no one is working on it right now.{% endblocktrans %}
+        </li>
+    {% endif %}
+{% endif %}
+
+
+<script type="text/javascript">
+
+    $("#unlocked-lockable-{{ lock_html_id }} .lock_action").click(function(){
+        $.ajax({
+            url : '{{ url_lock }}',
+            contentType : 'application/json',
+            type : 'POST',
+            beforeSend: function(){
+            $("div#notification-container div").html('{% trans "Creating lock..."|escapejs %}');
+            $("div#notification-container").fadeIn("fast");
+            },
+            complete : function(xmlhttpreq, textStatus) {
+                if (textStatus=='success'){
+                    response = xmlhttpreq['responseText'];
+                    $("div#notification-container div").html(response['message']);
+                }
+                $("div#notification-container").fadeOut("fast");
+                window.location= '{{ next }}';
+            }
+        });
+    });
+
+    {% if is_unlockable %}
+
+    $("#locked-{{ lock_html_id }} .unlock_action").click(function(){
+        $.ajax({
+            url : '{{ url_unlock }}',
+            contentType : 'application/json',
+            type : 'POST',
+            beforeSend: function(){
+            $("div#notification-container div").html('{% trans "Removing lock..."|escapejs %}');
+            $("div#notification-container").fadeIn("fast");
+            },
+            complete : function(xmlhttpreq, textStatus) {
+                if (textStatus=='success'){
+                    response = xmlhttpreq['responseText'];
+                    $("div#notification-container div").html(response['message']);
+                }
+                $("div#notification-container").fadeOut("fast");
+                window.location= '{{ next }}';
+            }
+        });
+    });
+
+    {% endif %}
+
+    {% if is_owner %}
+    $("#locked-{{ lock_html_id }} .lock_extend_action").click(function(){
+        $.ajax({
+            url : '{{ url_extend }}',
+            contentType : 'application/json',
+            type : 'POST',
+            beforeSend: function(){
+            $("div#notification-container div").html('{% trans "Extending lock..."|escapejs %}');
+            $("div#notification-container").fadeIn("fast");
+            },
+            complete : function(xmlhttpreq, textStatus) {
+                if (textStatus=='success'){
+                    response = xmlhttpreq['responseText'];
+                    $("div#notification-container div").html(response['message']);
+                }
+                $("div#notification-container").fadeOut("fast");
+                window.location= '{{ next }}';
+            }
+        });
+    });
+    {% endif %}
+
+</script>
+
+{% endwith %}

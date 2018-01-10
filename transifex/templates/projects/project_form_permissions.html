@@ -1,0 +1,93 @@
+{% extends "projects/project_menu.html" %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load txcommontags %}
+{% load permissions %}
+{% load txpermissions %}
+
+{% block title %}{{ block.super }} | {{ project.name }} | {% trans "Access control" %}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }} &raquo; {{ project.name }}{% endblock %}
+
+{% block content_main %}
+
+<div class="obj_bigdetails">
+
+<div class="separate-header notopmargin clearfix">
+	<h3  class="sh-label">{% trans "Grant access" %}</h3>
+</div>
+
+{% get_permission "project_perm.submit_translations" for request.user and project as "can_submit_translations" %}
+{% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+{% get_permission_request "project_perm.submit_translations" for request.user and project as "can_submit_translations_request" %}
+
+<div class="project_create generic_form">
+
+{% if not project.anyone_submit and not project.outsource %}
+<div class="separate">
+
+<p>{% trans "Give write access to a translator to send translations to your project independent of a translation team." %}</p>
+
+<div class="tx-form">
+{% if form and not can_submit_translations_request %}
+    {% include "txpermissions/permission_form.html" %}
+{% else %}
+    {% txpermission_form for project using "project_perm.submit_translations" %}
+{% endif %}
+</div>
+
+</div>
+
+
+{% get_permission_requests project as "all_permission_requests" %}
+{% if all_permission_requests %}
+
+<div class="separate-header clearfix">
+	<h3  class="sh-label">{% trans "Pending requests:" %}</h3>
+</div>
+
+<div class="datalist ">
+<ul class="nomargin">
+{% for perm in all_permission_requests|dictsort:"user.username" %}
+    <li>
+            <img class="border" width="16" height="16" src="{{ perm.user.profile.get_mugshot_url }}" style="vertical-align:middle"/>
+        <a class="name" href="{% url profile_public perm.user.username %}">
+            {{ perm.user }}
+        </a>
+        {% txpermission_request_approve_form project perm %}
+        {% txpermission_request_delete_form project perm %}
+    </li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+
+{% get_permissions project as "all_permissions" %}
+{% if all_permissions %}
+{% autopaginate all_permissions 20 %}
+
+<div class="separate-header clearfix">
+	<h3  class="sh-label">{% trans "Users with access to submit files:" %}</h3>
+</div>
+
+<div class="datalist">
+<ul class="nomargin">
+{% for perm in all_permissions|dictsort:"user.username" %}
+    <li>
+        <img class="border" width="16" height="16" src="{{ perm.user.profile.get_mugshot_url }}" style="vertical-align:middle"/>
+        <a class="name" href="{% url profile_public perm.user.username %}">
+            {{ perm.user }}
+        </a>
+        {% txpermission_delete_form project perm %}
+    </li>
+{% endfor %}
+</ul>
+<div class="pagination bottom">{% paginate %}</div>
+</div>
+{% endif %}
+
+{% endif %}
+</div>
+</div>
+{% endblock %}
+

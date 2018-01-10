@@ -1,0 +1,38 @@
+{% load i18n %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("a#cla_facebox").facebox();
+    });
+</script>
+<style>
+a#cla_facebox{margin-left:12px;}
+</style>
+
+<div id="cla_section" class="access-control-extra" style="display:none;">	
+	<p id="cla_checkbox">{{ form.cla_enable }}
+	{{ form.cla_enable.help_text }}</p>
+	<div id="cla_textarea" style="display: none;margin-top:1em;">
+    {% if project.cla %}
+    <div class="clearfix" style="float:right;margin-right:18px;">
+      <a id="cla_facebox" title="{% trans "Show full CLA text" %}" href="{{ project.cla.get_absolute_url }}">{% trans "Show full CLA text" %}</a>
+      <a id="cla_facebox" title="{% trans "Show a list of users who have signed the CLA" %}" href="{{ project.cla.get_users_url }}">{% trans "Show CLA signees" %}</a>
+    </div>
+    {% endif %}
+    <label for="id_cla_license_text">{{ form.cla_license_text.help_text }}:</label>
+    {% if form.cla_license_text.errors %}
+    <p class="fielderrors">
+        {% for error in form.cla_license_text.errors %}
+            {{ error }}
+        {% endfor %}
+    </p>
+    {% endif %}
+    <p>{{ form.cla_license_text }}</p>
+	
+	  {% if project.cla %}
+	  {% url cla_project_sign project.slug as cla_sign %}
+	  <p class="i16 infomsg">{% blocktrans %}<strong>Warning</strong>: Modifying or deleting the CLA will clear the signee list and will require you to inform translators to manually <a href="{{ cla_sign }}">sign the new CLA</a>.{% endblocktrans %}</p>
+	
+	{% endif %}
+	</div>
+</div>

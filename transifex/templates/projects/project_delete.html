@@ -1,0 +1,19 @@
+{% extends "projects/project_settings.html" %}
+{% load i18n %}
+{% load permissions %}
+
+{% block project_settings_content %}
+
+		{% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+
+  	{% if project %}
+	    {% if perms.projects.delete_project or is_maintainer %}
+	    <h3 style="margin:2em 0;" >{% trans "Delete project" %}</h3>
+      <form class='tx-form' action='' method='post'>{% csrf_token %}
+        {{ delete_form.as_p }}
+        <input type="submit" class="i16 submit buttonized" value="{% trans "Delete project" %}" />
+      </form>
+	    {% endif %}
+    {% endif %}
+    
+{% endblock %}

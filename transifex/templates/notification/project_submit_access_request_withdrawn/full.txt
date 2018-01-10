@@ -1,0 +1,2 @@
+{% load i18n %}
+{% blocktrans %}The user {{ user_request }} withdrawn its request of access to submit translations to the project {{ project }}.{% endblocktrans %}

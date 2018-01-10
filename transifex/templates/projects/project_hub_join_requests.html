@@ -1,0 +1,25 @@
+{% load i18n %}
+
+{% with project.hub_requests.all as hub_requests %}
+{% if hub_requests and is_maintainer %}
+<div class="datalist">
+ 
+  <ul class="nomargin">
+    {% for hub_request in hub_requests %}
+    <li class="clearfix linking" onclick="javascript:window.location.href='{% url project_detail hub_request.project.slug %}';">
+    	<div class="tt-details">
+        <a>{{ hub_request.project }}</a>
+			</div>
+        <form class="microform" method="post" action="{% url project_hub_join_deny hub_request.project_hub.slug hub_request.project.slug %}">{% csrf_token %}
+            <input class="i16 delete buttonized blist" type="submit" value="{% trans "Deny" %}"/>
+        </form>
+        <form class="microform" method="post" action="{% url project_hub_join_approve hub_request.project_hub.slug hub_request.project.slug %}">{% csrf_token %}
+            <input class="i16 tick buttonized blist" type="submit" style="float:right;"  value="{% trans "Approve" %}"/>
+        </form>
+
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{% endwith %}

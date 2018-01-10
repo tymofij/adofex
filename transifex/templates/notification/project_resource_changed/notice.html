@@ -1,0 +1,3 @@
+{% load i18n %}{% url resource_detail resource.project.slug resource.slug as resource_url %}{% url project_detail resource.project.slug as project_url %}{% with resource.name as resource_name %}{% with resource.project.name as project_name %}
+{% blocktrans %}The resource <a href="{{ resource_url }}">{{ resource_name }}</a> of the <a href="{{ project_url }}">{{ project_name }}</a> project has been changed{% endblocktrans %}
+{% endwith %}{% endwith %}

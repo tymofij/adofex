@@ -1,0 +1,88 @@
+{% load i18n %}
+{% load permissions %}
+{% load resources_common_tags %}
+
+
+{% get_permission "project_perm.maintain" for request.user and project as "is_maintainer" %}
+
+{% if is_maintainer %}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.editable_{{ source_entity.id }}').editable(
+        function(value, settings) {
+            // Setting data
+            var data = {
+                source_entity_id: $(this).attr('id'),
+                comment_extra: value
+                };
+                
+            //Making the call
+            $.ajax({
+                type: 'POST',
+                url: '{% url developer_comment_extra project.slug %}',
+                data: data,
+                success: function(content) {
+                    // Check for errors
+                    if (content['error'] == true)
+                        alert(content['message']);
+                    if (!content['comment_extra']) {
+                        if (content['comment']){
+                            var selector = $('.editable_'+ data['source_entity_id']);
+                            selector.after('<span class="i16 tip">{% trans "Reverted to original comment from file."|escapejs %}</span>')
+                            selector.next('span').fadeOut(10000)
+                            value = content['comment']
+                        }
+                    }
+                },
+                dataType: "json",
+                async: false,
+            })
+            return(value);
+        },
+        { 
+            type       : 'textarea',
+            cols       : 80,
+            rows			 : 5,
+            cancel     : '{% trans "Cancel"|escapejs %}',
+            submit     : '{% trans "OK"|escapejs %}',
+            tooltip    : '{% trans "Click to edit..."|escapejs %}',
+            placeholder: '{% trans "Click here to add a comment"|escapejs %}',
+            data: function(value, settings) {
+                return value;
+            },
+        });
+});
+</script>
+{% endif %}
+
+<div class="lotte_details_wrapper clearfix">
+{% if translation %}
+<ul class="simple contexts details_right">
+    <li title="Last translation"><label>{% trans "Last translation:" %}</label> 
+      {% if translation.last_update %}<span>{{ translation.last_update|timesince }}</span>{% endif %}
+      {% if translation.user %}
+        <span>
+          {% trans "by" %} <a href="{% url profile_public translation.user.username %}">{% blocktrans with translation.user as user %}{{ user }}{% endblocktrans %}</a>
+        </span>
+        &nbsp;
+        <img class="border top" alt="{{ translation.user }}" width="16" height="16" src="{{ translation.user.profile.get_mugshot_url }}"/>
+      {% endif %}
+  </li>
+</ul>
+{% endif %}
+
+<ul class="simple contexts details_left">
+  <li title="{% trans "Key" %}" class="i16 key"><label>{% trans "String ID:" %}</label> <span>{{ source_entity.string }}</span></li>
+  <li title="{% trans "Description" %}" class="i16 tag">{% trans "Description:" %} {% if source_entity.context_string %}{{ source_entity.context_string }}{% else %}-{% endif %}</li>
+{% with source_entity.developer_comment as comment %}
+{% with source_entity.developer_comment_extra as extra_comment %}
+ <li title="{% trans "Comment" %}" class="i16 comment clearfix">
+    <span class="label" style="float:left;">{% trans "Comment: " %}</span> 
+    <span id="{{ source_entity.id }}" class="linkstyle label_target editable_{{ source_entity.id }}" style="margin-left:5px;float:left;">{% if extra_comment %}{{ extra_comment|truncatewords:"150" }}{% else %}{{ comment|truncatewords:"150" }}{% endif %}</span>
+ </li>
+{% endwith %}
+{% endwith %}
+  <li title="{% trans "Occurrences" %}" class="i16 file_search"><label>{% trans "Occurrences:" %}</label> <span>{% if source_entity.occurrences %}{{ source_entity.occurrences }}{% else %}-{% endif %}</span></li>
+</ul>
+
+</div>

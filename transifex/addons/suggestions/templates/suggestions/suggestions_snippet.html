@@ -1,0 +1,243 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load truncate %}
+{% load suggestions_tags %}
+
+{% get_suggestions source_entity.id for lang_code as suggestions %}
+
+<link media="screen" href="{% static "suggestions/css/lotte_suggestions.css" %}" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{% static "js/tx.jquery.bidi.js" %}"></script>
+
+<script type="text/javascript">
+
+/* document ready. do stuff */
+$(document).ready(function(){
+    $('textarea').bidi();
+
+    $('#send_suggestion_'+{{ source_entity.id }}).click(function(){
+      var suggestion_string = $('#new_suggestion_'+{{ source_entity.id }}).val();
+      if(suggestion_string==''){
+        alert("You should fill in the suggestion box first!");
+        return false;
+      }
+
+      // Show spinner
+      var abutton = $(this);
+      abutton.removeClass("tick").addClass("action_go");
+
+      var metatr = $(this).parents('.metatr');
+
+      // Post the new suggestion text
+      $.ajax({
+        type: 'POST',
+        url: '{% url suggestion_create source_entity.id lang_code %}',
+        data: { 'suggestion_string': suggestion_string, },
+        success: function(data) {
+                    // Remove spinner
+                    abutton.removeClass("action_go").addClass("tick");
+                    $('#new_suggestion_'+{{ source_entity.id }}).val('');
+
+                    // ISSUE A load to RENDERER
+                    metatr.html('<td colspan="4" class="inject_here"><div style="text-align:center"><span class="i16 action_go">loading ...</span></div></td>');
+                    var nTr = metatr.prev('tr');
+
+                    // Increase suggestions count
+                    var old_string = nTr.find('.show_suggestions').text();
+                    function replacer(str, p1, offset, s){
+                       if(p1)
+                           num = parseInt(p1) + 1;
+                       else
+                           num = 1
+                       return "suggestions ("+num+")";
+                    }
+                    var new_string = old_string.replace(/suggestions ?\(?([0-9]*)\)?/, replacer);
+                    nTr.find('.show_suggestions').text(new_string);
+
+                    var source_id = {{ source_entity.id }};
+
+                    // Get the details and inject them.
+                    var tab_suggestions_urlp = tab_suggestions_urlp_tmpl.replace('1111111111', source_id)
+                    metatr.find("td.inject_here").load(tab_suggestions_urlp, function(response, status, xhr) {
+                        if (status == "error") {
+                        var msg = "Sorry but there was an error: ";
+                        alert(msg + xhr.status + " " + xhr.statusText);
+                        }
+                    }).hide().fadeIn('slow');
+
+                    // Put 1px border around tab
+                    nTr.css({'border-bottom':'1px solid #EEE'});
+
+                },
+        error: function(){
+                alert("An error occurred while trying to store suggestion! We apologize for this!");
+                // Remove spinner
+                abutton.removeClass("action_go").addClass("tick");
+                $('#new_suggestion_'+{{ source_entity.id }}).val('');
+                },
+      });
+    });
+
+    $('.suggestion_line').hover(function(){
+        $(this).find('.suggestion_select_button').css({'visibility':'visible'});
+    },function(){
+        $(this).find('.suggestion_select_button').css({'visibility':'hidden'});
+    });
+
+    $('.suggestion_select_button a').click(function(){
+        var new_value = $(this).parents('.suggestion_line').find('.suggestion_text').html();
+        var trans = $(this).parents('tr.metatr').prev('tr').find('td.trans div textarea.default_translation')
+        trans.val(html_unescape(new_value));
+
+        // Update stringset now!!!
+        if ( stringset ) {
+            /* Mark the translated field as modified */
+            id = parseInt(trans.attr("id").split("_")[1]); // Get the id of current textarea -> binding index
+            string = stringset.strings[id];
+            string.translate(trans.val(), "other");
+            if (string.modified) {
+                trans.removeClass("fuzzy translated untranslated").addClass("fuzzy"); // Automatically set edited textarea to fuzzy
+                trans.siblings('textarea').removeClass("fuzzy translated untranslated").addClass("fuzzy");
+                // TODO: Check for autosave and handle it.
+                $('tbody tr td.notes span#save_' + id).show();
+                $('tbody tr td.notes span#undo_' + id).show();
+                trans.focus();
+            }
+        }
+    });
+
+    $('.vote_up_trigger').click(function(){
+        var suggestion_id = parseInt($(this).parents('.suggestion_line').attr('id').split("_")[1]);
+
+        var metatr = $(this).parents('.metatr');
+
+        // Post the new suggestion text
+        $.ajax({
+            type: 'POST',
+            url: '{% url suggestion_vote_up source_entity.id lang_code 1111111111 %}'.replace('1111111111', suggestion_id),
+            data: {},
+            success: function(data) {
+                        $('#suggestion_'+suggestion_id+' .score_value').html('<img src="{% static "images/icons/tick.png" %}">');
+
+                        // ISSUE A load to RENDERER
+                        metatr.html('<td colspan="4" class="inject_here"><div style="text-align:center"><span class="i16 action_go">loading ...</span></div></td>');
+                        var nTr = metatr.prev('tr');
+
+                        var source_id = {{ source_entity.id }};
+
+                        // Get the details and inject them.
+                        var tab_suggestions_urlp = tab_suggestions_urlp_tmpl.replace('1111111111', source_id)
+                        metatr.find("td.inject_here").load(tab_suggestions_urlp, function(response, status, xhr) {
+                          if (status == "error") {
+                            var msg = "Sorry but there was an error: ";
+                            alert(msg + xhr.status + " " + xhr.statusText);
+                          }
+                        }).hide().fadeIn('slow');
+
+                        // Put 1px border around tab
+                        nTr.css({'border-bottom':'1px solid #EEE'});
+
+                    },
+            error: function(){
+                        alert("An error occurred while trying to apply vote! We apologize for this!");
+                    },
+        });
+        return false;
+    });
+
+    $('.vote_down_trigger').click(function(){
+        var suggestion_id = parseInt($(this).parents('.suggestion_line').attr('id').split("_")[1]);
+
+        var metatr = $(this).parents('.metatr');
+
+        // Post the new suggestion text
+        $.ajax({
+            type: 'POST',
+            url: '{% url suggestion_vote_down source_entity.id lang_code 1111111111 %}'.replace('1111111111', suggestion_id),
+            data: {},
+            success: function(data) {
+                        $('#suggestion_'+suggestion_id+' .score_value').html('<img src="{% static "images/icons/tick.png" %}">');
+
+                        // ISSUE A load to RENDERER
+                        metatr.html('<td colspan="4" class="inject_here"><div style="text-align:center"><span class="i16 action_go">loading ...</span></div></td>');
+                        var nTr = metatr.prev('tr');
+
+                        var source_id = {{ source_entity.id }};
+
+                        // Get the details and inject them.
+                        var tab_suggestions_urlp = tab_suggestions_urlp_tmpl.replace('1111111111', source_id)
+                        metatr.find("td.inject_here").load(tab_suggestions_urlp, function(response, status, xhr) {
+                          if (status == "error") {
+                            var msg = "Sorry but there was an error: ";
+                            alert(msg + xhr.status + " " + xhr.statusText);
+                          }
+                        }).hide().fadeIn('slow');
+
+                        // Put 1px border around tab
+                        nTr.css({'border-bottom':'1px solid #EEE'});
+
+                    },
+            error: function(){
+                        alert("An error occurred while trying to apply vote! We apologize for this!");
+                    },
+        });
+        return false;
+    });
+
+});
+</script>
+
+<div class="suggestions">
+  <span class='suggestions_help' class="i16 help" title="Click to learn how to use suggestions">&nbsp;</span>
+  <div class="user_suggestions">
+  {% if suggestions %}
+    <div class="title_line"><span class="title">{% trans "User suggestions" %}</span></div>
+      {% for suggestion in suggestions %}
+      <div id="suggestion_{{ suggestion.id }}" class="suggestion_line {% if forloop.last %}last_line{% endif %}">
+        <div class="suggestion_user">
+          <img class="border" alt="{{ suggestion.user }}" width="32" height="32" src="{{ suggestion.user.profile.get_mugshot_url }}" />
+		{% if suggestion.user %} 
+          <a href="{% url profile_public suggestion.user.username %}">
+            <span>{{ suggestion.user }}</span>
+          </a>
+		{% endif %}
+        </div>
+        <div class="suggestion_text">{{ suggestion.string }}</div>
+        <div class="suggestion_score">
+          <a href='#' class="vote_up_trigger">
+            <img src="{% static "images/icons/vote_up.png" %}" class="vote_up" title="{% trans "Vote up for this translation suggestion (click again to undo)." %}" />
+          </a>
+          <span class="score_value" title="{% trans "The score of the suggestion, indicating its popularity among translators." %}">{{ suggestion.score_rounded }}</span>
+          <a href='#' class="vote_down_trigger">
+            <img src="{% static "images/icons/vote_down.png" %}" class="vote_down" title="{% trans "Vote down for this translation suggestion (click again to undo)." %}"/>
+          </a>
+        </div>
+        {% if current_translation %}
+        {% ifequal current_translation.string suggestion.string %}
+          <div class="suggestion_select_current"><span><img title="{% trans "This is the currently accepted translation." %}" src="{% static "images/icons/big_tick.png" %}" /></span></div>
+        {% else %}
+          <div class="suggestion_select_button"><a class="i16 tick buttonized">{% trans "Use this!" %}</a></div>
+        {% endifequal %}
+        {% else %}
+          <div class="suggestion_select_button"><a class="i16 tick buttonized">{% trans "Use this!" %}</a></div>
+        {% endif %}
+        <div class="nomargin nopadding clear"></div>
+      </div>
+      {% endfor %}
+  {% endif %}
+
+    <div class="title_line"><span class="title">{% trans "New suggestion" %}</span></div>
+    <div class="suggestion_create">
+      <div class="suggestion_user">
+          <img class="border" alt="{{ request.user }}" width="32" height="32" src="{{ request.user.profile.get_mugshot_url }}" />
+          <span>{% trans "You!" %}</span>
+      </div>
+      <div class="suggestion_textarea">
+        <textarea id="new_suggestion_{{ source_entity.id }}"></textarea>
+      </div>
+      <div class="suggestion_button">
+        <a id="send_suggestion_{{ source_entity.id }}" class="i16 tick buttonized">{% trans "Send suggestion!" %}</a>
+      </div>
+    </div>
+  </div>
+
+</div>

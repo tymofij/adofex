@@ -1,0 +1,5 @@
+{% load i18n %}{% url team_detail team.project.slug team.language.code as team_url %}{% with team.language.name as team_name %}{% with team.project.name as project_name %}
+{% blocktrans %}The user '{{ performer }}' has left the '{{ team_name }}' translation team of the '{{ project_name }}' project.{% endblocktrans %}
+
+{% blocktrans %}Please, visit Transifex at http://{{current_site}}{{team_url}} in order to see this team.{% endblocktrans %}
+{% endwith %}{% endwith %}

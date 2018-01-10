@@ -1,0 +1,7 @@
+{% load i18n %}
+{% if url %}
+<form class="microform delete_permission" method="post" enctype="multipart/form-data" action="{{ url }}">{% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}"/>
+    <input class="i16 delete buttonized blist" type="submit" value="{% trans "Revoke permission" %}"/>
+</form>
+{% endif %}

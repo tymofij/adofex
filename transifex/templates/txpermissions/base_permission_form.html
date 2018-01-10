@@ -1,0 +1,26 @@
+{% load i18n %}
+{% load txcommontags %}
+{% load permissions %}
+{% load txpermissions %}
+
+<div id="tab-1"></div>
+<div id="tab-2">
+<h3>{% trans "Give access to a translator to send translations to your project" %}</h3>
+
+{% if form %}
+    {% include "txpermissions/permission_form.html" %}
+{% else %}
+    {% txpermission_form project "project_perm.submit_translations" %}
+{% endif %}
+
+{% get_permissions project as "all_permissions" %}
+{% if all_permissions %}
+<h4>{% trans "Users with access to submit files:" %}</h4>
+<ul>
+{% for perm in all_permissions %}
+    <li>{{ perm.user }} - {% txpermission_delete_form project perm %}</li>
+{% endfor %}
+</ul>
+{% endif %}
+</div>
+

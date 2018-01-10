@@ -1,0 +1,135 @@
+[
+  {
+    "pk": 1,
+    "model": "languages.language",
+    "fields": {
+      "rule_few": null,
+      "code_aliases": " af-ZA ",
+      "code": "af",
+      "name": "Afrikaans",
+      "description": "",
+      "pluralequation": "(n != 1)",
+      "rule_zero": null,
+      "rule_two": null,
+      "rule_one": "n is 1",
+      "rule_other": "everything else",
+      "specialchars": "\u00eb\u00ef\u00ea\u00f4\u00fb\u00e1\u00e9\u00ed\u00f3\u00fa\u00fd",
+      "rule_many": null,
+      "nplurals": 2
+    }
+  },
+  {
+    "pk": 3,
+    "model": "languages.language",
+    "fields": {
+      "rule_few": "n mod 100 in 3..10",
+      "code_aliases": " ar-SA ",
+      "code": "ar",
+      "name": "Arabic",
+      "description": "",
+      "pluralequation": "n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5",
+      "rule_zero": "n is 0",
+      "rule_two": "n is 2",
+      "rule_one": "n is 1",
+      "rule_other": "everything else",
+      "specialchars": "",
+      "rule_many": "n mod 100 in 11..99",
+      "nplurals": 6
+    }
+  },
+  {
+    "pk": 19,
+    "model": "languages.language",
+    "fields": {
+      "rule_few": null,
+      "code_aliases": " el-GR ",
+      "code": "el",
+      "name": "Greek",
+      "description": "",
+      "pluralequation": "(n != 1)",
+      "rule_zero": null,
+      "rule_two": null,
+      "rule_one": "n is 1",
+      "rule_other": "everything else",
+      "specialchars": "",
+      "rule_many": null,
+      "nplurals": 2
+    }
+  },
+  {
+    "pk": 27,
+    "model": "languages.language",
+    "fields": {
+      "rule_few": null,
+      "code_aliases": " fi-FI ",
+      "code": "fi",
+      "name": "Finnish",
+      "description": "",
+      "pluralequation": "(n != 1)",
+      "rule_zero": null,
+      "rule_two": null,
+      "rule_one": "n is 1",
+      "rule_other": "everything else",
+      "specialchars": "",
+      "rule_many": null,
+      "nplurals": 2
+    }
+  },
+  {
+    "pk": 70,
+    "model": "languages.language",
+    "fields": {
+      "rule_few": null,
+      "code_aliases": " pt-br pt-BR ",
+      "code": "pt_BR",
+      "name": "Portuguese (Brazil)",
+      "description": "",
+      "pluralequation": "(n > 1)",
+      "rule_zero": null,
+      "rule_two": null,
+      "rule_one": "n is 1",
+      "rule_other": "everything else",
+      "specialchars": "",
+      "rule_many": null,
+      "nplurals": 2
+    }
+  },
+  {
+    "pk": 98,
+    "model": "languages.language",
+    "fields": {
+      "rule_few": null,
+      "code_aliases": " en-US ",
+      "code": "en_US",
+      "name": "English (United States)",
+      "description": "",
+      "pluralequation": "(n != 1)",
+      "rule_zero": null,
+      "rule_two": null,
+      "rule_one": "n is 1",
+      "rule_other": "everything else",
+      "specialchars": "",
+      "rule_many": null,
+      "nplurals": 2
+    }
+  },
+  {
+    "pk": 212, 
+    "model": "languages.language", 
+    "fields": {
+      "rule_few": null, 
+      "code_aliases": " hi-IN hi-in ", 
+      "code": "hi_IN", 
+      "name": "Hindi (India)", 
+      "description": "", 
+      "pluralequation": "(n != 1)", 
+      "rule_zero": null, 
+      "rule_two": null, 
+      "rule_one": "n in 0..1", 
+      "rule_other": "everything else", 
+      "specialchars": "", 
+      "rule_many": null, 
+      "nplurals": 2
+    }
+  }
+]

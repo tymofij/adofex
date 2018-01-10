@@ -1,0 +1,4 @@
+{% load i18n %}{% url team_detail team.project.slug team.language.code as team_url %}{% url project_detail team.project.slug as project_url %}{% with team.language.name as team_name %}{% with team.project.name as project_name %}
+{% blocktrans %}<a href="{{ sender_url }}">{{sender}}</a> <span class="notice_action">deleted</span> the <a href="{{ team_url }}">{{ team_name }}</a> <span class="notice_subject">language</span> translation from the <a href="{{ project_url }}">{{ project_name }}</a> project
+{% endblocktrans %}
+{% endwith %}{% endwith %}

@@ -1,0 +1,3 @@
+{% load i18n %}{% with project.name as project_name %}{% url project_detail project.slug as project_url %}{% with project_hub.name as project_hub_name %}{% url project_detail project_hub.slug as project_hub_url %}
+{% blocktrans %}The project <a href="{{ project_url }}">{{ project_name }}</a> has <span class="notice_action">left</span> the <a href="{{ project_hub_url }}">{{ project_hub_name }} </a> project hub{% endblocktrans %}
+{% endwith %}{% endwith %}

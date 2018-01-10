@@ -1,0 +1,131 @@
+{% load staticfiles %}
+{% load i18n %}
+{% if resources %}
+<script type="text/javascript">
+    String.prototype.entityify = function () {
+    return this.
+        replace(/&/g, "&amp;").
+        replace(/</g, "&lt;").
+        replace(/>/g, "&gt;").
+        replace(/"/g, "&quot;");
+    };
+
+    $(document).ready(function() {
+        // Interactive chart
+        $("#chart-interactive-menu").change(function(){
+            s = $("#chart-interactive-snippet");
+            resource_slug = $("#chart-interactive-menu option:selected").val();
+            if (resource_slug == "") {
+                s.slideUp("slow");
+                return;
+            }
+            project_slug = '{{ project.slug }}';
+            url = "{{SITE_URL_PREFIX}}/projects/p/" + project_slug + '/resource/' + resource_slug + '/chart';
+            $.ajax({
+                url: url,
+                success: function(data) {
+                    s.html(data.entityify());
+                    s.slideDown("slow");
+                }
+            });
+        });
+
+        // Static image
+        function mkcode(resource_slug) {
+            project_slug = '{{ project.slug }}';
+            tip = "See more information on Transifex.net";
+            base_url = "{{ SITE_URL_PREFIX }}/projects/p/" + project_slug + '/resource/' + resource_slug + '/';
+            img_url = base_url + 'chart/image_png';
+
+            code = "<a target=\"_blank\" style=\"text-decoration:none; color:black; font-size:66%\" href=\"" + base_url + "\" \n";
+            code += "title=\""+tip+"\">Top translations: " +project_slug+ " » "+resource_slug+"</a><br/>\n";
+            code += '<img border="0" src="'+img_url+'"/><br/>';
+            code +=  '<a target="_blank" href="{{SITE_URL_PREFIX}}{% url transifex.home %}"><img border="0" src="{% static "charts/images/tx-logo-micro.png" %}"/></a>';
+            return code;
+        }
+
+        $("#chart-image-div").html(mkcode('{{default_resource.slug}}'));
+        $("#chart-image-menu").change(function(){
+            s = $("#chart-image-snippet");
+            resource_slug = $("#chart-image-menu option:selected").val();
+            if (resource_slug == "") {
+                s.slideUp("slow");
+                return;
+            }
+            s.html(mkcode(resource_slug).entityify());
+            s.slideDown("slow");
+        });
+    });
+</script>
+
+<div class="details">
+
+<div class="separate-header notopmargin clearfix" style="margin-top:0;">
+	<h3  class="sh-label">{% blocktrans %}Image charts{% endblocktrans %}</h3>
+</div>
+
+<div>
+    <table class="widget">
+        <tr>
+            <td class="loading"><div id="chart-image-div">{% blocktrans %}Loading...{% endblocktrans %}</div></td>
+
+            <td class="code_details">
+                <p>{% blocktrans %}Display your project's translation statistics on your own website as a simple image. Perfect for embedding in wiki pages, Trac instances, and email.{% endblocktrans %}</p>
+                <p>{% blocktrans %}The chart will always report live Transifex numbers.{% endblocktrans %}</p>
+                <p>{% blocktrans %}Show code snippet for resource:{% endblocktrans %}
+                <select id="chart-image-menu">
+                    <option value="">{% blocktrans %}Hidden{% endblocktrans %}</option>
+                    {% for resource in resources %}
+                        <option value="{{resource.slug}}">{{resource.name}}</option>
+                    {% endfor %}
+                </select>
+                </p>
+            </td>
+        </tr>
+    </table>
+    <pre id="chart-image-snippet" class="code_snippet">Loading...</pre>
+</div>
+</div>
+
+<div class="details">
+
+<div class="separate-header clearfix">
+	<h3  class="sh-label">{% blocktrans %}Interactive charts{% endblocktrans %}</h3>
+</div>
+
+<div>
+    <table class="widget">
+        <tr>
+            <td class="loading">
+                <iframe src="{% url chart_resource_html project.slug default_resource.slug %}"
+                  id="chart-interactive-iframe">{% blocktrans %}Loading...{% endblocktrans %}</iframe>
+            </td>
+
+            <td class="code_details">
+                <p>{% blocktrans %}Display your project's translation statistics on your own website as an interactive chart. This requires modifications to your homepage's HTML code.{% endblocktrans %}</p>
+
+                <p>{% blocktrans %}You can adjust level of detail, dimensions and colors of the chart by tweaking the code below.{% endblocktrans %}</p>
+
+                <p>{% blocktrans %}Show code snippet for resource:{% endblocktrans %}
+                <select id="chart-interactive-menu">
+                    <option value="">{% blocktrans %}Hidden{% endblocktrans %}</option>
+                    {% for resource in resources %}
+                        <option value="{{resource.slug}}">{{resource.name}}</option>
+                    {% endfor %}
+                </select>
+                </p>
+            </td>
+        </tr>
+    </table>
+
+
+    <pre id="chart-interactive-snippet" class="code_snippet">Loading...</pre>
+</div>
+
+</div>
+{% else %}
+<div class="separate">
+<h3>{% blocktrans %}Interactive and Image charts{% endblocktrans %}</h3>
+<p class="i16 infomsg">{% blocktrans %}Sorry, but your project doesn't have any resources with up-to-date statistics. You need to have at least one resource with statistics to export charts from Transifex.{% endblocktrans %}</p>
+</div>
+{% endif %}

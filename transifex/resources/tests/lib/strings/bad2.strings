@@ -1,0 +1,5 @@
+/*comment*/     
+    
+"key1" = "value1";
+/*comment*/ garbage
+"key2" = "value2";

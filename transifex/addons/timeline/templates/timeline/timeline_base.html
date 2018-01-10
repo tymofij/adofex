@@ -1,0 +1,64 @@
+{% comment %}This is the base code block for timeline. It should be included from others. {% endcomment %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load sorting_tags %}
+{% load txcommontags %}
+{% autosort actionlog %}
+{% with actionlog.count as actionlog_total %}
+{% autopaginate actionlog 30 %}
+
+<div class="tx-form">
+
+		<form action="" method="POST">{% csrf_token %} 
+      <fieldset>
+				{% for field in f.form %}
+				<div class="tx-form-field clearfix" style="min-height:20px;">
+				{{ field.errors }}
+				{{ field.label_tag }}
+				{{ field }}
+				</div>
+				{% endfor %}
+      </fieldset>
+			<input type="submit" class="i16 action buttonized" id="timeline-submit" style="margin-top:10px;" value="{% trans "Filter" %}"/></td></tr>
+    </form>
+
+
+
+</div>
+
+{% if not actionlog %}
+<p>{% trans 'None available' %}</p>
+{% else %}
+
+<h5 style="margin-top:2em;">
+{% blocktrans count actionlog_total as counter %}The query returned {{ counter }} result{% plural %}The query returned {{ counter }} results:{% endblocktrans %}
+</h5>
+
+  <div class="pagination">{% paginate %}</div>
+
+  <table class="tablesorter compact withair timeline" width="100%">
+   <thead>
+    <tr>
+      <th><span>{% anchor action_type " " %}</span></th>
+      <th><span>{% anchor user User %}</span></th>
+      <th><span>{% anchor action_time "Time ago" %}</span></th>
+      <th><span>{% trans "Description" %}</span></th>
+    </tr>
+   </thead>
+   <tbody>
+{% for entry in actionlog %}
+     <tr>
+       <td><span class="i16 {{ entry.action_type_short }}" title="{{ entry.action_type }}"></span></td>
+       <td class="timelineuser"><a href="{% url profile_public entry.user.username %}">{{ entry.user }}</td>
+       <td class="timelinewhen">{{ entry.action_time|timesince }}</td>
+       <td>{{ entry.message|safe }}</td>
+     </tr>
+{% endfor %}
+   </tbody>
+  </table>
+
+  <div class="pagination">{% paginate %}</div>
+
+{% endif %}
+</div>
+{% endwith %}

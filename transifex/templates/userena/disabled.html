@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+{{ block.super }} |
+{% trans "Disabled account" %}
+{% endblock %}
+
+{% block content_title %}<h2>{% trans "Account disabled" %}</h2>{% endblock %}
+
+{% block content_main %}
+<p>{% trans "It seems your account has been disabled." %}</p>
+<p>{% trans "It is likely that you have created an account but haven't activated it yet. Please check your e-mail inbox." %}</p>
+<p>{% trans "If you feel that injustice has been done to you, feel free to contact the administrators to find out why." %}</p>
+{% endblock %}

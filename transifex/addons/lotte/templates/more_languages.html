@@ -1,0 +1,24 @@
+{% load i18n %}
+{% load truncate %}
+
+<div id="more_languages_menu" class="filtermenu_wrapper">
+
+{% if languages %}
+  <div class="filters_list">
+    <ul>
+    {% for language in languages %}
+      <li title="{{ language }}"><input class="more_languages" type="checkbox" {% ifequal language target_language %}disabled="disabled"{% else %}{% ifequal language resource.source_language %}disabled="disabled"{% endifequal %}{% endifequal %} id="{{ language.id }}" />
+      <span {% ifequal language target_language %}class="disabled"{% else %}{% ifequal language resource.source_language %}class="disabled"{% endifequal %}{% endifequal %}>
+            {{ language.name|truncate_chars_middle:"16" }}
+      </span>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+{% else %}
+  <div class="filters_list">
+    <p>{% trans "No active languages!" %}</p>
+  </div>
+{% endif %}
+
+</div>

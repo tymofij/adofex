@@ -1,0 +1,3 @@
+{% firstof obj.description|escape obj.name|escape %}
+<br/>
+<br/>Resources: {% for res in obj.resources.all %}<a href="{{ res.get_absolute_url }}">{{ res.name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}

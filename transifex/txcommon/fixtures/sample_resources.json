@@ -1,0 +1,2359 @@
+[
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:29",
+      "i18n_type": "PO",
+      "last_update": "2010-09-01 12:18:55",
+      "name": "test-po",
+      "project": 1,
+      "slug": "test-po",
+      "source_language": 98
+    },
+    "model": "resources.resource",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:11:21",
+      "i18n_type": "Qt",
+      "last_update": "2010-09-01 12:18:54",
+      "name": "test-qt",
+      "project": 1,
+      "slug": "test-qt",
+      "source_language": 98
+    },
+    "model": "resources.resource",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "context": "None",
+      "created": "2010-09-01 11:09:29",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:09:29",
+      "occurrences": "actionlog/templates/object_action_list.html:7, txpermissions/forms.py:18",
+      "pluralized": false,
+      "position": 1,
+      "resource": 1,
+      "string": "User",
+      "string_hash": "8f9bfe9d1345237cb3b2b205864da075"
+    },
+    "model": "resources.sourceentity",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:115",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "PROCESSING START...",
+      "string_hash": "06c85dc619977203eb9e21123ae1c6d1"
+    },
+    "model": "resources.sourceentity",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "context": "None",
+      "created": "2010-09-01 11:09:29",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:09:29",
+      "occurrences": "actionlog/templates/object_action_list.html:8",
+      "pluralized": false,
+      "position": 1,
+      "resource": 1,
+      "string": "Action",
+      "string_hash": "004bf6c9a40003140292e97330236c53"
+    },
+    "model": "resources.sourceentity",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:136",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "USER ABORT.",
+      "string_hash": "e4f4ff21f2c80c28c5f1bf938d9085ae"
+    },
+    "model": "resources.sourceentity",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "context": "None",
+      "created": "2010-09-01 11:09:29",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:09:29",
+      "occurrences": "foo/templates/bar.html:180",
+      "pluralized": true,
+      "position": 1,
+      "resource": 1,
+      "string": "{0} result",
+      "string_hash": "f5c0afb365dd6ef27ca0f026013b5af9"
+    },
+    "model": "resources.sourceentity",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:140",
+      "pluralized": true,
+      "position": 1,
+      "resource": 2,
+      "string": "%n FILES PROCESSED.",
+      "string_hash": "575aa9a0187f8e65e456d18fbcdbf3f7"
+    },
+    "model": "resources.sourceentity",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:397",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "COPYING '%1' AS '%2' TO '%3'.",
+      "string_hash": "a16aa51e096c01df13e70c2eb34b3ad8"
+    },
+    "model": "resources.sourceentity",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:491",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "LANGUAGE NAME",
+      "string_hash": "fa316dbd981579691726fe519d22af33"
+    },
+    "model": "resources.sourceentity",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:373",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "TARGET DIR '%1' CREATION FAILED.",
+      "string_hash": "293382065b6e50d4485d965f5bf8f3c9"
+    },
+    "model": "resources.sourceentity",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:35",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "SOURCE FOLDER(S)/FILE(S):\n",
+      "string_hash": "786769d2eb5edb406ace0d4500494fa1"
+    },
+    "model": "resources.sourceentity",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:36",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "TARGET FOLDER:\n",
+      "string_hash": "57361a85faa28ab1af250685a2f7a99d"
+    },
+    "model": "resources.sourceentity",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:87",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "TARGET NOT SET.",
+      "string_hash": "aaef49c8a0dd69cfbe6625dec60c39c1"
+    },
+    "model": "resources.sourceentity",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:92",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "SOURCE(S) NOT SET.",
+      "string_hash": "b4d39df666d40b1492c5e98a775a5451"
+    },
+    "model": "resources.sourceentity",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:101",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "PROCESSING...",
+      "string_hash": "55c2311c893906f7b78c542a9fa6e328"
+    },
+    "model": "resources.sourceentity",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:101",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "CANCEL",
+      "string_hash": "2027c027133e22c8929e2874dc44dd36"
+    },
+    "model": "resources.sourceentity",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:412",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "CANCELLING...",
+      "string_hash": "543b575faacd593091d52245d85f107e"
+    },
+    "model": "resources.sourceentity",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:425",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "COPY FAILED FOR '%1'.",
+      "string_hash": "133cffdf3349bf02d24024fd719b28a8"
+    },
+    "model": "resources.sourceentity",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "context": "Kuvasin",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.cpp:455",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "DEL FAILED FOR '%1'.",
+      "string_hash": "ab3b018800a58f4d77b2c4fa8b10a691"
+    },
+    "model": "resources.sourceentity",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:20;ui_kuvasin.h:244",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "Kuvasin",
+      "string_hash": "cdde069899f722e1939a95043a13c006"
+    },
+    "model": "resources.sourceentity",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:32;ui_kuvasin.h:245",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "LABEL SOURCE FOLDER.",
+      "string_hash": "9cb526c0f9be6788f09c1143145dc646"
+    },
+    "model": "resources.sourceentity",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:45;ui_kuvasin.h:246",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "LABEL TARGET FOLDER.",
+      "string_hash": "7e27553bf03c1b7ea2c2db84a6880c06"
+    },
+    "model": "resources.sourceentity",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:174;ui_kuvasin.h:258",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "GOOD EXTENSIONS",
+      "string_hash": "b93fb21030ee1dd479ae19d26128b6f9"
+    },
+    "model": "resources.sourceentity",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:190;ui_kuvasin.h:260",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "GOOD EXTENSIONS TOOL TIP.",
+      "string_hash": "eb60c285535549da8584c83ca77a7992"
+    },
+    "model": "resources.sourceentity",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:205;ui_kuvasin.h:266",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "CHECK BOX REMOVE ORIGINALS",
+      "string_hash": "5c7e2102fbdea71ea47ddbc23d349c73"
+    },
+    "model": "resources.sourceentity",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:215;ui_kuvasin.h:270",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "CHECK BOX  IGNORE PALBTN",
+      "string_hash": "b60c404621d56ace8a4ada1ea8c99a21"
+    },
+    "model": "resources.sourceentity",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:235;ui_kuvasin.h:278",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "CHECK BOX TARGET DIRECTORY REUSAL",
+      "string_hash": "7d4a1c7d51a44f33e0d0892063d2a035"
+    },
+    "model": "resources.sourceentity",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:225;ui_kuvasin.h:274",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "CHECK BOX RECURSIVE",
+      "string_hash": "17dca366d9bef6b559342d948f34116e"
+    },
+    "model": "resources.sourceentity",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:119;ui_kuvasin.h:252",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "ST&amp;ART",
+      "string_hash": "cd7ccf67b799b1401bae54afb70b75c0"
+    },
+    "model": "resources.sourceentity",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:138;ui_kuvasin.h:256",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "E&amp;XIT",
+      "string_hash": "90337b66a13f086af0fb9e11ab034e52"
+    },
+    "model": "resources.sourceentity",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:202;ui_kuvasin.h:264",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "REMOVE ORIGINALS TOOL TIP.",
+      "string_hash": "489d09c26eb444c85da2d093f5611dee"
+    },
+    "model": "resources.sourceentity",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:212;ui_kuvasin.h:268",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "IGNORE PALBTN TOOL TIP.",
+      "string_hash": "bce3ac41b732eae41bcc7be62e459be5"
+    },
+    "model": "resources.sourceentity",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:232;ui_kuvasin.h:276",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "TARGET DIRECTORY REUSAL TOOL TIP.",
+      "string_hash": "57cfdb2457462b6bc37b4880469222fb"
+    },
+    "model": "resources.sourceentity",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:222;ui_kuvasin.h:272",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "RECURSIVE SEARCH TOOL TIP.",
+      "string_hash": "8b32a8cb3e2a4b12f369fe9899fe1830"
+    },
+    "model": "resources.sourceentity",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:248;ui_kuvasin.h:280",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "SAVE SETTINGS TOOL TIP.",
+      "string_hash": "cfcad277eda979c80c75e8aa3ed8e628"
+    },
+    "model": "resources.sourceentity",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:251;ui_kuvasin.h:282",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "&amp;SAVE SETTINGS",
+      "string_hash": "5e71483c09558b4b5a978dc047a10630"
+    },
+    "model": "resources.sourceentity",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:284;ui_kuvasin.h:288",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "LOG TOOL TIP.",
+      "string_hash": "20304f99aafc250dddac8637bfcede44"
+    },
+    "model": "resources.sourceentity",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:116;ui_kuvasin.h:250",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "START TRANSFER TOOL TIP.",
+      "string_hash": "b134a10de5d50125a99e608ff58b9251"
+    },
+    "model": "resources.sourceentity",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:135;ui_kuvasin.h:254",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "EXIT APP TOOL TIP.",
+      "string_hash": "8457c97a686069bf987bbd3588517777"
+    },
+    "model": "resources.sourceentity",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:260;ui_kuvasin.h:283",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "LABEL APP LANGUAGE",
+      "string_hash": "b42453bfe2aab50bcf0708af39065b32"
+    },
+    "model": "resources.sourceentity",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:273;ui_kuvasin.h:285",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "LANGUAGE COMBO TOOL TIP.",
+      "string_hash": "8687613b9f8b2083f141c3d4e101b067"
+    },
+    "model": "resources.sourceentity",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:147;ui_kuvasin.h:257",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "S&amp;ETTINGS",
+      "string_hash": "0085351c5c48aa0d0f6e46511eebdd18"
+    },
+    "model": "resources.sourceentity",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "context": "KuvasinClass",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "kuvasin.ui:193;ui_kuvasin.h:262",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "GOOD EXTENSIONS LIST",
+      "string_hash": "9a086ed7331bf6092285d9af65698ff6"
+    },
+    "model": "resources.sourceentity",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "context": "QLabelDropTarget",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "qlabeldroptarget.cpp:8",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "ITEMS:",
+      "string_hash": "7ed9a551599af6e2cf7a642b3773787d"
+    },
+    "model": "resources.sourceentity",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "context": "QLabelDropTarget",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "qlabeldroptarget.cpp:46",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "SINGLE ITEM ONLY, PLEASE.",
+      "string_hash": "f78f7c7698097bafce55f821c4906e70"
+    },
+    "model": "resources.sourceentity",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "context": "QLabelDropTarget",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "qlabeldroptarget.cpp:68",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "MISMATCH: FOLDER '%1'.",
+      "string_hash": "af484542bf464d18a134f2ca710b6485"
+    },
+    "model": "resources.sourceentity",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "context": "QLabelDropTarget",
+      "created": "2010-09-01 11:29:47",
+      "developer_comment": "",
+      "flags": "",
+      "last_update": "2010-09-01 11:29:47",
+      "occurrences": "qlabeldroptarget.cpp:78",
+      "pluralized": false,
+      "position": 1,
+      "resource": 2,
+      "string": "MISMATCH: FILE '%1'.",
+      "string_hash": "649bbf7cb5c2893685633a66e9cce5dd"
+    },
+    "model": "resources.sourceentity",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:29",
+      "language": 98,
+      "last_update": "2010-09-01 11:09:29",
+      "rule": 5,
+      "source_entity": 1,
+      "string": "User",
+      "string_hash": "8f9bfe9d1345237cb3b2b205864da075",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:29",
+      "language": 98,
+      "last_update": "2010-09-01 11:09:29",
+      "rule": 5,
+      "source_entity": 2,
+      "string": "Action",
+      "string_hash": "004bf6c9a40003140292e97330236c53",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:29",
+      "language": 98,
+      "last_update": "2010-09-01 11:09:29",
+      "rule": 1,
+      "source_entity": 3,
+      "string": "{0} result",
+      "string_hash": "f5c0afb365dd6ef27ca0f026013b5af9",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 4,
+      "string": "PROCESSING START...",
+      "string_hash": "06c85dc619977203eb9e21123ae1c6d1",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 5,
+      "string": "USER ABORT.",
+      "string_hash": "e4f4ff21f2c80c28c5f1bf938d9085ae",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 12:18:54",
+      "rule": 5,
+      "source_entity": 6,
+      "string": "%n files processed.",
+      "string_hash": "17b0bd770660ccc8634108095b11bee0",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 7,
+      "string": "COPYING '%1' AS '%2' TO '%3'.",
+      "string_hash": "a16aa51e096c01df13e70c2eb34b3ad8",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 8,
+      "string": "LANGUAGE NAME",
+      "string_hash": "fa316dbd981579691726fe519d22af33",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 9,
+      "string": "TARGET DIR '%1' CREATION FAILED.",
+      "string_hash": "293382065b6e50d4485d965f5bf8f3c9",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 10,
+      "string": "SOURCE FOLDER(S)/FILE(S):\n",
+      "string_hash": "786769d2eb5edb406ace0d4500494fa1",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 11,
+      "string": "TARGET FOLDER:\n",
+      "string_hash": "57361a85faa28ab1af250685a2f7a99d",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 12,
+      "string": "TARGET NOT SET.",
+      "string_hash": "aaef49c8a0dd69cfbe6625dec60c39c1",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 13,
+      "string": "SOURCE(S) NOT SET.",
+      "string_hash": "b4d39df666d40b1492c5e98a775a5451",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 14,
+      "string": "PROCESSING...",
+      "string_hash": "55c2311c893906f7b78c542a9fa6e328",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 15,
+      "string": "CANCEL",
+      "string_hash": "2027c027133e22c8929e2874dc44dd36",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 16,
+      "string": "CANCELLING...",
+      "string_hash": "543b575faacd593091d52245d85f107e",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 17,
+      "string": "COPY FAILED FOR '%1'.",
+      "string_hash": "133cffdf3349bf02d24024fd719b28a8",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 18,
+      "string": "DEL FAILED FOR '%1'.",
+      "string_hash": "ab3b018800a58f4d77b2c4fa8b10a691",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 19,
+      "string": "Kuvasin",
+      "string_hash": "cdde069899f722e1939a95043a13c006",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 20,
+      "string": "LABEL SOURCE FOLDER.",
+      "string_hash": "9cb526c0f9be6788f09c1143145dc646",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 21,
+      "string": "LABEL TARGET FOLDER.",
+      "string_hash": "7e27553bf03c1b7ea2c2db84a6880c06",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 22,
+      "string": "GOOD EXTENSIONS",
+      "string_hash": "b93fb21030ee1dd479ae19d26128b6f9",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 23,
+      "string": "GOOD EXTENSIONS TOOL TIP.",
+      "string_hash": "eb60c285535549da8584c83ca77a7992",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 24,
+      "string": "CHECK BOX REMOVE ORIGINALS",
+      "string_hash": "5c7e2102fbdea71ea47ddbc23d349c73",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 25,
+      "string": "CHECK BOX  IGNORE PALBTN",
+      "string_hash": "b60c404621d56ace8a4ada1ea8c99a21",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 26,
+      "string": "CHECK BOX TARGET DIRECTORY REUSAL",
+      "string_hash": "7d4a1c7d51a44f33e0d0892063d2a035",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 27,
+      "string": "CHECK BOX RECURSIVE",
+      "string_hash": "17dca366d9bef6b559342d948f34116e",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 28,
+      "string": "ST&amp;ART",
+      "string_hash": "cd7ccf67b799b1401bae54afb70b75c0",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 29,
+      "string": "E&amp;XIT",
+      "string_hash": "90337b66a13f086af0fb9e11ab034e52",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 30,
+      "string": "REMOVE ORIGINALS TOOL TIP.",
+      "string_hash": "489d09c26eb444c85da2d093f5611dee",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 31,
+      "string": "IGNORE PALBTN TOOL TIP.",
+      "string_hash": "bce3ac41b732eae41bcc7be62e459be5",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 32,
+      "string": "TARGET DIRECTORY REUSAL TOOL TIP.",
+      "string_hash": "57cfdb2457462b6bc37b4880469222fb",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 33,
+      "string": "RECURSIVE SEARCH TOOL TIP.",
+      "string_hash": "8b32a8cb3e2a4b12f369fe9899fe1830",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 34,
+      "string": "SAVE SETTINGS TOOL TIP.",
+      "string_hash": "cfcad277eda979c80c75e8aa3ed8e628",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 35,
+      "string": "&amp;SAVE SETTINGS",
+      "string_hash": "5e71483c09558b4b5a978dc047a10630",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 49
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 36,
+      "string": "LOG TOOL TIP.",
+      "string_hash": "20304f99aafc250dddac8637bfcede44",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 50
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 37,
+      "string": "START TRANSFER TOOL TIP.",
+      "string_hash": "b134a10de5d50125a99e608ff58b9251",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 51
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 38,
+      "string": "EXIT APP TOOL TIP.",
+      "string_hash": "8457c97a686069bf987bbd3588517777",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 52
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 39,
+      "string": "LABEL APP LANGUAGE",
+      "string_hash": "b42453bfe2aab50bcf0708af39065b32",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 53
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 40,
+      "string": "LANGUAGE COMBO TOOL TIP.",
+      "string_hash": "8687613b9f8b2083f141c3d4e101b067",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 54
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 41,
+      "string": "S&amp;ETTINGS",
+      "string_hash": "0085351c5c48aa0d0f6e46511eebdd18",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 55
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 42,
+      "string": "GOOD EXTENSIONS LIST",
+      "string_hash": "9a086ed7331bf6092285d9af65698ff6",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 56
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 43,
+      "string": "ITEMS:",
+      "string_hash": "7ed9a551599af6e2cf7a642b3773787d",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 57
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+      "rule": 5,
+      "source_entity": 44,
+      "string": "SINGLE ITEM ONLY, PLEASE.",
+      "string_hash": "f78f7c7698097bafce55f821c4906e70",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 58
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 45,
+      "string": "MISMATCH: FOLDER '%1'.",
+      "string_hash": "af484542bf464d18a134f2ca710b6485",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 59
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 5,
+      "source_entity": 46,
+      "string": "MISMATCH: FILE '%1'.",
+      "string_hash": "649bbf7cb5c2893685633a66e9cce5dd",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 60
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:29",
+      "language": 98,
+      "last_update": "2010-09-01 11:09:29",
+
+      "rule": 5,
+      "source_entity": 3,
+      "string": "{0} results",
+      "string_hash": "8a804237321d3811aacb022bf57ec95d",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:30",
+      "language": 3,
+      "last_update": "2010-09-01 11:09:30",
+
+      "rule": 5,
+      "source_entity": 1,
+      "string": "\u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645",
+      "string_hash": "92ad6414918fdc826687aab1da1dc5f8",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:30",
+      "language": 3,
+      "last_update": "2010-09-01 11:09:30",
+
+      "rule": 5,
+      "source_entity": 2,
+      "string": "\u0639\u0645\u0644",
+      "string_hash": "4f06e730e228081278d3f04b153a86c3",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:47",
+      "language": 98,
+      "last_update": "2010-09-01 11:29:47",
+
+      "rule": 1,
+      "source_entity": 6,
+      "string": "One (%n) file processed.",
+      "string_hash": "f31fd7b65b58eb7d2ede67f0be5524f3",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 4,
+      "string": "Siirto-operaatio alkaa...",
+      "string_hash": "3b28f95e32db790996d81248be660079",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 61
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 5,
+      "string": "K\u00e4ytt\u00e4j\u00e4 keskeytti operaation.",
+      "string_hash": "2bb734c09a289d2b8a4bc3762620912e",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 62
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 7,
+      "string": "Kopioidaan '%1' nimell\u00e4 '%2' kansioon '%3'.",
+      "string_hash": "25e522a8c2afda58508f370c741a64d6",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 65
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 8,
+      "string": "Suomi",
+      "string_hash": "c331c6852ab45365c4eaef7e87121d80",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 66
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 9,
+      "string": "Kohdekansiota '%1' ei voitu luoda.",
+      "string_hash": "4fc71b28a1e75495533110b90cd9dfe4",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 67
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 10,
+      "string": "L\u00e4hdekansio(t)/tiedosto(t):\n",
+      "string_hash": "fcdde6aaa99a510655b12325c19355d1",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 68
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 11,
+      "string": "Kohdekansio:\n",
+      "string_hash": "48178aa695949420b7adf1e5be137260",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 69
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 12:18:54",
+
+      "rule": 5,
+      "source_entity": 12,
+      "string": "Kohdekansiota ei ole asetettu.",
+      "string_hash": "949f057359507e10db8e2fb1e053c507",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 70
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 13,
+      "string": "L\u00e4hdekansioita/-tiedostoja ei ole asetettu.",
+      "string_hash": "58f0ffe76f71a34ac920783e98cc754d",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 71
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 14,
+      "string": "Ty\u00f6stet\u00e4\u00e4n...",
+      "string_hash": "8f99d021d1e543dc826db2992624e51d",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 72
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 15,
+      "string": "Keskeyt\u00e4",
+      "string_hash": "133e4f8ead500a9c159d53e128a2c04a",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 73
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 16,
+      "string": "Keskeytet\u00e4\u00e4n...",
+      "string_hash": "efd78f6b7f03d6e5580eb60937474a56",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 74
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 17,
+      "string": "Kopiointi ep\u00e4onnistui (%1).",
+      "string_hash": "90ab65cf90b356b638bfbda62dc55a7d",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 75
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 18,
+      "string": "Alkuper\u00e4isen poisto ep\u00e4onnistui (%1).",
+      "string_hash": "e8223a1056726af6d66e57606ac31bbb",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 76
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 19,
+      "string": "Kuvasin",
+      "string_hash": "cdde069899f722e1939a95043a13c006",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 77
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 20,
+      "string": "Tipauta l\u00e4hdekansio(t)/\n-tiedosto(t) allaolevaan\nkameraikoniin.",
+      "string_hash": "b6bc782dc13b16a7d4ea582cac53f38e",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 78
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 21,
+      "string": "Tipauta kohdekansio\nallaolevaan kansioikoniin.",
+      "string_hash": "ffc22f71f90af2960af247e122a84bce",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 79
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 22,
+      "string": "Tiedostop\u00e4\u00e4tteet",
+      "string_hash": "75a6851ca1db3bd081226645ca21327b",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 80
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 23,
+      "string": "N\u00e4m\u00e4 ovat ne tiedostop\u00e4\u00e4tteet, joita l\u00e4hdekansiosta etsit\u00e4\u00e4n.",
+      "string_hash": "a5df7e46720afdcda59c46e6507fad23",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 81
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 24,
+      "string": "Poista alkuper\u00e4iset",
+      "string_hash": "d4fd07a14ee64c32aa815f8862c734e3",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 82
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 25,
+      "string": "Ohita pikkukuvakehakemistot",
+      "string_hash": "b98873d46f751a30820064be5fdbcf45",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 83
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 26,
+      "string": "K\u00e4yt\u00e4 olemassaolevia kansioita",
+      "string_hash": "b252ba4a262e0aabaa7a69de524ddea3",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 84
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 27,
+      "string": "Hae kuvia my\u00f6s alikansioista",
+      "string_hash": "30b294ab8c74987cc7db1d99d4894f63",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 85
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 28,
+      "string": "&amp;Siirr\u00e4",
+      "string_hash": "6570adc29a37d2286ea28119328a12e6",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 86
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 29,
+      "string": "&amp;Poistu",
+      "string_hash": "3b5cbc2642869b42f24b8e01e1ca517e",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 87
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 30,
+      "string": "Ohjelma poistaa alkuper\u00e4iset kuvat, mik\u00e4li t\u00e4ss\u00e4 on rasti.",
+      "string_hash": "bdb352991e1483a9a44ae1064f9b1645",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 88
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 31,
+      "string": "Jos t\u00e4ss\u00e4 on rasti, ohjelma ohittaa oletetun pikkukuvakehakemiston\nKAIKKINE alihakemistoineen. Kyseess\u00e4 olevat pikkukuvakkeet ovat\nl\u00e4hdehakemistossa &quot;&quot;_PAlbTN&quot;&quot;. Koskee l\u00e4hinn\u00e4 Nokia S60 -puhelimia.",
+      "string_hash": "36f28b6339490b0e50da81e1000125e8",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 89
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 32,
+      "string": "Jos kohdekansiosta l\u00f6ytyy samalla aikaleimalla varustettu\nalikansio, k\u00e4ytet\u00e4\u00e4n sit\u00e4 kuvan lopullisena kohdekansiona.",
+      "string_hash": "8c07498e012f087de0a2d39f2c56abb0",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 90
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 33,
+      "string": "Ohjelma hakee tiedostoja my\u00f6s l\u00e4hdekansion alaisista\nkansioista mik\u00e4li t\u00e4ss\u00e4 on rasti.",
+      "string_hash": "8eec81d0e0b35f0497775a0996722be7",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 91
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 34,
+      "string": "Tallettaa oheiset asetukset seuraavaa kertaa varten.",
+      "string_hash": "cdc53111800fd2d2f00a2d93eb3b8a55",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 92
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 35,
+      "string": "&amp;Talleta asetukset",
+      "string_hash": "aeb8251e9390215793eda46718300e11",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 93
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 36,
+      "string": "T\u00e4ss\u00e4 kent\u00e4ss\u00e4 n\u00e4kyy jos jonninmoisia viestej\u00e4 ohjelmalta.",
+      "string_hash": "0ae9370b9ad8df479737111bc55349b6",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 94
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 37,
+      "string": "Aloittaa kuvien siirron.",
+      "string_hash": "94b5da3a34b3a0e2560c2bd3c5c61d68",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 95
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 38,
+      "string": "Sulkee t\u00e4m\u00e4n ohjelman.",
+      "string_hash": "371c5b8ccb32f17c3d0e77f85aebd06a",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 96
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 39,
+      "string": "Ohjelman kieli",
+      "string_hash": "b843b0dfe7f500eb0b67d424cd0064d5",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 97
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 40,
+      "string": "T\u00e4st\u00e4 listasta voi valita ohjelman k\u00e4ytt\u00f6liittym\u00e4n kieli.",
+      "string_hash": "89c3e1b3992b68a9780be010168241ba",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 98
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 41,
+      "string": "As&amp;etukset",
+      "string_hash": "085d2a382b977d8b236d14b2279c89c4",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 99
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 42,
+      "string": "jpg, jpg, jpeg, mpg, mpeg, mov, tif, 3gp, raw, mp4",
+      "string_hash": "988f2ee923971e0ea9718da3fbcd99f2",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 100
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 43,
+      "string": "Talletetut:",
+      "string_hash": "9e414286f16edbb806cd4aa496ee0e6a",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 101
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 44,
+      "string": "T\u00e4m\u00e4 tipautusalue vastaanottaa yhden objektin kerrallaan.",
+      "string_hash": "4d3329416810210c5d9241c60911e363",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 102
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 45,
+      "string": "T\u00e4m\u00e4 tipautusalue hyv\u00e4ksyy vain tiedostoja. '%1' on kansio.",
+      "string_hash": "4c6ebd9daf98220c365ea204cc496659",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 103
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 46,
+      "string": "T\u00e4m\u00e4 tipautusalue hyv\u00e4ksyy vain kansoita. '%1' on tiedosto.",
+      "string_hash": "05f5828579d55d2cc0832fce5d8cb09e",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 104
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:30",
+      "language": 3,
+      "last_update": "2010-09-01 11:09:30",
+      "rule": 0,
+      "source_entity": 3,
+      "string": "\u0644\u0627 \u0646\u062a\u0627\u0626\u062c",
+      "string_hash": "15d7503999e2f5e29d787f1b3cb5854c",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:31",
+      "language": 70,
+      "last_update": "2010-09-01 11:09:31",
+      "rule": 5,
+      "source_entity": 1,
+      "string": "Usu\u00e1rio",
+      "string_hash": "aa8672d1e4ee44aeef7d095963865f56",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:31",
+      "language": 70,
+      "last_update": "2010-09-01 11:09:31",
+      "rule": 5,
+      "source_entity": 2,
+      "string": "A\u00e7\u00e3o",
+      "string_hash": "369b1710073ecd32e2648f40437337b2",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 1,
+      "source_entity": 6,
+      "string": "Yksi (%n) tiedosto siirretty.",
+      "string_hash": "9c293efd108fd5418401cac25e7b25bf",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 63
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:30",
+      "language": 3,
+      "last_update": "2010-09-01 11:09:30",
+      "rule": 1,
+      "source_entity": 3,
+      "string": "\u0646\u062a\u064a\u062c\u0629 \u0648\u0627\u062d\u062f\u0629",
+      "string_hash": "7d0221b75b2bf9c774f38d0b8daf5caf",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:29:51",
+      "language": 27,
+      "last_update": "2010-09-01 11:29:51",
+
+      "rule": 5,
+      "source_entity": 6,
+      "string": "%n tiedostoa siirretty.",
+      "string_hash": "57cc2769c85bbe05ef4269fa64220177",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 64
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:30",
+      "language": 3,
+      "last_update": "2010-09-01 11:09:30",
+
+      "rule": 2,
+      "source_entity": 3,
+      "string": "\u0646\u062a\u064a\u062c\u062a\u064a\u0646",
+      "string_hash": "38861d4cd4aba3c3e9614e0e76de6eac",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:30",
+      "language": 3,
+      "last_update": "2010-09-01 11:09:30",
+
+      "rule": 3,
+      "source_entity": 3,
+      "string": "{0} \u0646\u062a\u0627\u0626\u062c",
+      "string_hash": "094de9c7162f1f855700c1a1b305701f",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:30",
+      "language": 3,
+      "last_update": "2010-09-01 11:09:30",
+
+      "rule": 4,
+      "source_entity": 3,
+      "string": "{0} \u0646\u062a\u064a\u062c\u0629",
+      "string_hash": "d1f374c011e1b79f8babfffa35e32314",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:30",
+      "language": 3,
+      "last_update": "2010-09-01 11:09:30",
+
+      "rule": 5,
+      "source_entity": 3,
+      "string": "{0} \u0646\u062a\u064a\u062c\u0629",
+      "string_hash": "d1f374c011e1b79f8babfffa35e32314",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:31",
+      "language": 70,
+      "last_update": "2010-09-01 11:09:31",
+
+      "rule": 1,
+      "source_entity": 3,
+      "string": "{0} resultado",
+      "string_hash": "e0fdb8630b1fca9248ddbabac98c674c",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "created": "2010-09-01 11:09:31",
+      "language": 70,
+      "last_update": "2010-09-01 11:09:31",
+      "rule": 5,
+      "source_entity": 3,
+      "string": "{0} resultados",
+      "string_hash": "539f18c816046d4871c19e193d20eddb",
+      "user": null
+    },
+    "model": "resources.translation",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "content": "# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.\n# \nmsgid \"\"\nmsgstr \"\"\n\"Project-Id-Version: PACKAGE VERSION\\n\"\n\"Report-Msgid-Bugs-To: \\n\"\n\"POT-Creation-Date: 2010-06-08 10:12+0300\\n\"\n\"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n\"\n\"Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n\"\n\"Language-Team: LANGUAGE <LL@li.org>\\n\"\n\"MIME-Version: 1.0\\n\"\n\"Content-Type: text/plain; charset=UTF-8\\n\"\n\"Content-Transfer-Encoding: 8bit\\n\"\n\n#: actionlog/templates/object_action_list.html:7 txpermissions/forms.py:18\nmsgid \"User\"\nmsgstr \"8f9bfe9d1345237cb3b2b205864da075_tr\"\n\n#: actionlog/templates/object_action_list.html:8\nmsgid \"Action\"\nmsgstr \"004bf6c9a40003140292e97330236c53_tr\"\n\n#: foo/templates/bar.html:180\nmsgid \"{0} result\"\nmsgid_plural \"{0} results\"\nmsgstr[0] \"8a804237321d3811aacb022bf57ec95d_pl_0\"\nmsgstr[1] \"8a804237321d3811aacb022bf57ec95d_pl_1\"\n",
+      "resource": 1
+    },
+    "model": "resources.template",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "content": "<?xml version=\"1.0\" ?><!DOCTYPE TS><TS language=\"en\" version=\"2.0\">\n<context>\n    <name>Kuvasin</name>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"115\"/>\n        <source>PROCESSING START...</source>\n        <translation>06c85dc619977203eb9e21123ae1c6d1_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"136\"/>\n        <source>USER ABORT.</source>\n        <translation>e4f4ff21f2c80c28c5f1bf938d9085ae_tr</translation>\n    </message>\n    <message numerus=\"yes\">\n        <location filename=\"kuvasin.cpp\" line=\"140\"/>\n        <source>%n FILES PROCESSED.</source>\n        <translation>\n            <numerusform>575aa9a0187f8e65e456d18fbcdbf3f7_pl_0</numerusform>\n            <numerusform>575aa9a0187f8e65e456d18fbcdbf3f7_pl_1</numerusform>\n        </translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"397\"/>\n        <source>COPYING '%1' AS '%2' TO '%3'.</source>\n        <translation>a16aa51e096c01df13e70c2eb34b3ad8_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"491\"/>\n        <source>LANGUAGE NAME</source>\n        <translation>fa316dbd981579691726fe519d22af33_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"373\"/>\n        <source>TARGET DIR '%1' CREATION FAILED.</source>\n        <translation>293382065b6e50d4485d965f5bf8f3c9_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"35\"/>\n        <source>SOURCE FOLDER(S)/FILE(S):\n</source>\n        <translation>786769d2eb5edb406ace0d4500494fa1_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"36\"/>\n        <source>TARGET FOLDER:\n</source>\n        <translation>57361a85faa28ab1af250685a2f7a99d_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"87\"/>\n        <source>TARGET NOT SET.</source>\n        <oldsource>TARGET NOT SET</oldsource>\n        <translation>aaef49c8a0dd69cfbe6625dec60c39c1_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"92\"/>\n        <source>SOURCE(S) NOT SET.</source>\n        <oldsource>SOURCE(S) NOT SET</oldsource>\n        <translation>b4d39df666d40b1492c5e98a775a5451_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"101\"/>\n        <source>PROCESSING...</source>\n        <translation>55c2311c893906f7b78c542a9fa6e328_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"101\"/>\n        <source>CANCEL</source>\n        <translation>2027c027133e22c8929e2874dc44dd36_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"412\"/>\n        <source>CANCELLING...</source>\n        <translation>543b575faacd593091d52245d85f107e_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"425\"/>\n        <source>COPY FAILED FOR '%1'.</source>\n        <translation>133cffdf3349bf02d24024fd719b28a8_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.cpp\" line=\"455\"/>\n        <source>DEL FAILED FOR '%1'.</source>\n        <translation>ab3b018800a58f4d77b2c4fa8b10a691_tr</translation>\n    </message>\n</context>\n<context>\n    <name>KuvasinClass</name>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"20\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"244\"/>\n        <source>Kuvasin</source>\n        <translation>cdde069899f722e1939a95043a13c006_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"32\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"245\"/>\n        <source>LABEL SOURCE FOLDER.</source>\n        <oldsource>LABEL SOURCE FOLDER</oldsource>\n        <translation>9cb526c0f9be6788f09c1143145dc646_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"45\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"246\"/>\n        <source>LABEL TARGET FOLDER.</source>\n        <oldsource>LABEL TARGET FOLDER</oldsource>\n        <translation>7e27553bf03c1b7ea2c2db84a6880c06_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"174\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"258\"/>\n        <source>GOOD EXTENSIONS</source>\n        <translation>b93fb21030ee1dd479ae19d26128b6f9_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"190\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"260\"/>\n        <source>GOOD EXTENSIONS TOOL TIP.</source>\n        <translation>eb60c285535549da8584c83ca77a7992_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"205\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"266\"/>\n        <source>CHECK BOX REMOVE ORIGINALS</source>\n        <translation>5c7e2102fbdea71ea47ddbc23d349c73_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"215\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"270\"/>\n        <source>CHECK BOX  IGNORE PALBTN</source>\n        <translation>b60c404621d56ace8a4ada1ea8c99a21_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"235\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"278\"/>\n        <source>CHECK BOX TARGET DIRECTORY REUSAL</source>\n        <translation>7d4a1c7d51a44f33e0d0892063d2a035_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"225\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"274\"/>\n        <source>CHECK BOX RECURSIVE</source>\n        <translation>17dca366d9bef6b559342d948f34116e_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"119\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"252\"/>\n        <source>ST&amp;ART</source>\n        <oldsource>START</oldsource>\n        <translation>cd7ccf67b799b1401bae54afb70b75c0_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"138\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"256\"/>\n        <source>E&amp;XIT</source>\n        <oldsource>EXIT</oldsource>\n        <translation>90337b66a13f086af0fb9e11ab034e52_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"202\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"264\"/>\n        <source>REMOVE ORIGINALS TOOL TIP.</source>\n        <translation>489d09c26eb444c85da2d093f5611dee_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"212\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"268\"/>\n        <source>IGNORE PALBTN TOOL TIP.</source>\n        <translation>bce3ac41b732eae41bcc7be62e459be5_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"232\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"276\"/>\n        <source>TARGET DIRECTORY REUSAL TOOL TIP.</source>\n        <translation>57cfdb2457462b6bc37b4880469222fb_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"222\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"272\"/>\n        <source>RECURSIVE SEARCH TOOL TIP.</source>\n        <translation>8b32a8cb3e2a4b12f369fe9899fe1830_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"248\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"280\"/>\n        <source>SAVE SETTINGS TOOL TIP.</source>\n        <translation>cfcad277eda979c80c75e8aa3ed8e628_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"251\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"282\"/>\n        <source>&amp;SAVE SETTINGS</source>\n        <translation>5e71483c09558b4b5a978dc047a10630_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"284\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"288\"/>\n        <source>LOG TOOL TIP.</source>\n        <translation>20304f99aafc250dddac8637bfcede44_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"116\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"250\"/>\n        <source>START TRANSFER TOOL TIP.</source>\n        <translation>b134a10de5d50125a99e608ff58b9251_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"135\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"254\"/>\n        <source>EXIT APP TOOL TIP.</source>\n        <translation>8457c97a686069bf987bbd3588517777_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"260\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"283\"/>\n        <source>LABEL APP LANGUAGE</source>\n        <translation>b42453bfe2aab50bcf0708af39065b32_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"273\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"285\"/>\n        <source>LANGUAGE COMBO TOOL TIP.</source>\n        <translation>8687613b9f8b2083f141c3d4e101b067_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"147\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"257\"/>\n        <source>S&amp;ETTINGS</source>\n        <translation>0085351c5c48aa0d0f6e46511eebdd18_tr</translation>\n    </message>\n    <message>\n        <location filename=\"kuvasin.ui\" line=\"193\"/>\n        <location filename=\"ui_kuvasin.h\" line=\"262\"/>\n        <source>GOOD EXTENSIONS LIST</source>\n        <translation>9a086ed7331bf6092285d9af65698ff6_tr</translation>\n    </message>\n</context>\n<context>\n    <name>QLabelDropTarget</name>\n    <message>\n        <location filename=\"qlabeldroptarget.cpp\" line=\"8\"/>\n        <source>ITEMS:</source>\n        <translation>7ed9a551599af6e2cf7a642b3773787d_tr</translation>\n    </message>\n    <message>\n        <location filename=\"qlabeldroptarget.cpp\" line=\"46\"/>\n        <source>SINGLE ITEM ONLY, PLEASE.</source>\n        <extracomment>Multiple items are being dragged over this widget, show a note that it won't be accepted.</extracomment>\n        <translation>f78f7c7698097bafce55f821c4906e70_tr</translation>\n    </message>\n    <message>\n        <location filename=\"qlabeldroptarget.cpp\" line=\"68\"/>\n        <source>MISMATCH: FOLDER '%1'.</source>\n        <extracomment>Widget accepts only files, and now it is being offered a directory.</extracomment>\n        <translation>af484542bf464d18a134f2ca710b6485_tr</translation>\n    </message>\n    <message>\n        <location filename=\"qlabeldroptarget.cpp\" line=\"78\"/>\n        <source>MISMATCH: FILE '%1'.</source>\n        <extracomment>Widget accepts only directories, and now it is being offered a file.</extracomment>\n        <translation>649bbf7cb5c2893685633a66e9cce5dd_tr</translation>\n    </message>\n</context>\n</TS>",
+      "resource": 2
+    },
+    "model": "resources.template",
+    "pk": 2
+  }
+]

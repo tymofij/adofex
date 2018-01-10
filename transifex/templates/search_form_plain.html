@@ -1,0 +1,7 @@
+{% load i18n %}
+<div class="searchform searchform_plain {{ extra_searchform_classes }} clearfix">
+  <form action="{% url search %}" method="GET" class="search_projects">
+    <input placeholder="search projects" type="text" name="q" size="23" value="{{ query|escape }}" style="padding:5px;font-size:1em;">
+   	<input class="i16 search" type="submit" value="">
+  </form>
+</div>
