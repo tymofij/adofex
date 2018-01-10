@@ -5,7 +5,6 @@ before_install:
   - sudo service redis-server start
 install:
   - pip install coveralls
-  - pip install 'setuptools>=33,<34'
   - pip install -r requirements.txt
 script:
   - cd transifex && make test_coverage
