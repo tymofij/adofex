@@ -31,7 +31,7 @@ class Command(NoArgsCommand):
             if l.code in mz_codes:
                 continue
             # Mozilla uses dashes, not underscores
-            if l.code.replace("_", "-") in codes:
+            if l.code.replace("_", "-") in mz_codes:
                 print "Tweaking code for %s" % l
                 l.code = l.code.replace("_", "-")
                 l.save()

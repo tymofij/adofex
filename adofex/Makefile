@@ -3,13 +3,13 @@
 # .PHONY: run
 
 run:
-	@./manage.py runserver 0.0.0.0:8000
+	./manage.py runserver 0.0.0.0:8000
 
 shell:
-	@./manage.py shell
+	./manage.py shell
 
 dbshell:
-	@./manage.py dbshell
+	./manage.py dbshell
 
 install:
 	./manage.py syncdb --noinput
@@ -18,7 +18,7 @@ install:
 	./manage.py txlanguages
 	./manage.py mzlanguages
 	./manage.py check_permissions
-	./manage.py collectstatic
+	./manage.py collectstatic --noinput
 
 static:
-	@./manage.py collectstatic
+	./manage.py collectstatic --noinput
