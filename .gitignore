@@ -12,6 +12,4 @@ local.json
 site_media
 adofex/jj.py
 adofex/logs
-adofex/static
-adofex/templates/transifex
 transifex/logs
